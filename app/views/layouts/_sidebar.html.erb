@@ -1,0 +1,30 @@
+<sidebar>
+
+	
+	<div id="searchBox">
+		
+		<p>What:  <input id='event_title' class="blockShadow" name='titleinput' size='20' type='text'
+		value=''/></p>
+		<p>Where <input id='event_title' class="blockShadow" name='titleinput' size='19' type='text'
+		value=''/></p>
+		<p>Type <input id='event_title' class="blockShadow" name='titleinput' size='20' type='list'
+		value='mok'/></p>
+		<p>When <input id='event_title' class="blockShadow" name='titleinput' size='20' type='date_select'
+		value=''/></p>
+		<p>---------------------------------------</p>
+		
+		<div id="sButton">
+			<li><%= link_to "Crack on!", root_path %></li>
+		</div>	
+		
+	</div>
+	
+	<div id="uploadEvent">
+		
+			<%= link_to "Upload an Event!", new_event_path, :class => "upload_button"%>
+	
+	</div>
+	
+	
+	
+</sidebar>

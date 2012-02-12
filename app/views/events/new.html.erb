@@ -1,0 +1,52 @@
+<div id="submenu">
+	<div>
+		<b><%= link_to 'Music', events_path %></b>
+	</div>
+	|
+	<div>
+		<b><%= link_to 'Dance & Theatre', events_path %></b>
+	</div>
+	|
+	<div>
+		<b><%= link_to 'Feasts & traditions', events_path %></b>
+	</div>
+	|
+	<div>
+		<b><%= link_to 'Family Activities', events_path %></b>
+	</div>
+	|
+	<div>
+		<b><%= link_to 'Gay & Lesbian', events_path %></b>
+	</div>
+	|
+	<div>
+		<b><%= link_to 'Others', events_path %></b>
+	</div>
+</div>
+
+<div id="left">
+	<div class="block shadow">
+		<% @events.each do |event| %>
+		<div class="entry_side">
+				<% image = image_tag(event.pic.url(:thumb), class: 'side_pic')%>
+				<%= link_to image, event %>
+			<h4><%= link_to event.title , event %> </h4>
+		
+			<h6><%= event.sdate %> | <%= event.town %></h6>
+		
+		</div>
+			<% end %>	
+	
+	</div>
+</div>
+
+<div id="right_side">
+
+<p id="notice"><%= notice %></p>
+
+<h1>New event</h1>
+
+<%= render 'form' %>
+
+
+</div>

@@ -1,0 +1,78 @@
+<div id="submenu">
+	<div>
+		<b><%= link_to 'Messages', account_path %></b>
+	</div>
+	|
+	<div>
+		<b><%= link_to 'Reminders', rem_path %></b>
+	</div>
+	|
+	<div>
+		<b><%= link_to 'Alarms', events_path %></b>
+	</div>
+	|
+	<div>
+		<b><%= link_to 'Uploaded Events', ev_created_path%></b>
+	</div>
+	|
+	<div>
+		<b><%= link_to 'Profile', events_path %></b>
+	</div>
+	|
+	<div>
+		<b><%= link_to 'Settings', events_path %></b>
+	</div>
+</div>
+
+
+
+<div id="left">
+	<div class="block shadow">
+		<% @events.each do |event| %>
+		<div class="entry_side">
+				<% image = image_tag(event.pic.url(:thumb), class: 'side_pic')%>
+				<%= link_to image, event %>
+			<h4><%= link_to event.title , event %> </h4>
+		
+			<h6><%= event.sdate %> | <%= event.town %></h6>
+		
+		</div>
+			<% end %>	
+	
+	</div>
+</div>
+
+<div id="right_side">
+
+<p id="notice"><%= notice %></p>
+
+<h3>User reminders</h3>
+
+
+<div>
+		<div >
+			<% if @user.events.empty? %>
+				<p>You have set no reminders. Are you sure you do not like anything?</p>
+			<% else %>
+				<% @user.events.each do |event| %>
+				<% @event = Event.find(event) %>
+				 	<div class="entry_side">
+							<% image = image_tag(@event.pic.url(:thumb), class: 'list_image')%>
+							<%= link_to image, @event %>
+						<h4><%= link_to @event.title , @event %> </h4>
+
+						<h5><%= @event.sdate %><%= @event.stime %> | <%= @event.town %></h5>
+						<div class="rem_icon">
+							<% del_icon = image_tag("icons/DeleteRed.png", class:'icon') %>
+							<%= link_to del_icon, del_reminder_path(:id => @event.id),
+							 	confirm: 'Are you sure you want to delete this reminder?',
+								method: del_reminder_path(:id => @event.id) %>
+						</div>
+					</div>
+				<% end %>
+			<% end %>
+		</div>
+	
+</div>
+
+</div>

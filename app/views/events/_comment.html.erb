@@ -1,0 +1,8 @@
+<div class="comment">
+  <i><% usr = h comment.user.name %> 
+	<%= link_to usr, comment.user%> says:</i><br />
+  <%= simple_format h(comment.body) %>
+  <%= link_to 'Destroy Comment', comment,
+    :confirm => 'Are you sure?',
+    :method => :delete if user_is_logged_in? %>
+</div>

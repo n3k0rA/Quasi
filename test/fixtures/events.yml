@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  sdate: 2012-02-10
+  stime: 2012-02-10 19:42:37
+  fdate: 2012-02-10
+  ftime: 2012-02-10 19:42:37
+  place: MyString
+  town: MyString
+  province: MyString
+  price: 9.99
+  description: MyText
+  email: MyString
+  website: MyString
+  phone: MyString
+
+two:
+  title: MyString
+  sdate: 2012-02-10
+  stime: 2012-02-10 19:42:37
+  fdate: 2012-02-10
+  ftime: 2012-02-10 19:42:37
+  place: MyString
+  town: MyString
+  province: MyString
+  price: 9.99
+  description: MyText
+  email: MyString
+  website: MyString
+  phone: MyString

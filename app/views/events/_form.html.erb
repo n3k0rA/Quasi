@@ -1,0 +1,73 @@
+<%= form_for(@event) do |f| %>
+  <% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% @event.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :sdate %><br />
+    <%= f.date_select :sdate %>
+  </div>
+  <div class="field">
+    <%= f.label :stime %><br />
+    <%= f.time_select :stime %>
+  </div>
+  <div class="field">
+    <%= f.label :fdate %><br />
+    <%= f.date_select :fdate %>
+  </div>
+  <div class="field">
+    <%= f.label :ftime %><br />
+    <%= f.time_select :ftime %>
+  </div>
+  <div class="field">
+    <%= f.label :place %><br />
+    <%= f.text_field :place %>
+  </div>
+  <div class="field">
+    <%= f.label :town %><br />
+    <%= f.text_field :town %>
+  </div>
+  <div class="field">
+    <%= f.label :province %><br />
+    <%= f.text_field :province %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :website %><br />
+    <%= f.text_field :website %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
+  </div>
+<p>
+     <b> Picture </b><br/>
+     <%= f.file_field :pic %>
+   </p>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
