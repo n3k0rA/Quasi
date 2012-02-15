@@ -40,6 +40,7 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
+    @events = Event.all  
     @event = Event.find(params[:id])
   end
 
