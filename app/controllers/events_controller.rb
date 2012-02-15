@@ -51,7 +51,7 @@ class EventsController < ApplicationController
     @event.created_by = @user
     @event.users << @user
     @event.save
-    @user.events_created<< @event
+    @user.events_created<< @event.id
     @user.save
     
 
