@@ -11,9 +11,8 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :name
   validates_length_of :name, :within => 2..12
   
-  serialize :events_created
-  
   has_and_belongs_to_many :events
+  has_many :created_events, :class_name => "Event", :foreign_key => "user_id"
   has_many :comments, :dependent => :destroy
   has_attached_file :pic, :styles =>
            { :medium => "300x300>", :thumb => "100x100>" }

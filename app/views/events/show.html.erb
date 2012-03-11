@@ -57,10 +57,10 @@
 	<div class="details">
 		<p>
 		  <b>Starts:</b>
-		  <%= @event.sdate %><%= @event.stime %>
+		  <%= l @event.stime, :format => :long %>
 		</p>
 		<p>
-			<b>Starts:</b>
+			<b>Finishes:</b>
 			<%= @event.fdate %><%= @event.ftime %>
 		</p>
 		<p>
@@ -115,7 +115,7 @@
 			</p>
 			<p>
 			  <b>Created by:</b>		
-			  <%= link_to creator.name, creator %>
+			  <%= link_to @event.user.name, @event.user %>
 			</p>
 		</div>
 		

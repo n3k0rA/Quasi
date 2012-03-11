@@ -47,14 +47,7 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    @event = Event.new(params[:event])
-   	@user = User.find(session[:user_id])
-    @event.created_by = @user
-    @event.users << @user
-    @event.save
-    @user.events_created<< @event.id
-    @user.save
-    
+    @event = Event.new(params[:event].merge(:user_id => current_user))
 
     respond_to do |format|
       if @event.save

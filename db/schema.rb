@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120212195101) do
+ActiveRecord::Schema.define(:version => 20120311205221) do
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "categories_events", :id => false, :force => true do |t|
+    t.integer "category_id"
+    t.integer "event_id"
+  end
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
@@ -27,7 +38,7 @@ ActiveRecord::Schema.define(:version => 20120212195101) do
   create_table "events", :force => true do |t|
     t.string   "title"
     t.date     "sdate"
-    t.time     "stime"
+    t.datetime "stime"
     t.date     "fdate"
     t.time     "ftime"
     t.string   "place"
@@ -45,6 +56,7 @@ ActiveRecord::Schema.define(:version => 20120212195101) do
     t.integer  "pic_file_size"
     t.datetime "pic_updated_at"
     t.string   "created_by"
+    t.integer  "user_id"
   end
 
   create_table "events_users", :id => false, :force => true do |t|

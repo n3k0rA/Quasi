@@ -10,18 +10,14 @@
       </ul>
     </div>
   <% end %>
-
+  
   <div class="field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :sdate %><br />
-    <%= f.date_select :sdate %>
-  </div>
-  <div class="field">
     <%= f.label :stime %><br />
-    <%= f.time_select :stime %>
+    <%= f.datetime_select :stime %>
   </div>
   <div class="field">
     <%= f.label :fdate %><br />

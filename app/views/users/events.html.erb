@@ -25,22 +25,8 @@
 </div>
 
 
+<%= render :partial => "layouts/left_bar", :locals => {:events => @events} %>
 
-<div id="left">
-	<div class="block shadow">
-		<% @events.each do |event| %>
-		<div class="entry_side">
-				<% image = image_tag(event.pic.url(:thumb), class: 'side_pic')%>
-				<%= link_to image, event %>
-			<h4><%= link_to event.title , event %> </h4>
-		
-			<h6><%= event.sdate %> | <%= event.town %></h6>
-		
-		</div>
-			<% end %>	
-	
-	</div>
-</div>
 
 <div id="right_side">
 
@@ -50,20 +36,19 @@
 
 
 <div >
-	<% if @user.events_created.empty? %>
+	<% if @user.created_events.empty? %>
 		<p>No events created so far..</p>
 	<% else %>
-		<% @user.events.each do |event| %>
-		<% @event = Event.find(event) %>
+		<% @user.created_events.each do |event| %>
 	 		<div class="entry_side">
-					<% image = image_tag(@event.pic.url(:thumb), class: 'list_image')%>
-					<%= link_to image, @event %>
-					<h4><%= link_to @event.title , @event %> </h4>
-					<h5><%= @event.sdate %><%= @event.stime %> | <%= @event.town %></h5>
+					<% image = image_tag(event.pic.url(:thumb), class: 'list_image')%>
+					<%= link_to image, event %>
+					<h4><%= link_to event.title , event %> </h4>
+					<h5><%= l event.stime, :format => :long %> | <%= event.town %></h5>
 					<td class="list_actions">
-						<%= link_to 'Show', @event %><br/>
-						<%= link_to 'Edit', edit_event_path(@event) %></br>
-						<%= link_to 'Delete', @event,
+						<%= link_to 'Show', event %><br/>
+						<%= link_to 'Edit', edit_event_path(event) %></br>
+						<%= link_to 'Delete', event,
 									confirm: 'Are you sure?',
 									method: :delete %>
 					</td>
