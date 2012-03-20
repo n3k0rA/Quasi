@@ -5,5 +5,5 @@
   <em><%= simple_format h(comment.body) %></em>
   <%= link_to 'Destroy Comment', comment,
     :confirm => 'Are you sure?',
-    :method => :delete if @current_user %>
+    :method => :delete if current_user.eql?(comment.user) %>
 </div>

@@ -10,10 +10,11 @@ Quasi::Application.routes.draw do
   root :to => "events#index"
   
   namespace :admin do |admin|
-    get "log_in" => "sessions#new", :as => "log_in"
-    get "log_out" => "sessions#destroy", :as => "log_out"
+    resource :user_sessions
+    get "log_in" => "user_sessions#new", :as => "log_in"
+    get "log_out" => "user_sessions#destroy", :as => "log_out"
     resources :users
-    root :to => "sessions#new"
+    root :to => "user_sessions#new"
   end
   
   get "log_in" => "user_sessions#new", :as => "log_in"
