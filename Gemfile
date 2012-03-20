@@ -8,6 +8,9 @@ gem 'rails', '3.1.3'
 gem 'sqlite3'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 gem "authlogic"
+gem 'ruby_parser'
+gem 'hpricot'
+gem 'haml'
 
 group :production do
   # gems specifically for Heroku go here
@@ -20,6 +23,7 @@ group :assets do
   gem 'sass-rails',   '~> 3.1.5'
   gem 'coffee-rails', '~> 3.1.1'
   gem 'uglifier', '>= 1.0.3'
+  gem "haml-rails"
 end
 
 gem 'jquery-rails'

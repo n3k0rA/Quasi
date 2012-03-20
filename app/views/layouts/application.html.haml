@@ -1,0 +1,96 @@
+!!!
+%html
+  %head
+    %title The best web - - version 0.0.8.1.5.2 Beta
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  
+  %body{:class => "#{controller.controller_name} container"}
+    .container
+      #header
+        %header
+          .wrap
+            #logo
+              - logo_tag = image_tag("eguzkilore.png", :alt => "Basque Country Go On")
+              = link_to logo_tag, root_path
+            #right
+              #loggin
+                - flash.each do |name, msg|
+                  = content_tag :div, msg, :id => "flash#{name}"
+                #user_nav
+                  - if current_user
+                    Logged in as #{current_user.name}
+                    = link_to "Log out", log_out_path
+                  - else
+                    = link_to "Sign up", sign_up_path
+                    or
+                    = link_to "Log in", log_in_path
+                #lang.ln
+                  %li= link_to "eu ", root_path
+                  %li= link_to "es", ""
+                  %li= link_to "en", root_path
+                  %li= link_to "fr", ""
+              #bottom
+                #banner
+                #menu
+                  %nav
+                    %ul
+                      %li= link_to_unless_current "Events", ""
+                      %li= link_to_unless_current "Location", locations_path
+                      %li= link_to_unless_current "Account", account_path
+                #search
+                  %h4 Search:
+      #main
+        #sidebar
+          %sidebar
+            #searchBox
+              %p
+                What:
+                %input#event_title.blockShadow{:name => "titleinput", :size => "20", :type => "text", :value => ""}/
+              %p
+                Where
+                %input#event_title.blockShadow{:name => "titleinput", :size => "19", :type => "text", :value => ""}/
+              %p
+                Type
+                %input#event_title.blockShadow{:name => "titleinput", :size => "20", :type => "list", :value => "mok"}/
+              %p
+                When
+                %input#event_title.blockShadow{:name => "titleinput", :size => "20", :type => "date_select", :value => ""}/
+              %p ---------------------------------------
+              #sButton
+                %li= link_to "Crack on!", root_path
+            #uploadEvent
+              = link_to "Upload an Event!", new_event_path, :class => "upload_button"
+        #submenu
+          %div
+            %b= link_to 'Music', events_path
+          |
+          %div
+            %b= link_to 'Dance & Theatre', events_path
+          |
+          %div
+            %b= link_to 'Feasts & traditions', events_path
+          |
+          %div
+            %b= link_to 'Family Activities', events_path
+          |
+          %div
+            %b= link_to 'Gay & Lesbian', events_path
+          |
+          %div
+            %b= link_to 'Others', events_path
+        #left
+          .block.shadow
+            - @events.each do |event|
+              .entry_side
+                - image = image_tag(event.pic.url(:thumb), class: 'side_pic')
+                = link_to image, event
+                %h4
+                  = link_to event.title , event
+                %h6
+                  = l event.startDate, :format => :long
+                  | #{event.town}
+        #right_side
+          = yield
+      #footer

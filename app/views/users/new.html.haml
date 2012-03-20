@@ -1,0 +1,33 @@
+%p#notice= notice
+%h1 Sign Up
+= form_for @user do |f|
+  - if @user.errors.any?
+    .error_messages
+      %h2 Form is invalid
+      %ul
+        - for message in @user.errors.full_messages
+          %li= message
+  = f.hidden_field :town
+  = f.hidden_field :province
+  = f.hidden_field :website
+  %p
+    = f.label :name
+    %br
+    = f.text_field :name
+  %p
+    = f.label :email
+    %br
+    = f.text_field :email
+  %p
+    = f.label :password
+    %br
+    = f.password_field :password
+  %p
+    = f.label :password_confirmation
+    %br
+    = f.password_field :password_confirmation
+  %p
+    %b Picture
+    %br
+    = f.file_field :pic
+  %p.button= f.submit

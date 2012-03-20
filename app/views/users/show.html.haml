@@ -1,0 +1,19 @@
+%p#notice= notice
+%p
+  %b Name:
+  = @user.name
+= image_tag @user.pic.url(:medium)
+%br
+%p
+  %b Email:
+  = @user.email
+%p
+  %b Town:
+  = @user.town
+%p
+  %b Province:
+  = @user.province
+%p
+  %b Website:
+  = @user.website
+= link_to 'Edit', edit_user_path(@user)

@@ -1,0 +1,21 @@
+%h1 Listing users
+%table
+  %tr
+    %th Name
+    %th Email
+    %th Town
+    %th Province
+    %th Website
+    %th
+    %th
+    %th
+  - @users.each do |user|
+    %tr
+      %td= user.name
+      %td= user.email
+      %td= user.town
+      %td= user.province
+      %td= user.website
+      %td= link_to 'Show', user
+%br
+= link_to 'New User', new_user_path
