@@ -1,7 +1,8 @@
-class UsersController < ApplicationController
+class Admin::UsersController < Admin::AdminController
   # GET /users
   # GET /users.json
   def index
+    @events = Event.order(:title)
     @users = User.all
 
     respond_to do |format|
@@ -13,6 +14,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @events = Event.order(:title)
     @user = User.find(params[:id])
 
     respond_to do |format|
@@ -24,6 +26,7 @@ class UsersController < ApplicationController
   # GET /users/new
   # GET /users/new.json
   def new
+    @events = Event.order(:startDate)
     @user = User.new
   end
 
@@ -36,6 +39,7 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(params[:user])
+    @user.events_created = [ ]
     
     respond_to do |format|
       if @user.save
@@ -52,6 +56,7 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.json
   def update
+    @events = Event.order(:title)
     @user = User.find(params[:id])
 
     respond_to do |format|
@@ -78,13 +83,16 @@ class UsersController < ApplicationController
   end
   
   def reminders
+    @events = Event.order(:title)
      @user = current_user
   end
   
   def events
+    @events = Event.order(:startDate)
     @user = current_user
   end
   
   def messages
+    @events = Event.order(:title)
   end
 end

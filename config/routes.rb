@@ -5,14 +5,19 @@ Quasi::Application.routes.draw do
 
   resources :users
   resources :events
-  resources :sessions
-
+  resource :user_sessions
 
   root :to => "events#index"
   
+  namespace :admin do |admin|
+    get "log_in" => "sessions#new", :as => "log_in"
+    get "log_out" => "sessions#destroy", :as => "log_out"
+    resources :users
+    root :to => "sessions#new"
+  end
   
-  get "log_in" => "sessions#new", :as => "log_in"
-  get "log_out" => "sessions#destroy", :as => "log_out"  
+  get "log_in" => "user_sessions#new", :as => "log_in"
+  get "log_out" => "user_sessions#destroy", :as => "log_out"  
   get "sign_up" => "users#new", :as => "sign_up"
   
   get "add_reminder" => "reminder#add", :as => "add_reminder"

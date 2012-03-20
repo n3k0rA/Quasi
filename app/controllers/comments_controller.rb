@@ -1,7 +1,6 @@
 class CommentsController < ApplicationController
 
-
-  
+  before_filter :require_user, :only => [:create, :destroy]
   
   # POST /comments
   # POST /comments.json

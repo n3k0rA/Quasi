@@ -7,6 +7,7 @@ gem 'rails', '3.1.3'
 
 gem 'sqlite3'
 gem 'bcrypt-ruby', :require => 'bcrypt'
+gem "authlogic"
 
 group :production do
   # gems specifically for Heroku go here

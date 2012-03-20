@@ -1,9 +1,12 @@
 class EventsController < ApplicationController
+  
+  before_filter :require_user, :only => [:new, :create, :update, :edit]
+  
+  
   # GET /events
   # GET /events.json
   def index
-    @events = Event.order(:startDate).limit(5)
-
+    @events = Event.all
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @events }
@@ -14,7 +17,6 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @event = Event.find(params[:id])
-    @events = Event.all
     @comment = Comment.new(:event => @event)
     respond_to do |format|
       format.html # show.html.erb
@@ -25,29 +27,22 @@ class EventsController < ApplicationController
   # GET /events/new
   # GET /events/new.json
   def new
-    if user_is_logged_in? 
-  		@event = Event.new
-  		@events = Event.all  
-      respond_to do |format|
-        format.html # new.html.erb
-        format.json { render json: @event }
-      end
-    else
-      redirect_to sign_up_url, :notice => "You must be registered. It takes less than a minute"
-  	end
-
+		@event = Event.new
+		
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @event }
+    end
   end
 
   # GET /events/1/edit
   def edit
-    @events = Event.all  
     @event = Event.find(params[:id])
   end
 
   # POST /events
   # POST /events.json
-  def create
-    @events = Event.all  
+  def create  
     @event = Event.new(params[:event].merge(:user_id => current_user.id))
 
     respond_to do |format|
@@ -90,6 +85,5 @@ class EventsController < ApplicationController
   end
   
   def locations
-    @events = Event.limit(5)
   end
 end

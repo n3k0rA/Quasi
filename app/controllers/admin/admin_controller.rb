@@ -1,9 +1,9 @@
-class SessionsController < ApplicationController
+class Admin::AdminController < ApplicationController
   def new
   end
   
   def create
-    user = User.authenticate(params[:email], params[:password])
+    user = User.authenticate_admin(params[:email], params[:password])
     if user
       session[:user_id] = user.id
       redirect_to main_app.root_url, :notice => "Logged in!"
@@ -17,6 +17,4 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to main_app.root_url, :notice => "Logged out!"
   end
-
-  
 end

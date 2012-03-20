@@ -1,6 +1,7 @@
 class ReminderController < ApplicationController
   
   
+  
   def add
     event = Event.find(params[:id])
     if user_is_logged_in? 
@@ -17,14 +18,5 @@ class ReminderController < ApplicationController
     event.users.delete(@user) 
   	redirect_to rem_path(:id => current_user.id), :notice => "Reminder deleted!"
   end
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
 end
