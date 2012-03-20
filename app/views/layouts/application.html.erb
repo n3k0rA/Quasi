@@ -10,18 +10,154 @@
 
 	<div class="container">
 		<div id="header">
-			<%= render 'layouts/header' %>
+			<header>
+
+      <div class="wrap">
+
+      	<div id="logo" >
+      		<% logo_tag = image_tag("eguzkilore.png", :alt => "Basque Country Go On") %>
+      	  	<%= link_to logo_tag, root_path %>
+      	</div>
+
+      	<div id="right">
+      		<div id="loggin">
+      		    		<% flash.each do |name, msg| %>
+      					    <%= content_tag :div, msg, :id => "flash#{name}" %>
+      					  <% end %>
+
+      					<div id="user_nav">
+      					  <% if current_user %>
+      					    Logged in as <%= current_user.name %>
+      					    <%= link_to "Log out", log_out_path %>
+      					  <% else %>
+      					    <%= link_to "Sign up", sign_up_path %> or 
+      					    <%= link_to "Log in", log_in_path %>
+      					  <% end %>
+
+      		</div>
+
+      		<div id="lang" class="ln">
+      			<li><%= link_to "eu ", root_path %></li> 
+        			<li><%= link_to "es", "" %></li> 
+        			<li><%= link_to "en", root_path %></li> 
+      			<li><%= link_to "fr", "" %></li>
+      		</div>
+      	</div>	
+      	<div id="bottom">
+      		<div id="banner">
+      		</div>
+      		<div id="menu">
+      				<nav> 
+      		    		<ul>
+      		      			<li><%= link_to_unless_current "Events", root_path do
+      						link_to "Events", root_path, :class => "current"
+      						        end %></li>
+      						<li><%= link_to_unless_current "Location", locations_path do
+      						link_to "Location", locations_path, :class => "current"
+      						        end %></li>
+      						<li><%= link_to_unless_current "Account", account_path do
+      						link_to "Account", account_path, :class => "current"
+      						        end %></li>
+      		    		</ul>
+      		  		</nav>
+      		</div>
+
+      		<div id="search">
+      			<h4>Search:</h4>
+      		</div>
+      	</div>
+
+
+
+      </div>
+
+      </header>
 		</div>		
 		
 		<div id="main">	
 			<div id="sidebar">
-				<%= render 'layouts/sidebar' %>
+				<sidebar>
+
+
+        	<div id="searchBox">
+
+        		<p>What:  <input id='event_title' class="blockShadow" name='titleinput' size='20' type='text'
+        		value=''/></p>
+        		<p>Where <input id='event_title' class="blockShadow" name='titleinput' size='19' type='text'
+        		value=''/></p>
+        		<p>Type <input id='event_title' class="blockShadow" name='titleinput' size='20' type='list'
+        		value='mok'/></p>
+        		<p>When <input id='event_title' class="blockShadow" name='titleinput' size='20' type='date_select'
+        		value=''/></p>
+        		<p>---------------------------------------</p>
+
+        		<div id="sButton">
+        			<li><%= link_to "Crack on!", root_path %></li>
+        		</div>	
+
+        	</div>
+
+        	<div id="uploadEvent">
+
+        			<%= link_to "Upload an Event!", new_event_path, :class => "upload_button"%>
+
+        	</div>
+
+
+
+        </sidebar>
 			</div>
-				<%= yield %>
+			  <div id="submenu">
+        	<div>
+        		<b><%= link_to 'Music', events_path %></b>
+        	</div>
+        	|
+        	<div>
+        		<b><%= link_to 'Dance & Theatre', events_path %></b>
+        	</div>
+        	|
+        	<div>
+        		<b><%= link_to 'Feasts & traditions', events_path %></b>
+        	</div>
+        	|
+        	<div>
+        		<b><%= link_to 'Family Activities', events_path %></b>
+        	</div>
+        	|
+        	<div>
+        		<b><%= link_to 'Gay & Lesbian', events_path %></b>
+        	</div>
+        	|
+        	<div>
+        		<b><%= link_to 'Others', events_path %></b>
+        	</div>
+        </div>
+        
+        <div id="left">
+        	<div class="block shadow">
+        		<% events.each do |event| %>
+        		<div class="entry_side">
+        				<% image = image_tag(event.pic.url(:thumb), class: 'side_pic')%>
+        				<%= link_to image, event %>
+        			<h4><%= link_to event.title , event %> </h4>
+
+        			<h6><%= l event.startDate, :format => :long %> | <%= event.town %></h6>
+
+        		</div>
+        			<% end %>	
+
+        	</div>
+        </div>
+        
+				<div id="right_side">
+
+          <%= yield%>
+
+        </div>
 		</div>
 		
 		<div id="footer">
-			<%= render 'layouts/footer' %>
+			
 		</div>
 	</div>
 

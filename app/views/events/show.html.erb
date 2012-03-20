@@ -1,34 +1,3 @@
-<div id="submenu">
-	<div>
-		<b><%= link_to 'Music', events_path %></b>
-	</div>
-	|
-	<div>
-		<b><%= link_to 'Dance & Theatre', events_path %></b>
-	</div>
-	|
-	<div>
-		<b><%= link_to 'Feasts & traditions', events_path %></b>
-	</div>
-	|
-	<div>
-		<b><%= link_to 'Family Activities', events_path %></b>
-	</div>
-	|
-	<div>
-		<b><%= link_to 'Gay & Lesbian', events_path %></b>
-	</div>
-	|
-	<div>
-		<b><%= link_to 'Others', events_path %></b>
-	</div>
-</div>
-
-
-<%= render :partial => "layouts/left_bar", :locals => {:events => @events} %>
-
-<div id="right_side">
-
 <p id="notice"><%= notice %></p>
 
 <div id="main" class="top">
@@ -64,6 +33,11 @@
 		<p>
 		  <b>Price:</b>
 		  €<%= @event.price %>
+		</p>
+		
+		<p>
+		  <b>Categories:</b>
+		  <%= @event.categories.map(&:name).to_sentence %>
 		</p>
 	</div>
 </div>
@@ -149,10 +123,4 @@
 				
 			</div>
 		</div>
-	
-	
-	
-	
-
-</div>
 

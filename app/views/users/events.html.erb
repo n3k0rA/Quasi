@@ -1,35 +1,3 @@
-<div id="submenu">
-	<div>
-		<b><%= link_to 'Messages', account_path %></b>
-	</div>
-	|
-	<div>
-		<b><%= link_to 'Reminders', rem_path %></b>
-	</div>
-	|
-	<div>
-		<b><%= link_to 'Alarms', events_path %></b>
-	</div>
-	|
-	<div>
-		<b><%= link_to 'Uploaded Events', ev_created_path%></b>
-	</div>
-	|
-	<div>
-		<b><%= link_to 'Profile', events_path %></b>
-	</div>
-	|
-	<div>
-		<b><%= link_to 'Settings', events_path %></b>
-	</div>
-</div>
-
-
-<%= render :partial => "layouts/left_bar", :locals => {:events => @events} %>
-
-
-<div id="right_side">
-
 <p id="notice"><%= notice %></p>
 
 <h2>Events created!</h2>
@@ -55,6 +23,4 @@
 				</div>
 				<% end %>
 	<% end %>
-</div>
-
 </div>

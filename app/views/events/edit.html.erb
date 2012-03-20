@@ -1,36 +1,3 @@
-<div id="submenu">
-	<div>
-		<b><%= link_to 'Music', events_path %></b>
-	</div>
-	|
-	<div>
-		<b><%= link_to 'Dance & Theatre', events_path %></b>
-	</div>
-	|
-	<div>
-		<b><%= link_to 'Feasts & traditions', events_path %></b>
-	</div>
-	|
-	<div>
-		<b><%= link_to 'Family Activities', events_path %></b>
-	</div>
-	|
-	<div>
-		<b><%= link_to 'Gay & Lesbian', events_path %></b>
-	</div>
-	|
-	<div>
-		<b><%= link_to 'Others', events_path %></b>
-	</div>
-</div>
-
-
-<%= render :partial => "layouts/left_bar", :locals => {:events => @events} %>
-
-
-
-<div id="right_side">
-
 <p id="notice"><%= notice %></p>
 <h1>Editing event</h1>
 
@@ -38,5 +5,3 @@
 
 <%= link_to 'Show', @event %> |
 <%= link_to 'Back', events_path %>
-
-</div>
