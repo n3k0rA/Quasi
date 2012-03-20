@@ -25,21 +25,7 @@
 </div>
 
 
-<div id="left">
-	<div class="block shadow">
-		<% @events.each do |event| %>
-		<div class="entry_side">
-				<% image = image_tag(event.pic.url(:thumb), class: 'side_pic')%>
-				<%= link_to image, event %>
-			<h4><%= link_to event.title , event %> </h4>
-		
-			<h6><%= event.sdate %> | <%= event.town %></h6>
-		
-		</div>
-			<% end %>	
-	
-	</div>
-</div>
+<%= render :partial => "layouts/left_bar", :locals => {:events => @events} %>
 
 <div id="right_side">
 
@@ -57,11 +43,11 @@
 	<div class="details">
 		<p>
 		  <b>Starts:</b>
-		  <%= l @event.stime, :format => :long %>
+		  <%= l @event.startDate, :format => :long %>
 		</p>
 		<p>
 			<b>Finishes:</b>
-			<%= @event.fdate %><%= @event.ftime %>
+			<%= l @event.finishDate, :format => :long %>
 		</p>
 		<p>
 		  <b>Place:</b>
@@ -120,6 +106,7 @@
 		</div>
 		
 		<div id="comments">
+			<div id="comments_count"><%= pluralize(@event.comments.count, 'comment') %></div>
 			<div id="new_comment">
 				
 				<%= form_for @comment do|f| %>
@@ -127,7 +114,7 @@
 				  <%= f.hidden_field :event_id %>
 
 				  <p>
-				    <%= f.label :body %><br />
+				    <%= f.label :Coment! %><br />
 				    <%= f.text_area :body %>
 				  </p>
 

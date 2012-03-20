@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   has_attached_file :pic, :styles =>
            { :medium => "300x300>", :thumb => "100x100>" }
   
-   
+  
    
    def self.authenticate(email, password)
        user = find_by_email(email)

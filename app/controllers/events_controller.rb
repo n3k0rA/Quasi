@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = Event.order(:startDate).limit(5)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -47,7 +47,8 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    @event = Event.new(params[:event].merge(:user_id => current_user))
+    @events = Event.all  
+    @event = Event.new(params[:event].merge(:user_id => current_user.id))
 
     respond_to do |format|
       if @event.save
@@ -89,6 +90,6 @@ class EventsController < ApplicationController
   end
   
   def locations
-    @events = Event.all
+    @events = Event.limit(5)
   end
 end

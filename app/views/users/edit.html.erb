@@ -1,18 +1,4 @@
-<div id="left">
-	<div class="block shadow">
-		<% @events.each do |event| %>
-		<div class="entry_side">
-				<% image = image_tag(event.pic.url(:thumb), class: 'side_pic')%>
-				<%= link_to image, event %>
-			<h4><%= link_to event.title , event %> </h4>
-		
-			<h6><%= event.sdate %> | <%= event.town %></h6>
-		
-		</div>
-			<% end %>	
-	
-	</div>
-</div>
+<%= render :partial => "layouts/left_bar", :locals => {:events => @events} %>
 
 <div id="right_side">
 

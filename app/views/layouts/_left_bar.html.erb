@@ -6,7 +6,7 @@
 				<%= link_to image, event %>
 			<h4><%= link_to event.title , event %> </h4>
 		
-			<h6><%= event.sdate %> | <%= event.town %></h6>
+			<h6><%= l event.startDate, :format => :long %> | <%= event.town %></h6>
 		
 		</div>
 			<% end %>	

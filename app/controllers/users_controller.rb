@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
+    @events = Event.order(:title)
     @users = User.all
 
     respond_to do |format|
@@ -25,7 +26,7 @@ class UsersController < ApplicationController
   # GET /users/new
   # GET /users/new.json
   def new
-    @events = Event.order(:sdate)
+    @events = Event.order(:startDate)
     @user = User.new
   end
 
@@ -87,7 +88,7 @@ class UsersController < ApplicationController
   end
   
   def events
-    @events = Event.order(:sdate)
+    @events = Event.order(:startDate)
     @user = current_user
   end
   

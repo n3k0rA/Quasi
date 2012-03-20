@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120311205221) do
+ActiveRecord::Schema.define(:version => 20120320191608) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -37,10 +37,8 @@ ActiveRecord::Schema.define(:version => 20120311205221) do
 
   create_table "events", :force => true do |t|
     t.string   "title"
-    t.date     "sdate"
-    t.datetime "stime"
-    t.date     "fdate"
-    t.time     "ftime"
+    t.datetime "startDate"
+    t.datetime "finishDate"
     t.string   "place"
     t.string   "town"
     t.string   "province"
@@ -55,7 +53,6 @@ ActiveRecord::Schema.define(:version => 20120311205221) do
     t.string   "pic_content_type"
     t.integer  "pic_file_size"
     t.datetime "pic_updated_at"
-    t.string   "created_by"
     t.integer  "user_id"
   end
 
@@ -78,7 +75,6 @@ ActiveRecord::Schema.define(:version => 20120311205221) do
     t.string   "pic_content_type"
     t.integer  "pic_file_size"
     t.datetime "pic_updated_at"
-    t.string   "events_created"
   end
 
 end
