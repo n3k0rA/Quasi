@@ -1,4 +1,7 @@
 class Admin::UserSessionsController < Admin::AdminController
+  
+  skip_before_filter :require_admin
+  
   def new
     @user_session = UserSession.new
   end

@@ -1,0 +1,82 @@
+%p#notice= notice
+#main.top
+  %div
+    = image_tag(@event.pic.url(:medium), class:"list_image_show")
+  %p
+    %h2= @event.title
+  .details
+    %p
+      %b Starts:
+      = l @event.startDate, :format => :long
+    %p
+      %b Finishes:
+      = l @event.finishDate, :format => :long
+    %p
+      %b Place:
+      = @event.place
+    %p
+      %b Town:
+      = @event.town
+      %b Province:
+      = @event.province
+    %p
+      %b Price:
+      €#{@event.price}
+    %p
+      %b Categories:
+      = @event.categories.map(&:name).to_sentence
+
+#info
+  .side_big
+    #description
+      %p
+        %b Description:
+        = @event.description
+      %p
+        %b Mail:
+        = @event.email
+      %p
+        %b Website:
+        = @event.website
+      %p
+        %b Phone:
+        = @event.phone
+      %p
+        %b Created by:
+        = link_to @event.user.name, @event.user
+    #comments
+      #comments_count= pluralize(@event.comments.count, 'comment')
+      #new_comment
+        = form_for @comment do|f|
+          = f.hidden_field :event_id
+          %p
+            = f.label :Coment!
+            %br/
+            = f.text_area :body
+          %p
+            = f.submit "Post Comment"
+      #all_comments
+        = render :partial => 'comment', :collection => @event.comments
+  .side_small
+    %div
+      %p
+        = image_tag ("media/google.png")
+        = image_tag ("media/tw.png")
+      %p
+        = image_tag ("media/wd.png")
+        = image_tag ("media/fb.png")
+    .attenders
+      = @event.users.size
+      interested!
+      %div
+        - @event.users.each do |user_id|
+          - @user = User.find(user_id)
+          %p
+            - userName = @user.name
+          %br/
+          - user_pic= image_tag(@user.pic.url(:thumb), class:"side_pic")
+          = link_to user_pic, @user
+          = link_to userName, @user
+          
+= link_to 'Edit', edit_admin_event_path(@event)
+= link_to 'Back', admin_events_path

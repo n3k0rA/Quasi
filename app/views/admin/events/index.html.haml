@@ -1,0 +1,18 @@
+%p#notice= notice
+%table
+  - @events.each do |event|
+    %tr{:class => cycle('list_line_odd', 'list_line_even')}
+      %td
+        - pic = image_tag(event.pic.url(:thumb), class: 'list_image')
+        = link_to pic, admin_event_path(event)
+      %td.list_description
+        %dl
+          %dt= link_to event.title, admin_event_path(event)
+          %dd= l event.startDate, :format => :long
+          %dd
+            = event.place
+            | #{event.town}
+          = link_to 'Edit', edit_admin_event_path(event)
+          = link_to 'Destroy', admin_event_path(event), confirm: 'Are you sure?', method: :delete
+%br/
+

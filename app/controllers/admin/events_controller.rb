@@ -1,7 +1,7 @@
-class EventsController < ApplicationController
+class Admin::EventsController < Admin::ApplicationController
   
-  before_filter :require_user, :only => [:new, :create, :update, :edit]
-  before_filter :require_ownership, :only => [:edit, :update, :destroy]
+ 
+  
   def category
     @category = Category.find(params[:category])
     @events = @category.events
@@ -52,7 +52,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.html { redirect_to admin_event_path(@event), notice: 'Event was successfully created.' }
         format.json { render json: @event, status: :created, location: @event }
       else
         format.html { render action: "new" }
@@ -68,7 +68,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.update_attributes(params[:event])
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
+        format.html { redirect_to admin_event_path(@event), notice: 'Event was successfully updated.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }
@@ -84,20 +84,11 @@ class EventsController < ApplicationController
     @event.destroy
 
     respond_to do |format|
-      format.html { redirect_to events_url }
+      format.html { redirect_to admin_events_url }
       format.json { head :ok }
     end
   end
   
   def locations
-  end
-  
-  def require_ownership
-    @event = Event.find(params[:id])
-    unless current_user.id == @event.user.id
-      flash[:notice] = "You are not logged in as the owner of this event"
-      redirect_to new_user_sessions_url
-      return false
-    end
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120320231949) do
+ActiveRecord::Schema.define(:version => 20120321130559) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(:version => 20120320231949) do
     t.string   "pic_content_type"
     t.integer  "pic_file_size"
     t.datetime "pic_updated_at"
-    t.string   "password"
+    t.string   "crypted_password"
     t.string   "persistence_token"
     t.boolean  "admin",             :default => false
   end

@@ -77,7 +77,7 @@ class Admin::UsersController < Admin::AdminController
     @user.destroy
 
     respond_to do |format|
-      format.html { redirect_to users_url }
+      format.html { redirect_to admin_users_url }
       format.json { head :ok }
     end
   end

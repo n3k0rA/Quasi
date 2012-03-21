@@ -10,6 +10,7 @@ Quasi::Application.routes.draw do
   namespace :admin do |admin|
     resource :user_sessions
     resources :categories
+    resources :events
     get "log_in" => "user_sessions#new", :as => "log_in"
     get "log_out" => "user_sessions#destroy", :as => "log_out"
     resources :users

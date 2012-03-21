@@ -1,0 +1,12 @@
+.comment
+  %strong
+    - usr = h comment.user.name
+    = link_to usr, comment.user
+    says:
+  %br/
+  %small
+    Posted #{time_ago_in_words(comment.created_at)} ago
+  %em= simple_format h(comment.body)
+  = link_to 'Destroy Comment', comment,                   
+    :confirm => 'Are you sure?',                          
+    :method => :delete  
