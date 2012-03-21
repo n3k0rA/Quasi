@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%h1
+  All events with category
+  = @category.name
+
+%table
+  - @events.each do |event|
+    %tr{:class => cycle('list_line_odd', 'list_line_even')}
+      %td
+        - pic = image_tag(event.pic.url(:thumb), class: 'list_image')
+        = link_to pic, event
+      %td.list_description
+        %dl
+          %dt= link_to event.title, event
+          %dd= l event.startDate, :format => :long
+          %dd
+            = event.place
+            | #{event.town}
+          %dd= truncate(strip_tags(event.description), length:80)
+%br/

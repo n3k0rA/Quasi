@@ -63,23 +63,10 @@
             #uploadEvent
               = link_to "Upload an Event!", new_event_path, :class => "upload_button"
         #submenu
-          %div
-            %b= link_to 'Music', events_path
-          |
-          %div
-            %b= link_to 'Dance & Theatre', events_path
-          |
-          %div
-            %b= link_to 'Feasts & traditions', events_path
-          |
-          %div
-            %b= link_to 'Family Activities', events_path
-          |
-          %div
-            %b= link_to 'Gay & Lesbian', events_path
-          |
-          %div
-            %b= link_to 'Others', events_path
+          - @categories.each do |category|
+            %div
+              %b= link_to category.name, category_path(category)
+              
         #left
           .block.shadow
             - @events.each do |event|

@@ -2,6 +2,10 @@ class EventsController < ApplicationController
   
   before_filter :require_user, :only => [:new, :create, :update, :edit]
   
+  def category
+    @category = Category.find(params[:category])
+    @events = @category.events
+  end
   
   # GET /events
   # GET /events.json

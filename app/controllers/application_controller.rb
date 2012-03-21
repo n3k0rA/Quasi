@@ -2,12 +2,13 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   
   helper_method :current_user_session, :current_user
-  before_filter :get_events
+  before_filter :get_events_and_categories
 
 
   private
-    def get_events
+    def get_events_and_categories
       @events = Event.order("startDate")
+      @categories = Category.all
     end
       
     def current_user_session

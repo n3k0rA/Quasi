@@ -2,6 +2,7 @@ Quasi::Application.routes.draw do
   resources :comments
   resources :users
   resources :events
+  match 'events/category/:category' => 'events#category', :as => :category
   resource :user_sessions
 
   root :to => "events#index"
