@@ -4,7 +4,7 @@ class ReminderController < ApplicationController
   
   def add
     event = Event.find(params[:id])
-    if user_is_logged_in? 
+    if current_user 
   		event.users << current_user
     	redirect_to event, :notice => "Added to your reminders!"
     else

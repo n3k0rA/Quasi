@@ -26,8 +26,11 @@
       %b Categories:
       = @event.categories.map(&:name).to_sentence
 .interested
-  - reminder_img= image_tag ("interested2.png")
-  = link_to reminder_img, add_reminder_path(:id => @event.id)
+  - if current_user.events.include?(@event)
+    %h2 You are already following this event
+  - else  
+    - reminder_img= image_tag ("interested2.png")
+    = link_to reminder_img, add_reminder_path(:id => @event.id)
 #info
   .side_big
     #description

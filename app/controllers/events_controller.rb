@@ -47,7 +47,8 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create  
-    @event = Event.new(params[:event].merge(:user_id => current_user.id))
+    categories = params[:category_ids] or []
+    @event = Event.new(params[:event].merge(:user_id => current_user.id, :category_ids => categories))
 
     respond_to do |format|
       if @event.save

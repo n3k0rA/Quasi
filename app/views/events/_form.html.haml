@@ -9,51 +9,59 @@
           %li= msg
   .field
     = f.label :title
-    %br/
+    %br
     = f.text_field :title
+  
+  Categories
+  - Category.all.each do |category|
+    .field
+      = check_box_tag "category_ids[]", category.id
+      = category.name
+      
+    
   .field
     = f.label :startDate
-    %br/
+    %br
     = f.datetime_select :startDate
   .field
     = f.label :finishDate
-    %br/
+    %br
     = f.datetime_select :finishDate
   .field
     = f.label :place
-    %br/
+    %br
     = f.text_field :place
   .field
     = f.label :town
-    %br/
+    %br
     = f.text_field :town
   .field
     = f.label :province
-    %br/
+    %br
     = f.text_field :province
   .field
     = f.label :price
-    %br/
+    %br
     = f.text_field :price
   .field
     = f.label :description
-    %br/
+    %br
     = f.text_area :description
   .field
     = f.label :email
-    %br/
+    %br
     = f.text_field :email
   .field
     = f.label :website
-    %br/
+    %br
     = f.text_field :website
   .field
     = f.label :phone
-    %br/
+    %br
     = f.text_field :phone
   %p
     %b Picture
-    %br/
+    %br
     = f.file_field :pic
   .actions
     = f.submit

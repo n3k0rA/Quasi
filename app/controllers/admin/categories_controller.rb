@@ -44,7 +44,7 @@ class Admin::CategoriesController < Admin::AdminController
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to @category, notice: 'Category was successfully created.' }
+        format.html { redirect_to admin_category_path(@category), notice: 'Category was successfully created.' }
         format.json { render json: @category, status: :created, location: @category }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class Admin::CategoriesController < Admin::AdminController
 
     respond_to do |format|
       if @category.update_attributes(params[:category])
-        format.html { redirect_to @category, notice: 'Category was successfully updated.' }
+        format.html { redirect_to admin_category_path(@category), notice: 'Category was successfully updated.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }
@@ -76,7 +76,7 @@ class Admin::CategoriesController < Admin::AdminController
     @category.destroy
 
     respond_to do |format|
-      format.html { redirect_to categories_url }
+      format.html { redirect_to admin_categories_url }
       format.json { head :ok }
     end
   end

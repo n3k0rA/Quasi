@@ -7,7 +7,12 @@ class ApplicationController < ActionController::Base
 
   private
     def get_events_and_categories
-      @events = Event.order("startDate")
+      @events_leftbar = if current_user
+        categories = current_user.events.map(&:categories).flatten
+        categories.map(&:events).flatten - current_user.events
+      else
+        Event.order("startDate")
+      end
       @categories = Category.all
     end
       

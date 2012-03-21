@@ -63,13 +63,15 @@
             #uploadEvent
               = link_to "Upload an Event!", new_event_path, :class => "upload_button"
         #submenu
+          %div
+            %b= link_to "All", events_path
           - @categories.each do |category|
             %div
               %b= link_to category.name, category_path(category)
               
         #left
           .block.shadow
-            - @events.each do |event|
+            - @events_leftbar.each do |event|
               .entry_side
                 - image = image_tag(event.pic.url(:thumb), class: 'side_pic')
                 = link_to image, event
