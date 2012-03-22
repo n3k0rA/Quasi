@@ -17,3 +17,34 @@
   %b Website:
   = @user.website
 = link_to 'Edit', edit_user_path(@user)
+= link_to 'Follow this user', followings_path(:followed_id => @user.id), :method => :post
+
+%p
+  -if @followers.empty?
+    %b No one is following this user so far
+  -else
+    %b People following the user
+    - @followers.each do |follow|
+      - @follower = User.find(follow.user_id)
+      %p
+        -userName = @follower.name
+        %br/
+        - user_pic = image_tag(@follower.pic.url(:thumb), class:"side_pic")
+        =link_to user_pic, @follower
+        =link_to userName, @follower
+  
+
+%p
+  -if @user.followings.empty?
+    %b This user seems to be happy on his own
+  -else
+    %b This user follows
+    -for following in @user.followings
+      %p
+        -user_name=following.followed.name
+        -user_pic = image_tag(following.followed.pic.url(:thumb), class:"side_pic")
+        =link_to user_pic, following.followed
+        =link_to user_name, following.followed
+        =link_to 'stop!', following, :method => :delete if current_user.eql?(@user)
+      
+    

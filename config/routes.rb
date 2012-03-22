@@ -1,4 +1,6 @@
 Quasi::Application.routes.draw do
+  resources :followings
+
   resources :comments
   resources :users
   resources :events

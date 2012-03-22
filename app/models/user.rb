@@ -8,7 +8,8 @@ class User < ActiveRecord::Base
   has_many :created_events, :class_name => "Event", :foreign_key => "user_id"
   has_many :comments, :dependent => :destroy
   has_attached_file :pic, :styles => { :medium => "300x300>", :thumb => "100x100>" }
-  
+  has_many :followings
+  has_many :followeds, :through => :followings
   
   
 end

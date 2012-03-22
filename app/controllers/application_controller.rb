@@ -43,4 +43,13 @@ class ApplicationController < ActionController::Base
       redirect_to(session[:return_to] || default)
       session[:return_to] = nil
     end
+    
+    def require_ownership
+      @event = Event.find(params[:id])
+      unless current_user.id == @event.user.id
+        flash[:notice] = "You are not logged in as the owner of this event"
+        redirect_to new_user_sessions_url
+        return false
+      end
+    end
 end

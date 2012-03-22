@@ -64,8 +64,12 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    metaclass (0.0.1)
     mime-types (1.17.2)
+    mocha (0.10.5)
+      metaclass (~> 0.0.1)
     multi_json (1.0.4)
+    nifty-generators (0.4.6)
     paperclip (2.6.0)
       activerecord (>= 2.3.0)
       activesupport (>= 2.3.2)
@@ -137,6 +141,8 @@ DEPENDENCIES
   haml-rails
   hpricot
   jquery-rails
+  mocha
+  nifty-generators
   paperclip (~> 2.3)
   pg
   rails (= 3.1.3)

@@ -40,11 +40,7 @@ module Quasi
     config.filter_parameters += [:password]
 
     # Enable the asset pipeline
-    config.assets.enabled = if Rails.env.ql? "development"
-      true
-    elsif Rails.env.eql? "production"
-      false
-    end
+    config.assets.enabled = true
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'

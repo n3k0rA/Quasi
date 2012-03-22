@@ -92,12 +92,5 @@ class EventsController < ApplicationController
   def locations
   end
   
-  def require_ownership
-    @event = Event.find(params[:id])
-    unless current_user.id == @event.user.id
-      flash[:notice] = "You are not logged in as the owner of this event"
-      redirect_to new_user_sessions_url
-      return false
-    end
-  end
+  
 end

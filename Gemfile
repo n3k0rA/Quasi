@@ -11,6 +11,7 @@ gem "authlogic"
 gem 'ruby_parser'
 gem 'hpricot'
 gem 'haml'
+gem 'nifty-generators' 
 
 group :production do
   # gems specifically for Heroku go here
@@ -47,3 +48,4 @@ group :test do
   # Pretty printed test output
   gem 'turn', '0.8.2', :require => false
 end
+gem "mocha", :group => :test
