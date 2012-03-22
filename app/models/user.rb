@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_attached_file :pic, :styles => { :medium => "300x300>", :thumb => "100x100>" }
   has_many :followings
   has_many :followeds, :through => :followings
-  
+  has_many :communications
+  has_many :receivers, :through => :communications
   
 end

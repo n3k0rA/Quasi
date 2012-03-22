@@ -2,6 +2,7 @@ class EventsController < ApplicationController
   
   before_filter :require_user, :only => [:new, :create, :update, :edit]
   before_filter :require_ownership, :only => [:edit, :update, :destroy]
+  
   def category
     @category = Category.find(params[:category])
     @events = @category.events

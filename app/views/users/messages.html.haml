@@ -1,5 +1,11 @@
 %p#notice= notice
-%h3
-  Working on it..
-  %h5
-    Reminders and Uploaded Events is working though
+%h3 Messages
+
+-if @user.communications.empty?
+  No communication established so far...
+-else
+  - for communication in @user.communications
+    %p 
+      ()-------------------
+      =link_to communication.user.name, ""
+      =link_to communication.body, ""

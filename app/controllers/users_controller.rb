@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-  # GET /users
-  # GET /users.json
+
+  before_filter :get_current_user, :only => [:edit, :update, :destroy, :reminders, :events, :messages]
+  
   def index
     @users = User.all
 
@@ -30,7 +31,6 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @user = current_user
   end
 
   # POST /users
@@ -53,8 +53,6 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.json
   def update
-    @user = current_user
-
     respond_to do |format|
       if @user.update_attributes(params[:user])
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -69,7 +67,6 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    @user = current_user
     @user.destroy
 
     respond_to do |format|
@@ -79,13 +76,15 @@ class UsersController < ApplicationController
   end
   
   def reminders
-     @user = current_user
   end
   
   def events
-    @user = current_user
   end
   
   def messages
+  end
+  
+  def get_current_user
+    @user = current_user
   end
 end
