@@ -62,6 +62,10 @@
             = f.submit "Post Comment"
       #all_comments
         = render :partial => 'comment', :collection => @event.comments
+    #map
+      This the map showing the exact point:
+      =@json
+      = gmaps4rails(@json)
   .side_small
     %div
       %p

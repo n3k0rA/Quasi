@@ -23,6 +23,8 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @comment = Comment.new(:event => @event)
+    @json = @event.to_gmaps4rails
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @event }

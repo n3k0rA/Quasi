@@ -47,6 +47,8 @@ GEM
     erubis (2.7.0)
     execjs (1.3.0)
       multi_json (~> 1.0)
+    gmaps4rails (1.4.8)
+      json
     haml (3.1.4)
     haml-rails (0.3.4)
       actionpack (~> 3.0)
@@ -137,6 +139,7 @@ DEPENDENCIES
   authlogic
   bcrypt-ruby
   coffee-rails (~> 3.1.1)
+  gmaps4rails
   haml
   haml-rails
   hpricot

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120322190947) do
+ActiveRecord::Schema.define(:version => 20120323094435) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -62,6 +62,10 @@ ActiveRecord::Schema.define(:version => 20120322190947) do
     t.integer  "pic_file_size"
     t.datetime "pic_updated_at"
     t.integer  "user_id"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.boolean  "gmaps"
+    t.string   "address"
   end
 
   create_table "events_users", :id => false, :force => true do |t|

@@ -12,6 +12,7 @@ gem 'ruby_parser'
 gem 'hpricot'
 gem 'haml'
 gem 'nifty-generators' 
+gem 'gmaps4rails'
 
 group :production do
   # gems specifically for Heroku go here
