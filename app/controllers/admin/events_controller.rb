@@ -1,4 +1,4 @@
-class Admin::EventsController < Admin::ApplicationController
+class Admin::EventsController < Admin::AdminController
   
  
   
