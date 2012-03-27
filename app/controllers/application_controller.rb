@@ -3,8 +3,13 @@ class ApplicationController < ActionController::Base
   
   helper_method :current_user_session, :current_user
   before_filter :get_events_and_categories
+  before_filter :set_locale, :except => [:change_locale]
 
-
+  def change_locale
+    I18n.locale = params[:locale]
+    redirect_to root_url
+  end
+  
   private
     def get_events_and_categories
       @events_leftbar = if current_user
@@ -29,7 +34,7 @@ class ApplicationController < ActionController::Base
     def require_user
       unless current_user
         store_location
-        flash[:notice] = "You must be logged in to access this page"
+        flash[:notice] = I18n.t(:app_require_user)
         redirect_to new_user_sessions_url
         return false
       end
@@ -47,9 +52,18 @@ class ApplicationController < ActionController::Base
     def require_ownership
       @event = Event.find(params[:id])
       unless current_user.id == @event.user.id
-        flash[:notice] = "You are not logged in as the owner of this event"
+        flash[:notice] = I18n.t(:app_require_ownership)
         redirect_to new_user_sessions_url
         return false
       end
+    end
+    
+    def set_locale
+      I18n.locale = params[:locale] || I18n.default_locale
+    end
+    
+    def default_url_options(options={})
+      logger.debug "default_url_options is passed options: #{options.inspect}\n"
+      { :locale => I18n.locale }
     end
 end

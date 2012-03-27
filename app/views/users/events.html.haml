@@ -1,8 +1,10 @@
 %p#notice= notice
-%h2 Events created!
+%h2 
+  =t :user_events_created
 %div
   - if @user.created_events.empty?
-    %p No events created so far..
+    %p 
+    =t :user_no_events_created
   - else
     - @user.created_events.each do |event|
       .entry_side

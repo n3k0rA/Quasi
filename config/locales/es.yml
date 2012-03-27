@@ -1,0 +1,305 @@
+es:
+  date:
+    abbr_day_names:
+    - dom
+    - lun
+    - mar
+    - mié
+    - jue
+    - vie
+    - sáb
+    abbr_month_names:
+    -
+    - ene
+    - feb
+    - mar
+    - abr
+    - may
+    - jun
+    - jul
+    - ago
+    - sep
+    - oct
+    - nov
+    - dic
+    day_names:
+    - domingo
+    - lunes
+    - martes
+    - miércoles
+    - jueves
+    - viernes
+    - sábado
+    formats:
+      default: ! '%d/%m/%Y'
+      long: ! '%d de %B de %Y'
+      short: ! '%d de %b'
+    month_names:
+    -
+    - enero
+    - febrero
+    - marzo
+    - abril
+    - mayo
+    - junio
+    - julio
+    - agosto
+    - septiembre
+    - octubre
+    - noviembre
+    - diciembre
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: alrededor de 1 hora
+        other: alrededor de %{count} horas
+      about_x_months:
+        one: alrededor de 1 mes
+        other: alrededor de %{count} meses
+      about_x_years:
+        one: alrededor de 1 año
+        other: alrededor de %{count} años
+      almost_x_years:
+        one: casi 1 año
+        other: casi %{count} años
+      half_a_minute: medio minuto
+      less_than_x_minutes:
+        one: menos de 1 minuto
+        other: menos de %{count} minutos
+      less_than_x_seconds:
+        one: menos de 1 segundo
+        other: menos de %{count} segundos
+      over_x_years:
+        one: más de 1 año
+        other: más de %{count} años
+      x_days:
+        one: 1 día
+        other: ! '%{count} días'
+      x_minutes:
+        one: 1 minuto
+        other: ! '%{count} minutos'
+      x_months:
+        one: 1 mes
+        other: ! '%{count} meses'
+      x_seconds:
+        one: 1 segundo
+        other: ! '%{count} segundos'
+    prompts:
+      day: Día
+      hour: Hora
+      minute: Minutos
+      month: Mes
+      second: Segundos
+      year: Año
+  errors: &errors
+    format: ! '%{attribute} %{message}'
+    messages:
+      accepted: debe ser aceptado
+      blank: no puede estar en blanco
+      confirmation: no coincide con la confirmación
+      empty: no puede estar vacío
+      equal_to: debe ser igual a %{count}
+      even: debe ser par
+      exclusion: está reservado
+      greater_than: debe ser mayor que %{count}
+      greater_than_or_equal_to: debe ser mayor que o igual a %{count}
+      inclusion: no está incluido en la lista
+      invalid: no es válido
+      less_than: debe ser menor que %{count}
+      less_than_or_equal_to: debe ser menor que o igual a %{count}
+      not_a_number: no es un número
+      not_an_integer: debe ser un entero
+      odd: debe ser impar
+      record_invalid: ! 'La validación falló: %{errors}'
+      taken: ya está en uso
+      too_long: es demasiado largo (%{count} caracteres máximo)
+      too_short: es demasiado corto (%{count} caracteres mínimo)
+      wrong_length: no tiene la longitud correcta (%{count} caracteres exactos)
+    template:
+      body: ! 'Se encontraron problemas con los siguientes campos:'
+      header:
+        one: No se pudo guardar este/a %{model} porque se encontró 1 error
+        other: No se pudo guardar este/a %{model} porque se encontraron %{count} errores
+  helpers:
+    select:
+      prompt: Por favor seleccione
+    submit:
+      create: Crear %{model}
+      submit: Guardar %{model}
+      update: Guardar cambios
+ #update: Actualizar %{model}
+  number:
+    currency:
+      format:
+        delimiter: .
+        format: ! '%n %u'
+        precision: 2
+        separator: ! ','
+        significant: false
+        strip_insignificant_zeros: false
+        unit: €
+    format:
+      delimiter: .
+      precision: 3
+      separator: ! ','
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: ! '%n %u'
+        units:
+          billion: mil millones
+          million: millón
+          quadrillion: mil billones
+          thousand: mil
+          trillion: billón
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 1
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: ! '%n %u'
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ''
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: ! ', y '
+      two_words_connector: ! ' y '
+      words_connector: ! ', '
+  time:
+    am: am
+    formats:
+      default: ! '%A, %d de %B de %Y %H:%M:%S %z'
+      long: ! '%d de %B de %Y %H:%M'
+      short: ! '%d de %b %H:%M'
+    pm: pm
+  # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
+  activemodel:
+    errors:
+      <<: *errors
+  activerecord:
+    errors:
+  
+  
+  
+  
+  #Controllers
+  app_require_user: "Debes estar registrado para acceder a la pagina"#"You must be logged in to access this page"
+  app_require_ownership: "No has iniciado sesion como autor del evento" #"You are not logged in as the owner of this event"
+  comments_create: "El comentario sera insertado pronto"#'Comment was successfully created.'
+  events_create: 'El evento fue creado con exito.' #Event was successfully created.
+  event_update: 'El evento fue actualizado con exito' #'Event was successfully updated.'
+  followings_create: 'Te hemos puesto en la lista' #"Yeah, now you follow!."
+  followings_destroy: 'Borrado de tu lista' #"Not following anymore"
+  followings_require_f: 'No puedes acceder a las opciones de otros usuarios' #"You cannot delete date from other users"
+  reminders_add: 'Anadido a tu lista' #"Added to your reminders!"
+  remindes_add_else: 'Necesitas una cuenta donde poder guardar tu lista' #"Well, you need an account to add reminders"
+  reminders_delete: 'No mas te pertenece' #"Reminder deleted!"
+  users_create: "Bienvenid@ a HiKultura, ya eres oficial!" #'User was successfully created.'
+  users_update: "Tus datos han sido actualizados" #'User was successfully updated.'
+  
+  
+  
+  #Menu
+  menu_events: Eventos
+  menu_locations: Lugar
+  menu_account: Tu cuenta
+  
+  #Submenu
+  
+  #Other
+  upload_event_button: Anadir evento
+  #Search_Box
+  search_keyword: Palabra a buscar
+  search_when: Cuando
+  search_categories: Pertenece a...
+  search_where: Donde
+  serarch_placeholder_where: localidad o provincia
+  
+  #event_page_title
+  new_event: 'Anade un evento'
+  #events info
+  event_title: Titulo del evento
+  event_categories: Categorias
+  event_start_date: Comienza
+  event_finish_date: Termina
+  event_place: Lugar
+  event_address: Direccion
+  event_town: Localidad
+  event_province: Provincia
+  event_price: Precio
+  event_description: Descripcion del evento
+  email: Email
+  event_website: Pagina web del evento
+  event_phone: Numero de contacto
+  event_pic: Imagen/Cartel del evento
+  event_form_error: 'Imposible guardar el evento. Revisa los datos.'
+  
+  event_display_start_date: "Del:"
+  event_display_finish_date: "Al:"
+  event_creator: "Creado por:"
+  
+  #Comments
+  comment: 
+    one: '1 commentario'
+    other: '%{count} comentarios'
+  do_comment: "Comparte tu opinion!"
+  submit_comment: "Anadir"
+  comment_posted: hace
+  comment_says: escribio
+  comment_banned: "Los usuarios has reportado este comentario como inapropiado"
+  
+  #Remind me system
+  already_following_event: Evento apuntado en tu lista
+  
+  #interested
+  interested:
+    one: '1 interesado'
+    other: '%{count} interesados'
+    
+  #User
+  user_name: Nombre
+  user_email: Email
+  user_town: Localidad
+  user_province: Provincia
+  user_website: Website
+  user_already_following: "Ya eres seguidor"
+  user_no_followers: 'Nadie interesado de momento'
+  user_followers: 'Seguido por...'
+  user_follows: '%{name} sigue a...'
+  user_no_follows: 'No hay seguimientos.'
+  user_edit_profile: 'Edita tus datos'
+  user_form_error: 'Imposible guardar los datos. Revise el formulario'
+  user_pic: 'Foto de perfil'
+  user_password: 'Constrasena'
+  user_password_confirmation: "Confirmacion de constrasena"
+  user_events_created: 'Eventos que has creado'
+  user_no_events_created: 'No has subido ningun evento todavia'
+  
+  user_no_reminders: 'No hay eventos. De verdad no te interesa nada?'
+  
+  #Sessions
+  sign_up: Registrate
+  log_in: Inicia sesion
+  log_out: Salir
+  logged_as: Bienvenido 
+  o_word: o
+  session_form_error: Imposible registrarte. Revisa el formulario.

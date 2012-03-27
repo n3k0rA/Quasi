@@ -1,33 +1,44 @@
 %p#notice= notice
 #main.top
   %div
-    = image_tag(@event.pic.url(:medium), class:"list_image_show")
+    = image_tag(@event.pic.url(:medium), class:"list_image_show", :alt =>"Event picture")
   %p
     %h2= @event.title
   .details
     %p
-      %b Starts:
+      %b 
+        = t :event_display_start_date
       = l @event.startDate, :format => :long
     %p
-      %b Finishes:
+      %b 
+        = t :event_display_finish_date
       = l @event.finishDate, :format => :long
     %p
-      %b Place:
+      %b 
+        = t :event_place 
       = @event.place
     %p
-      %b Town:
+      %b 
+        = t :event_town
       = @event.town
-      %b Province:
+      %b 
+        = t :event_province
       = @event.province
+      
+    - if !@event.price.nil?
+      %p
+        %b 
+          = t :event_price
+        #{@event.price}€
+        
     %p
-      %b Price:
-      €#{@event.price}
-    %p
-      %b Categories:
+      %b 
+        = t :event_categories
       = @event.categories.map(&:name).to_sentence
 .interested
   - if (current_user && current_user.events.include?(@event))
-    %h3 You are already following this event
+    %h3 
+      = t :already_following_event
   - else  
     - reminder_img= image_tag ("interested2.png")
     = link_to reminder_img, add_reminder_path(:id => @event.id)
@@ -35,31 +46,36 @@
   .side_big
     #description
       %p
-        %b Description:
+        %b 
+          = t :event_description
         = @event.description
       %p
-        %b Mail:
+        %b 
+          =t :email
         = @event.email
       %p
-        %b Website:
+        %b 
+          =t :event_website
         = @event.website
       %p
-        %b Phone:
+        %b 
+          = t :event_phone
         = @event.phone
       %p
-        %b Created by:
+        %b 
+          =t :event_creator
         = link_to @event.user.name, @event.user
     #comments
-      #comments_count= pluralize(@event.comments.count, 'comment')
+      #comments_count=I18n.t("comment", :count=> @event.comments.count)
       #new_comment
         = form_for @comment do|f|
           = f.hidden_field :event_id
           %p
-            = f.label :Coment!
+            = f.label t :do_comment
             %br/
             = f.text_area :body
           %p
-            = f.submit "Post Comment"
+            = f.submit t :submit_comment
       #all_comments
         = render :partial => 'comment', :collection => @event.comments
     #map
@@ -75,8 +91,7 @@
         = image_tag ("media/wd.png")
         = image_tag ("media/fb.png")
     .attenders
-      = @event.users.size
-      interested!
+      =I18n.t("interested", :count=> @event.users.count)
       %div
         - @event.users.each do |user_id|
           - @user = User.find(user_id)

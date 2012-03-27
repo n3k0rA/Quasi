@@ -91,4 +91,5 @@ class Admin::EventsController < Admin::ApplicationController
   
   def locations
   end
+  
 end

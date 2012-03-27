@@ -1,12 +1,29 @@
 Quasi::Application.routes.draw do
-  resources :followings
-  resources :communications
-  resources :comments
-  resources :users
-  resources :events
-  match 'events/category/:category' => 'events#category', :as => :category
-  resource :user_sessions
+  scope "(:locale)", :locale => /es|eu|fr|en/ do
+    resources :followings
+    resources :communications
+    resources :comments
+    resources :users
+    resources :events
+    resource :user_sessions
+    
+    get "log_in" => "user_sessions#new", :as => "log_in"
+    get "log_out" => "user_sessions#destroy", :as => "log_out"  
+    get "sign_up" => "users#new", :as => "sign_up"
 
+    get "add_reminder" => "reminder#add", :as => "add_reminder"
+    post "del_reminder" => "reminder#delete", :as => "del_reminder"
+    get "user_reminders" => "users#reminders", :as => "rem"
+    get "user_events" => "users#events", :as => "ev_created"
+
+    get "user_messages" => "users#messages", :as => "account"
+    
+    match 'events/category/:category' => 'events#category', :as => :category
+    get "change_locale" => "application#change_locale", :as => "change_locale"
+  end
+ 
+  
+  match '/:locale' => 'events#index'
   root :to => "events#index"
   
   namespace :admin do |admin|
@@ -17,18 +34,12 @@ Quasi::Application.routes.draw do
     get "log_out" => "user_sessions#destroy", :as => "log_out"
     resources :users
     root :to => "user_sessions#new"
+    resources :comments
+    get "ban_comment" => "comments#ban_comment", :as => "ban_comment"
   end
   
-  get "log_in" => "user_sessions#new", :as => "log_in"
-  get "log_out" => "user_sessions#destroy", :as => "log_out"  
-  get "sign_up" => "users#new", :as => "sign_up"
   
-  get "add_reminder" => "reminder#add", :as => "add_reminder"
-  post "del_reminder" => "reminder#delete", :as => "del_reminder"
-  get "user_reminders" => "users#reminders", :as => "rem"
-  get "user_events" => "users#events", :as => "ev_created"
   
-  get "user_messages" => "users#messages", :as => "account"
 #temp
   get "locations" => "events#locations", :as => "locations"
   # The priority is based upon order of creation:

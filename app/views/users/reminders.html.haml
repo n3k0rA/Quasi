@@ -3,7 +3,8 @@
 %div
   %div
     - if @user.events.empty?
-      %p You have set no reminders. Are you sure you do not like anything?
+      %p 
+        = t :user_no_reminders
     - else
       - @user.events.each do |event|
         - @event = Event.find(event)
@@ -13,7 +14,7 @@
           %h4
             = link_to @event.title , @event
           %h5
-            = @event.startDate
+            = l event.startDate, :format => :long
             | #{@event.town}
           .rem_icon
             - del_icon = image_tag("icons/DeleteRed.png", class:'icon')

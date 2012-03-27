@@ -1,6 +1,6 @@
-class CommentsController < ApplicationController
+class Admin::CommentsController < Admin::AdminController
 
-  before_filter :require_user, :only => [:create, :destroy]
+
   
   # POST /comments
   # POST /comments.json
@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @comment.event, notice: I18n.t(:comments_create) }
+        format.html { redirect_to admin_event_path(@comment.event), notice: 'Comment was successfully created.' }
         format.json { render json: @comment.event, status: :created, location: @comment.event }
       else
         format.html { render action: "new" }
@@ -27,8 +27,15 @@ class CommentsController < ApplicationController
     @comment.destroy
 
     respond_to do |format|
-      format.html { redirect_to @comment.event }
+      format.html { redirect_to admin_event_path(@comment.event) }
       format.json { head :ok }
     end
+  end
+  
+  def ban_comment
+    @comment = Comment.find(params[:id])
+    @comment.banned =true;
+    @comment.save
+    redirect_to admin_event_path(@comment.event)
   end
 end

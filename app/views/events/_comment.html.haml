@@ -2,11 +2,17 @@
   %strong
     - usr = h comment.user.name
     = link_to usr, comment.user
-    says:
+  = t :comment_says
   %br/
   %small
-    Posted #{time_ago_in_words(comment.created_at)} ago
-  %em= simple_format h(comment.body)
-  = link_to 'Destroy Comment', comment,                   |
-    :confirm => 'Are you sure?',                          |
-    :method => :delete if current_user.eql?(comment.user) |
+  =t :comment_posted  
+  #{time_ago_in_words(comment.created_at)}
+  -if comment.banned?
+    %em 
+      %small
+        = simple_format t :comment_banned
+  -else
+    %em= simple_format h(comment.body)
+  = link_to 'Destroy Comment', comment,                   
+    :confirm => 'Are you sure?',                          
+    :method => :delete if current_user.eql?(comment.user) 

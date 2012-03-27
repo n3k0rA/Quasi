@@ -3,16 +3,17 @@
     #error_explanation
       %h2
         = pluralize(@event.errors.count, "error")
-        prohibited this event from being saved:
+        =t :event_form_error
+        //prohibited this event from being saved:
       %ul
         - @event.errors.full_messages.each do |msg|
           %li= msg
   .field
-    = f.label :title
+    = f.label t :event_title
     %br
     = f.text_field :title
   
-  Categories
+  = f.label t :event_categories
   - Category.all.each do |category|
     .field
       = check_box_tag "category_ids[]", category.id
@@ -20,47 +21,51 @@
       
     
   .field
-    = f.label :startDate
+    = f.label t :event_start_date
     %br
     = f.datetime_select :startDate
   .field
-    = f.label :finishDate
+    = f.label t :event_finish_date
     %br
     = f.datetime_select :finishDate
   .field
-    = f.label :place
+    = f.label t :event_place
     %br
     = f.text_field :place
   .field
-    = f.label :town
+    = f.label t :event_address
+    %br
+    = f.text_field :address
+  .field
+    = f.label t :event_town
     %br
     = f.text_field :town
   .field
-    = f.label :province
+    = f.label t :event_province
     %br
     = f.text_field :province
   .field
-    = f.label :price
+    = f.label t :event_price
     %br
     = f.text_field :price
   .field
-    = f.label :description
+    = f.label t :event_description
     %br
     = f.text_area :description
   .field
-    = f.label :email
+    = f.label t :email
     %br
     = f.text_field :email
   .field
-    = f.label :website
+    = f.label t :event_website
     %br
     = f.text_field :website
   .field
-    = f.label :phone
+    = f.label t :event_phone
     %br
     = f.text_field :phone
   %p
-    %b Picture
+    = f.label t :event_pic
     %br
     = f.file_field :pic
   .actions

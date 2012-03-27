@@ -10,3 +10,7 @@
   = link_to 'Destroy Comment', comment,                   
     :confirm => 'Are you sure?',                          
     :method => :delete  
+  -if comment.banned.eql?(false)
+    = link_to "Ban Comment", admin_ban_comment_path(:id => comment.id) 
+  -else 
+    %strong Already Banned

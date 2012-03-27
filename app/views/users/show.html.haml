@@ -1,29 +1,38 @@
 %p#notice= notice
 %p
-  %b Name:
-  = @user.name
+  %h2
+    = @user.name
 = image_tag @user.pic.url(:medium)
 %br
 %p
-  %b Email:
-  = @user.email
+  = t :email
+  %b 
+    = @user.email
 %p
-  %b Town:
+  %b 
+    = t :user_town
   = @user.town
 %p
-  %b Province:
+  %b 
+  = t :user_province
   = @user.province
 %p
-  %b Website:
+  %b 
+    = t :user_website
   = @user.website
 = link_to 'Edit', edit_user_path(@user)
-= link_to 'Follow this user', followings_path(:followed_id => @user.id), :method => :post
+-if current_user.followings.any?{|follow| follow.followed_id == @user.id}
+  =t :user_already_following
+-else  
+  = link_to 'Follow this user', followings_path(:followed_id => @user.id), :method => :post
 
 %p
   -if @followers.empty?
-    %b No one is following this user so far
+    %b 
+      =t :user_no_followers
   -else
-    %b People following the user
+    %b 
+      =t :user_followers
     - @followers.each do |follow|
       - @follower = User.find(follow.user_id)
       %p
@@ -36,9 +45,11 @@
 
 %p
   -if @user.followings.empty?
-    %b This user seems to be happy on his own
+    %b 
+      =t :user_no_follows
   -else
-    %b This user follows
+    %b 
+      = t :user_follows, :name=> @user.name
     -for following in @user.followings
       %p
         -user_name=following.followed.name

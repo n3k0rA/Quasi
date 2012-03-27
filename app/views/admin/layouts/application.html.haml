@@ -13,7 +13,7 @@
           = yield :head
           .wrap
             #logo
-              - logo_tag = image_tag("eguzkilore.png", :alt => "Basque Country Go On")
+              - logo_tag = image_tag("eguzkilore.png", :alt => "Logo")
               = link_to logo_tag, root_path
             #right
               #loggin
@@ -21,8 +21,7 @@
                   = content_tag :div, msg, :id => "flash#{name}"
                 #user_nav
                   - if current_user
-                    =I18n.t(:logged_as) 
-                    #{current_user.name}
+                    Logged in as #{current_user.name}
                     = link_to I18n.t(:log_out), log_out_path
                   - else
                     = link_to I18n.t(:sign_up), sign_up_path
@@ -71,17 +70,7 @@
             %div
               %b= link_to category.name, category_path(category)
               
-        #left
-          .block.shadow
-            - @events_leftbar.each do |event|
-              .entry_side
-                - image = image_tag(event.pic.url(:thumb), class: 'side_pic')
-                = link_to image, event
-                %h4
-                  = link_to event.title , event
-                %h6
-                  = l event.startDate,  :format => :short
-                  | #{event.town}
+        
         #right_side
           = yield
       #footer
