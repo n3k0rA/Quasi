@@ -22,7 +22,10 @@ Quasi::Application.routes.draw do
     get "change_locale" => "application#change_locale", :as => "change_locale"
   end
  
-  
+  # Google verify.
+  match '/google6d5279738a03434f.html', 
+        :to => proc { |env| [200, {}, ["google-site-verification: google6d5279738a03434f.html"]] }
+        
   match '/:locale' => 'events#index'
   root :to => "events#index"
   

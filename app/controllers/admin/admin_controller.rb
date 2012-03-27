@@ -1,4 +1,4 @@
-class Admin::AdminController < ApplicationController
+class Admin::AdminController < Admin::ApplicationController
   
   before_filter :require_admin
   
