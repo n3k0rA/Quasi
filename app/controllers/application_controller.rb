@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
   before_filter :get_events_and_categories
   before_filter :set_locale, :except => [:change_locale]
 
+  #Kind of coming soon page
+  before_filter :coming_soon
+  
+  
   def change_locale
     if current_user
       current_user.locale = params[:locale]
@@ -74,5 +78,14 @@ class ApplicationController < ActionController::Base
     def default_url_options(options={})
       logger.debug "default_url_options is passed options: #{options.inspect}\n"
       { :locale => I18n.locale }
+    end
+    
+    def coming_soon
+      unless current_user
+        store_location
+        flash[:notice] = I18n.t(:app_require_user)
+        redirect_to log_in_url
+        return false
+      end
     end
 end
