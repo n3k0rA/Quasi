@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
         categories = current_user.events.map(&:categories).flatten
         categories.map(&:events).flatten - current_user.events
       else
-        Event.order('startDate ASC')
+        Event.all
       end
       @categories = Category.all
     end
