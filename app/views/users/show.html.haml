@@ -21,7 +21,7 @@
     = t :user_website
   = @user.website
 = link_to 'Edit', edit_user_path(@user)
--if current_user.followings.any?{|follow| follow.followed_id == @user.id}
+-if (current_user && current_user.followings.any?{|follow| follow.followed_id == @user.id})
   =t :user_already_following
 -else  
   = link_to 'Follow this user', followings_path(:followed_id => @user.id), :method => :post

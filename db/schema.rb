@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120326173755) do
+ActiveRecord::Schema.define(:version => 20120327072513) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -106,6 +106,7 @@ ActiveRecord::Schema.define(:version => 20120326173755) do
     t.string   "crypted_password"
     t.string   "persistence_token"
     t.boolean  "admin",             :default => false
+    t.string   "locale"
   end
 
 end

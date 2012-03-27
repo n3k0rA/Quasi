@@ -6,7 +6,12 @@ class ApplicationController < ActionController::Base
   before_filter :set_locale, :except => [:change_locale]
 
   def change_locale
-    I18n.locale = params[:locale]
+    if current_user
+      current_user.locale = params[:locale]
+      current_user.save
+    else
+      I18n.locale = params[:locale]
+    end
     redirect_to root_url
   end
   
@@ -59,7 +64,11 @@ class ApplicationController < ActionController::Base
     end
     
     def set_locale
-      I18n.locale = params[:locale] || I18n.default_locale
+      if (current_user && !current_user.locale.empty?)
+        I18n.locale = current_user.locale
+      else
+        I18n.locale = params[:locale] || I18n.default_locale
+      end
     end
     
     def default_url_options(options={})

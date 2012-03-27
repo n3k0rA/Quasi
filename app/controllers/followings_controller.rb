@@ -6,7 +6,8 @@ class FollowingsController < ApplicationController
   def create
     @following = current_user.followings.build(:followed_id => params[:followed_id])
     if @following.save
-      redirect_to root_url, :notice => I18n.t(:followings_create)
+      redirect_to root_path, :notice => I18n.t(:followings_destroy)
+      
     else
       render :action => 'new'
     end

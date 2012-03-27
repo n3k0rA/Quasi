@@ -4,7 +4,7 @@
       %h2
         = pluralize(@user.errors.count, "error")
         //prohibited this user from being saved:
-        t :user_form_error
+        =t :user_form_error
       %ul
         - @user.errors.full_messages.each do |msg|
           %li= msg

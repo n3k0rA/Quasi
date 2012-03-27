@@ -204,7 +204,7 @@ es:
   #Controllers
   app_require_user: "Debes estar registrado para acceder a la pagina"#"You must be logged in to access this page"
   app_require_ownership: "No has iniciado sesion como autor del evento" #"You are not logged in as the owner of this event"
-  comments_create: "El comentario sera insertado pronto"#'Comment was successfully created.'
+  comments_create: "El comentario ha sido insertado"#'Comment was successfully created.'
   events_create: 'El evento fue creado con exito.' #Event was successfully created.
   event_update: 'El evento fue actualizado con exito' #'Event was successfully updated.'
   followings_create: 'Te hemos puesto en la lista' #"Yeah, now you follow!."
