@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_filter :set_locale, :except => [:change_locale]
 
   #Kind of coming soon page
-  before_filter :coming_soon
+  #before_filter :coming_soon
   
   
   def change_locale

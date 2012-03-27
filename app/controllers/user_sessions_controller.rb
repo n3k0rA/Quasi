@@ -1,6 +1,6 @@
 class UserSessionsController < ApplicationController
   
-  before_filter :coming_soon, :except => [:new]
+  #before_filter :coming_soon, :except => [:new, :create]
   
   def new
     @user_session = UserSession.new
