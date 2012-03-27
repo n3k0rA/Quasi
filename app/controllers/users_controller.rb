@@ -38,7 +38,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     @user.locale = I18n.locale
-    #AccountNotifier.confirm(@user).deliver
+    AccountNotifier.confirm(@user).deliver
     respond_to do |format|
       if @user.save
         format.html { redirect_to root_url, notice: I18n.t(:users_create) }
