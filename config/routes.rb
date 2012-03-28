@@ -26,8 +26,13 @@ Quasi::Application.routes.draw do
   # Google verify.
   match '/google6d5279738a03434f.html', 
         :to => proc { |env| [200, {}, ["google-site-verification: google6d5279738a03434f.html"]] }
+  
         
-  match '/:locale' => 'events#index'
+  match '/?locale=es' => 'events#index'
+  match '/?locale=eu' => 'events#index'
+  match '/?locale=fr' => 'events#index'
+  match '/?locale=en' => 'events#index'
+  
   root :to => "events#index"
   
   namespace :admin do |admin|
