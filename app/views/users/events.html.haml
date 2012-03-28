@@ -20,3 +20,6 @@
           %br
           = link_to 'Edit', edit_event_path(event)
           = link_to 'Delete', event, confirm: 'Are you sure?', method: :delete
+      -if !event.translations.empty? 
+        -event.translations.each do |translation| 
+          =link_to "Translation pending of approval", translation

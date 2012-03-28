@@ -232,7 +232,7 @@ es:
   search_when: Cuando
   search_categories: Pertenece a...
   search_where: Donde
-  serarch_placeholder_where: localidad o provincia
+  search_placeholder_where: localidad o provincia
   
   #event_page_title
   new_event: 'Anade un evento'
@@ -303,3 +303,15 @@ es:
   logged_as: Bienvenido 
   o_word: o
   session_form_error: Imposible registrarte. Revisa el formulario.
+  
+  #Translations
+  submit_translation: 'Anadir traduccion a "%{event}"'
+  greeting_user: Gracias por colaborar con la comunidad
+  translation_form_error: Imposible guardar los datos. Por favor revisa el formulario.
+  leave_comment: "Escribe si deseas dejar un comentario al creador del evento"
+  
+  #Languages
+  lang_basque: Euskera
+  lang_spanish: Espanol
+  lang_french: Frances
+  lang_english: Ingles

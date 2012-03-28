@@ -34,3 +34,111 @@ en:
     
     am: "am"
     pm: "pm"
+
+
+
+
+  #Controllers
+  app_require_user: "You must be logged in to access this page"
+  app_require_ownership: "You are not logged in as the owner of this event"
+  comments_create: Comment was successfully created.'
+  events_create: Event was successfully created.
+  event_update: 'Event was successfully updated.'
+  followings_create: "Yeah, now you follow!."
+  followings_destroy: "Not following anymore"
+  followings_require_f: You cannot delete date from other users"
+  reminders_add: Added to your reminders!"
+  remindes_add_else: "Well, you need an account to add reminders"
+  reminders_delete: "Reminder deleted!"
+  users_create: 'User was successfully created.'
+  users_update: 'User was successfully updated.'
+
+
+
+  #Menu
+  menu_events: Events
+  menu_locations: Locations
+  menu_account: Account
+
+  #Submenu
+
+  #Other
+  upload_event_button: Upload an Event
+  
+  #Search_Box
+  search_keyword: Keyword
+  search_when: When
+  search_categories: Belongs to...
+  search_where: Where
+  search_placeholder_where: localidad o provincia
+
+  #event_page_title
+  new_event: 'Upload en event'
+  
+  #events info
+  event_title: Title of the event
+  event_categories: Categories
+  event_start_date: Start date
+  event_finish_date: Finish date
+  event_place: Place
+  event_address: Address
+  event_town: Town
+  event_province: Province
+  event_price: Price
+  event_description: Descriptio of the event
+  email: Email
+  event_website: Website to the event
+  event_phone: Contact Number
+  event_pic: Picture for the event
+  event_form_error: 'Impossible to save the event. Please revise the form'
+
+  event_display_start_date: "From:"
+  event_display_finish_date: "To:"
+  event_creator: "Created by:"
+
+  #Comments
+  comment: 
+    one: '1 comment'
+    other: '%{count} comments'
+  do_comment: "Share you opinion!"
+  submit_comment: "Add comment"
+  comment_posted: ""
+  comment_says: said
+  comment_banned: "Users reported this comment as inappropiate"
+
+  #Remind me system
+  already_following_event: You are already following this user
+
+  #interested
+  interested:
+    one: '1 interested'
+    other: '%{count} interested'
+
+  #User
+  user_name: Name
+  user_email: Email
+  user_town: Town
+  user_province: Province
+  user_website: Website
+  user_already_following: "Already following"
+  user_no_followers: 'No one following at the moment'
+  user_followers: 'Followed by...'
+  user_follows: '%{name} follows...'
+  user_no_follows: 'No followers'
+  user_edit_profile: 'Edit your details'
+  user_form_error: 'Impossible to save. Plase revise the form'
+  user_pic: 'User picture'
+  user_password: 'Password'
+  user_password_confirmation: "Password confirmation"
+  user_events_created: 'Events you created'
+  user_no_events_created: 'You have created no events so far'
+
+  user_no_reminders: 'No events to be reminded of. Do not like anything?'
+
+  #Sessions
+  sign_up: Sign up
+  log_in: Log in
+  log_out: Log out
+  logged_as: Welcome 
+  o_word: or
+  session_form_error: There is an error. Please revise form.

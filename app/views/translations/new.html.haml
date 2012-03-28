@@ -1,0 +1,36 @@
+%p#notice= notice
+#h1
+  =t :submit_translation, :event => @event
+=t :greeting_user
+
+= form_for @translation do |f|
+  -if @translation.errors.any?
+    .error_messages
+      %h2
+        =t :translation_form_error
+      %ul
+        - for message in @translation.errors.full.messages
+          %li =message
+  = f.hidden_field(:event_id, :value => @event.id)
+  %p
+    =f.label t :lang_spanish
+    %br
+    =f.text_area(:des_es, :value => @event.description)
+  %p
+    =f.label t :lang_basque
+    %br
+    =f.text_area :des_eu
+  %p
+    =f.label t :lang_french
+    %br
+    =f.text_area :des_fr
+  %p
+    =f.label t :lang_english
+    %br
+    =f.text_area :des_en
+  %p
+    =f.label t :leave_comment
+    %br
+    =f.text_area :comment
+
+  %p.button= f.submit{@event.id}

@@ -6,6 +6,7 @@ Quasi::Application.routes.draw do
     resources :users
     resources :events
     resource :user_sessions
+    resources :translations
     
     get "log_in" => "user_sessions#new", :as => "log_in"
     get "log_out" => "user_sessions#destroy", :as => "log_out"  
@@ -39,6 +40,7 @@ Quasi::Application.routes.draw do
     root :to => "user_sessions#new"
     resources :comments
     get "ban_comment" => "comments#ban_comment", :as => "ban_comment"
+    
   end
   
   
