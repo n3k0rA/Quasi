@@ -39,4 +39,24 @@ class TranslationsController < ApplicationController
       format.json { head :ok }
     end
   end
+  
+  def commit
+    @translation = Translation.find(params[:id])
+    @event = @translation.event
+    if !@translation.des_es.empty?
+      @event.des_es = @translation.des_es
+    end
+    if !@translation.des_eu.empty?
+      @event.des_eu = @translation.des_eu
+    end
+    if !@translation.des_fr.empty?
+      @event.des_fr = @translation.des_fr
+    end
+    if !@translation.des_en.empty?
+      @event.des_en = @translation.des_en
+    end
+    @event.save
+    redirect_to @event
+  end
+    
 end

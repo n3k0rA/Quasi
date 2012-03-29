@@ -13,6 +13,40 @@
   Remember that you, as creator, can either accept or reject the proposed translation. 
 %p 
   This is how the event would look
+#tabs  
+  %ul
+    <li><a href="#tabs-1">Nunc tincidunt</a></li>
+    <li><a href="#tabs-2">Proin dolor</a></li>
+    <li><a href="#tabs-3">Aenean lacinia</a></li>
+    %li
+      %a 
+        #tabs-4 
+          =link_to "English", "#tab-4"
+        
+  #tabs-1    
+    -if !@translation.des_es.empty?
+      =@translation.des_es
+    -else
+      "No translation so far"
+  #tabs-2   
+    -if !@translation.des_eu.empty?
+      =@translation.des_eu
+    -else
+      "No translation so far"
+  #tabs-3  
+    -if !@translation.des_fr.empty?
+      =@translation.des_fr
+    -else
+      "No translation so far"
+  #tabs-4  
+    -if !@translation.des_en.empty?
+      =@translation.des_en
+    -else
+      "No translation so far"
+    
+=link_to "Accept", commit_translation_path(:id =>@translation.id)
+=link_to "Reject", ""
+
 %p  
   =t :lang_spanish
   -if !@translation.des_es.empty?
@@ -38,5 +72,4 @@
   -else
     "No translation so far"
     
-=link_to "Accept", ""
-=link_to "Reject", ""
+<a href="#" id="message">Hola sip!</a>

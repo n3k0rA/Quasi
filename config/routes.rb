@@ -21,6 +21,7 @@ Quasi::Application.routes.draw do
     
     match 'events/category/:category' => 'events#category', :as => :category
     get "change_locale" => "application#change_locale", :as => "change_locale"
+    get "commit_translation" => "translations#commit", :as => "commit_translation"
   end
  
   # Google verify.

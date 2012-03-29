@@ -6,6 +6,12 @@ $(function () {
 });
 
 $(function() {
+	$('#tabs').tabs({
+		event: "mouseover"
+	});
+});
+
+$(function() {
 		var availableTags = [
 		"ActionScript",
 		"AppleScript",
@@ -33,11 +39,4 @@ $(function() {
 	$( "#search_where" ).autocomplete({
 		source: availableTags
 	});
-});
-
-$(function() {
-	$("#message").click(function() {
-		alert("Hola!!!");
-		return false;
-	})
 });

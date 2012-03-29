@@ -58,7 +58,7 @@
                 %input#event_title.blockShadow{:name => "titleinput", :size => "20", :type => "list", :value => ""}/
               %p
                 =t :search_where
-                %input#search_where.autocomplete{:style=>"display=none", :name => "titleinput", :size => "20", :type => "date_select", :value => "", :placeholder => I18n.t(:search_placeholder_where)}/
+                %input#search_where{:style=>"display=none", :name => "titleinput", :size => "20", :type => "date_select", :value => "", :placeholder => I18n.t(:search_placeholder_where)}/
               %p ---------------------------------------
               #sButton
                 %li= link_to "Crack on!", root_path
@@ -86,10 +86,9 @@
           = yield
       #footer
         =yield :scripts
-      //  %h1
-      //    =link_to_function "Click", onclick="alert('Hello'); return false"
-      //    <a href="#" onclick="alert('Hello'); return false; return false;">Click</a>
-      //    <a href="#" id="message">Hola sip!</a>
-      //    <h1><a href="#" id="alert">Click Here</a></h1>
+        %h1
+          =link_to_function "Click", onclick="alert('Hello'); return false"
+          <a href="#" onclick="alert('Hello'); return false; return false;">Click</a>
+          <a href="#" id="message">Hola sip!</a>
+          <h1><a href="#" id="alert">Click Here</a></h1>
           
-        
