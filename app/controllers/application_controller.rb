@@ -48,6 +48,12 @@ class ApplicationController < ActionController::Base
         return false
       end
     end
+    
+    def require_no_user
+      if current_user
+        redirect_to root_path, :alert => "You must be signed out for that action."
+      end
+    end
       
     def store_location
       session[:return_to] = request.url

@@ -21,4 +21,10 @@ class User < ActiveRecord::Base
   has_many :communications
   has_many :receivers, :through => :communications
   has_many :translations
+  
+  
+  def deliver_password_reset_instructions!
+    reset_perishable_token!
+    AccountNotifier.deliver_password_reset_instructions(self)
+  end
 end

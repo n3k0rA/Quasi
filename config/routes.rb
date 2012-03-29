@@ -7,6 +7,7 @@ Quasi::Application.routes.draw do
     resources :events
     resource :user_sessions
     resources :translations
+    resources :password_resets
     
     get "log_in" => "user_sessions#new", :as => "log_in"
     get "log_out" => "user_sessions#destroy", :as => "log_out"  

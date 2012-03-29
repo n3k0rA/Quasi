@@ -1,5 +1,6 @@
 class AccountNotifier < ActionMailer::Base
   default from: "admin@hikultura.com"
+  default_url_options[:host] = "authlogic_example.binarylogic.com", :only => [:password_reset_instructions]
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
@@ -25,3 +26,7 @@ class AccountNotifier < ActionMailer::Base
     mail to: @user.email, subject: 'HiKultura has your answers!'
   end
 end
+
+  def password_reset_instructions(user)
+    mail to: user.email, subject: 'Password reset for HiKultura', body: :edit_password_reset_url(user.perishable_token)
+  end 
