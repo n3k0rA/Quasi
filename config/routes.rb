@@ -27,8 +27,8 @@ Quasi::Application.routes.draw do
   end
  
   # Google verify.
-  match '/google6d5279738a03434f.html', 
-        :to => proc { |env| [200, {}, ["google-site-verification: google6d5279738a03434f.html"]] }
+  match '/google639a0342a2f63a68.html', 
+        :to => proc { |env| [200, {}, ["google-site-verification: google639a0342a2f63a68.html"]] }
   
         
   match '/?locale=es' => 'events#index'
