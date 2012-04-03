@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120403173055) do
+ActiveRecord::Schema.define(:version => 20120403184354) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(:version => 20120403173055) do
     t.string   "title_eu"
     t.string   "title_fr"
     t.string   "title_en"
+    t.boolean  "approved",         :default => false
   end
 
   create_table "events_users", :id => false, :force => true do |t|

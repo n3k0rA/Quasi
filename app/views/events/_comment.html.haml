@@ -13,6 +13,7 @@
         = simple_format t :comment_banned
   -else
     %em= simple_format h(comment.body)
-  = link_to 'Destroy Comment', comment,                   
-    :confirm => 'Are you sure?',                          
-    :method => :delete if current_user.eql?(comment.user) 
+  -if Time.now < (comment.created_at + 5.minutes)
+    = link_to 'Destroy Comment', comment,                   
+      :confirm => 'Are you sure?',                          
+      :method => :delete if current_user.eql?(comment.user)

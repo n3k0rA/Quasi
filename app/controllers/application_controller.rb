@@ -19,6 +19,8 @@ class ApplicationController < ActionController::Base
     redirect_to root_url
   end
   
+  
+  
   private
     def get_events_and_categories
       @events_leftbar = if current_user
@@ -94,4 +96,6 @@ class ApplicationController < ActionController::Base
         return false
       end
     end
+    
+    
 end

@@ -103,5 +103,14 @@ class EventsController < ApplicationController
   def locations
   end
   
+  def deletable_comment
+    @comment = Comment.find(params[:id])
+    if Time.now > (@comment.created_at + 5.minutes)
+      flash[:notice] = "This comment is already in memory system and cannot be deleted"
+      redirect_to @comment.event
+      return false
+    end
+  end
+  
   
 end

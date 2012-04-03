@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
 
   before_filter :require_user, :only => [:create, :destroy]
+  before_filter :deletable_comment, :only=> [:destroy]
   
   # POST /comments
   # POST /comments.json
@@ -33,4 +34,15 @@ class CommentsController < ApplicationController
       format.json { head :ok }
     end
   end
+
+private
+  def deletable_comment
+    @comment = Comment.find(params[:id])
+    if Time.now > (@comment.created_at + 5.minutes)
+      flash[:notice] = "This comment is already in memory system and cannot be deleted"
+      redirect_to @comment.event
+      return false
+    end
+  end
+  
 end
