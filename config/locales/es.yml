@@ -310,8 +310,10 @@ es:
   translation_form_error: Imposible guardar los datos. Por favor revisa el formulario.
   leave_comment: "Escribe si deseas dejar un comentario al creador del evento"
   
-  #Languages
+  #Translations
   lang_basque: Euskera
   lang_spanish: Espanol
   lang_french: Frances
   lang_english: Ingles
+  
+  

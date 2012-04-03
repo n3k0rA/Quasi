@@ -13,24 +13,48 @@
           %li =message
   = f.hidden_field(:event_id, :value => @event.id)
   %p
-    =f.label t :lang_spanish
+    %h3 
+      =t :lang_spanish
+    =f.label "Titulo del Evento"
+    %br
+    =f.text_field(:title_es, :value => @event.title_es)
+    %br
+    =f.label "Descripcion del Evento"
     %br
     =f.text_area(:des_es, :value => @event.des_es)
   %p
-    =f.label t :lang_basque
+    %h3
+      =t :lang_basque
+    =f.label "Ekitaldiaren Titulua"
+    %br
+    =f.text_field(:title_eu, :value => @event.title_eu)
+    %br
+    =f.label "Ekitaldiaren Deskripzioa"
     %br
     =f.text_area(:des_eu, :value => @event.des_eu)
   %p
-    =f.label t :lang_french
+    %h3
+      =t :lang_french
+    =f.label "Titre de L'événement"
+    %br
+    =f.text_field(:title_fr, :value => @event.title_fr)
+    %br
+    =f.label "Descripcion de L'événement"
     %br
     =f.text_area(:des_fr, :value => @event.des_fr)
   %p
-    =f.label t :lang_english
+    %h3
+      = t :lang_english
+    =f.label "Event Title"
+    %br
+    =f.text_field(:title_en, :value => @event.title_en)
+    %br
+    =f.label "Event Description"
     %br
     =f.text_area(:des_en, :value => @event.des_en)
   %p
     =f.label t :leave_comment
     %br
-    =f.text_area :comment
+    =f.text_area :comment, :rows=>"3"
 
   %p.button= f.submit{@event.id}

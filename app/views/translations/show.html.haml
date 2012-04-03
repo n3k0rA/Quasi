@@ -25,21 +25,29 @@
         
   #tabs-1    
     -if !@translation.des_es.empty?
+      =@translation.title_es
+      %br
       =@translation.des_es
     -else
       "No translation so far"
   #tabs-2   
     -if !@translation.des_eu.empty?
+      =@translation.title_eu
+      %br
       =@translation.des_eu
     -else
       "No translation so far"
   #tabs-3  
     -if !@translation.des_fr.empty?
+      =@translation.title_fr
+      %br
       =@translation.des_fr
     -else
       "No translation so far"
   #tabs-4  
     -if !@translation.des_en.empty?
+      =@translation.title_en
+      %br
       =@translation.des_en
     -else
       "No translation so far"

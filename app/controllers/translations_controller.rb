@@ -1,5 +1,6 @@
 class TranslationsController < ApplicationController
   before_filter :require_user
+  before_filter :require_ownership, :only => [:commit]
   
   def new
     @event = Event.find(params[:id])
@@ -44,15 +45,19 @@ class TranslationsController < ApplicationController
     @translation = Translation.find(params[:id])
     @event = @translation.event
     if !@translation.des_es.empty?
+      @event.title_es = @translation.title_es
       @event.des_es = @translation.des_es
     end
     if !@translation.des_eu.empty?
+      @event.title_eu = @translation.title_eu
       @event.des_eu = @translation.des_eu
     end
     if !@translation.des_fr.empty?
+      @event.title_fr = @translation.title_fr
       @event.des_fr = @translation.des_fr
     end
     if !@translation.des_en.empty?
+      @event.title_fr = @translation.title_fr
       @event.des_en = @translation.des_en
     end
     @event.save
