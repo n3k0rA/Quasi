@@ -14,6 +14,13 @@ gem 'haml'
 gem 'nifty-generators' 
 gem 'gmaps4rails'
 
+
+
+group :development do
+  gem "rails-erd"
+  gem 'railroady'
+end
+
 group :production do
   # gems specifically for Heroku go here
   gem "pg"

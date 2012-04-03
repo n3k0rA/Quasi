@@ -1,6 +1,6 @@
 %p#notice= notice
 #h1
-  =t :submit_translation, :event => @event
+  =t :submit_translation, :event => @event.title
 =t :greeting_user
 
 = form_for @translation do |f|
@@ -15,19 +15,19 @@
   %p
     =f.label t :lang_spanish
     %br
-    =f.text_area(:des_es, :value => @event.description)
+    =f.text_area(:des_es, :value => @event.des_es)
   %p
     =f.label t :lang_basque
     %br
-    =f.text_area :des_eu
+    =f.text_area(:des_eu, :value => @event.des_eu)
   %p
     =f.label t :lang_french
     %br
-    =f.text_area :des_fr
+    =f.text_area(:des_fr, :value => @event.des_fr)
   %p
     =f.label t :lang_english
     %br
-    =f.text_area :des_en
+    =f.text_area(:des_en, :value => @event.des_en)
   %p
     =f.label t :leave_comment
     %br

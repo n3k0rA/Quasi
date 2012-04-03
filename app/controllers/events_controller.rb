@@ -22,6 +22,8 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @event = Event.find(params[:id])
+    @event.views += 1
+    @event.save
     @comment = Comment.new(:event => @event)
     @json = @event.to_gmaps4rails
     
@@ -79,7 +81,13 @@ class EventsController < ApplicationController
       end
     end
   end
-
+  
+  def resubmit
+    @old_event = Event.find(params[:id])
+    @event = Event.new
+  end
+  
+  
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy

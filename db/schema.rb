@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120329083621) do
+ActiveRecord::Schema.define(:version => 20120403173055) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -71,6 +71,11 @@ ActiveRecord::Schema.define(:version => 20120329083621) do
     t.text     "des_eu"
     t.text     "des_en"
     t.text     "des_fr"
+    t.integer  "views",            :default => 0
+    t.string   "title_es"
+    t.string   "title_eu"
+    t.string   "title_fr"
+    t.string   "title_en"
   end
 
   create_table "events_users", :id => false, :force => true do |t|

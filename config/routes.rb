@@ -16,11 +16,12 @@ Quasi::Application.routes.draw do
     get "add_reminder" => "reminder#add", :as => "add_reminder"
     post "del_reminder" => "reminder#delete", :as => "del_reminder"
     get "user_reminders" => "users#reminders", :as => "rem"
-    get "user_events" => "users#events", :as => "ev_created"
+    get "resubmit_event" => "events#resubmit", :as => "resubmit_event"
 
     get "user_messages" => "users#messages", :as => "account"
     
     match 'events/category/:category' => 'events#category', :as => :category
+    match 'users/events_created/:user' => "users#events", :as => "ev_created"
     get "change_locale" => "application#change_locale", :as => "change_locale"
     get "commit_translation" => "translations#commit", :as => "commit_translation"
   end
@@ -41,6 +42,7 @@ Quasi::Application.routes.draw do
     resource :user_sessions
     resources :categories
     resources :events
+    resources :translations
     get "log_in" => "user_sessions#new", :as => "log_in"
     get "log_out" => "user_sessions#destroy", :as => "log_out"
     resources :users

@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   before_filter :get_current_user, :only => [:edit, :update, :destroy, :reminders, :events, :messages]
+  before_filter :require_user, :only =>[:edit, :update, :destroy, :reminders, :messages]
   
   def index
     @users = User.all
