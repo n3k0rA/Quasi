@@ -7,7 +7,7 @@ class Event < ActiveRecord::Base
   has_many :comments, :dependent => :destroy
   has_many :translations, :dependent => :destroy
   has_attached_file :pic, :styles =>
-            { :medium => "300x300>", :thumb => "100x100>"}
+            { :medium => "300x300>", :thumb => "100x100>"},
             :storage => :s3,
             :s3_credentials => {
               :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
