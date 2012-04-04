@@ -25,6 +25,7 @@ Quasi::Application.routes.draw do
     get "change_locale" => "application#change_locale", :as => "change_locale"
     get "commit_translation" => "translations#commit", :as => "commit_translation"
     get "account_locked" => "users#account_locked", :as => "account_locked"
+    get "edit_password_reset" => "password_resets#edit", :as => "edit_password_reset"
   end
  
   # Google verify.
