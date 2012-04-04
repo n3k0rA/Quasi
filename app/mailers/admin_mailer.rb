@@ -1,5 +1,6 @@
 class AdminMailer < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "approvals@hikultura.com"
+
   
   def approve_event(event)
     @event = event

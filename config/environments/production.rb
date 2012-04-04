@@ -68,3 +68,5 @@ Quasi::Application.configure do
     :authentication       => 'plain',
     :enable_starttls_auto => true  }
   end
+  config.action_mailer.default_url_options = { :host =>
+  "hikultura.com" }
