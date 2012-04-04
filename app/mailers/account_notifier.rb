@@ -20,7 +20,7 @@ class AccountNotifier < ActionMailer::Base
   #   en.account_notifier.forgotten.subject
   #
   def forgotten(email)
-    @user = User.find(params[:email])
+    @user = User.find_by_email(email)
     @greeting = "Hi"
 
     mail to: @user.email, subject: 'HiKultura has your answers!'
