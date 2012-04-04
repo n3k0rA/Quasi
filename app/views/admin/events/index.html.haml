@@ -14,5 +14,8 @@
             | #{event.town}
           = link_to 'Edit', edit_admin_event_path(event)
           = link_to 'Destroy', admin_event_path(event), confirm: 'Are you sure?', method: :delete
-%br/
+          %strong
+            -if !event.approved?
+              = link_to "Approve!", admin_approve_event_path(:id =>event.id)
+%br
 

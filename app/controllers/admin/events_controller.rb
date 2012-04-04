@@ -96,6 +96,8 @@ class Admin::EventsController < Admin::AdminController
     @event = Event.find(params[:id])
     @event.approved = true
     @event.save
+    flash[:notice] = "Event approved succesfully"
+    redirect_to admin_events_path
   end
   
 end
