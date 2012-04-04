@@ -112,10 +112,6 @@ class EventsController < ApplicationController
     end
   end
   
-  def approved
-    @event = Event.find(params[:id])
-    @event.approved = true
-    @event.save
-  end
+  
   
 end

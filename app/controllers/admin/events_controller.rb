@@ -92,4 +92,10 @@ class Admin::EventsController < Admin::AdminController
   def locations
   end
   
+  def approved
+    @event = Event.find(params[:id])
+    @event.approved = true
+    @event.save
+  end
+  
 end
