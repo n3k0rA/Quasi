@@ -89,4 +89,8 @@ class UsersController < ApplicationController
   def get_current_user
     @user = current_user
   end
+  
+  def account_locked
+    @user = User.find(params[:id])
+  end
 end
