@@ -13,6 +13,7 @@ class Event < ActiveRecord::Base
               :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
               :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
             },
+            :path => ":attachment/:id/:style.:extension",
             :bucket => ENV['S3_BUCKET_NAME']
           #  :path => "for/example/:id/:style.:extension",
           #  :url  => ":s3_eu_url"

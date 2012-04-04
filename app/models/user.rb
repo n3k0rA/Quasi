@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
     },
   #  :s3_protocol => "https",
   #  :path => ":class/:id/:basename_:style.:extension",
+    :path => ":attachment/:id/:style.:extension",
     :bucket => ENV['S3_BUCKET_NAME']
   #  :url  => ":s3_eu_url"
   has_many :followings
