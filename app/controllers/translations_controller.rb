@@ -1,6 +1,6 @@
 class TranslationsController < ApplicationController
-  before_filter :require_user
-  before_filter :require_ownership, :only => [:commit]
+  #before_filter :require_user
+  #before_filter :require_ownership, :only => [:commit]
   
   def new
     @event = Event.find(params[:id])
