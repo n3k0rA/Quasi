@@ -63,8 +63,8 @@ Quasi::Application.configure do
     :address              => "smtp.gmail.com",
     :port                 => 587,
     :domain               => 'baci.lindsaar.net',
-    :user_name            => 'admin@hikultura.com',
-    :password             => '<password>',
+    :user_name            => 'info@hikultura.com',
+    :password             => ENV['GMAIL_SMTP_PASSWORD'],
     :authentication       => 'plain',
     :enable_starttls_auto => true  }
   end
