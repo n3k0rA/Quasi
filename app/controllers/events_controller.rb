@@ -54,7 +54,7 @@ class EventsController < ApplicationController
   def create  
     categories = params[:category_ids] or []
     @event = Event.new(params[:event].merge(:user_id => current_user.id, :category_ids => categories))
-
+    AdminMailer.approve_event(@event).deliver
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: I18n.t(:events_create) }
