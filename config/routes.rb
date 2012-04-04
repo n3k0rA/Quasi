@@ -24,6 +24,7 @@ Quasi::Application.routes.draw do
     match 'users/events_created/:user' => "users#events", :as => "ev_created"
     get "change_locale" => "application#change_locale", :as => "change_locale"
     get "commit_translation" => "translations#commit", :as => "commit_translation"
+    get "approve_event" =>"events#approved", :as=>"approve_event"
   end
  
   # Google verify.
