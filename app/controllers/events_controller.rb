@@ -22,7 +22,7 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @event = Event.find(params[:id])
-    @event.views += 1
+    @event.views =+ 1
     @event.save
     @comment = Comment.new(:event => @event)
     @json = @event.to_gmaps4rails
