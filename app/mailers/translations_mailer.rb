@@ -5,6 +5,7 @@ class TranslationsMailer < ActionMailer::Base
     @event = translation.event
     @creator = translation.event.user
     @translator = translation.user
+  end
     
     
 end
