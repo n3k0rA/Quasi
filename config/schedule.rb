@@ -23,3 +23,11 @@
 every 1.day, :at => '18:10' do
   runner "Alarm.proba"
 end
+
+every 1.day, :at=> '6:08 pm' do
+  runner "Alarm.proba2"
+end
+
+every 1.day, :at=> '6:15 pm' do
+  runner "Alarms.proba2"
+end

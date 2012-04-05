@@ -45,4 +45,10 @@ class AlarmsController < ApplicationController
     EventNotifier.alarm(@event, @user).deliver
   end
   
+  def proba2
+    @event = Event.find(10)
+    @user =User.find(13)
+    EventNotifier.alarm(@event, @user).deliver
+  end
+  
 end
