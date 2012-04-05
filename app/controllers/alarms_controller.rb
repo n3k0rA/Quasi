@@ -35,6 +35,8 @@ class AlarmsController < ApplicationController
       @alarm.active = true
     end
     @alarm.save
+    @event = Event.find(18)
+    EventNotifier.reminder(@event).deliver
     redirect_to alarms_path
   end
   

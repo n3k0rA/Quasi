@@ -1,0 +1,12 @@
+Hi there bacalao!
+
+Do not forget that =@event.title is =l @event.startDate, :format => long
+
+Excerpt of description:
+=truncate(strip_tags(@event.description), length:200)
+
+=link_to 'Show me', events_url(@event)
+
+Have fun,
+
+HiKultura Team
