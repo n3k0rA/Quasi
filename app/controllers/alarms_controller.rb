@@ -35,8 +35,14 @@ class AlarmsController < ApplicationController
       @alarm.active = true
     end
     @alarm.save
-    @event = Event.find(10)
     redirect_to alarms_path
+  end
+  
+  
+  def proba
+    @event = Event.find(10)
+    @user =User.find(12)
+    EventNotifier.alarm(@event, @user).deliver
   end
   
 end
