@@ -18,8 +18,8 @@
           =link_to 'Delete', alarm, :confirm => 'Are you sure', :method => :delete
         %dd
           -if alarm.active
-            =link_to 'Deactivate', alarm_switch_path(alarm)
+            =link_to 'Deactivate', alarm_switch_path(:id =>alarm.id)
           -else
-            =link_to "Activate", alarm_switch_path(alarm)
+            =link_to "Activate", alarm_switch_path(:id => alarm.id)
       
 %br/
