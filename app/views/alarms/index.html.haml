@@ -1,0 +1,25 @@
+%p#notice= notice
+%table
+  - @alarms.each do |alarm|
+    %p
+    %tr{:class => cycle('list_line_odd', 'list_line_even')}
+      %td
+        %b= link_to alarm.title, alarm
+      %td
+        %dd= alarm.keyword
+      %td
+        %dd= alarm.where
+      %td
+        %dd Categories...
+      %td
+        %dd
+          =link_to 'Edit', edit_alarm_path(alarm)
+        %dd
+          =link_to 'Delete', alarm, :confirm => 'Are you sure', :method => :delete
+        %dd
+          -if alarm.active
+            =link_to 'Deactivate', alarm_switch_path(alarm)
+          -else
+            =link_to "Activate", alarm_switch_path(alarm)
+      
+%br/

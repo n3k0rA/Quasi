@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
         format.html { redirect_to @comment.event, notice: I18n.t(:comments_create) }
         format.json { render json: @comment.event, status: :created, location: @comment.event }
       else
-        format.html { render action: "new" }
+        format.html { redirect_to  @comment.event, notice: "Comment body cannot be blank" }
         format.json { render json: @comment.event.errors, status: :unprocessable_entity }
       end
     end

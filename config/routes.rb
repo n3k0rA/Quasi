@@ -8,6 +8,7 @@ Quasi::Application.routes.draw do
     resource :user_sessions
     resources :translations
     resources :password_resets
+    resources :alarms
     
     get "log_in" => "user_sessions#new", :as => "log_in"
     get "log_out" => "user_sessions#destroy", :as => "log_out"  
@@ -26,6 +27,10 @@ Quasi::Application.routes.draw do
     get "commit_translation" => "translations#commit", :as => "commit_translation"
     get "account_locked" => "users#account_locked", :as => "account_locked"
     get "edit_password_reset" => "password_resets#edit", :as => "edit_password_reset"
+    #match 'users/alarms' => "alarms#index", :as => "user_alarms"
+    match 'user/alarms/:alarm' => "users#alarms", :as => :alarms
+    get 'alarm_switch' => "alarms#switch", :as => "alarm_switch"
+    
   end
  
   # Google verify.
