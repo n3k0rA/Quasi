@@ -13,6 +13,6 @@ class EventNotifier < ActionMailer::Base
   def reminder(event)
     @event = event
     @bcc = @event.users.map(&:email)
-    mail(subject: "\"#{@event.title}\" is coming up! Don't miss it!", bcc: @bcc, from: "\"Event Reminder | HiKultura\"<info@hikultura.com")
+    mail(subject: "\"#{@event.title}\" is coming up! Don't miss it!", bcc: @bcc, from: "\"Event Reminder | HiKultura\"<info@hikultura.com>")
   end
 end
