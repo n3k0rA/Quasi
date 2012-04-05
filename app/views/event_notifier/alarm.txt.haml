@@ -2,10 +2,15 @@
 
 Hello 
 =@user.name
-
+-
 =@event.user.name
 just uploaded this event you might be interested on. Check it out
 
+=@event.title
+=@event.startDate
+=@event.description
+------------------------
+------------------------
 =link_to 'Show me', @event
 =link_to 'Add to you reminders', add_reminder_path(:id => @event.id)
 
