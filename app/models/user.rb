@@ -22,6 +22,7 @@ class User < ActiveRecord::Base
   has_many :communications
   has_many :receivers, :through => :communications
   has_many :translations
+  has_many :alarms
   
   
   def deliver_password_reset_instructions!

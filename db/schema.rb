@@ -11,12 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120404173052) do
+ActiveRecord::Schema.define(:version => 20120405081217) do
+
+  create_table "alarms", :force => true do |t|
+    t.integer  "user_id"
+    t.boolean  "active",     :default => true
+    t.string   "title"
+    t.string   "keyword"
+    t.string   "where"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "categories", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "categories_alarms", :id => false, :force => true do |t|
+    t.integer "category_id"
+    t.integer "alarm_id"
   end
 
   create_table "categories_events", :id => false, :force => true do |t|
