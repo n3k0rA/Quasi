@@ -2,14 +2,16 @@ class CommentsController < ApplicationController
 
   before_filter :require_user, :only => [:create, :destroy]
   before_filter :deletable_comment, :only=> [:destroy]
+  after_filter :create_micropost, :only=>[:create]
   
   # POST /comments
   # POST /comments.json
   def create
     @comment = Comment.new(params[:comment])
     @comment.user = current_user
-    @comment.banned = false
-    
+    @user= current_user
+    @content = "has commented in"
+    @object = @comment.event.id
     respond_to do |format|
       if @comment.save
         format.html { redirect_to @comment.event, notice: I18n.t(:comments_create) }

@@ -22,6 +22,11 @@ class ApplicationController < ActionController::Base
   
   
   private
+    def create_micropost
+      @micropost = Micropost.create(:user_id =>@user.id, :content =>@content, :object_id =>@object)
+      
+    end
+    
     def get_events_and_categories
       @events_leftbar = if current_user
         categories = current_user.events.map(&:categories).flatten

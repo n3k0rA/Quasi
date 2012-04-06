@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
 
-  before_filter :get_current_user, :only => [:edit, :update, :destroy, :reminders, :events, :messages]
+  before_filter :get_current_user, :only => [:edit, :update, :destroy, :reminders, :events, :messages, :microposts]
   before_filter :require_user, :only =>[:edit, :update, :destroy, :reminders, :messages]
+  
   
   def index
     @users = User.all
@@ -17,7 +18,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @followers = Following.where(:followed_id => @user).all
-
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @user }
@@ -93,5 +94,9 @@ class UsersController < ApplicationController
   
   def account_locked
     @user = User.find(params[:id])
+  end
+  
+  def microposts
+    @microposts = Micropost.all
   end
 end

@@ -1,6 +1,6 @@
 class Admin::EventsController < Admin::AdminController
   
- 
+  after_filter :create_micropost, :only=>[:approved]
   
   def category
     @category = Category.find(params[:category])
@@ -94,6 +94,9 @@ class Admin::EventsController < Admin::AdminController
   
   def approved
     @event = Event.find(params[:id])
+    @user = @event.user
+    @content = "uploaded"
+    @object=@event.id
     @event.approved = true
     @event.save
     flash[:notice] = "Event approved succesfully"

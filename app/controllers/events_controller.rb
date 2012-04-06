@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   
   before_filter :require_user, :only => [:new, :create, :update, :edit]
   before_filter :require_ownership, :only => [:edit, :update, :destroy]
-  
+  after_filter :create_micropost, :only=>[:update]
   def category
     @category = Category.find(params[:category])
     @events = @category.events
@@ -70,7 +70,9 @@ class EventsController < ApplicationController
   # PUT /events/1.json
   def update
     @event = Event.find(params[:id])
-
+    @user = @event.user
+    @content = "edited"
+    @object=@event.id
     respond_to do |format|
       if @event.update_attributes(params[:event])
         format.html { redirect_to @event, notice: I18n.t(:event_update) }

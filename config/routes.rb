@@ -9,6 +9,7 @@ Quasi::Application.routes.draw do
     resources :translations
     resources :password_resets
     resources :alarms
+    resources :microposts
     
     get "log_in" => "user_sessions#new", :as => "log_in"
     get "log_out" => "user_sessions#destroy", :as => "log_out"  
@@ -19,7 +20,7 @@ Quasi::Application.routes.draw do
     get "user_reminders" => "users#reminders", :as => "rem"
     get "resubmit_event" => "events#resubmit", :as => "resubmit_event"
 
-    get "user_messages" => "users#messages", :as => "account"
+    get "user_microposts" => "users#microposts", :as => "account"
     
     match 'events/category/:category' => 'events#category', :as => :category
     match 'users/events_created/:user' => "users#events", :as => "ev_created"

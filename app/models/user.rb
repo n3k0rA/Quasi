@@ -21,9 +21,10 @@ class User < ActiveRecord::Base
   has_many :followeds, :through => :followings
   has_many :communications
   has_many :receivers, :through => :communications
-  has_many :translations
-  has_many :alarms
-  
+  has_many :translations, :dependent => :destroy
+  has_many :alarms, :dependent => :destroy
+  has_many :microposts, :dependent => :destroy
+   
   
   def deliver_password_reset_instructions!
     reset_perishable_token!

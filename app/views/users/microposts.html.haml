@@ -1,0 +1,17 @@
+%p#notice= notice
+%h3 Welcome
+
+=if @user.followings.empty?
+  Here you can keep up to date checking the activity of the users you are following.
+%p
+-@microposts.each do |micro|
+  %p
+    =link_to micro.user.name, micro.user
+    =micro.content
+    -if micro.content.eql?("is now following")
+      -@user = User.find(micro.object_id)
+      =link_to @user.name, @user
+    -else
+      -@event = Event.find(micro.object_id)
+      =link_to @event.title, @event
+  
