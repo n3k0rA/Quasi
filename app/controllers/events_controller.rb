@@ -112,10 +112,13 @@ class EventsController < ApplicationController
     end
   end
   
-  def remid_users
-    @event = Event.find(12)
-    EventNotifier.reminder(@event).deliver
-  
+  def remind_users
+    @events = Event.all
+    @events.each do |event|
+      if (!event.reminded  && ((event.startDate-Time.now)< 259146.01469397545))
+        EventNotifier.reminder(event).deliver
+      end
+    end
   end
   
 end

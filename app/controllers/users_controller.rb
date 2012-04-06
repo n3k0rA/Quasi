@@ -78,6 +78,7 @@ class UsersController < ApplicationController
   end
   
   def reminders
+    @events = @user.events(:order =>'startDate ASC')
   end
   
   def events

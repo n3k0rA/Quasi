@@ -2,11 +2,11 @@
 %h3 User reminders
 %div
   %div
-    - if @user.events.empty?
+    - if @events.empty?
       %p 
         = t :user_no_reminders
     - else
-      - @user.events.each do |event|
+      - @events.each do |event|
         - @event = Event.find(event)
         .entry_side
           - image = image_tag(@event.pic.url(:thumb), class: 'list_image')

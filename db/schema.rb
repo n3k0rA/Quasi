@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120405081217) do
+ActiveRecord::Schema.define(:version => 20120406073604) do
 
   create_table "alarms", :force => true do |t|
     t.integer  "user_id"
@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(:version => 20120405081217) do
     t.string   "title_fr"
     t.string   "title_en"
     t.boolean  "approved",         :default => false
+    t.boolean  "reminded",         :default => false
   end
 
   create_table "events_users", :id => false, :force => true do |t|
