@@ -14,4 +14,8 @@
     -else
       -@event = Event.find(micro.object_id)
       =link_to @event.title, @event
-  
+    %br
+    %small
+      =t :comment_posted  
+      #{time_ago_in_words(micro.created_at)}
+    

@@ -97,6 +97,6 @@ class UsersController < ApplicationController
   end
   
   def microposts
-    @microposts = Micropost.all
+    @microposts = current_user.followeds.map(&:microposts).flatten
   end
 end

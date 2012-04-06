@@ -95,7 +95,7 @@ class Admin::EventsController < Admin::AdminController
   def approved
     @event = Event.find(params[:id])
     @user = @event.user
-    @content = "uploaded"
+    @content = "uploaded a new event,"
     @object=@event.id
     @event.approved = true
     @event.save
