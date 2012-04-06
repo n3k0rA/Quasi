@@ -1,4 +1,38 @@
 %p#notice= notice
+
+#new_alarm
+  =form_for(@alarm) do |f|
+    - if @alarm.errors.any?
+      #error_explanation
+        %h2
+          = pluralize(@alarm.errors.count, "error")
+          =t :event_form_error
+          //prohibited this event from being saved:
+        %ul
+          - @alarm.errors.full_messages.each do |msg|
+            %li= msg
+    = f.hidden_field :user_id
+    %p
+      = f.label :Title
+      = f.text_field :title
+    %br
+      = f.label :Keyword
+      = f.text_field :keyword
+    %br
+      = f.label :Where
+      = f.text_field :where
+    %br
+      =f.label :Alarm_Categories
+      - Category.all.each do |category|
+        .field
+          =check_box_tag "category_ids[]", category.id
+          =category.name
+    %br
+      = f.label :Activated
+      = f.check_box :active
+    %p
+    .actions
+      =f.submit
 %table
   - @alarms.each do |alarm|
     %p
@@ -12,14 +46,15 @@
       %td
         %dd Categories...
       %td
-        %dd
-          =link_to 'Edit', edit_alarm_path(alarm)
-        %dd
-          =link_to 'Delete', alarm, :confirm => 'Are you sure', :method => :delete
-        %dd
-          -if alarm.active
-            =link_to 'Deactivate', alarm_switch_path(:id =>alarm.id)
-          -else
-            =link_to "Activate", alarm_switch_path(:id => alarm.id)
+        %small
+          %dd
+            =link_to 'Edit', edit_alarm_path(alarm)
+          %dd
+            =link_to 'Delete', alarm, :confirm => 'Are you sure', :method => :delete
+          %dd
+            -if alarm.active
+              =link_to 'Deactivate', alarm_switch_path(:id =>alarm.id)
+            -else
+              =link_to "Activate", alarm_switch_path(:id => alarm.id)
       
 %br/

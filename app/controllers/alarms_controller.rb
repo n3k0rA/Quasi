@@ -2,15 +2,14 @@ class AlarmsController < ApplicationController
   
   
   def create
-    @alarm = Alarms.new(params[:alarm])
-    @alarm.user = current_user
-    
+    @alarm = Alarm.new(params[:alarm])  
+    @alarm.user = current_user 
     respond_to do |format|
       if @alarm.save
-        format.html { redirect_to user_alarms_path, notice: "Alarms saved succesfully" }
-        format.json { render json: user_alarms_path, status: :created, location: user_alarms_path}
+        format.html { redirect_to alarms_path, notice: "Alarms saved succesfully" }
+        format.json { render json: alarms_path, status: :created, location: user_alarms_path}
       else
-        format.html { redirect_to user_alarms_path, notice: "Impossible to save. Check the form" }
+        format.html { redirect_to alarms_path, notice: "Impossible to save. Check the form" }
         format.json { render json: @alarm.errors, status: :inprocessable_entity }
       end
     end
@@ -25,6 +24,7 @@ class AlarmsController < ApplicationController
   
   def index
     @alarms = current_user.alarms.all
+    @alarm = Alarm.new()
   end
   
   def switch
