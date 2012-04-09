@@ -31,6 +31,7 @@ Quasi::Application.routes.draw do
     #match 'users/alarms' => "alarms#index", :as => "user_alarms"
     #match 'user/alarms/:alarm' => "users#alarms", :as => :alarms
     get 'alarm_switch' => "alarms#switch", :as => "alarm_switch"
+    get 'cancel_event' => "events#cancel", :as => "cancel_event"
     
   end
  

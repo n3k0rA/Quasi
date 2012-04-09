@@ -3,7 +3,7 @@ class CreateMicropostsTable < ActiveRecord::Migration
     create_table :microposts do |t|
       t.integer :user_id
       t.string :content
-      t.integer :event_id
+      t.integer :object_id
       
       t.timestamps
     end

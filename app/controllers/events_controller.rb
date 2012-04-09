@@ -54,6 +54,7 @@ class EventsController < ApplicationController
   def create  
     categories = params[:category_ids] or []
     @event = Event.new(params[:event].merge(:user_id => current_user.id, :category_ids => categories))
+    check_date
     respond_to do |format|
       if @event.save
         AdminMailer.approve_event(@event).deliver
@@ -71,15 +72,31 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
     @user = @event.user
-    @content = "edited"
     @object=@event.id
-    respond_to do |format|
-      if @event.update_attributes(params[:event])
-        format.html { redirect_to @event, notice: I18n.t(:event_update) }
-        format.json { head :ok }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
+    if @event.cancelled
+      @content = "cancelled"
+      @event.approved = true
+      respond_to do |format|
+        if @event.update_attributes(params[:event])
+          format.html { redirect_to @event, notice: I18n.t(:event_update) }
+          format.json { head :ok }
+        else
+          format.html { render action: "edit" }
+          format.json { render json: @event.errors, status: :unprocessable_entity }
+        end
+      end
+      EventNotifier.cancellation(@event).deliver
+    else
+      @content = "edited"
+      check_date
+      respond_to do |format|
+        if @event.update_attributes(params[:event])
+          format.html { redirect_to @event, notice: I18n.t(:event_update) }
+          format.json { head :ok }
+        else
+          format.html { render action: "edit" }
+          format.json { render json: @event.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -94,12 +111,22 @@ class EventsController < ApplicationController
   # DELETE /events/1.json
   def destroy
     @event = Event.find(params[:id])
-    @event.destroy
-
-    respond_to do |format|
-      format.html { redirect_to events_url }
-      format.json { head :ok }
+    if (@event.users.empty? || (@event.approved =false))
+      @event.destroy
+      respond_to do |format|
+        format.html { redirect_to events_url }
+        format.json { head :ok }
+      end
+    else
+      @event.cancelled = true
+      @event.approved = false
+      @event.save
+      redirect_to cancel_event_path(:id=>@event.id)
     end
+  end
+  
+  def cancel
+    @event = Event.find(params[:id])
   end
   
   def locations
@@ -117,10 +144,24 @@ class EventsController < ApplicationController
   def remind_users
     @events = Event.all
     @events.each do |event|
-      if (!event.reminded  && ((event.startDate-Time.now)< 259146.01469397545))
+      if (!event.reminded  && close_date)
         EventNotifier.reminder(event).deliver
       end
     end
   end
   
+private
+  def check_date
+    if close_date
+      @event.reminded = true
+    end
+  end
+  
+  def close_date
+    if ((@event.startDate-Time.now)< 259146.01469397545)
+      true
+    else 
+      false
+    end
+  end
 end

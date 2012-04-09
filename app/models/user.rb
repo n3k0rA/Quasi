@@ -17,8 +17,8 @@ class User < ActiveRecord::Base
     :path => ":attachment/:id/:style.:extension",
     :bucket => ENV['S3_BUCKET_NAME']
   #  :url  => ":s3_eu_url"
-  has_many :followings
-  has_many :followeds, :through => :followings
+  has_many :followings, :dependent => :destroy
+  has_many :followeds, :through => :followings, :dependent => :destroy
   has_many :communications
   has_many :receivers, :through => :communications
   has_many :translations, :dependent => :destroy

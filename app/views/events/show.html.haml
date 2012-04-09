@@ -41,8 +41,11 @@
       = @event.categories.map(&:name).to_sentence
 .interested
   - if (current_user && current_user.events.include?(@event))
-    %h3 
-      = t :already_following_event
+    %h3  
+      -if ((@event.startDate-Time.now)< 259146.01469397545)
+        Less than 3 days!!
+      -else
+        = t :already_following_event
   - else  
     
 #info
