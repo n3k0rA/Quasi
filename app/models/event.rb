@@ -19,7 +19,7 @@ class Event < ActiveRecord::Base
           #  :url  => ":s3_eu_url"
 
   validates :title, :description, presence: true
-  
+  self.per_page = 10
   
   def gmaps4rails_address
   #describe how to retrieve the address from your model, if you use directly a db column, you can dry your code, see wiki

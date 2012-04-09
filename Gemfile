@@ -15,6 +15,7 @@ gem 'nifty-generators'
 gem 'gmaps4rails'
 gem 'metamagic'
 gem 'headliner'
+gem 'will_paginate', '~> 3.0'
 
 
 group :development do

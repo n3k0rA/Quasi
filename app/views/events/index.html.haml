@@ -1,4 +1,5 @@
 %p#notice= notice
+
 %table
   - @events.each do |event|
     %tr{:class => cycle('list_line_odd', 'list_line_even')}
@@ -13,4 +14,7 @@
             = event.place
             | #{event.town}
           %dd= truncate(strip_tags(event.description), length:80)
-%br/
+%p
+#pagination
+  .apple_pagination
+    = will_paginate
