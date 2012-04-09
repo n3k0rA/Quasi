@@ -1,9 +1,12 @@
+
+
 %p#notice= notice
 #main.top
   %div
     = image_tag(@event.pic.url(:medium), class:"list_image_show", :alt =>"Event picture")
   %p
-    %h2= @event.title
+    %h2
+      =title @event.title
   .details
     %p
       %b 
@@ -92,13 +95,7 @@
       =@json
       = gmaps4rails(@json)
   .side_small
-    %div
-      %p
-        = image_tag ("media/google.png")
-        = image_tag ("media/tw.png")
-      %p
-        = image_tag ("media/wd.png")
-        = image_tag ("media/fb.png")
+
     .attenders
       =I18n.t("interested", :count=> @event.users.count)
       %div

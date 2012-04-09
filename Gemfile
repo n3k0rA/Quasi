@@ -13,7 +13,8 @@ gem 'hpricot'
 gem 'haml'
 gem 'nifty-generators' 
 gem 'gmaps4rails'
-
+gem 'metamagic'
+gem 'headliner'
 
 
 group :development do

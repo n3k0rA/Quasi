@@ -26,7 +26,7 @@ class EventsController < ApplicationController
     @event.save
     @comment = Comment.new(:event => @event)
     @json = @event.to_gmaps4rails
-
+    meta :title => @event.title, :description => @event.description
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @event }

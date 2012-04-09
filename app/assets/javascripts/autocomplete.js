@@ -6,12 +6,6 @@ $(function () {
 });
 
 $(function() {
-	$('#tabs').tabs({
-		event: "mouseover"
-	});
-});
-
-$(function() {
 		var availableTags = [
 		"ActionScript",
 		"AppleScript",

@@ -1,11 +1,13 @@
 
 %html
   %head
-    %title The best web - - version 0.0.8.1.5.2 Beta
+    = title :site => "HiKultura"
+    = metamagic :title => @title, :description => "My default description."
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
     = csrf_meta_tags
-    <link type="text/css" href="http://yourwebsite.com/css/ui-lightness/jquery-ui-1.8.custom.css" rel="stylesheet" />   
+    <link type="text/css" href="http://yourwebsite.com/css/ui-lightness/jquery-ui-1.8.custom.css" rel="stylesheet" /> 
+    <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4f832c682c196183"></script>  
   %body{:class => "#{controller.controller_name} container"}
     .container
       #header
@@ -63,6 +65,15 @@
                 %li= link_to "Crack on!", root_path
             #uploadEvent
               = link_to I18n.t(:upload_event_button), new_event_path, :class => "upload_button", :alt => "Subir evento"
+          %p
+            <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+            <a class="addthis_button_preferred_1"></a>
+            <a class="addthis_button_preferred_2"></a>
+            <a class="addthis_button_preferred_3"></a>
+            <a class="addthis_button_preferred_4"></a>
+            <a class="addthis_button_compact"></a>
+            <a class="addthis_counter addthis_bubble_style"></a>
+            </div>
         #submenu
           %div
             %b= link_to "All", events_path
@@ -82,7 +93,9 @@
                   = l event.startDate,  :format => :short
                   | #{event.town}
         #right_side
+          
           = yield
+            
       #footer
         =yield :scripts
         %h1

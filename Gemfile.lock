@@ -64,6 +64,7 @@ GEM
       activesupport (~> 3.0)
       haml (~> 3.0)
       railties (~> 3.0)
+    headliner (0.1.3)
     hike (1.2.1)
     hpricot (0.8.6)
     httparty (0.8.1)
@@ -79,6 +80,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     metaclass (0.0.1)
+    metamagic (1.0.0)
     mime-types (1.17.2)
     mocha (0.10.5)
       metaclass (~> 0.0.1)
@@ -166,8 +168,10 @@ DEPENDENCIES
   gmaps4rails
   haml
   haml-rails
+  headliner
   hpricot
   jquery-rails
+  metamagic
   mocha
   nifty-generators
   paperclip (~> 2.5.0)

@@ -205,7 +205,7 @@ body {
 
 #right_side {
 	float:left;
-	width:525px;
+	max-width:525px;
 	position: absolute;
 	left: 160px;
 	overflow:hidden;
