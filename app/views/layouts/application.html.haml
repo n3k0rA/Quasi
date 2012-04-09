@@ -21,7 +21,7 @@
                 #user_nav
                   - if current_user
                     =I18n.t(:logged_as) 
-                    #{current_user.name}
+                    = link_to current_user.name, account_path
                     = link_to I18n.t(:log_out), log_out_path
                   - else
                     = link_to I18n.t(:sign_up), sign_up_path

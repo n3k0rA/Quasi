@@ -2,7 +2,7 @@
 %p
   %h2
     = @user.name
-= image_tag @user.pic.url(:medium)
+= image_tag @user.photo.url(:medium)
 %br
 %p
   = t :email
@@ -21,10 +21,11 @@
     = t :user_website
   = @user.website
 = link_to 'Edit', edit_user_path(@user)
--if (current_user && current_user.followings.any?{|follow| follow.followed_id == @user.id})
-  =t :user_already_following
--else  
-  = link_to 'Follow this user', followings_path(:followed_id => @user.id), :method => :post
+-if !@user.eql?(current_user)
+  -if (current_user && current_user.followings.any?{|follow| follow.followed_id == @user.id})
+    =t :user_already_following
+  -else  
+    = link_to 'Follow this user', followings_path(:followed_id => @user.id), :method => :post
 
 %p
   -if @followers.empty?
@@ -38,9 +39,9 @@
       %p
         -userName = @follower.name
         %br/
-        - user_pic = image_tag(@follower.pic.url(:thumb), class:"side_pic")
-        =link_to user_pic, @follower
-        =link_to userName, @follower
+        - user_photo = image_tag(@follower.photo.url(:thumb), class:"side_pic")
+        =link_to user_photo, @follower
+        =link_to userName, @follower 
   
 
 %p
@@ -53,8 +54,8 @@
     -for following in @user.followings
       %p
         -user_name=following.followed.name
-        -user_pic = image_tag(following.followed.pic.url(:thumb), class:"side_pic")
-        =link_to user_pic, following.followed
+        -user_photo = image_tag(following.followed.photo.url(:thumb), class:"side_pic")
+        =link_to user_photo, following.followed
         =link_to user_name, following.followed
         =link_to 'stop!', following, :method => :delete if current_user.eql?(@user)
       

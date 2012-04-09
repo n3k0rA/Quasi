@@ -2,7 +2,8 @@
 %h3 Welcome
 
 =if @user.followings.empty?
-  Here you can keep up to date checking the activity of the users you are following.
+  %p
+    Here you can keep up to date checking the activity of the users you are following.
 %p
 -@microposts.each do |micro|
   %p

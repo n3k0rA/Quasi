@@ -8,7 +8,7 @@
   - else
     - @user.created_events.each do |event|
       .entry_side
-        - image = image_tag(event.pic.url(:thumb), class: 'list_image')
+        - image = image_tag(event.photo.url(:thumb), class: 'list_image')
         = link_to image, event
         %h4
           = link_to event.title , event

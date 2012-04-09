@@ -40,13 +40,16 @@
         = t :event_categories
       = @event.categories.map(&:name).to_sentence
 .interested
-  - if (current_user && current_user.events.include?(@event))
-    %h3  
-      -if ((@event.startDate-Time.now)< 259146.01469397545)
-        Less than 3 days!!
-      -else
-        = t :already_following_event
-  - else  
+  -if @event.cancelled
+    %h3 This event has been cancelled
+  - else
+    - if (current_user && current_user.events.include?(@event))
+      %h3  
+        -if ((@event.startDate-Time.now)< 259146.01469397545)
+          Less than 3 days!!
+        -else
+          = t :already_following_event
+    - else  
     
 #info
   .side_big
@@ -104,8 +107,9 @@
           %p
             - userName = @user.name
           %br/
-          - user_pic= image_tag(@user.pic.url(:thumb), class:"side_pic")
-          = link_to user_pic, @user
+          - user_photo= image_tag(@user.photo.url(:thumb), class:"side_pic")
+          = link_to user_photo, @user
           = link_to userName, @user
 
-=link_to "Add Translation", new_translation_path(:id => @event.id)
+-if !@event.cancelled
+  =link_to "Add Translation", new_translation_path(:id => @event.id)
