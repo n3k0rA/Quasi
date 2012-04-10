@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(:version => 20120410133233) do
     t.integer  "event_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "banned"
+    t.boolean  "banned",     :default => false
   end
 
   add_index "comments", ["event_id"], :name => "index_comments_on_event_id"
