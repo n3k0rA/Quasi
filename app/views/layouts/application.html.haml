@@ -1,9 +1,11 @@
 
-%html
+%html{:lang => "en", "xml:lang" => "en", :xmlns => "http://www.w3.org/1999/xhtml"}
+  
   %head
     = title :site => "HiKultura"
     = metamagic :title => @title, :description => "My default description."
     = stylesheet_link_tag    "application"
+    
     = javascript_include_tag "application"
     = csrf_meta_tags
     <link type="text/css" href="http://yourwebsite.com/css/ui-lightness/jquery-ui-1.8.custom.css" rel="stylesheet" /> 
@@ -18,8 +20,7 @@
               
             #right
               #loggin
-                - flash.each do |name, msg|
-                  = content_tag :div, msg, :id => "flash#{name}"
+                
                 #user_nav
                   - if current_user
                     =I18n.t(:logged_as) 
@@ -82,16 +83,7 @@
               %b= link_to category.name, category_path(category)
               
         #left
-          .block.shadow
-            - @events_leftbar.each do |event|
-              .entry_side
-                - image = image_tag(event.pic.url(:thumb), class: 'side_pic')
-                = link_to image, event
-                %h4
-                  = link_to event.title , event
-                %h6
-                  = l event.startDate,  :format => :short
-                  | #{event.town}
+         
         #right_side
           
           = yield

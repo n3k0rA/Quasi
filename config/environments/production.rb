@@ -44,7 +44,10 @@ Quasi::Application.configure do
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
   # config.assets.precompile += %w( search.js )
-
+  #Enables use of formtastic
+  #config.assets.precompile += %w( ie6.css )
+  #config.assets.precompile += %w( ie7.css )
+  
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
 
@@ -69,4 +72,5 @@ Quasi::Application.configure do
     :authentication       => 'plain',
     :enable_starttls_auto => true  }
   end
+  
   

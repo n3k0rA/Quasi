@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   attr_accessor :photo_content_type
   attr_accessor :photo_file_size
   attr_accessor :photo_updated_at
+  attr_accessor :photo
   
   validates_presence_of :email
   validates_presence_of :name

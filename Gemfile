@@ -18,6 +18,7 @@ gem 'headliner'
 gem 'will_paginate', '~> 3.0'
 
 
+
 group :development do
   gem "rails-erd"
   gem 'railroady'

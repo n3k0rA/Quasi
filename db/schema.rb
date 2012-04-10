@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120406093537) do
+ActiveRecord::Schema.define(:version => 20120410133233) do
 
   create_table "alarms", :force => true do |t|
     t.integer  "user_id"
@@ -93,6 +93,8 @@ ActiveRecord::Schema.define(:version => 20120406093537) do
     t.string   "title_en"
     t.boolean  "approved",         :default => false
     t.boolean  "reminded",         :default => false
+    t.boolean  "cancelled",        :default => false
+    t.text     "cancel_message"
   end
 
   create_table "events_users", :id => false, :force => true do |t|
@@ -151,16 +153,16 @@ ActiveRecord::Schema.define(:version => 20120406093537) do
     t.string   "website"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "pic_file_name"
-    t.string   "pic_content_type"
-    t.integer  "pic_file_size"
-    t.datetime "pic_updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
     t.string   "crypted_password"
     t.string   "persistence_token"
-    t.boolean  "admin",             :default => false
+    t.boolean  "admin",              :default => false
     t.string   "locale"
-    t.string   "perishable_token",  :default => "",    :null => false
-    t.integer  "attempts",          :default => 0
+    t.string   "perishable_token",   :default => "",    :null => false
+    t.integer  "attempts",           :default => 0
   end
 
   add_index "users", ["perishable_token"], :name => "index_users_on_perishable_token"
