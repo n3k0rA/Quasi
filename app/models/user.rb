@@ -7,7 +7,16 @@ class User < ActiveRecord::Base
   has_many :created_events, :class_name => "Event", :foreign_key => "user_id"
   has_many :comments, :dependent => :destroy
   
-  has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+  has_attached_file :photo, :styles => 
+     { :medium => "300x300>", :thumb => "100x100>"},
+      :storage => Rails.env.production? ? :s3 : :filesystem,
+      :s3_credentials => {
+        :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+        :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+      },
+      :path => ":attachment/:id/:style.:extension",
+      :bucket => ENV['S3_BUCKET_NAME']
+    #{ :medium => "300x300>", :thumb => "100x100>" }
     #,
     #:storage => Rails.env.production? ? :s3 : :filesystem,
     #:s3_credentials => { :access_key_id => ENV['AWS_ACCESS_KEY_ID'], :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']},
