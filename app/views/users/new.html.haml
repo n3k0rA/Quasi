@@ -1,7 +1,8 @@
 %p#notice= notice
-%h1 
-  =t :sign_up 
-= form_for @user do |f|
+%h1=t :sign_up 
+
+
+= form_for @user, { :multipart => true } do |f|
   - if @user.errors.any?
     .error_messages
       %h2
@@ -32,4 +33,5 @@
     = f.label t :user_photo
     %br
     = f.file_field :photo
+  
   %p.button= f.submit
