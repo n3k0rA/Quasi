@@ -13,8 +13,6 @@ class EventsController < ApplicationController
   def index
     #@events = Event.all
     @events = Event.paginate(:page => params[:page])
-    
-    
   end
 
   # GET /events/1
@@ -69,14 +67,16 @@ class EventsController < ApplicationController
   # PUT /events/1
   # PUT /events/1.json
   def update
+    categories = params[:category_ids] or []
     @event = Event.find(params[:id])
     @user = @event.user
-    @object=@event.id
+    @object = @event.id
+    
     if @event.cancelled
       @content = "cancelled"
       @event.approved = true
       respond_to do |format|
-        if @event.update_attributes(params[:event])
+        if @event.update_attributes(params[:event].merge(:category_ids => categories))
           format.html { redirect_to @event, notice: I18n.t(:event_update) }
           format.json { head :ok }
         else
@@ -89,7 +89,7 @@ class EventsController < ApplicationController
       @content = "edited"
       check_date
       respond_to do |format|
-        if @event.update_attributes(params[:event])
+        if @event.update_attributes(params[:event].merge(:category_ids => categories))
           format.html { redirect_to @event, notice: I18n.t(:event_update) }
           format.json { head :ok }
         else
@@ -98,6 +98,7 @@ class EventsController < ApplicationController
         end
       end
     end
+  
   end
   
   def resubmit

@@ -16,7 +16,7 @@
   = f.label t :event_categories
   - Category.all.each do |category|
     .field
-      = check_box_tag "category_ids[]", category.id
+      = check_box_tag "category_ids[]", category.id, @event.category_ids.include?(category.id)
       = category.name
   
   .field
