@@ -101,12 +101,23 @@
               %div
                 %b= link_to_unless_current category.name, category_path(category)
           - if @page_id == 'locations'
-            %div
-              %b= link_to "All", events_path
+            - @provinces.each do |province|
+              %div
+                %b= link_to_unless_current province.name, province_path(province)
           - if @page_id == 'account'
             %div
               %b= link_to_unless_current 'Activity', account_path
-        #left
+            %div
+              %b= link_to_unless_current 'Reminders', reminders_path
+            %div
+              %b= link_to_unless_current 'Alarms', alarms_path
+            %div
+              %b= link_to_unless_current 'Uploaded Events', events_created_path
+            %div
+              %b= link_to_unless_current 'Followings', followings_path
+            %div
+              %b= link_to_unless_current 'Profile', current_user
+      #left
          
         #right_side
           

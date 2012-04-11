@@ -13,6 +13,11 @@ class EventsController < ApplicationController
     @events = @category.events
   end
   
+  def province
+    @provinces = Province.find(params[:province])
+    @events = @province.events
+  end
+  
   # GET /events
   # GET /events.json
   def index
@@ -135,6 +140,7 @@ class EventsController < ApplicationController
   end
   
   def locations
+    @provinces = Province.all
   end
   
   def deletable_comment

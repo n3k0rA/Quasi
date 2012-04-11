@@ -1,5 +1,6 @@
 class AlarmsController < ApplicationController
   
+  before_filter {set_up('account')}
   
   def create
     @alarm = Alarm.new(params[:alarm])  

@@ -1,7 +1,7 @@
 class MicropostsController < ApplicationController
   
   before_filter :require_user
-  
+  before_filter {set_up('account')}
   
   def new
   end

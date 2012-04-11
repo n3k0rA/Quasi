@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
-  before_filter :get_current_user, :only => [:edit, :update, :destroy, :reminders, :events, :messages, :microposts]
-  before_filter :require_user, :only =>[:edit, :update, :destroy, :reminders, :messages]
   before_filter {set_up('account')}
+  before_filter :require_user, :only =>[:edit, :update, :destroy, :reminders, :messages, :events, :microposts]
+  before_filter :get_current_user, :only => [:edit, :update, :destroy, :reminders, :events, :messages, :microposts]
   
   def index
     @users = User.all
@@ -88,15 +88,14 @@ class UsersController < ApplicationController
   def messages
   end
   
-  def get_current_user
-    @user = current_user
-  end
+  
   
   def account_locked
     @user = User.find(params[:id])
   end
   
   def microposts
+    
     @microposts = current_user.followeds.map(&:microposts).flatten
   end
   

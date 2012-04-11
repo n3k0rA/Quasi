@@ -20,7 +20,9 @@ class ApplicationController < ActionController::Base
   end
   
   def set_up(page)
+    
     @page_id = page
+    
   end
   
   private
@@ -50,12 +52,17 @@ class ApplicationController < ActionController::Base
     end
     
     def require_user
+      
       unless current_user
         store_location
         flash[:notice] = I18n.t(:app_require_user)
         redirect_to new_user_sessions_url
         return false
       end
+    end
+    
+    def get_current_user
+      @user = current_user
     end
     
     def require_no_user

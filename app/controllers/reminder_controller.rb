@@ -1,5 +1,6 @@
 class ReminderController < ApplicationController
   
+  
   after_filter :create_micropost, :only=>[:add]
   
   def add

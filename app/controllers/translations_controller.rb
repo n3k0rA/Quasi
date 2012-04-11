@@ -2,6 +2,8 @@ class TranslationsController < ApplicationController
   #before_filter :require_user
   #before_filter :require_ownership, :only => [:commit]
   after_filter :create_micropost, :only=>[:commit]
+  before_filter {set_up('events')}
+  
   def new
     @event = Event.find(params[:id])
     @translation = Translation.new(params[:event_id => @event.id])

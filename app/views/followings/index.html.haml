@@ -1,0 +1,14 @@
+%p
+  -if @user.followings.empty?
+    %b 
+      =t :user_no_follows
+  -else
+    %b 
+      The list of the people you follow
+    -for following in @user.followings
+      %p
+        -user_name=following.followed.name
+        -user_photo = image_tag(following.followed.photo.url(:thumb), class:"side_pic")
+        =link_to user_photo, following.followed
+        =link_to user_name, following.followed
+        =link_to 'stop!', following, :method => :delete 

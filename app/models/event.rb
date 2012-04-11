@@ -1,6 +1,7 @@
 class Event < ActiveRecord::Base
   acts_as_gmappable
   
+  has_one :province
   belongs_to :user
   has_and_belongs_to_many :users
   has_and_belongs_to_many :categories
