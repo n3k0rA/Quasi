@@ -82,7 +82,7 @@ class EventsController < ApplicationController
       @event.approved = true
       respond_to do |format|
         if @event.update_attributes(params[:event].merge(:category_ids => categories))
-          format.html { redirect_to @event, notice: I18n.t(:event_update) }
+          format.html { redirect_to events_created_path, notice: I18n.t(:event_deleted) }
           format.json { head :ok }
         else
           format.html { render action: "edit" }
@@ -95,7 +95,7 @@ class EventsController < ApplicationController
       check_date
       respond_to do |format|
         if @event.update_attributes(params[:event].merge(:category_ids => categories))
-          format.html { redirect_to @event, notice: I18n.t(:event_update) }
+          format.html { redirect_to events_created_path, notice: I18n.t(:event_update) }
           format.json { head :ok }
         else
           format.html { render action: "edit" }

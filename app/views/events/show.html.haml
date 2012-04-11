@@ -4,7 +4,6 @@
   %p
     %h2
       =title @event.title
-      =@json
   .details
     %p
       
@@ -90,8 +89,9 @@
             = f.submit t :submit_comment
       #all_comments
         = render :partial => 'comment', :collection => @event.comments
-    #map
-      = gmaps("markers" => {"data" => @json}, "map_options" =>  { "provider" => "openlayers"})
+    #gmap
+      = gmaps("map_options" => { "detect_location" => true, "auto_zoom" => false, "center_on_user" => true, "zoom" => 17},"markers" => { "data" => @json })
+      
      
   .side_small
 
