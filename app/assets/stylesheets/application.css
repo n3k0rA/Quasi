@@ -5,6 +5,7 @@
  *= require gmaps4rails
  *= require events
  *= require scaffolds
+ *= jquery-ui-1.8.18.custom
 */
 
 

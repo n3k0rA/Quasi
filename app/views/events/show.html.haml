@@ -4,8 +4,10 @@
   %p
     %h2
       =title @event.title
+      =@json
   .details
     %p
+      
       %b 
         = t :event_display_start_date
       = l @event.startDate, :format => :long
@@ -89,9 +91,8 @@
       #all_comments
         = render :partial => 'comment', :collection => @event.comments
     #map
-      This the map showing the exact point:
-      =@json
-      = gmaps4rails(@json)
+      = gmaps("markers" => {"data" => @json}, "map_options" =>  { "provider" => "openlayers"})
+     
   .side_small
 
     .attenders
