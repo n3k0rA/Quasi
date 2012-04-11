@@ -216,7 +216,7 @@ ul.tabnav li.active a  {
 
 #right_side {
 	float:left;
-	max-width:525px;
+	width:525px;
 	position: absolute;
 	left: 160px;
 	overflow:hidden;
