@@ -19,7 +19,9 @@ class ApplicationController < ActionController::Base
     redirect_to root_url
   end
   
-  
+  def set_up(page)
+    @page_id = page
+  end
   
   private
     def create_micropost

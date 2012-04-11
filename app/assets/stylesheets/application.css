@@ -116,6 +116,16 @@ body {
 	border: 1px solid black;
 	text-shadow: #DDD 1px 1px 4px;
 }
+
+
+ul.tabnav li.active a  { 
+	background-color: #A58115;
+	padding: 8px 17px 2px 17px;
+	margin: 0 -26px 0px -17px;
+	border-right: 1px solid black;
+	border-left: 1px solid black;
+	border-top: 1px solid black;
+}
 .current_tab {
 		background-color: #A58115;
 		padding: 8px 17px 2px 17px;

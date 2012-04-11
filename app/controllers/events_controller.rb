@@ -2,7 +2,12 @@ class EventsController < ApplicationController
   
   before_filter :require_user, :only => [:new, :create, :update, :edit]
   before_filter :require_ownership, :only => [:edit, :update, :destroy]
+  before_filter :set_up_events, :except =>[:locations]
+  before_filter :set_up_locations, :only =>[:locations]
   after_filter :create_micropost, :only=>[:update]
+  
+  
+  
   def category
     @category = Category.find(params[:category])
     @events = @category.events
@@ -163,5 +168,13 @@ private
     else 
       false
     end
+  end
+  
+  def set_up_events
+    set_up('events')
+  end
+  
+  def set_up_locations
+    set_up('locations')
   end
 end

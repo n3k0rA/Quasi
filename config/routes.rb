@@ -20,7 +20,7 @@ Quasi::Application.routes.draw do
     get "user_reminders" => "users#reminders", :as => "rem"
     get "resubmit_event" => "events#resubmit", :as => "resubmit_event"
 
-    get "user_microposts" => "users#microposts", :as => "account"
+    get "account" => "users#microposts", :as => "account"
     
     match 'events/category/:category' => 'events#category', :as => :category
     match 'users/events_created/:user' => "users#events", :as => "ev_created"

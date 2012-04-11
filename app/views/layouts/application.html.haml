@@ -39,10 +39,28 @@
                 #banner
                 #menu
                   %nav
-                    %ul
-                      %li= link_to_unless_current I18n.t(:menu_events), ""
-                      %li= link_to_unless_current I18n.t(:menu_locations), locations_path
-                      %li= link_to_unless_current I18n.t(:menu_account), account_path
+                    %ul.tabnav
+                      -  if @page_id == 'events'
+                        %li.active
+                          = link_to I18n.t(:menu_events), root_path
+                        %li.inactive
+                          = link_to I18n.t(:menu_locations), locations_path
+                        %li.inactive
+                          = link_to I18n.t(:menu_account), account_path
+                      -if @page_id == 'locations'
+                        %li.inactive
+                          = link_to I18n.t(:menu_events), root_path
+                        %li.active
+                          = link_to I18n.t(:menu_locations), locations_path
+                        %li.inactive
+                          = link_to I18n.t(:menu_account), account_path
+                      -if @page_id == 'account'
+                        %li.inactive
+                          = link_to I18n.t(:menu_events), root_path
+                        %li.inactive
+                          = link_to I18n.t(:menu_locations), locations_path
+                        %li.active
+                          = link_to I18n.t(:menu_account), account_path
                 #search
                   %h4 Search:
       #main
@@ -76,12 +94,18 @@
             <a class="addthis_counter addthis_bubble_style"></a>
             </div>
         #submenu
-          %div
-            %b= link_to "All", events_path
-          - @categories.each do |category|
+          -if @page_id =='events'
             %div
-              %b= link_to category.name, category_path(category)
-              
+              %b= link_to "All", events_path
+            - @categories.each do |category|
+              %div
+                %b= link_to_unless_current category.name, category_path(category)
+          - if @page_id == 'locations'
+            %div
+              %b= link_to "All", events_path
+          - if @page_id == 'account'
+            %div
+              %b= link_to_unless_current 'Activity', account_path
         #left
          
         #right_side
