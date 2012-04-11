@@ -23,7 +23,7 @@
   .field
     = f.label t :user_province
     %br
-    = f.text_field :province
+    = select(:user, :province, User::PROVINCES.collect {|d| [I18n.t(d), d]})
   .field
     = f.label t :user_website
     %br

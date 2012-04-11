@@ -42,7 +42,8 @@
   .field
     = f.label t :event_province
     %br
-    = f.text_field :province
+    = select(:event, :province, Event::PROVINCES.collect {|d| [I18n.t(d), d]})
+    
   .field
     = f.label t :event_price
     %br

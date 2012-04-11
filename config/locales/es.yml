@@ -318,6 +318,20 @@ es:
   
   #Categories
   categories:
-    Traditional: "Tradicion"
-    Outdoor: "Aire libre"
-    Family_&_kids: "Familia y ninos"
+    gastronomy: Gastronomia
+    family: "Familia"
+    sports: "Deporte"
+    scene: Escena
+    traditional: "Tradicion"
+    music: Musica
+    party: Fiesta
+    
+    
+  #Provinces
+  alaba: Alaba
+  biscay: Vizcaya
+  guipuzkoa: Guipuzoa
+  navarre: Navarra
+  labourd: Lapurdi
+  b_navarre: "Baja Navarra"
+  soule: "Zuberoa"

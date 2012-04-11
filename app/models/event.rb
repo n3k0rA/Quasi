@@ -1,7 +1,6 @@
 class Event < ActiveRecord::Base
   acts_as_gmappable
   
-  has_one :province
   belongs_to :user
   has_and_belongs_to_many :users
   has_and_belongs_to_many :categories
@@ -15,7 +14,8 @@ class Event < ActiveRecord::Base
               :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
             },
             :path => ":attachment/:id/:style.:extension",
-            :bucket => ENV['S3_BUCKET_NAME']
+            :bucket => ENV['S3_BUCKET_NAME'],
+            :default_url => "/images/default_:style_pic.png"
           #  :path => "for/example/:id/:style.:extension",
           #  :url  => ":s3_eu_url"
 
@@ -27,6 +27,8 @@ class Event < ActiveRecord::Base
     "#{self.address}, #{self.town}, #{self.province}"
   end
   
+  
+  PROVINCES = ["alaba", "biscay", "guipuzkoa", "navarre", "labourd", "b_navarre", "soule"]
   
   #validates :pic, allow_blank: true, format: {
   #    with: %r{\.(gif|jpg|png|jpeg)$}i,

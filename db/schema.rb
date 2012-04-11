@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120411114314) do
+ActiveRecord::Schema.define(:version => 20120409115009) do
 
   create_table "alarms", :force => true do |t|
     t.integer  "user_id"
@@ -65,7 +65,6 @@ ActiveRecord::Schema.define(:version => 20120411114314) do
     t.datetime "finishDate"
     t.string   "place"
     t.string   "town"
-    t.string   "province"
     t.decimal  "price"
     t.text     "description"
     t.string   "email"
@@ -95,6 +94,7 @@ ActiveRecord::Schema.define(:version => 20120411114314) do
     t.boolean  "reminded",         :default => false
     t.boolean  "cancelled",        :default => false
     t.text     "cancel_message"
+    t.string   "province"
   end
 
   create_table "events_users", :id => false, :force => true do |t|
@@ -118,12 +118,6 @@ ActiveRecord::Schema.define(:version => 20120411114314) do
   end
 
   add_index "microposts", ["user_id", "created_at"], :name => "index_microposts_on_user_id_and_created_at"
-
-  create_table "provinces", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false

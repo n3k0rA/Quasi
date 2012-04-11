@@ -15,7 +15,9 @@ class User < ActiveRecord::Base
         :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
       },
       :path => ":attachment/:id/:style.:extension",
-      :bucket => ENV['S3_BUCKET_NAME']
+      :bucket => ENV['S3_BUCKET_NAME'],
+      :default_url => "/images/default_:style_photo.png"
+      
     #{ :medium => "300x300>", :thumb => "100x100>" }
     #,
     #:storage => Rails.env.production? ? :s3 : :filesystem,
@@ -34,6 +36,8 @@ class User < ActiveRecord::Base
   has_many :alarms, :dependent => :destroy
   has_many :microposts, :dependent => :destroy
    
+   
+  PROVINCES = ["alaba", "biscay", "guipuzkoa", "navarre", "labourd", "b_navarre", "soule"] 
   
   def deliver_password_reset_instructions!
     reset_perishable_token!

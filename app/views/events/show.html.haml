@@ -1,6 +1,3 @@
-
-
-%p#notice= notice
 #main.top
   %div
     = image_tag(@event.pic.url(:medium), class:"list_image_show", :alt =>"Event picture")
@@ -28,7 +25,9 @@
       %b 
         = t :event_town
       = @event.town
-      
+      %b 
+        = t :event_province
+      = I18n.t(@event.province)
       
     - if !@event.price.nil?
       %p
@@ -39,7 +38,8 @@
     %p
       %b 
         = t :event_categories
-      = @event.categories.map(&:name).to_sentence
+        
+      =  @event.categories.map(&:name).to_sentence
 .interested
   -if @event.cancelled
     %h3 This event has been cancelled

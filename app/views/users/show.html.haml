@@ -1,4 +1,4 @@
-%p#notice= notice
+
 %p
   %h2
     = @user.name
@@ -14,8 +14,8 @@
   = @user.town
 %p
   %b 
-  = t :user_province
-  = @user.province
+    = t :user_province
+  = I18n.t(@user.province)
 %p
   %b 
     = t :user_website

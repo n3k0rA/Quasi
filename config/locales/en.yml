@@ -145,8 +145,19 @@ en:
   
   #Categories
   categories:
-    Traditional: "Traditional"
-    Outdoor: "Outdoor"
-    Family_&_kids: "Family and kids"
+    gastronomy: Gastronomy
+    family: "Family"
+    sports: "Sports"
+    scene: Scene
+    traditional: Tradition
+    music: Music
+    party: Party
     
-    
+  #Provinces
+  alaba: Alaba
+  biscay: Biscay
+  guipuzkoa: Guipuzoa
+  navarre: Navarre
+  labourd: Labourde
+  b_navarre: "Lower Navarra"
+  soule: "Soule"  
