@@ -142,3 +142,11 @@ en:
   logged_as: Welcome 
   o_word: or
   session_form_error: There is an error. Please revise form.
+  
+  #Categories
+  categories:
+    Traditional: "Traditional"
+    Outdoor: "Outdoor"
+    Family_&_kids: "Family and kids"
+    
+    

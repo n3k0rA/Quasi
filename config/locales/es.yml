@@ -316,4 +316,8 @@ es:
   lang_french: Frances
   lang_english: Ingles
   
-  
+  #Categories
+  categories:
+    Traditional: "Tradicion"
+    Outdoor: "Aire libre"
+    Family_&_kids: "Familia y ninos"
