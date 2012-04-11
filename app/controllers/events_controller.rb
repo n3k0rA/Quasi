@@ -2,8 +2,8 @@ class EventsController < ApplicationController
   
   before_filter :require_user, :only => [:new, :create, :update, :edit]
   before_filter :require_ownership, :only => [:edit, :update, :destroy]
-  before_filter :set_up_events, :except =>[:locations]
-  before_filter :set_up_locations, :only =>[:locations]
+  before_filter :set_up_events, :except =>[:locations, :province]
+  before_filter :set_up_locations, :only =>[:locations, :province]
   after_filter :create_micropost, :only=>[:update]
   
   
@@ -11,11 +11,6 @@ class EventsController < ApplicationController
   def category
     @category = Category.find(params[:category])
     @events = @category.events
-  end
-  
-  def province
-    @provinces = Province.find(params[:province])
-    @events = @province.events
   end
   
   # GET /events
@@ -140,7 +135,12 @@ class EventsController < ApplicationController
   end
   
   def locations
-    @provinces = Province.all
+    @events =Event.all
+  end
+  
+  def province
+    @province = params[:province]
+    @events = Event.where(:province => @province)
   end
   
   def deletable_comment
@@ -175,7 +175,7 @@ private
       false
     end
   end
-  
+ 
   def set_up_events
     set_up('events')
   end

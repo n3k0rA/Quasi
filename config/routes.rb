@@ -24,6 +24,7 @@ Quasi::Application.routes.draw do
     get "account" => "users#microposts", :as => "account"
     
     match 'events/category/:category' => 'events#category', :as => :category
+    match 'events/province/:province' => 'events#province', :as => :province
     #match 'users/events_created/:user'=> 'users#events', :as => "events_created", :via=> :get
     get 'events_created' => 'users#events', :as =>"events_created"
     get "change_locale" => "application#change_locale", :as => "change_locale"

@@ -2,7 +2,7 @@ class FollowingsController < ApplicationController
   
   before_filter {set_up('account')}
   before_filter :require_following_ownership, :only => [:destroy]
-  before_filter :require_user, :only => [:create]
+  before_filter :require_user, :only => [:create, :index]
   after_filter :create_micropost, :only => [:create]
   before_filter :get_current_user, :only=>[:index]
   

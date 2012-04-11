@@ -101,9 +101,22 @@
               %div
                 %b= link_to_unless_current category.name, category_path(category)
           - if @page_id == 'locations'
-            - @provinces.each do |province|
-              %div
-                %b= link_to_unless_current province.name, province_path(province)
+            %div
+              %b= link_to_unless_current 'All', locations_path
+            %div
+              %b= link_to_unless_current I18n.t("alaba"), province_path('alaba')
+            %div
+              %b= link_to_unless_current I18n.t("biscay"), province_path('biscay')
+            %div
+              %b= link_to_unless_current I18n.t("guipuzkoa"), province_path('guipuzkoa')
+            %div
+              %b= link_to_unless_current I18n.t("navarre"), province_path('navarre')
+            %div
+              %b= link_to_unless_current I18n.t("labourd"), province_path('labourd')
+            %div
+              %b= link_to_unless_current I18n.t("b_navarre"), province_path('b_navarre')
+            %div
+              %b= link_to_unless_current I18n.t("soule"), province_path('soule')
           - if @page_id == 'account'
             %div
               %b= link_to_unless_current 'Activity', account_path
