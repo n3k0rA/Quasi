@@ -15,7 +15,7 @@
 %p
   %b 
     = t :user_province
-  = I18n.t(@user.province)
+  = I18n.t(@user.province) if !@user.province.empty?
 %p
   %b 
     = t :user_website

@@ -91,7 +91,9 @@ class EventsController < ApplicationController
       end
       EventNotifier.cancellation(@event).deliver
     else
-      @content = "edited"
+      if @event.approved?
+        @content = "edited"
+      end  
       check_date
       respond_to do |format|
         if @event.update_attributes(params[:event].merge(:category_ids => categories))
