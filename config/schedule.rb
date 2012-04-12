@@ -20,7 +20,7 @@
 # Learn more: http://github.com/javan/whenever
 
 
-every 1.day, :at => '04:05' do
+every 1.minute do
   runner "Alarm.proba"
 end
 
