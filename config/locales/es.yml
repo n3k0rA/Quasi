@@ -234,8 +234,13 @@ es:
   search_where: Donde
   search_placeholder_where: localidad o provincia
   
-  #event_page_title
+  #Event_headers
   new_event: 'Anade un evento'
+  events_in_cat: Eventos en la categoria
+  event_cancelation: Cancelacion del evento
+  events_in: 'Eventos es '
+  submit_similar: 'Subir evento similar'
+  
   #events info
   event_title: Titulo del evento
   event_categories: Categorias
@@ -275,6 +280,12 @@ es:
     one: '1 interesado'
     other: '%{count} interesados'
     
+  #User_header
+  account_locked: Cuenta bloqueada
+  edit_user: Editar cuenta
+  user_events_created: Eventos creados
+  recent_activity: Avitivdad reciente
+  user_reminders: Recordatorios
   #User
   user_name: Nombre
   user_email: Email
@@ -304,6 +315,10 @@ es:
   o_word: o
   session_form_error: Imposible registrarte. Revisa el formulario.
   
+  #Translation_headers
+  temporal_translation: 'Traduccion temporal de '
+  submit_translation: 'Anadir traduccion a '
+  
   #Translations
   submit_translation: 'Anadir traduccion a "%{event}"'
   greeting_user: Gracias por colaborar con la comunidad
@@ -315,6 +330,10 @@ es:
   lang_spanish: Espanol
   lang_french: Frances
   lang_english: Ingles
+  
+  #Password_headers
+  forgot_password: Contrasena olvidada
+  change_password: Renovar contrasena
   
   #Categories
   categories:

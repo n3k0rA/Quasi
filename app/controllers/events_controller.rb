@@ -11,12 +11,14 @@ class EventsController < ApplicationController
   def category
     @category = Category.find(params[:category])
     @events = @category.events
+    meta :title => @category.name, :description => @category.name
   end
   
   # GET /events
   # GET /events.json
   def index
     #@events = Event.all
+    meta :title => 'mierda'
     @events = Event.paginate(:page => params[:page])
   end
 

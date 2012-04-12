@@ -1,5 +1,5 @@
-
-%h3 User reminders
+%h2 
+  =title I18n.t(:user_reminders)
 %div
   %div
     - if @events.empty?
@@ -17,5 +17,5 @@
             = l event.startDate, :format => :long
             | #{@event.town}
           .rem_icon
-            - del_icon = image_tag("icons/DeleteRed.png", class:'icon')
+            - del_icon = image_tag("delete.png", class:'icon')
             = link_to del_icon, del_reminder_path(:id => @event.id), confirm: 'Are you sure you want to delete this reminder?', method: del_reminder_path(:id => @event.id)

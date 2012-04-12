@@ -3,26 +3,35 @@ class ApplicationController < ActionController::Base
   
   helper_method :current_user_session, :current_user
   before_filter :get_events_and_categories
-  before_filter :set_locale, :except => [:change_locale]
+  before_filter :set_locale
 
   #Kind of coming soon page
   #before_filter :coming_soon
   
   
-  def change_locale
-    if current_user
-      current_user.locale = params[:locale]
-      current_user.save
-    else
-      I18n.locale = params[:locale]
-    end
-    redirect_to root_url
-  end
+  #def change_locale
+  #  if current_user
+  #    current_user.locale = params[:locale]
+  #    current_user.save
+  #  else
+  #    I18n.locale = params[:locale]
+  #  end
+  #  redirect_to url_for(locale: locale)
+  #end
   
   def set_up(page)
     
     @page_id = page
     
+  end
+  
+  def set_locale  
+    I18n.locale = params[:locale] || I18n.default_locale
+    if current_user
+      current_user.locale = params[:locale] 
+      current_user.save
+      
+    end
   end
   
   private
@@ -89,13 +98,7 @@ class ApplicationController < ActionController::Base
       end
     end
     
-    def set_locale
-      if (current_user && !current_user.locale.empty?)
-        I18n.locale = current_user.locale
-      else
-        I18n.locale = params[:locale] || I18n.default_locale
-      end
-    end
+    
     
     def default_url_options(options={})
       logger.debug "default_url_options is passed options: #{options.inspect}\n"
