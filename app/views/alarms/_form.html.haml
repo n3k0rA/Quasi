@@ -1,0 +1,32 @@
+=form_for(@alarm) do |f|
+  - if @alarm.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@alarm.errors.count, "error")
+        =t :alarm_form_error
+        
+      %ul
+        - @alarm.errors.full_messages.each do |msg|
+          %li= msg
+  = f.hidden_field :user_id
+  %p
+    = f.label :Title
+    = f.text_field :title
+  %br
+    = f.label :Keyword
+    = f.text_field :keyword
+  %br
+    = f.label :Where
+    = f.text_field :where
+  %br
+    =f.label t :alarm_categories
+    - Category.all.each do |category|
+      .field
+        = check_box_tag "category_ids[]", category.id, @alarm.category_ids.include?(category.id)
+        = I18n.t("categories.#{category.name}")
+  %br
+    = f.label :Activated
+    = f.check_box :active
+  %p
+  .actions
+    =f.submit

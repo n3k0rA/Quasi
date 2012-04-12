@@ -2,13 +2,14 @@
 %h2 
   =title I18n.t(:event_cancelation)
 %p
-  The system says that there was already people interested in the vent. Therefore, we believe it would be good to let them know why the event has been cancelled.
+  =t :cancel_intro
+  
 %p
-  Please write your message here:
+
   
 = form_for(@event) do |f|  
   .field
-    = f.label t :event_cancellation
+    = f.label t :cancel_message
     %br
     = f.text_area :cancel_message
   .actions

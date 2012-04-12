@@ -18,4 +18,4 @@
             | #{@event.town}
           .rem_icon
             - del_icon = image_tag("delete.png", class:'icon')
-            = link_to del_icon, del_reminder_path(:id => @event.id), confirm: 'Are you sure you want to delete this reminder?', method: del_reminder_path(:id => @event.id)
+            = link_to del_icon, del_reminder_path(:id => @event.id), confirm: I18n.t(:are_you_sure), method: del_reminder_path(:id => @event.id)

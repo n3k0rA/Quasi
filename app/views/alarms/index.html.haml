@@ -1,38 +1,9 @@
 %h2
   = title I18n.t(:alarms)
 #new_alarm
-  =form_for(@alarm) do |f|
-    - if @alarm.errors.any?
-      #error_explanation
-        %h2
-          = pluralize(@alarm.errors.count, "error")
-          =t :alarm_form_error
-          
-        %ul
-          - @alarm.errors.full_messages.each do |msg|
-            %li= msg
-    = f.hidden_field :user_id
-    %p
-      = f.label :Title
-      = f.text_field :title
-    %br
-      = f.label :Keyword
-      = f.text_field :keyword
-    %br
-      = f.label :Where
-      = f.text_field :where
-    %br
-      =f.label :Alarm_Categories
-      - Category.all.each do |category|
-        .field
-          = check_box_tag "category_ids[]", category.id, @alarm.category_ids.include?(category.id)
-          = I18n.t("categories.#{category.name}")
-    %br
-      = f.label :Activated
-      = f.check_box :active
-    %p
-    .actions
-      =f.submit
+%h3 
+  = t :new_alarm
+= render 'form'
 %table
   - @alarms.each do |alarm|
     %p
@@ -44,13 +15,13 @@
       %td
         %dd= alarm.where
       %td
-        %dd Categories...
+        %dd=alarm.categories.map(&:name).to_sentence
       %td
         %small
           %dd
             =link_to I18n.t(:edit), edit_alarm_path(alarm)
           %dd
-            =link_to I18n.t(:delete), alarm, :confirm => 'Are you sure', :method => :delete
+            =link_to I18n.t(:delete), alarm, :confirm => I18n.t(:are_you_sure), :method => :delete
           %dd
             -if alarm.active
               =link_to I18n.t(:deactivate), alarm_switch_path(:id =>alarm.id)

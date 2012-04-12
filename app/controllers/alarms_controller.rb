@@ -4,7 +4,8 @@ class AlarmsController < ApplicationController
   before_filter :require_user
   
   def create
-    @alarm = Alarm.new(params[:alarm])  
+    categories = params[:category_ids] or []
+    @alarm = Alarm.new(params[:alarm].merge(:category_ids => categories))  
     @alarm.user = current_user 
     respond_to do |format|
       if @alarm.save
@@ -18,10 +19,30 @@ class AlarmsController < ApplicationController
   end
   
   def edit
+    @alarm = Alarm.find(params[:id])
   end
   
   def update
+    categories = params[:category_ids] or []
+    @alarm = Alarm.find(params[:id])
+    respond_to do |format|
+      if @alarm.update_attributes(params[:alarm].merge(:category_ids => categories))
+        format.html { redirect_to alarms_path, notice: I18n.t(:alarm_saved) }
+        format.json { head :ok }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @alarm.errors, status: :unprocessable_entity }
+      end
+    end
+  end
   
+  def destroy
+    @alarm = Alarm.find(params[:id])
+    @alarm.destroy
+    respond_to do |format|
+      format.html { redirect_to alarms_path }
+      format.json { head :ok }
+    end
   end
   
   def index

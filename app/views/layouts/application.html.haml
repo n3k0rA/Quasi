@@ -96,13 +96,13 @@
         #submenu
           -if @page_id =='events'
             %div
-              %b= link_to "All", events_path
+              %b= link_to I18n.t(:all), events_path
             - @categories.each do |category|
               %div
-                %b= link_to_unless_current category.name, category_path(category)
+                %b= link_to_unless_current I18n.t("categories.#{category.name}"), category_path(category)
           - if @page_id == 'locations'
             %div
-              %b= link_to_unless_current 'All', locations_path
+              %b= link_to_unless_current I18n.t(:all), locations_path
             %div
               %b= link_to_unless_current I18n.t("alaba"), province_path('alaba')
             %div
@@ -119,17 +119,17 @@
               %b= link_to_unless_current I18n.t("soule"), province_path('soule')
           - if @page_id == 'account'
             %div
-              %b= link_to_unless_current 'Activity', account_path
+              %b= link_to_unless_current I18n.t(:activity), account_path
             %div
-              %b= link_to_unless_current 'Reminders', reminders_path
+              %b= link_to_unless_current I18n.t(:reminders), reminders_path
             %div
-              %b= link_to_unless_current 'Alarms', alarms_path
+              %b= link_to_unless_current I18n.t(:alarms), alarms_path
             %div
-              %b= link_to_unless_current 'Uploaded Events', events_created_path
+              %b= link_to_unless_current I18n.t(:uploaded_events), events_created_path
             %div
-              %b= link_to_unless_current 'Followings', followings_path
+              %b= link_to_unless_current I18n.t(:followings), followings_path
             %div
-              %b= link_to_unless_current 'Profile', current_user
+              %b= link_to_unless_current I18n.t(:profile), profile_path
       #left
          
       #right_side

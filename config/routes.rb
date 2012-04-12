@@ -26,6 +26,7 @@ Quasi::Application.routes.draw do
     match 'events/category/:category' => 'events#category', :as => :category
     match 'events/province/:province' => 'events#province', :as => :province
     #match 'users/events_created/:user'=> 'users#events', :as => "events_created", :via=> :get
+    get 'user/profile' => 'users#profile', :as => "profile"
     get 'events_created' => 'users#events', :as =>"events_created"
     get "change_locale" => "application#change_locale", :as => "change_locale"
     get "commit_translation" => "translations#commit", :as => "commit_translation"

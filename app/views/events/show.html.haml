@@ -48,7 +48,7 @@
     - if (current_user && current_user.events.include?(@event))
       %h3  
         -if ((@event.startDate-Time.now)< 259146.01469397545)
-          Less than 3 days!!
+          =t :reminder_soon
         -else
           = t :already_following_event
     - else  
@@ -108,4 +108,4 @@
           = link_to userName, @user
 
 -if !@event.cancelled
-  =link_to "Add Translation", new_translation_path(:id => @event.id)
+  =link_to I18n.t('add_translation'), new_translation_path(:id => @event.id)

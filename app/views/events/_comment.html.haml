@@ -14,6 +14,6 @@
   -else
     %em= simple_format h(comment.body)
   -if Time.now < (comment.created_at + 5.minutes)
-    = link_to 'Destroy Comment', comment,                   
-      :confirm => 'Are you sure?',                          
+    = link_to I18n.t(:delete), comment,                   
+      :confirm => I18n.t(:are_you_sure),                          
       :method => :delete if current_user.eql?(comment.user)

@@ -1,0 +1,21 @@
+%h2
+  =title @user.name
+= image_tag @user.photo.url(:medium)
+%br
+%p
+  = t :email
+  %b 
+    = @user.email
+%p
+  %b 
+    = t :user_town
+  = @user.town
+%p
+  %b 
+    = t :user_province
+  = I18n.t(@user.province) if !@user.province.empty?
+%p
+  %b 
+    = t :user_website
+  = @user.website
+= link_to I18n.t(:edit), edit_user_path(@user)

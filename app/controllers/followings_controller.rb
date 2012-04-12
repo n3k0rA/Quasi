@@ -11,7 +11,7 @@ class FollowingsController < ApplicationController
     @following = current_user.followings.build(:followed_id => params[:followed_id])
     @user = current_user
     @object = @following.followed_id
-    @content = "is now following"
+    @content = "following"
     if @following.save
       redirect_to root_path, :notice => I18n.t(:followings_wrong)
     else

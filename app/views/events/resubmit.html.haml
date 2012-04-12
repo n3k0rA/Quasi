@@ -21,8 +21,8 @@
   = f.label t :event_categories
   - Category.all.each do |category|
     .field
-      = check_box_tag "category_ids[]", category.id
-      = category.name
+      = check_box_tag "category_ids[]", category.id, @event.category_ids.include?(category.id)
+      = I18n.t("categories.#{category.name}")
   =f.hidden_field(:pic_file_name, :value => @old_event.pic_file_name)
   =f.hidden_field(:pic_content_type, :value => @old_event.pic_content_type)
   =f.hidden_field(:pic_file_size, :value => @old_event.pic_file_size)    

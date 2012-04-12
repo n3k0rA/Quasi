@@ -2,10 +2,7 @@
   =title @user.name
 = image_tag @user.photo.url(:medium)
 %br
-%p
-  = t :email
-  %b 
-    = @user.email
+
 %p
   %b 
     = t :user_town
@@ -18,12 +15,12 @@
   %b 
     = t :user_website
   = @user.website
-= link_to 'Edit', edit_user_path(@user)
+
 -if !@user.eql?(current_user)
   -if (current_user && current_user.followings.any?{|follow| follow.followed_id == @user.id})
     =t :user_already_following
   -else  
-    = link_to 'Follow this user', followings_path(:followed_id => @user.id), :method => :post
+    = link_to I18n.t(:follow_button), followings_path(:followed_id => @user.id), :method => :post
 
 %p
   -if @followers.empty?

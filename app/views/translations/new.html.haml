@@ -1,5 +1,5 @@
-#h2
-  =title I18n.t(:submit_translation), :event => @event.title
+%h2
+  =title I18n.t(:submit_translation, :event => @event.title)
 =t :greeting_user
 
 = form_for @translation do |f|

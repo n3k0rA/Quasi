@@ -16,11 +16,12 @@
           = l event.startDate, :format => :long
           | #{event.town}
         %td.list_actions
-          = link_to 'Show', event
+          = link_to I18n.t(:show), event
           %br
-          = link_to 'Edit', edit_event_path(event)
-          = link_to 'Cancel', event, confirm: 'Are you sure?', method: :delete
-          = link_to 'Submit Similar', resubmit_event_path(:id => event.id)
+          - if !event.cancelled && event.finishDate > Time.now
+            = link_to I18n.t(:edit), edit_event_path(event)
+            = link_to I18n.t(:cancel), event, confirm: I18n.t(:are_you_sure), method: :delete
+          = link_to I18n.t(:submit_similar), resubmit_event_path(:id => event.id)
       -if !event.translations.empty? 
         -event.translations.each do |translation| 
-          =link_to "Translation pending of approval", translation
+          =link_to I18n.t(:translation_pending), translation

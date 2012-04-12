@@ -224,6 +224,12 @@ es:
   menu_account: Tu cuenta
   
   #Submenu
+  all: Todas
+  activity: Actividad
+  reminders: Recordatorios
+  uploaded_events: Eventos subidos
+  followings: Seguimiento
+  profile: Perfil
   
   #Other
   upload_event_button: Anadir evento
@@ -238,7 +244,7 @@ es:
   new_event: 'Anade un evento'
   events_in_cat: Eventos en la categoria
   event_cancelation: Cancelacion del evento
-  events_in: 'Eventos es '
+  events_in: 'Eventos en '
   submit_similar: 'Subir evento similar'
   
   #events info
@@ -262,6 +268,9 @@ es:
   event_display_finish_date: "Al:"
   event_creator: "Creado por:"
   
+  cancel_intro: "Como tu evento ya tiene gente interesada en el, creemos conveniente que les comuniques las razones de la cancelacion de evento."
+  cancel_message: Escribe aqui aquello que quieras decirles.
+  
   #Comments
   comment: 
     one: '1 commentario'
@@ -274,6 +283,7 @@ es:
   
   #Remind me system
   already_following_event: Evento apuntado en tu lista
+  reminder_soon: Quedan menos de 3 dias!
   
   #interested
   interested:
@@ -284,7 +294,7 @@ es:
   account_locked: Cuenta bloqueada
   edit_user: Editar cuenta
   user_events_created: Eventos creados
-  recent_activity: Avitivdad reciente
+  recent_activity: Avitividad reciente
   user_reminders: Recordatorios
   #User
   user_name: Nombre
@@ -299,12 +309,12 @@ es:
   user_no_follows: 'No hay seguimientos.'
   user_edit_profile: 'Edita tus datos'
   user_form_error: 'Imposible guardar los datos. Revise el formulario'
-  user_pic: 'Foto de perfil'
+  user_photo: 'Foto de perfil'
   user_password: 'Constrasena'
   user_password_confirmation: "Confirmacion de constrasena"
   user_events_created: 'Eventos que has creado'
   user_no_events_created: 'No has subido ningun evento todavia'
-  
+  follow_button: Seguirlo
   user_no_reminders: 'No hay eventos. De verdad no te interesa nada?'
   
   #Sessions
@@ -325,6 +335,11 @@ es:
   greeting_user: Gracias por colaborar con la comunidad
   translation_form_error: Imposible guardar los datos. Por favor revisa el formulario.
   leave_comment: "Escribe si deseas dejar un comentario al creador del evento"
+  add_translation: Anadir traduccion
+  translation_pending: Traduccion pendiente
+  translation_message01: 'Las traducciones funcionan de manera colaborativa. Todo usuario registrado puede anadir traducciones(de titulo y descripcion) a otros eventos para que estos lleguen a mas gente.'
+  translation_message02: 'Recuerda que tu como creador del evento tienes la ultima palabra para aceptar o rechazar esta traduccion antes de ser publicada.'
+  translation_message03: 'Asi es como el evento apareceria:'
   
   #Translations_of_languages
   lang_basque: Euskera
@@ -361,14 +376,24 @@ es:
   edited: 'ha editado la info de '
   cancelled: 'ha cancelado '
   commented: 'hizo un comentario en '
+  following: esta siguiendo a 
   
   #Alarms
   alarms: Alarmas
   alarm_form_error: 'No se pudo guardar tu alarma, revisa los datos'
+  alarm_saved: Alarma guardada correctamente
+  new_alarm: Nueva alarma
+  alarm_categories: Categorias de la alarma
   
-  #Buttons
+  #Buttons_and_so
+  show: Mostrar
   edit: Editar
   delete: Eliminar
+  cancel: Cancelar
+  submit_similar: Crear similar
+  are_you_sure: Estas seguro?
   deactivate: Desactivar
   activate: Activar
+  edit_alarm: Editar alarma
+  
   

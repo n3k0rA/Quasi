@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   before_filter {set_up('account')}
   before_filter :require_user, :only =>[:edit, :update, :destroy, :reminders, :messages, :events, :microposts]
-  before_filter :get_current_user, :only => [:edit, :update, :destroy, :reminders, :events, :messages, :microposts]
+  before_filter :get_current_user, :only => [:edit, :update, :destroy, :reminders, :events, :messages, :microposts, :profile]
   
   def index
     @users = User.all
@@ -94,9 +94,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
   
-  def microposts
-    
-    @microposts = current_user.followeds.map(&:microposts).flatten
+  def microposts   
+    @microposts = Micropost.where(user_id: current_user.followed_ids).order('created_at desc').all
+  end
+  
+  def profile
   end
   
 
