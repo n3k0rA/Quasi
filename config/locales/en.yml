@@ -35,25 +35,20 @@ en:
     am: "am"
     pm: "pm"
 
-
-
-
   #Controllers
   app_require_user: "You must be logged in to access this page"
   app_require_ownership: "You are not logged in as the owner of this event"
   comments_create: Comment was successfully created.'
   events_create: Event was successfully created.
   event_update: 'Event was successfully updated.'
-  followings_create: "Yeah, now you follow!."
+  followings_create: "Yeah, now you are following!."
   followings_destroy: "Not following anymore"
-  followings_require_f: You cannot delete date from other users"
+  followings_require_f: You cannot delete data from other users"
   reminders_add: Added to your reminders!"
   remindes_add_else: "Well, you need an account to add reminders"
   reminders_delete: "Reminder deleted!"
-  users_create: 'User was successfully created.'
+  users_create: 'Welcome to HiKultura, now you are part of the community!.'
   users_update: 'User was successfully updated.'
-
-
 
   #Menu
   menu_events: Events
@@ -61,20 +56,30 @@ en:
   menu_account: Account
 
   #Submenu
+  all: All
+  activity: Recent Activity
+  reminders: Reminders
+  uploaded_events: Uploaded Events
+  followings: Followings
+  profile: Profile
 
   #Other
   upload_event_button: Upload an Event
-  
+
   #Search_Box
   search_keyword: Keyword
   search_when: When
-  search_categories: Belongs to...
+  search_categories: Related to...
   search_where: Where
-  search_placeholder_where: localidad o provincia
+  search_placeholder_where: town or province
 
-  #event_page_title
-  new_event: 'Upload en event'
-  
+  #Event_headers
+  new_event: New Event
+  events_in_cat:  Events in Category
+  event_cancelation: Event Cancelation
+  events_in: Events in
+  submit_similar: Submit Cimilar 
+
   #events info
   event_title: Title of the event
   event_categories: Categories
@@ -85,9 +90,9 @@ en:
   event_town: Town
   event_province: Province
   event_price: Price
-  event_description: Descriptio of the event
+  event_description: Description of the event
   email: Email
-  event_website: Website to the event
+  event_website: Website of the event
   event_phone: Contact Number
   event_pic: Picture for the event
   event_form_error: 'Impossible to save the event. Please revise the form'
@@ -96,23 +101,34 @@ en:
   event_display_finish_date: "To:"
   event_creator: "Created by:"
 
+  cancel_intro: 'There is people already interested in this event. Thus, we think you should let them know they reason of this cancelation.'
+  cancel_message: ‘Write here the reasons:’
+
   #Comments
   comment: 
     one: '1 comment'
     other: '%{count} comments'
   do_comment: "Share you opinion!"
   submit_comment: "Add comment"
-  comment_posted: ""
+  comment_posted: "" #do not write here
   comment_says: said
   comment_banned: "Users reported this comment as inappropiate"
 
   #Remind me system
   already_following_event: You are already following this user
+  reminder_soon: Less than 3 days!
 
   #interested
-  interested:
+  interested: 
     one: '1 interested'
     other: '%{count} interested'
+
+  #User_header
+  account_locked: Account Locked
+  edit_user: Edit user Profile
+  user_events_created: Events Created
+  recent_activity: Recent Activity
+  user_reminders: Reminders
 
   #User
   user_name: Name
@@ -120,52 +136,93 @@ en:
   user_town: Town
   user_province: Province
   user_website: Website
-  user_already_following: "Already following"
-  user_no_followers: 'No one following at the moment'
-  user_followers: 'Followed by...'
+  user_already_following: Already following 
+  user_no_followers: No one following at the moment
+  user_followers: Followed by...
   user_follows: '%{name} follows...'
-  user_no_follows: 'No followers'
-  user_edit_profile: 'Edit your details'
-  user_form_error: 'Impossible to save. Plase revise the form'
-  user_pic: 'User picture'
-  user_password: 'Password'
-  user_password_confirmation: "Password confirmation"
-  user_events_created: 'Events you created'
-  user_no_events_created: 'You have created no events so far'
-
-  user_no_reminders: 'No events to be reminded of. Do not like anything?'
+  user_no_follows: No followers
+  user_edit_profile: Edit your details
+  user_form_error: Impossible to save. Please revise the form
+  user_photo: User photo
+  user_password: Password
+  user_password_confirmation: Password confirmation
+  user_no_events_created: You have created no events so far
+  user_no_reminders: No events to be reminded of. Do not you like anything?
+  follow_button: Follow
 
   #Sessions
   sign_up: Sign up
   log_in: Log in
   log_out: Log out
-  logged_as: Welcome 
+  logged_as: Welcome
   o_word: or
-  session_form_error: There is an error. Please revise form.
-  
-  
-  
-  translation_message01: 'Translations work in a community basis. Every user can submit translations(title and description) to any event. Therefore more people can understand and participate in the event.'
-  translation_message02: 'Remember that you, as creator, can either accept or reject the proposed translation before goes live.'
-  translation_message03: 'This is how the event would look:'
-    
-    
-    
+  session_form_error: There are errors in the form. Please revise it.
+  logging_form_error: Impossible to log you in. Please make sure your details are correct.
+
+  #Translations
+  submit_translation: Add translation to "%{event}"
+  greeting_user: Thanks for your help building this community.
+  translation_form_error: Impossible to save the form. Please double check it!
+  leave_comment: "Do you want to leave a note to the event's creator? Write it here:"
+  add_translation: Add translation
+  translation_pending: Translation pending!
+  translation_message01: Translations work in a community basis. Every user can submit translations(title and description) to any event. Therefore more people can understand and participate in the event.
+  translation_message02: Remember that you, as creator, can either accept or reject the proposed translation before goes live.
+  translation_message03: "This is how the event would look:"
+
+  #Translations_of_languages
+  lang_basque: Basque
+  lang_spanish: Spanish
+  lang_french: French
+  lang_english: English
+
+  #Password_headers
+  forgot_password: Forgotten password
+  change_password: Change password
+
   #Categories
   categories:
     gastronomy: Gastronomy
-    family: "Family"
-    sports: "Sports"
+    family: Family
+    sports: Sports
     scene: Scene
     traditional: Tradition
     music: Music
     party: Party
-    
+
   #Provinces
   alaba: Alaba
   biscay: Biscay
-  guipuzkoa: Guipuzoa
+  guipuzkoa: Guipuzcoa
   navarre: Navarre
-  labourd: Labourde
-  b_navarre: "Lower Navarra"
-  soule: "Soule"  
+  labourd: Labourd
+  b_navarre: Lower Navarre
+  soule: Soule
+
+  #Microposts_content_phrase
+  added_translation: added a translation to
+  uploaded: uploaded a new event, 
+  edited: has changed the info of
+  cancelled: has cancelled
+  commented: made a comment on
+  following: is now following
+
+  #Alarms
+  alarms: Alarms
+  alarm_form_error: Impossible to save your alarm. Please check the form.
+  alarm_saved: Alarm saved successfully
+  new_alarm: New alarm
+  alarm_categories: Alarm categories
+
+  #Buttons_and_so
+  show: Show
+  edit: Edit
+  delete: Delete
+  cancel: Cancel
+  submit_similar: Create Similar
+  are_you_sure: Are you sure?
+  deactivate: Deactivate
+  activate: Activate
+  edit_alarm: Edit alarm
+
+  
