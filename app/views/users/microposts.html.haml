@@ -8,7 +8,7 @@
 -@microposts.each do |micro|
   %p
     =link_to micro.user.name, micro.user
-    =micro.content
+    =I18n.t(micro.content)
     -if micro.content.eql?("is now following")
       -@user = User.find(micro.object_id)
       =link_to @user.name, @user

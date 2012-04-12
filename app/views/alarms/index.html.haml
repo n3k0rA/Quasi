@@ -6,8 +6,8 @@
       #error_explanation
         %h2
           = pluralize(@alarm.errors.count, "error")
-          =t :event_form_error
-          //prohibited this event from being saved:
+          =t :alarm_form_error
+          
         %ul
           - @alarm.errors.full_messages.each do |msg|
             %li= msg
@@ -25,8 +25,8 @@
       =f.label :Alarm_Categories
       - Category.all.each do |category|
         .field
-          =check_box_tag "category_ids[]", category.id
-          =category.name
+          = check_box_tag "category_ids[]", category.id, @alarm.category_ids.include?(category.id)
+          = I18n.t("categories.#{category.name}")
     %br
       = f.label :Activated
       = f.check_box :active
@@ -48,13 +48,13 @@
       %td
         %small
           %dd
-            =link_to 'Edit', edit_alarm_path(alarm)
+            =link_to I18n.t(:edit), edit_alarm_path(alarm)
           %dd
-            =link_to 'Delete', alarm, :confirm => 'Are you sure', :method => :delete
+            =link_to I18n.t(:delete), alarm, :confirm => 'Are you sure', :method => :delete
           %dd
             -if alarm.active
-              =link_to 'Deactivate', alarm_switch_path(:id =>alarm.id)
+              =link_to I18n.t(:deactivate), alarm_switch_path(:id =>alarm.id)
             -else
-              =link_to "Activate", alarm_switch_path(:id => alarm.id)
+              =link_to I18n.t(:activate), alarm_switch_path(:id => alarm.id)
       
 %br/

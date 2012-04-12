@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(params[:comment])
     @comment.user = current_user
     @user= current_user
-    @content = "has commented in"
+    @content = "commented"
     @object = @comment.event.id
     respond_to do |format|
       if @comment.save

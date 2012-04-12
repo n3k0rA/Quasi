@@ -11,7 +11,7 @@ class AccountNotifier < ActionMailer::Base
     @greeting = "Hi"
     @user = user
 
-    mail to: user.email, subject: 'Welcome to Hikultura! Please confirm account.'
+    mail to: user.email, subject: 'Welcome to Hikultura!'
   end
 
 

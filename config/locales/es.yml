@@ -314,6 +314,7 @@ es:
   logged_as: Bienvenido 
   o_word: o
   session_form_error: Imposible registrarte. Revisa el formulario.
+  logging_form_error: "Los datos son incorrectos, por favor reisalos."
   
   #Translation_headers
   temporal_translation: 'Traduccion temporal de '
@@ -325,7 +326,7 @@ es:
   translation_form_error: Imposible guardar los datos. Por favor revisa el formulario.
   leave_comment: "Escribe si deseas dejar un comentario al creador del evento"
   
-  #Translations
+  #Translations_of_languages
   lang_basque: Euskera
   lang_spanish: Espanol
   lang_french: Frances
@@ -345,7 +346,6 @@ es:
     music: Musica
     party: Fiesta
     
-    
   #Provinces
   alaba: Alaba
   biscay: Vizcaya
@@ -354,3 +354,21 @@ es:
   labourd: Lapurdi
   b_navarre: "Baja Navarra"
   soule: "Zuberoa"
+  
+  #Microposts_content_phrase
+  added_translation: 'ha anadido traducciones a '
+  uploaded: 'ha subido un nuevo evento, '
+  edited: 'ha editado la info de '
+  cancelled: 'ha cancelado '
+  commented: 'hizo un comentario en '
+  
+  #Alarms
+  alarms: Alarmas
+  alarm_form_error: 'No se pudo guardar tu alarma, revisa los datos'
+  
+  #Buttons
+  edit: Editar
+  delete: Eliminar
+  deactivate: Desactivar
+  activate: Activar
+  

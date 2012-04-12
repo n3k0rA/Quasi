@@ -24,7 +24,7 @@ class UserSessionsController < ApplicationController
         @user.save
       end
     else
-      flash[:notice] = "Impossible to log you in. Please double-check your details"
+      flash[:notice] = I18n.t(:logging_form_error)
       render :action => :new
     end
   end

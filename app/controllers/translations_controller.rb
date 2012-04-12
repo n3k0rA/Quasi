@@ -64,7 +64,7 @@ class TranslationsController < ApplicationController
     end
     @event.save
     @user= @translation.user
-    @content = "added helped translating"
+    @content = "added_translation"
     @object = @event.id
     redirect_to @event
   end
