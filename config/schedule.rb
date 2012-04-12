@@ -20,14 +20,14 @@
 # Learn more: http://github.com/javan/whenever
 
 
-every 1.day, :at => '18:10' do
+every 1.day, :at => '03:30' do
   runner "Alarm.proba"
 end
 
-every 1.day, :at=> '6:08 pm' do
+every 1.day, :at=> '3:32 am' do
   runner "Alarm.proba2"
 end
 
-every 1.day, :at=> '6:15 pm' do
+every 1.day, :at=> '3:35 am' do
   runner "Alarms.proba2"
 end

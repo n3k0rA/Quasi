@@ -21,6 +21,8 @@ gem "paperclip", "~> 2.5.0"
 gem "aws-s3"
 gem "aws-sdk"
 
+gem 'whenever', :require => false
+
 group :development do
   gem "rails-erd"
   gem 'railroady'
