@@ -340,6 +340,9 @@ es:
   translation_message01: 'Las traducciones funcionan de manera colaborativa. Todo usuario registrado puede anadir traducciones(de titulo y descripcion) a otros eventos para que estos lleguen a mas gente.'
   translation_message02: 'Recuerda que tu como creador del evento tienes la ultima palabra para aceptar o rechazar esta traduccion antes de ser publicada.'
   translation_message03: 'Asi es como el evento apareceria:'
+  temporal_translation: 'Vista temporal de "%{event}"'
+  translator_comment: 'Comentario:'
+  translated_by: Traducido por
   
   #Translations_of_languages
   lang_basque: Euskera
@@ -384,6 +387,10 @@ es:
   alarm_saved: Alarma guardada correctamente
   new_alarm: Nueva alarma
   alarm_categories: Categorias de la alarma
+  alarm_title: Nombre de la alarma
+  keyword: Palabra/s clave
+  where: Donde
+  activated: Activada
   
   #Buttons_and_so
   show: Mostrar

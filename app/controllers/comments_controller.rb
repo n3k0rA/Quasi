@@ -36,6 +36,13 @@ class CommentsController < ApplicationController
       format.json { head :ok }
     end
   end
+  
+  def report_spam
+    @comment = Comment.find(params[:id])
+    AdminMailer.report_spam(@comment).deliver
+    flash[:notice] = "The comment has notified to the admins"
+    redirect_to @comment.event
+  end
 
 private
   def deletable_comment

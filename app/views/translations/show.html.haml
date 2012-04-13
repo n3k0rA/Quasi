@@ -1,25 +1,26 @@
-%h2
-  =title I18n.t(:temporal_translation) @event.tile
 
-%h3 
-  Translated by
+%h2
+  =title I18n.t(:temporal_translation, :event => @translation.event.title)
+%h4 
+  =t :translated_by
   = link_to @translation.user.name, @translation.user
 
 -if !@translation.comment.nil?
-  %h3 
-    Comment:
+  %h 
+    =t :translator_comment
     =@translation.comment
+%p    
 %small 
   =t :translation_message01
   =t :translation_message02
    
 %p 
-  =t translation_message03
+  =t :translation_message03
 #tabs  
   %ul
-    <li><a href="#tabs-1">Nunc tincidunt</a></li>
-    <li><a href="#tabs-2">Proin dolor</a></li>
-    <li><a href="#tabs-3">Aenean lacinia</a></li>
+    <li><a href="#tabs-1">Spanish</a></li>
+    <li><a href="#tabs-2">Basque</a></li>
+    <li><a href="#tabs-3">French</a></li>
     %li
       %a 
         #tabs-4 

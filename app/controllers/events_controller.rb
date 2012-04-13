@@ -18,8 +18,8 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     #@events = Event.all
-    meta :title => 'mierda'
-    @events = Event.paginate(:page => params[:page])
+    
+    @events = Event.paginate(:page => params[:page], :order=> 'startDate ASC')
   end
 
   # GET /events/1

@@ -7,4 +7,10 @@ class AdminMailer < ActionMailer::Base
     
     mail(:to => "admin@hikultura.com", :subject => "Event pending of approval")
   end
+  
+  def report_spam(comment)
+    @comment = comment
+    
+    mail(:to =>"admin@hikultura.com", :subject => "Inappropiate content report")
+  end
 end

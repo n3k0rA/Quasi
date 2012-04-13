@@ -13,6 +13,7 @@
         = simple_format t :comment_banned
   -else
     %em= simple_format h(comment.body)
+  =link_to 'Spam', report_spam_path(:id =>comment.id)
   -if Time.now < (comment.created_at + 5.minutes)
     = link_to I18n.t(:delete), comment,                   
       :confirm => I18n.t(:are_you_sure),                          

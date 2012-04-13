@@ -10,13 +10,13 @@
           %li= msg
   = f.hidden_field :user_id
   %p
-    = f.label :Title
+    = f.label t :alarm_title
     = f.text_field :title
   %br
-    = f.label :Keyword
+    = f.label t :keyword
     = f.text_field :keyword
   %br
-    = f.label :Where
+    = f.label t :where
     = f.text_field :where
   %br
     =f.label t :alarm_categories
@@ -25,7 +25,7 @@
         = check_box_tag "category_ids[]", category.id, @alarm.category_ids.include?(category.id)
         = I18n.t("categories.#{category.name}")
   %br
-    = f.label :Activated
+    = f.label t :activated
     = f.check_box :active
   %p
   .actions
