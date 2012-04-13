@@ -1,11 +1,9 @@
 Content of the accused comment:
 =@comment.body
-
+%p
 Written by:
 =@comment.user
-
-In the event page of:
-=@comment.event
+%p
 
 
 =link_to "Ban comment", admin_ban_comment_url(:id=>@comment.id)
