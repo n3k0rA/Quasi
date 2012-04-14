@@ -1,9 +1,9 @@
 
 @font-face
 {
-font-family: headline;
-src: url('headline.ttf'),
-     url('headline.eot'); /* IE9+ */
+font-family: theFont;
+src: url('FranklinGotTExtCon.ttf'),
+     url('FranklinGotTExtCon.eot'); /* IE9+ */
 }
 
 body {
@@ -31,7 +31,7 @@ body {
 #header, #footer {
 	width:100%;
 	overflow:hidden;
-	background-color: #324B4A;
+	
 	}
 
 
@@ -41,7 +41,8 @@ body {
 
 #header {
 	max-height:110px;
-	font-family: headline;
+	font-family: theFont;
+	text-transform:uppercase;
 }
 
 #logo {
@@ -52,6 +53,7 @@ body {
 
 .logo_size {
 	max-height:110px;	
+	border: none;
 }
 
 #header_right {
@@ -83,7 +85,9 @@ body {
 
 .log {
 	background-color:white;
+	
 	a{
+		
 		color:black;
 		&:hover{
 			color:gray;
@@ -131,6 +135,7 @@ body {
 		display: inline;
 		list-style: none;
 		margin: 0 5px;
+		
 	}
 }
 .tab{
@@ -161,6 +166,7 @@ body {
 	}
 }
 
+
 /* Main
 */
 
@@ -174,6 +180,7 @@ body {
 */
 #left {
 	position:relative;
+	float:left;
 	margin: 0; 
 	padding: 0;
 	display: block;
@@ -185,7 +192,8 @@ body {
 #submenu {
 	color:white;
 	font-size:110%;
-	font-family: headline;
+	font-family: theFont;
+	text-transform:uppercase;
 	margin: 7px auto;
 	text-align: center;
 	white-space: nowrap;  
@@ -213,13 +221,25 @@ body {
 }
 
 #central {
-	background-color: green;
+	
 }
 
 
-/* This is SIDE SEARCH BOX
+/* RIGHT
 */
 
+#right {
+	float:right;
+	max-width:24%;
+}
+
+/* This is SIDE SEARCH BOX
+*/
+#search_box{
+	position:absolute;
+	background-color:blue;
+
+}
 
 
 /* Pagination Style

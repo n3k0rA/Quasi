@@ -110,9 +110,7 @@
             %p#notice= notice
             = yield
         #right
-          
-        #sidebar
-          #searchBox
+          #search_box
             %p
               =t :search_keyword
               %input#event_title.blockShadow{:name => "titleinput", :size => "20", :type => "text", :value => ""}/
@@ -125,9 +123,9 @@
             %p
               =t :search_where
               %input#search_where{:style=>"display=none", :name => "titleinput", :size => "20", :type => "date_select", :value => "", :placeholder => I18n.t(:search_placeholder_where)}/
-            %p ---------------------------------------
-            #sButton
-              %li= link_to "Crack on!", root_path
+          %p ---------------------------------------
+          #sButton
+            %li= link_to "Crack on!", root_path
           
             
         
