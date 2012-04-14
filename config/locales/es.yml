@@ -219,8 +219,8 @@ es:
   
   
   #Menu
-  menu_events: Eventos
-  menu_locations: Lugar
+  menu_events: 'Eventos'
+  menu_locations: 'Lugar'
   menu_account: Tu cuenta
   
   #Submenu

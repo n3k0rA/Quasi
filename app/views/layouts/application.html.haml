@@ -18,123 +18,123 @@
           
           .wrap
             #logo
+
+              - logo_tag = image_tag("logo.png", :alt => "Logo HiKultura.com", :class => "logo_size")
+              = link_to logo_tag, root_path
+            
               
-            #right
-              #loggin
-                
+            #header_right
+              #login
                 #user_nav
                   - if current_user
-                    =I18n.t(:logged_as) 
-                    = link_to current_user.name, account_path
-                    = link_to I18n.t(:log_out), log_out_path
+                    .sign 
+                      = link_to truncate(current_user.name, :length=>10), account_path
+                    .log
+                      = link_to I18n.t(:log_out), log_out_path
                   - else
-                    = link_to I18n.t(:sign_up), sign_up_path
-                    = t :o_word
-                    = link_to I18n.t(:log_in), log_in_path
-                #lang.ln
+                    .sign
+                      = link_to I18n.t(:sign_up), sign_up_path
+                    .log
+                      = link_to I18n.t(:log_in), log_in_path
+                #lang
                   - [:es, :eu, :fr, :en].each do |locale|
                     %li= link_to locale, url_for(locale: locale)
 
-              #bottom
-                #banner
-                #menu
-                  %nav
-                    %ul.tabnav
-                      -  if @page_id == 'events'
-                        %li.active
-                          = link_to I18n.t(:menu_events), root_path
-                        %li.inactive
-                          = link_to I18n.t(:menu_locations), locations_path
-                        %li.inactive
-                          = link_to I18n.t(:menu_account), account_path
-                      -if @page_id == 'locations'
-                        %li.inactive
-                          = link_to I18n.t(:menu_events), root_path
-                        %li.active
-                          = link_to I18n.t(:menu_locations), locations_path
-                        %li.inactive
-                          = link_to I18n.t(:menu_account), account_path
-                      -if @page_id == 'account'
-                        %li.inactive
-                          = link_to I18n.t(:menu_events), root_path
-                        %li.inactive
-                          = link_to I18n.t(:menu_locations), locations_path
-                        %li.active
-                          = link_to I18n.t(:menu_account), account_path
-                #search
-                  %h4 Search:
+              #menu
+                %ul.tabnav
+                  -  if @page_id == 'events'
+                    %li.tab.active
+                      = link_to I18n.t(:menu_events), root_path
+                    %li.tab.inactive
+                      = link_to I18n.t(:menu_locations), locations_path
+                    %li.account.inactive
+                      = link_to I18n.t(:menu_account), account_path
+                  -if @page_id == 'locations'
+                    %li.tab.inactive
+                      = link_to I18n.t(:menu_events), root_path
+                    %li.tab.active
+                      = link_to I18n.t(:menu_locations), locations_path
+                    %li.account.inactive
+                      = link_to I18n.t(:menu_account), account_path
+                  -if @page_id == 'account'
+                    %li.tab.inactive
+                      = link_to I18n.t(:menu_events), root_path
+                    %li.tab.inactive
+                      = link_to I18n.t(:menu_locations), locations_path
+                    %li.account.active
+                      = link_to I18n.t(:menu_account), account_path
+
       #main
-        #sidebar
-          %sidebar
-            #searchBox
-              %p
-                =t :search_keyword
-                %input#event_title.blockShadow{:name => "titleinput", :size => "20", :type => "text", :value => ""}/
-              %p
-                =t :search_when
-                %input#event_title.blockShadow{:name => "titleinput", :size => "19", :type => "text", :value => ""}/
-              %p
-                =t :search_categories
-                %input#event_title.blockShadow{:name => "titleinput", :size => "20", :type => "list", :value => ""}/
-              %p
-                =t :search_where
-                %input#search_where{:style=>"display=none", :name => "titleinput", :size => "20", :type => "date_select", :value => "", :placeholder => I18n.t(:search_placeholder_where)}/
-              %p ---------------------------------------
-              #sButton
-                %li= link_to "Crack on!", root_path
-            #uploadEvent
-              = link_to I18n.t(:upload_event_button), new_event_path, :class => "upload_button", :alt => "Subir evento"
-          %p
-            <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
-            <a class="addthis_button_preferred_1"></a>
-            <a class="addthis_button_preferred_2"></a>
-            <a class="addthis_button_preferred_3"></a>
-            <a class="addthis_button_preferred_4"></a>
-            <a class="addthis_button_compact"></a>
-            <a class="addthis_counter addthis_bubble_style"></a>
-            </div>
-        #submenu
-          -if @page_id =='events'
-            %div
-              %b= link_to I18n.t(:all), events_path
-            - @categories.each do |category|
+        #left
+          #submenu
+            -if @page_id =='events'
               %div
-                %b= link_to_unless_current I18n.t("categories.#{category.name}"), category_path(category)
-          - if @page_id == 'locations'
-            %div
-              %b= link_to_unless_current I18n.t(:all), locations_path
-            %div
-              %b= link_to_unless_current I18n.t("alaba"), province_path('alaba')
-            %div
-              %b= link_to_unless_current I18n.t("biscay"), province_path('biscay')
-            %div
-              %b= link_to_unless_current I18n.t("guipuzkoa"), province_path('guipuzkoa')
-            %div
-              %b= link_to_unless_current I18n.t("navarre"), province_path('navarre')
-            %div
-              %b= link_to_unless_current I18n.t("labourd"), province_path('labourd')
-            %div
-              %b= link_to_unless_current I18n.t("b_navarre"), province_path('b_navarre')
-            %div
-              %b= link_to_unless_current I18n.t("soule"), province_path('soule')
-          - if @page_id == 'account'
-            %div
-              %b= link_to_unless_current I18n.t(:activity), account_path
-            %div
-              %b= link_to_unless_current I18n.t(:reminders), reminders_path
-            %div
-              %b= link_to_unless_current I18n.t(:alarms), alarms_path
-            %div
-              %b= link_to_unless_current I18n.t(:uploaded_events), events_created_path
-            %div
-              %b= link_to_unless_current I18n.t(:followings), followings_path
-            %div
-              %b= link_to_unless_current I18n.t(:profile), profile_path
-      #left
+                = link_to I18n.t(:all), events_path
+              - @categories.each do |category|
+                %div
+                  = link_to_unless_current I18n.t("categories.#{category.name}"), category_path(category)
+            - if @page_id == 'locations'
+              %div
+                = link_to_unless_current I18n.t(:all), locations_path
+              %div
+                = link_to_unless_current I18n.t("alaba"), province_path('alaba')
+              %div
+                = link_to_unless_current I18n.t("biscay"), province_path('biscay')
+              %div
+                = link_to_unless_current I18n.t("guipuzkoa"), province_path('guipuzkoa')
+              %div
+                = link_to_unless_current I18n.t("navarre"), province_path('navarre')
+              %div
+                = link_to_unless_current I18n.t("labourd"), province_path('labourd')
+              %div
+                = link_to_unless_current I18n.t("b_navarre"), province_path('b_navarre')
+              %div
+                = link_to_unless_current I18n.t("soule"), province_path('soule')
+            - if @page_id == 'account'
+              %div
+                = link_to_unless_current I18n.t(:activity), account_path
+              %div
+                %b= link_to_unless_current I18n.t(:reminders), reminders_path
+              %div
+                = link_to_unless_current I18n.t(:alarms), alarms_path
+              %div
+                = link_to_unless_current I18n.t(:uploaded_events), events_created_path
+              %div
+                = link_to_unless_current I18n.t(:followings), followings_path
+              %div
+                = link_to_unless_current I18n.t(:profile), profile_path
+          
+          #left_bar
+          
+          #central
+            %p#notice= notice
+            = yield
+        #right
+          
+        #sidebar
+          #searchBox
+            %p
+              =t :search_keyword
+              %input#event_title.blockShadow{:name => "titleinput", :size => "20", :type => "text", :value => ""}/
+            %p
+              =t :search_when
+              %input#event_title.blockShadow{:name => "titleinput", :size => "19", :type => "text", :value => ""}/
+            %p
+              =t :search_categories
+              %input#event_title.blockShadow{:name => "titleinput", :size => "20", :type => "list", :value => ""}/
+            %p
+              =t :search_where
+              %input#search_where{:style=>"display=none", :name => "titleinput", :size => "20", :type => "date_select", :value => "", :placeholder => I18n.t(:search_placeholder_where)}/
+            %p ---------------------------------------
+            #sButton
+              %li= link_to "Crack on!", root_path
+          
+            
+        
+      
          
-      #right_side
-        %p#notice= notice
-        = yield
+      
+        
         =yield :scripts
       
           

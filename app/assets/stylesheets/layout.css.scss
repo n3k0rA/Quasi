@@ -1,0 +1,254 @@
+
+@font-face
+{
+font-family: headline;
+src: url('headline.ttf'),
+     url('headline.eot'); /* IE9+ */
+}
+
+body {
+ margin-top: 10px;
+ margin-right: 0px;
+ margin-bottom: 0px;
+ margin-left: 0px;
+	a{
+		text-decoration:none;
+	}
+}
+
+#container {
+	position:relative;
+}
+
+.wrap {
+		position:relative;
+		margin:0 auto;
+		width:920px;
+		z-index: 1;
+		
+	}
+
+#header, #footer {
+	width:100%;
+	overflow:hidden;
+	background-color: #324B4A;
+	}
+
+
+
+/* This is HEADER
+*/
+
+#header {
+	max-height:110px;
+	font-family: headline;
+}
+
+#logo {
+	float:left;
+	background-color: white;
+	width:30%;
+}
+
+.logo_size {
+	max-height:110px;	
+}
+
+#header_right {
+	float:right;
+	background-image:url('cocineros.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	width:70%;
+}
+
+#login {
+	height:70px;
+	width:100%;
+	#user_nav {
+		max-height:35px;
+		
+	}
+	#user_nav, #lang {
+		width:100%;
+	}
+}
+
+.log, .sign {
+	float:right;
+	padding: 5px 4px;
+	margin: 5px 5px;
+	font-size: 110%;
+}
+
+.log {
+	background-color:white;
+	a{
+		color:black;
+		&:hover{
+			color:gray;
+		};
+	}
+}
+
+.sign {
+	background-color:gray;
+	a{
+			color: white;
+			&:hover{
+				color:black;
+			};
+	}
+}
+
+#lang {
+	float:right;
+	li{
+		float:right;
+		display: inline;
+		list-style: none;
+		padding: 0 5px;
+		letter-spacing:2px;
+		a{
+			color:red;
+			&:hover{
+				color:white;
+			};
+		}
+	}
+}
+
+/* Menu
+*/
+#menu {
+	float:left;
+	height:40px;
+	width:60%;
+ 	ul li {
+		position:relative;
+		letter-spacing:0.8px;
+		font-size:130%;
+		display: inline;
+		list-style: none;
+		margin: 0 5px;
+	}
+}
+.tab{
+	padding: 10px 9px 10px 14px;
+	background-color:eb1c23;
+	a {
+		color:e9e6e6;
+		&:hover{
+			color:white;
+		};
+	}
+}
+
+.account {
+	padding:10px;
+	background-color:black;
+	a {
+		color:05d116;
+		&:hover{
+			color:white;
+		};
+	}
+}
+
+.active {
+	a {
+		color:white;
+	}
+}
+
+/* Main
+*/
+
+#main {
+	position:relative;
+	margin:auto auto;
+	width:920px;
+}
+
+/* Left
+*/
+#left {
+	position:relative;
+	margin: 0; 
+	padding: 0;
+	display: block;
+	width:75%;
+}
+
+/* Submenu
+*/
+#submenu {
+	color:white;
+	font-size:110%;
+	font-family: headline;
+	margin: 7px auto;
+	text-align: center;
+	white-space: nowrap;  
+	overflow: hidden;
+	letter-spacing: 0.9px;
+	div {
+		border: 1px solid lightgray;
+		vertical-align: middle; 
+		display: inline-block;
+		background-color:8c8c8c;
+		padding: .6% 1.5%;
+
+		a {
+			color:e9e6e6;
+			&:hover{
+				color:white;
+			};
+		}
+	}
+}
+
+
+#left_bar {
+	background-color: yellow;
+}
+
+#central {
+	background-color: green;
+}
+
+
+/* This is SIDE SEARCH BOX
+*/
+
+
+
+/* Pagination Style
+*/
+
+.apple_pagination {
+  background: #f1f1f1;
+  border: 1px solid #e5e5e5;
+  text-align: center;
+  padding: 1em;
+  cursor: default; }
+  .apple_pagination a, .apple_pagination span {
+    padding: 0.2em 0.3em; }
+  .apple_pagination .disabled {
+    color: #aaaaaa; }
+  .apple_pagination .current {
+    font-style: normal;
+    font-weight: bold;
+    background-color: #bebebe;
+    display: inline-block;
+    width: 1.4em;
+    height: 1.4em;
+    line-height: 1.5;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    border-radius: 1em;
+    text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px; }
+  .apple_pagination a {
+    text-decoration: none;
+    color: black; }
+    .apple_pagination a:hover, .apple_pagination a:focus {
+      text-decoration: underline; }
