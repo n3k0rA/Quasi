@@ -197,3 +197,201 @@ eu:
   activerecord:
     errors:
       <<: *errors
+    
+  #Controllers
+  app_require_user: Erregistratuta egon behar duzu webgunean sartzeko.
+  app_require_ownership: Ez diozu eman hasiera ekitaldiari egile gisa.
+  comments_create: Iruzkin txertatua.
+  events_create: Ekitaldia behar bezala egunaretua izan da.
+  event_update: Ekitaldia behar bezala sortu da.
+  followings_create: Zerrendan zaude.
+  followings_destroy: Zure zerrendatik ezabatua.
+  followings_require_f: Ezin zara beste erabiltzaileen aukeretan sartu.
+  reminders_add: Zure zerrendari gehitua.
+  remindes_add_else: Kontu bat behar duzu zure zerrenda gorde ahal izateko.
+  reminders_delete: Hemendik aurrera ez da zurea.
+  users_create: 'Ongi etorri HiKulturara, jada barruan zaude!'
+  users_update: Zure datuak eguneratuak izan dira.
+
+  #Menu
+  menu_events: Ekitaldiak
+  menu_locations: Tokia
+  menu_account: Zure kontua
+
+  #Submenu
+  all: Guztiak
+  activity: Jarduera
+  reminders: Oroitarazlea
+  uploaded_events: Igotako ekitaldiak
+  followings: Jarraipena
+  profile: Profila
+
+  #Other
+  upload_event_button: Ekitaldia gehitu
+
+  #Search_Box
+  search_keyword: Hitz bilaketa
+  search_when: Noiz
+  search_categories: 
+  search_where: Non
+  search_placeholder_where: herri edo probintzia
+
+  #Event_headers
+  new_event: Gehitu ekitaldi bat
+  events_in_cat: Ekitaldiak kategorian
+  event_cancelation: Ekitaldiaren bertan behera uztea
+  events_in: Ekitaldiak 
+  submit_similar: Igo antzeko ekitaldia
+
+  #events info
+  event_title: Ekitaldiaren izenburua
+  event_categories: Kategoriak
+  event_start_date: Hasiera data
+  event_finish_date: Amaitze data
+  event_place: Tokia
+  event_address: Helbidea
+  event_town: Herria
+  event_province: Probintzia
+  event_price: Prezioa
+  event_description: Ekitaldiaren deskripzioa
+  email: Posta helbidea
+  event_website: Ekitaldiaren webgunea
+  event_phone: Harremanetarako telefono zenbakia
+  event_pic: Ekitaldiaren irudia
+  event_form_error:  Ezinezkoa ekitaldia gordetzea. Datuak berrikusi
+
+  event_display_start_date: Asiera
+  event_display_finish_date: Amaitu
+  event_creator: 'Sortzailea:'
+
+  cancel_intro: “ Zure ekitaldian interesa duen jendea dagoenez, bertan behera uztearen arrazoien berri ematea gomendatzen dizuegu”
+  cancel_message: “ Idatzi hemen adierazi nahi diezuna”
+
+  #Comments
+  comment: 
+    one: '1 iruzkina'
+    other: '%{count} iruzkinak'
+  do_comment: Partekatu zure iritzia!
+  submit_comment: Gehitu
+  comment_posted:  duela #do not write here
+  comment_says: idatzi zuen
+  comment_banned: Erabiltzaileek ez-egokitzat jo dute iruzkin hau.
+
+  #Remind me system
+  already_following_event: Ekitaldia zerrendan jasoa.
+  reminder_soon: 3 egun baino gutxiago falta dira
+
+  #interested
+  interested:
+    one: '1 Interesatua '
+    other: '%{count} Interesatuak'
+
+  #User_header
+  account_locked: Kontu blokeatua
+  edit_user: Kontua editatu
+  user_events_created: Sortutako ekitaldiak
+  recent_activity: Azken jarduerak
+  user_reminders: Oroitzarazle
+
+  #User
+  user_name: Izena
+  user_email: Posta helbidea
+  user_town: Herria
+  user_province: Probintzia
+  user_website: Webgunea
+  user_already_following: Jada jarraitzailea zara
+  user_no_followers: Oraingoz inor ez dago interesatuta
+  user_followers: Jarraitzaileak
+  user_follows: '%{name} -k jarraitzen du'
+  user_no_follows: Ez dago erantzunik
+  user_edit_profile: Zure datuak editatu
+  user_form_error: Ezinezkoa datuak gordetzea. Berrikusi formularioa
+  user_photo: Profil irudia
+  user_password: Pasahitza
+  user_password_confirmation: Pasahitzaren egiaztapena
+  user_events_created: Zuk sortutako ekitaldiak
+  user_no_events_created: Oraindik ez duzu ekitaldirik igo
+  user_no_reminders: Ez dago ekitaldirik. Ez zaude ezertan interesatuta ala?
+  follow_button: Jarraitu!
+
+  #Sessions
+  sign_up: Erregistratu
+  log_in: Hasi saioa
+  log_out: Utzi
+  logged_as: Ongi etorri
+  o_word: o
+  session_form_error: Ezinezkoa erregistratzea. Berrikusi formularioa
+  logging_form_error: 'Datuak oler daude, berrikusi mesedez'
+
+  #Translations
+  submit_translation: '"%{event}"–ri itzulpena gehitu' 
+  greeting_user: Mila esker komunitatean parte hartzeagatik
+  translation_form_error: Ezinezkoa datuak gordetzea. Berrikusi formularioa mesedez
+  leave_comment: Idatzi hemen ekitaldiaren sortzailearentzako mezuak
+  add_translation: Itzulpena gehitu
+  translation_pending: Itzulpena egiteke!
+  translation_message01: “ Itzulpen sistemak elkarlanean datza. Erabiltzaile erregistratu orok itzulpenak gehi ditezaieke beste ekitaldiri( izenburuz zein deskripzioz) azken hauen zabalkuntzaren onurako.” 
+  translation_message02: “ Gogoan izan zuk zeuk azken hitza daukazula itzulpen hau onesteko berau argitaratua izan aurretik”
+  translation_message03: “ Modu honetan argitaratuko litzateke ekitaldia”
+  temporal_translation: 'Behin-behineko itzulpena "%{event}"'
+  translator_comment: 'Itzultzaile iruzkizuna:'
+  translated_by: 'Itzultzaile:'
+
+  #Translations_of_languages
+  lang_basque: Euskara
+  lang_spanish: Gastelania
+  lang_french: Frantzesa
+  lang_english: Ingelesa
+
+  #Password_headers
+  forgot_password: Pasahitza ahaztuta
+  change_password: Pasahitza aldatu
+
+  #Categories
+  categories:
+    gastronomy: Gastronomia
+    family: Familia
+    sports: Kirola
+    scene: Escena
+    traditional: Tradizioa
+    music: Musika
+    party: Jaia
+
+  #Provinces
+  alaba: Araba
+  biscay: Bizkaia
+  guipuzkoa: Gipuzkoa
+  navarre: Nafarroa
+  labourd: Lapurdi
+  b_navarre: Behe Nafarroa
+  soule: Zuberoa
+
+  #Microposts_content_phrase
+  added_translation: 'itzulpenak gehitu ditu, '
+  uploaded: 'eEkitaldia berria igo du, '
+  edited: 'informazioa editatu du, '
+  cancelled: 'bertan behera geratu da, '
+  commented: 'esan zuen, '
+  following: jarraitzen
+
+  #Alarms
+  alarms: Alarmak
+  alarm_form_error: 'Ezin izan da zure alarma gorde. Datuak berrikusi'
+  alarm_saved: Zuzen gordetako alarma
+  new_alarm: Alarma berria
+  alarm_categories: Alarmaren kategoriak
+  alarm_title: Alarmaren izenburua
+  keyword: Hitz bilaketa
+  where: Non
+  activated: Aktibatuta
+
+  #Buttons_and_so
+  show: Erakutsi
+  edit: Editatu
+  delete: Ezabatu
+  cancel: Baliogabetu
+  submit_similar: Antzekoa sortu
+  are_you_sure: 'Ziur zaude?'
+  deactivate: Desaktibatu
+  activate: Aktibatu
+  edit_alarm: Alarma editatu

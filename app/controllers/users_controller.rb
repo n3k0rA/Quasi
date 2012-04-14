@@ -5,7 +5,8 @@ class UsersController < ApplicationController
   before_filter :get_current_user, :only => [:edit, :update, :destroy, :reminders, :events, :messages, :microposts, :profile]
   
   def index
-    @users = User.all
+    @event = Event.find(params[:id])
+    @users = @event.users
 
     respond_to do |format|
       format.html # index.html.erb

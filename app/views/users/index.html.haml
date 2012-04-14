@@ -4,23 +4,19 @@
     %th 
       =t :user_name
     %th 
-      =t :user_email
-    %th 
       =t :user_town
     %th
       =t :user_province
-    %th 
-      =t :user_website
     %th
-    %th
-    %th
+      =t :user_photo
+
   - @users.each do |user|
     %tr
       %td= user.name
-      %td= user.email
       %td= user.town
       %td= user.province
-      %td= user.website
-      %td= link_to 'Show', user
+      %td
+        - image = image_tag(@user.photo.url(:thumb), class: 'list_image')
+        = link_to image, @user
 %br
-= link_to 'New User', new_user_path
+
