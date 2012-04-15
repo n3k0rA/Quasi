@@ -13,7 +13,7 @@ class EventsController < ApplicationController
   # Filters events by category
   def category
     @category = Category.find(params[:category])
-    @events = @category.events
+    @events = @category.events.paginate(:page => params[:page])
     meta :title => @category.name, :description => @category.name
   end
   
@@ -143,13 +143,13 @@ class EventsController < ApplicationController
   end
   
   def locations
-    @events =Event.all
+    @events =Event.paginate(:page => params[:page])
   end
   
   # Filters events by province
   def province
     @province = params[:province]
-    @events = Event.where(:province => @province)
+    @events = Event.where(:province => @province).paginate(:page => params[:page])
   end
   
   # Checks whether a comment has been posted more than 5 min ago

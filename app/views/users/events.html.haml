@@ -2,26 +2,44 @@
 %h2 
   =title I18n.t(:user_events_created)
 %div
-  - if @user.created_events.empty?
+  - if @events.empty?
     %p 
     =t :user_no_events_created
   - else
-    - @user.created_events.each do |event|
-      .entry_side
-        - image = image_tag(event.pic.url(:thumb), class: 'list_image')
-        = link_to image, event
-        %h4
-          = link_to event.title , event
-        %h5
-          = l event.startDate, :format => :long
-          | #{event.town}
-        %td.list_actions
-          = link_to I18n.t(:show), event
-          %br
-          - if !event.cancelled && event.finishDate > Time.now
-            = link_to I18n.t(:edit), edit_event_path(event)
-            = link_to I18n.t(:cancel), event, confirm: I18n.t(:are_you_sure), method: :delete
-          = link_to I18n.t(:submit_similar), resubmit_event_path(:id => event.id)
-      -if !event.translations.empty? 
-        -event.translations.each do |translation| 
-          =link_to I18n.t(:translation_pending), translation
+    - @events.each do |event|
+      #user_block
+        #user_block_pic
+          =pic = image_tag(event.pic.url(:medium), class: 'user_event_block_image', :alt =>'Event Picture')
+        #user_block_details{:style=>"width:53%;"}
+          .user_event_title.capital
+            %b 
+              =truncate(strip_tags(event.title), length:28)
+          %div
+            %d
+              =l event.startDate, :format=> :long
+          %div
+            =event.place
+            %d.capital
+              =event.town
+          %div
+            -if !event.translations.empty? 
+              -event.translations.each do |translation| 
+                %small
+                  =link_to I18n.t(:translation_pending), translation
+        #user_block_info
+          - if !event.cancelled && event.finishDate >= Time.now
+            %div.rotate_div{:style=>"font-size:95%;"}
+              .rotate_text.capital{:style=>"line-height:160px;"}
+                =link_to I18n.t(:edit), edit_event_path(event)
+            %div.rotate_div
+              .rotate_text.capital{:style=>"line-height:160px;"}
+                =link_to I18n.t(:cancel), event, confirm: I18n.t(:are_you_sure), method: :delete
+          %div.rotate_div
+            .rotate_text{:style=>"line-height:160px;"}
+              =link_to 'INFO', event
+          %div.rotate_div
+            .rotate_text.capital{:style=>"line-height:160px;"}
+              =link_to I18n.t(:submit_similar), resubmit_event_path(:id => event.id)
+#pagination
+  .apple_pagination
+    = will_paginate @events

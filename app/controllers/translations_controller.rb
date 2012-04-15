@@ -18,12 +18,12 @@ class TranslationsController < ApplicationController
     
     respond_to do |format|
       if @translation.save
-        format.html { redirect_to root_url, notice: I18n.t(:greeting_user) }
-        format.json { render json: @user, status: :created, location: @user }
-        TranslationMailer.approve_translation(@translation).deviler
+        TranslationsMailer.approve_translation(@translation).deliver
+        format.html { redirect_to @translation.event, notice: I18n.t(:greeting_user) }
+        format.json { render json: @translation.event, status: :created, location: @translation.event }
       else
         format.html { render action: "new" }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.json { render json: @translation.errors, status: :unprocessable_entity }
       end
     end
   end

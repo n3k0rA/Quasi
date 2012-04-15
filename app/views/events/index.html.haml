@@ -3,7 +3,7 @@
 -@events.each do |event|
   #block
     #block_pic
-      =pic = image_tag(event.pic.url(:medium), class: 'event_block_image')
+      =pic = image_tag(event.pic.url(:medium), class: 'event_block_image', :alt =>'Event Picture')
 
     #block_details
       .event_title.capital

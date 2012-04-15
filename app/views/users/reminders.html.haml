@@ -6,16 +6,29 @@
       %p 
         = t :user_no_reminders
     - else
-      - @events.each do |event|
-        - @event = Event.find(event)
-        .entry_side
-          - image = image_tag(@event.pic.url(:thumb), class: 'list_image')
-          = link_to image, @event
-          %h4
-            = link_to @event.title , @event
-          %h5
-            = l event.startDate, :format => :long
-            | #{@event.town}
-          .rem_icon
-            - del_icon = image_tag("delete.png", class:'icon')
-            = link_to del_icon, del_reminder_path(:id => @event.id), confirm: I18n.t(:are_you_sure), method: del_reminder_path(:id => @event.id)
+      -@events.each do |event|
+        #user_block
+          #user_block_pic
+            =pic = image_tag(event.pic.url(:medium), class: 'user_event_block_image', :alt =>'Event Picture')
+          #user_block_details{:style=>"width:61%;"}
+            .user_event_title.capital
+              %b 
+                =truncate(strip_tags(event.title), length:32)
+                
+            %div
+              %d
+                =l event.startDate, :format=> :long
+            %div
+              =event.place
+              %d.capital
+                =event.town
+          #user_block_info
+            %div.rotate_div
+              .rotate_text{:style=>"line-height:160px;"}
+                =link_to 'INFO', event
+            %div.rotate_div
+              .rotate_text.capital{:style=>"line-height:160px;"}
+                =link_to I18n.t(:delete), del_reminder_path(:id => event.id), confirm: I18n.t(:are_you_sure), method: del_reminder_path(:id => event.id)
+#pagination
+  .apple_pagination
+    = will_paginate @events

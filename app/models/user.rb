@@ -36,6 +36,8 @@ class User < ActiveRecord::Base
   has_many :alarms, :dependent => :destroy
   has_many :microposts, :dependent => :destroy
    
+  self.per_page = 10
+  
   #Sets the values for the Province select field 
   PROVINCES = ["alaba", "biscay", "guipuzkoa", "navarre", "labourd", "b_navarre", "soule"] 
   
@@ -44,4 +46,5 @@ class User < ActiveRecord::Base
     reset_perishable_token!
     AccountNotifier.password_reset_instructions(self).deliver
   end
+  
 end

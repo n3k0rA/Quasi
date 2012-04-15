@@ -5,6 +5,7 @@
  *= require gmaps4rails
  *= require layout
  *= require events
+ *= require user_sections
  *= require scaffolds
  *= jquery-ui
 */

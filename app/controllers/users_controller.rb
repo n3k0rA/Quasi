@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   before_filter {set_up('account')}
-  before_filter :require_user, :only =>[:edit, :update, :destroy, :reminders, :messages, :events, :microposts]
+  before_filter :require_user, :only =>[:edit, :update, :destroy, :reminders, :messages, :events, :microposts, :profile]
   before_filter :get_current_user, :only => [:edit, :update, :destroy, :reminders, :events, :messages, :microposts, :profile]
   before_filter :leftbar_on
   
@@ -82,12 +82,14 @@ class UsersController < ApplicationController
   
   # Displays the reminders of a user
   def reminders
-    @events = @user.events.where('finishDate >= ?', Time.now)
+    @events = @user.events.where('finishDate >= ?', Time.now).paginate(:page => params[:page])
     #@events = @even.find(:all, :conditions=> ['finishDate >= ?', Time.now])
   end
   
   # Displays the created events of a user
   def events
+    @even = @user.created_events.order('created_at DESC')
+    @events = @even.paginate(:page => params[:page])
   end
   
   # Displays the messages of a user

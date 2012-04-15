@@ -1,0 +1,63 @@
+
+#user_block {
+	background: #cfd8dd;
+	background: -webkit-gradient(linear, left top, left bottom, from(#ccc), to(#fff));
+	background: -moz-linear-gradient(top, #ccc, #fff);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#css', endColorstr='#fff');
+	margin-bottom: 10px;
+	overflow:hidden;
+	max-height:100px;
+	
+}
+
+#user_block_pic {
+	float:left;
+	width: 25%;
+	max-height: 100px;
+	overflow:hidden;
+}
+
+#user_block_details{
+	float:left;
+	padding: 5px 10px 0px 10px;
+	font-size:90%;
+	text-align:justify;
+	
+}
+
+#user_block_info {
+	float:right;
+	height:100px;
+	max-width:30%;
+	a{
+		color:white;
+		&:hover{
+			color:#ccc;
+		};
+	}
+	
+}
+.rotate_div{
+	float:left;
+	background-color:red;
+	font-size:100%;
+	padding:0;
+	height:100%;
+	width:20px;
+	margin-left:4px;
+	overflow:hidden;
+}
+
+
+.user_event_block_image {
+		max-width: 150px;
+}
+
+.user_event_title {
+	color:red;
+	font-size:120%;
+	margin-bottom: 2px;
+}
+
+
+

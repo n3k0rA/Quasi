@@ -76,7 +76,7 @@ en:
 
   #Event_headers
   new_event: New Event
-  events_in_cat:  Events in Category
+  events_in_cat:  Events in category
   event_cancelation: Event Cancelation
   events_in: Events in
   submit_similar: Submit Cimilar 
@@ -96,7 +96,7 @@ en:
   event_website: Website of the event
   event_phone: Contact Number
   event_pic: Picture for the event
-  event_form_error: 'Impossible to save the event. Please revise the form'
+  event_form_error: 'Unable to save the event. Please revise the form'
 
   event_display_start_date: "From:"
   event_display_finish_date: "To:"
@@ -143,7 +143,7 @@ en:
   user_follows: '%{name} follows...'
   user_no_follows: No followers
   user_edit_profile: Edit your details
-  user_form_error: Impossible to save. Please revise the form
+  user_form_error: Unable to save. Please revise the form
   user_photo: User photo
   user_password: Password
   user_password_confirmation: Password confirmation
@@ -158,12 +158,12 @@ en:
   logged_as: Welcome
   o_word: or
   session_form_error: There are errors in the form. Please revise it.
-  logging_form_error: Impossible to log you in. Please make sure your details are correct.
+  logging_form_error: Unable to log you in. Please make sure your details are correct.
 
   #Translations
   submit_translation: Add translation to "%{event}"
   greeting_user: Thanks for your help building this community.
-  translation_form_error: Impossible to save the form. Please double check it!
+  translation_form_error: Unable to save the form. Please double check it!
   leave_comment: "Do you want to leave a note to the event's creator?"
   add_translation: Add translation
   translation_pending: Translation pending!
@@ -227,7 +227,7 @@ en:
   edit: Edit
   delete: Delete
   cancel: Cancel
-  submit_similar: Create Similar
+  submit_similar: Reuse
   are_you_sure: Are you sure?
   deactivate: Deactivate
   activate: Activate
