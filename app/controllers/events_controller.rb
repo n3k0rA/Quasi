@@ -28,7 +28,7 @@ class EventsController < ApplicationController
   # Display an event
   def show
     @event = Event.find(params[:id])
-    @event.views =+ 1
+    @event.views = @event.views + 1
     @event.save
     @comment = Comment.new(:event => @event)
     @json = @event.to_gmaps4rails

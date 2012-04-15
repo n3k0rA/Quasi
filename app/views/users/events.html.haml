@@ -29,16 +29,16 @@
         #user_block_info
           - if !event.cancelled && event.finishDate >= Time.now
             %div.rotate_div{:style=>"font-size:95%;"}
-              .rotate_text.capital{:style=>"line-height:160px;"}
+              .rotate_text.capital{:style=>"line-height:170px;"}
                 =link_to I18n.t(:edit), edit_event_path(event)
             %div.rotate_div
-              .rotate_text.capital{:style=>"line-height:160px;"}
+              .rotate_text.capital{:style=>"line-height:170px;"}
                 =link_to I18n.t(:cancel), event, confirm: I18n.t(:are_you_sure), method: :delete
           %div.rotate_div
-            .rotate_text{:style=>"line-height:160px;"}
+            .rotate_text{:style=>"line-height:170px;"}
               =link_to 'INFO', event
           %div.rotate_div
-            .rotate_text.capital{:style=>"line-height:160px;"}
+            .rotate_text.capital{:style=>"line-height:170px;"}
               =link_to I18n.t(:submit_similar), resubmit_event_path(:id => event.id)
 #pagination
   .apple_pagination

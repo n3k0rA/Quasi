@@ -75,39 +75,42 @@
                 %div
                   = link_to_unless_current I18n.t("categories.#{category.name}"), category_path(category)
             - if @page_id == 'locations'
-              %div
-                = link_to_unless_current I18n.t(:all), locations_path
-              %div
-                = link_to_unless_current I18n.t("alaba"), province_path('alaba')
-              %div
-                = link_to_unless_current I18n.t("biscay"), province_path('biscay')
-              %div
-                = link_to_unless_current I18n.t("guipuzkoa"), province_path('guipuzkoa')
-              %div
-                = link_to_unless_current I18n.t("navarre"), province_path('navarre')
-              %div
-                = link_to_unless_current I18n.t("labourd"), province_path('labourd')
-              %div
-                = link_to_unless_current I18n.t("b_navarre"), province_path('b_navarre')
-              %div
-                = link_to_unless_current I18n.t("soule"), province_path('soule')
+              %table.probatable
+                %td
+                  = link_to_unless_current I18n.t(:all), locations_path
+                %td
+                  = link_to_unless_current I18n.t("alaba"), province_path('alaba')
+                %td
+                  = link_to_unless_current I18n.t("biscay"), province_path('biscay')
+                %td
+                  = link_to_unless_current I18n.t("guipuzkoa"), province_path('guipuzkoa')
+                %td
+                  = link_to_unless_current I18n.t("navarre"), province_path('navarre')
+                %td
+                  = link_to_unless_current I18n.t("labourd"), province_path('labourd')
+                %td
+                  = link_to_unless_current I18n.t("b_navarre"), province_path('b_navarre')
+                %td
+                  = link_to_unless_current I18n.t("soule"), province_path('soule')
             - if @page_id == 'account'
-              %div
+              %div{:style=>"-webkit-box-shadow: 1px 1px 2px 2px #8c8c8c;"}
                 = link_to_unless_current I18n.t(:activity), account_path
-              %div
+              %div{:style=>"-webkit-box-shadow: 1px 1px 2px 2px #8c8c8c;"}
                 = link_to_unless_current I18n.t(:reminders), reminders_path
-              %div
+              %div{:style=>"-webkit-box-shadow: 1px 1px 2px 2px #8c8c8c;"}
                 = link_to_unless_current I18n.t(:alarms), alarms_path
-              %div
+              %div{:style=>"-webkit-box-shadow: 1px 1px 2px 2px #8c8c8c;"}
                 = link_to_unless_current I18n.t(:uploaded_events), events_created_path
-              %div
+              %div{:style=>"-webkit-box-shadow: 1px 1px 2px 2px #8c8c8c;"}
                 = link_to_unless_current I18n.t(:followings), followings_path
-              %div
+              %div{:style=>"-webkit-box-shadow: 1px 1px 2px 2px #8c8c8c;"}
                 = link_to_unless_current I18n.t(:profile), profile_path
           
           #left_bar
             
             -if @leftbar_switch == true
+              .left_bar_title.capital
+                =@lb_title
               - @events_leftbar.each do |event|
                 .entry_side
                   - image = image_tag(event.pic.url(:thumb), class: 'side_pic')

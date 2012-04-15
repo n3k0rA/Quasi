@@ -195,15 +195,15 @@ body {
 	font-size:110%;
 	font-family: theFont;
 	text-transform:uppercase;
-	margin: 7px auto;
+	margin: 7px 0 0 0;
 	text-align: center;
 	white-space: nowrap;  
 	overflow: hidden;
 	letter-spacing: 0.9px;
+	text-align:center;
 	div {
 		*display: inline;  
 		*margin: 0 20px 0 20px;
-		border: 1px solid lightgray;
 		vertical-align: middle; 
 		display: inline-block;
 		background-color:8c8c8c;
@@ -218,12 +218,34 @@ body {
 	}
 }
 
+.probatable{
+	font-size:99%;
+	text-align:center;
+	td{
+		color:white;
+		width:100px;
+		background-color:8c8c8c;
+		a {
+			color:e9e6e6;
+			&:hover{
+				color:white;
+			};
+		}
+	}
+}
+
 /* LEFT_BAR
 */
 #left_bar {
 	float:left;
-	background-color: yellow;
+
 	max-width:20%;
+	overflow:hidden;
+}
+
+.left_bar_title {
+	text-align:center;
+	font-size:60%;
 }
 
 #central {

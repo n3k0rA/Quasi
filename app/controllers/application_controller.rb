@@ -49,11 +49,34 @@ class ApplicationController < ActionController::Base
     
     # Feeds the left_bar
     def get_events_and_categories
-      @events_leftbar = if current_user
-      categories = current_user.events.map(&:categories).flatten
-        categories.map(&:events).flatten - current_user.events
+      x = rand()
+      if x < 0.2
+        @lb_title = 'suggestions'
+        @events_leftbar = if current_user
+        categories = current_user.events.map(&:categories).flatten
+          categories.map(&:events).flatten - current_user.events
+        else
+          Event.limit(8)
+        end
+      elsif x<0.4
+        @lb_title = 'lastest'
+        @events_leftbar = Event.order('created_at DESC').limit(8)
+      elsif x<0.6
+        @lb_title = 'most viewed'
+        @events_leftbar =Event.order('views DESC').limit(8)
+      elsif x<0.8
+        @lb_title = 'most followed'
+        @events_leftbar=Event.limit(8)
       else
-        Event.all
+        @lb_title = 'recomendations'
+        @events_leftbar = if current_user
+        Event.where(:town => current_user.town).limit(8)
+        else
+          Event.limit(8)
+        end
+      end
+      if @events_leftbar.empty?
+        @events_leftbar =Event.limit(8)
       end
       @categories = Category.all
     end
