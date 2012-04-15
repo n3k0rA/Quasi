@@ -4,8 +4,8 @@ class CommentsController < ApplicationController
   before_filter :deletable_comment, :only=> [:destroy]
   after_filter :create_micropost, :only=>[:create]
   
-  # POST /comments
-  # POST /comments.json
+
+  # Creates and saves a new comment
   def create
     @comment = Comment.new(params[:comment])
     @comment.user = current_user
@@ -25,8 +25,8 @@ class CommentsController < ApplicationController
 
  
 
-  # DELETE /comments/1
-  # DELETE /comments/1.json
+
+  # Deletes a comment
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
@@ -37,6 +37,7 @@ class CommentsController < ApplicationController
     end
   end
   
+  # Sends an email to the administrator with the comment as flagged
   def report_spam
     @comment = Comment.find(params[:id])
     AdminMailer.report_spam(@comment).deliver
@@ -45,6 +46,7 @@ class CommentsController < ApplicationController
   end
 
 private
+  # Checks whether a comment has been posted more than 5 min ago
   def deletable_comment
     @comment = Comment.find(params[:id])
     if Time.now > (@comment.created_at + 5.minutes)

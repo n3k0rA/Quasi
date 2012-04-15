@@ -1,3 +1,4 @@
+# Sample localization file for Basque
 eu:
   date:
     abbr_day_names:
@@ -189,6 +190,7 @@ eu:
       default: ! '%A, %Y(e)ko %Bren %e %H:%M:%S %z'
       long: ! '%Y(e)ko %Bren %e, %H:%M'
       short: ! '%b %e, %H:%M'
+      block: ! '%Bren %e'
     pm: pm
   # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
   activemodel:

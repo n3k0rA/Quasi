@@ -1,4 +1,6 @@
 Quasi::Application.routes.draw do
+  
+  # Defines all the routes under the language locale
   scope "(:locale)", :locale => /es|eu|fr|en/ do
     resources :followings
     resources :communications
@@ -44,14 +46,14 @@ Quasi::Application.routes.draw do
   match '/google639a0342a2f63a68.html', 
         :to => proc { |env| [200, {}, ["google-site-verification: google639a0342a2f63a68.html"]] }
   
-        
+  # Routes that work with no locale      
   match '/?locale=es' => 'events#index'
   match '/?locale=eu' => 'events#index'
   match '/?locale=fr' => 'events#index'
   match '/?locale=en' => 'events#index'
-  
   root :to => "events#index"
   
+  # Routes defined for admin section
   namespace :admin do |admin|
     resource :user_sessions
     resources :categories

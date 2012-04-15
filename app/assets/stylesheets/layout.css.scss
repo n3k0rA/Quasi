@@ -7,6 +7,7 @@ src: url('FranklinGotTExtCon.ttf'),
 }
 
 body {
+	
  margin-top: 10px;
  margin-right: 0px;
  margin-bottom: 0px;
@@ -184,7 +185,7 @@ body {
 	margin: 0; 
 	padding: 0;
 	display: block;
-	width:75%;
+	width:73%;
 }
 
 /* Submenu
@@ -217,13 +218,16 @@ body {
 	}
 }
 
-
+/* LEFT_BAR
+*/
 #left_bar {
+	float:left;
 	background-color: yellow;
+	max-width:20%;
 }
 
 #central {
-	
+	overflow:hidden;
 }
 
 
@@ -279,3 +283,11 @@ body {
     color: black; }
     .apple_pagination a:hover, .apple_pagination a:focus {
       text-decoration: underline; }
+
+
+.capital {
+	text-transform:uppercase;
+}
+.trial {
+	background-color:red;
+}

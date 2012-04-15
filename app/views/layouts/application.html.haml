@@ -106,6 +106,17 @@
                 = link_to_unless_current I18n.t(:profile), profile_path
           
           #left_bar
+            
+            -if @leftbar_switch == true
+              - @events_leftbar.each do |event|
+                .entry_side
+                  - image = image_tag(event.pic.url(:thumb), class: 'side_pic')
+                  = link_to image, event
+                  %h4
+                    = link_to event.title , event
+                  %h6
+                    = l event.startDate,  :format => :short
+                    | #{event.town}
           
           #central
             %p#notice= notice

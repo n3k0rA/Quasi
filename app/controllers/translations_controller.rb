@@ -3,21 +3,24 @@ class TranslationsController < ApplicationController
   #before_filter :require_ownership, :only => [:commit]
   after_filter :create_micropost, :only=>[:commit]
   before_filter {set_up('events')}
+  before_filter :leftbar_on
   
+  # Creates a new instance of tranlation
   def new
     @event = Event.find(params[:id])
     @translation = Translation.new(params[:event_id => @event.id])
   end
   
+  # Creates and saves a translation
   def create
     #@event = Event.find(params[:id])
     @translation = Translation.new(params[:translation].merge(:user_id=>current_user.id))
     
     respond_to do |format|
       if @translation.save
-        format.html { redirect_to root_url, notice: I18n.t(:users_create) }
+        format.html { redirect_to root_url, notice: I18n.t(:greeting_user) }
         format.json { render json: @user, status: :created, location: @user }
-        
+        TranslationMailer.approve_translation(@translation).deviler
       else
         format.html { render action: "new" }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -25,24 +28,25 @@ class TranslationsController < ApplicationController
     end
   end
   
+  # Displays a translation
   def show
     @translation = Translation.find(params[:id])
-    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @user }
     end
   end
   
+  # Deletes an exiting translation
   def destroy
     @translation.destroy
-
     respond_to do |format|
       format.html { redirect_to root_url }
       format.json { head :ok }
     end
   end
   
+  # Commit an uploaded translation to the original event
   def commit
     @translation = Translation.find(params[:id])
     @event = @translation.event

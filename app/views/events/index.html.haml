@@ -1,19 +1,26 @@
 
-%table
-  - @events.each do |event|
-    %tr{:class => cycle('list_line_odd', 'list_line_even')}
-      %td
-        - pic = image_tag(event.pic.url(:thumb), class: 'list_image')
-        = link_to pic, event
-      %td.list_description
-        %dl
-          %dt= link_to event.title, event
-          %dd= l event.startDate, :format => :long
-          %dd
-            = event.place
-            | #{event.town}
-          %dd= truncate(strip_tags(event.description), length:80)
-%p
+
+-@events.each do |event|
+  #block
+    #block_pic
+      =pic = image_tag(event.pic.url(:medium), class: 'event_block_image')
+
+    #block_details
+      .event_title.capital
+        %b 
+          =event.title
+      %div
+        %d
+          =l event.startDate, :format=> :block
+        %d.event_town
+          =event.place
+        %d.capital
+          =event.town
+      %p
+        =truncate(strip_tags(event.description), length:280)
+    #block_info
+      .rotate_text
+        =link_to 'INFO', event
 #pagination
   .apple_pagination
     = will_paginate

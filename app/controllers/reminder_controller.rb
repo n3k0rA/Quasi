@@ -3,6 +3,7 @@ class ReminderController < ApplicationController
   
   after_filter :create_micropost, :only=>[:add]
   
+  # Creates an entry in events_users table
   def add
     @event = Event.find(params[:id])
     @user = current_user
@@ -16,6 +17,7 @@ class ReminderController < ApplicationController
   	end
   end
   
+  # Deletes an entry in events_useres table
   def delete
     @event = Event.find(params[:id])
     @user = current_user

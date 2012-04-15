@@ -2,7 +2,9 @@ class AlarmsController < ApplicationController
   
   before_filter {set_up('account')}
   before_filter :require_user
+  before_filter :leftbar_on
   
+  # Creates a new alarm
   def create
     categories = params[:category_ids] or []
     @alarm = Alarm.new(params[:alarm].merge(:category_ids => categories))  
@@ -18,10 +20,12 @@ class AlarmsController < ApplicationController
     end
   end
   
+  # Edits an existing alarm
   def edit
     @alarm = Alarm.find(params[:id])
   end
   
+  # Updates an alarm's parameters after being edited
   def update
     categories = params[:category_ids] or []
     @alarm = Alarm.find(params[:id])
@@ -36,6 +40,7 @@ class AlarmsController < ApplicationController
     end
   end
   
+  # Destroy an alarm
   def destroy
     @alarm = Alarm.find(params[:id])
     @alarm.destroy
@@ -45,11 +50,13 @@ class AlarmsController < ApplicationController
     end
   end
   
+  # Display a list of current user's alarms
   def index
     @alarms = current_user.alarms.all
     @alarm = Alarm.new()
   end
   
+  # Activates or desactivates an alarm
   def switch
     @alarm = Alarm.find(params[:id])
     if @alarm.active

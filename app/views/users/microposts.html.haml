@@ -1,7 +1,8 @@
+
 %h2
   =title I18n.t(:recent_activity)
 
-=if @user.followings.empty?
+-if @user.followings.empty?
   %p
     Here you can keep up to date checking the activity of the users you are following.
 %p
@@ -19,4 +20,4 @@
     %small
       =t :comment_posted  
       #{time_ago_in_words(micro.created_at)}
-    
+  

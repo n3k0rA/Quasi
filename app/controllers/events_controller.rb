@@ -4,26 +4,28 @@ class EventsController < ApplicationController
   before_filter :require_ownership, :only => [:edit, :update, :destroy]
   before_filter :set_up_events, :except =>[:locations, :province]
   before_filter :set_up_locations, :only =>[:locations, :province]
+  before_filter :leftbar_on
+  before_filter :leftbar_off, :only =>[:index, :category, :province, :locations]
+  
   after_filter :create_micropost, :only=>[:update]
   
   
-  
+  # Filters events by category
   def category
     @category = Category.find(params[:category])
     @events = @category.events
     meta :title => @category.name, :description => @category.name
   end
   
-  # GET /events
-  # GET /events.json
+  # Display all the events
   def index
-    #@events = Event.paginate(:page => params[:page])
+    @events = Event.paginate(:page => params[:page])
     #@events = Event.paginate(:page => params[:page], :order=> 'startDate ASC')
-    @events = Event.where('finishDate >= ?', Time.now).order('startDate ASC').paginate(:page => params[:page])
+    #@events = Event.where('finishDate >= ?', Time.now).order('startDate ASC').paginate(:page => params[:page])
   end
 
-  # GET /events/1
-  # GET /events/1.json
+
+  # Display an event
   def show
     @event = Event.find(params[:id])
     @event.views =+ 1
@@ -37,8 +39,8 @@ class EventsController < ApplicationController
     end
   end
 
-  # GET /events/new
-  # GET /events/new.json
+
+  # Create a new instane of event
   def new
 		@event = Event.new
 		
@@ -48,13 +50,13 @@ class EventsController < ApplicationController
     end
   end
 
-  # GET /events/1/edit
+  # Edits an event
   def edit
     @event = Event.find(params[:id])
   end
 
-  # POST /events
-  # POST /events.json
+
+  # Creates and saves a new event
   def create  
     categories = params[:category_ids] or []
     @event = Event.new(params[:event].merge(:user_id => current_user.id, :category_ids => categories))
@@ -71,8 +73,8 @@ class EventsController < ApplicationController
     end
   end
 
-  # PUT /events/1
-  # PUT /events/1.json
+
+  # Updates event's parameters after being edited
   def update
     categories = params[:category_ids] or []
     @event = Event.find(params[:id])
@@ -110,14 +112,15 @@ class EventsController < ApplicationController
   
   end
   
+  # Creates a new event with same parameters of an existing one
   def resubmit
     @old_event = Event.find(params[:id])
     @event = Event.new
   end
   
   
-  # DELETE /events/1
-  # DELETE /events/1.json
+
+  # Deletes an event
   def destroy
     @event = Event.find(params[:id])
     if (@event.users.empty? || (@event.approved =false))
@@ -134,6 +137,7 @@ class EventsController < ApplicationController
     end
   end
   
+  # Cancels an event
   def cancel
     @event = Event.find(params[:id])
   end
@@ -142,11 +146,13 @@ class EventsController < ApplicationController
     @events =Event.all
   end
   
+  # Filters events by province
   def province
     @province = params[:province]
     @events = Event.where(:province => @province)
   end
   
+  # Checks whether a comment has been posted more than 5 min ago
   def deletable_comment
     @comment = Comment.find(params[:id])
     if Time.now > (@comment.created_at + 5.minutes)
@@ -156,6 +162,7 @@ class EventsController < ApplicationController
     end
   end
   
+  # Look for events that need to send reminders to those interested
   def remind_users
     @events = Event.all
     @events.each do |event|
@@ -166,12 +173,14 @@ class EventsController < ApplicationController
   end
   
 private
+  # Set the event to 'reminded'
   def check_date
     if close_date
       @event.reminded = true
     end
   end
   
+  # Checks whether an event is happening in less than 72h
   def close_date
     if ((@event.startDate-Time.now)< 259146.01469397545)
       true
@@ -180,11 +189,15 @@ private
     end
   end
  
+  # Sets the variables for the events menu tab
   def set_up_events
     set_up('events')
   end
   
+  # Sets the variable for the locations menu tab
   def set_up_locations
     set_up('locations')
   end
+  
+  
 end

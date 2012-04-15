@@ -2,6 +2,7 @@ class CommunicationsController < ApplicationController
   
   before_filter :require_user
   
+  # Creates a saves a new communication
   def create
     @communication =current_user.communications.build(:receiver_id =>params[:receiver_id])
     if @communiation.save

@@ -6,7 +6,7 @@ class FollowingsController < ApplicationController
   after_filter :create_micropost, :only => [:create]
   before_filter :get_current_user, :only=>[:index]
   
-  
+  # Creates a saves a new following
   def create
     @following = current_user.followings.build(:followed_id => params[:followed_id])
     @user = current_user
@@ -19,12 +19,14 @@ class FollowingsController < ApplicationController
     end
   end
 
+  # Destroys a following
   def destroy
     @following.destroy
     redirect_to current_user, :notice => I18n.t(:followings_destroy)
   end
   
   private
+    # Checks whether the current user is the owner of the following
     def require_following_ownership
       @following = Following.find(params[:id])
       unless current_user.id == @following.user_id

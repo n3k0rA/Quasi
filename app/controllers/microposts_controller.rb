@@ -6,6 +6,7 @@ class MicropostsController < ApplicationController
   def new
   end
   
+  # Creates and saves a new micropost
   def create
     @micropost = micropost.new(:user_id =>current_user, :content =>"kolkol", :event_id =>12)
     if @micropost.save

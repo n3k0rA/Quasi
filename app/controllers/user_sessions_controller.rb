@@ -2,11 +2,14 @@ class UserSessionsController < ApplicationController
   
   #before_filter :coming_soon, :except => [:new, :create]
   before_filter {set_up('account')}
+  before_filter :leftbar_on
   
+  # Creates a new instance of user session / Log in
   def new
     @user_session = UserSession.new
   end
 
+  # Creates a saves an user session / Logged in
   def create
     @user_session = UserSession.new(params[:user_session])
     @user = User.find_by_email(@user_session.email)
@@ -29,6 +32,7 @@ class UserSessionsController < ApplicationController
     end
   end
 
+  # Deletes an user session / Log out
   def destroy
     current_user_session.destroy
     redirect_to root_url

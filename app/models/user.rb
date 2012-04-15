@@ -36,9 +36,10 @@ class User < ActiveRecord::Base
   has_many :alarms, :dependent => :destroy
   has_many :microposts, :dependent => :destroy
    
-   
+  #Sets the values for the Province select field 
   PROVINCES = ["alaba", "biscay", "guipuzkoa", "navarre", "labourd", "b_navarre", "soule"] 
   
+  # Call the email service to email the user the reset password instructions
   def deliver_password_reset_instructions!
     reset_perishable_token!
     AccountNotifier.password_reset_instructions(self).deliver

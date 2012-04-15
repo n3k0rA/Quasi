@@ -3,11 +3,13 @@ class PasswordResetsController < ApplicationController
   before_filter {set_up('account')}
   before_filter :load_user_using_perishable_token, :only => [:edit, :update]  
   before_filter :require_no_user
+  before_filter :leftbar_on
   
   def new
     render
   end
   
+  # Creates a new instance of password_reset for an existing user
   def create
     @user = User.find_by_email(params[:email])
     if @user
@@ -25,6 +27,7 @@ class PasswordResetsController < ApplicationController
     render
   end
   
+  # Updates user's password with the new one
   def update
     @user.password = params[:user][:password]
     @user.password_confirmation = params[:user][:password_confirmation]
@@ -39,6 +42,7 @@ class PasswordResetsController < ApplicationController
   end
   
   private
+    # Checks whether the user that wants to reset the password is accessing from the url emailed to him/her
     def load_user_using_perishable_token
       @user = User.find_using_perishable_token(params[:id])
       flash[:notice] = :id

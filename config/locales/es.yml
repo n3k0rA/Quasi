@@ -1,3 +1,4 @@
+# Sample localization file for Spanish
 es:
   date:
     abbr_day_names:
@@ -190,6 +191,7 @@ es:
       default: ! '%A, %d de %B de %Y %H:%M:%S %z'
       long: ! '%d de %B de %Y %H:%M'
       short: ! '%d de %b %H:%M'
+      block: ! '%d de %B'
     pm: pm
   # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
   activemodel:

@@ -22,12 +22,13 @@ class Event < ActiveRecord::Base
   validates :title, :town, :description, presence: true
   self.per_page = 10
   
+  # Sets Google maps coordenates
   def gmaps4rails_address
   #describe how to retrieve the address from your model, if you use directly a db column, you can dry your code, see wiki
     "#{self.address}, #{self.town}, #{self.province}"
   end
   
-  
+  #Sets the values for the Province select field
   PROVINCES = ["alaba", "biscay", "guipuzkoa", "navarre", "labourd", "b_navarre", "soule"]
   
   #validates :pic, allow_blank: true, format: {

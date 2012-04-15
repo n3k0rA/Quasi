@@ -1,5 +1,4 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+# Sample localization file for English
 
 en:
   date:
@@ -12,6 +11,7 @@ en:
       normal: "%Y/%m/%d"
       long: "%a %d/%m, %Y"
       month: "%m"
+
 
     day_names: [Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday]
     abbr_day_names: [Sun, Mon, Tue, Wed, Thu, Fri, Sat]
@@ -31,6 +31,7 @@ en:
       normal: "%Y/%m/%d"
       short: "%d/%m"
       long: "%B %d, %Y %H:%M"
+      block: "%B %d"
     
     am: "am"
     pm: "pm"
