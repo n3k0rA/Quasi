@@ -2,6 +2,7 @@
 %html{:lang => "en", "xml:lang" => "en", :xmlns => "http://www.w3.org/1999/xhtml"}
   
   %head
+    <link rel="shortcut icon" href="/favicon.ico" />
     = title :site => "HiKultura"
     = metamagic :title => @title, :description => I18n.t(:event_description)
     = stylesheet_link_tag    "application"
@@ -94,7 +95,7 @@
               %div
                 = link_to_unless_current I18n.t(:activity), account_path
               %div
-                %b= link_to_unless_current I18n.t(:reminders), reminders_path
+                = link_to_unless_current I18n.t(:reminders), reminders_path
               %div
                 = link_to_unless_current I18n.t(:alarms), alarms_path
               %div
@@ -111,21 +112,14 @@
             = yield
         #right
           #search_box
-            %p
-              =t :search_keyword
-              %input#event_title.blockShadow{:name => "titleinput", :size => "20", :type => "text", :value => ""}/
-            %p
-              =t :search_when
-              %input#event_title.blockShadow{:name => "titleinput", :size => "19", :type => "text", :value => ""}/
-            %p
-              =t :search_categories
-              %input#event_title.blockShadow{:name => "titleinput", :size => "20", :type => "list", :value => ""}/
-            %p
-              =t :search_where
-              %input#search_where{:style=>"display=none", :name => "titleinput", :size => "20", :type => "date_select", :value => "", :placeholder => I18n.t(:search_placeholder_where)}/
-          %p ---------------------------------------
-          #sButton
-            %li= link_to "Crack on!", root_path
+          
+
+
+
+            
+
+          
+ 
           
             
         

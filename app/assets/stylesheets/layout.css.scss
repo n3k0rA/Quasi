@@ -114,7 +114,7 @@ body {
 		padding: 0 5px;
 		letter-spacing:2px;
 		a{
-			color:red;
+			color:3a3c39;
 			&:hover{
 				color:white;
 			};
@@ -200,6 +200,8 @@ body {
 	overflow: hidden;
 	letter-spacing: 0.9px;
 	div {
+		*display: inline;  
+		*margin: 0 20px 0 20px;
 		border: 1px solid lightgray;
 		vertical-align: middle; 
 		display: inline-block;
@@ -229,6 +231,7 @@ body {
 */
 
 #right {
+	position:relative;
 	float:right;
 	max-width:24%;
 }
@@ -236,9 +239,13 @@ body {
 /* This is SIDE SEARCH BOX
 */
 #search_box{
+	background-color:404041;
 	position:absolute;
-	background-color:blue;
-
+	right:5px;
+	top:-33px;
+	z-index:1;
+	width:230px;
+	height:350px;
 }
 
 

@@ -80,7 +80,8 @@ class UsersController < ApplicationController
   end
   
   def reminders
-    @events = @user.events.find(:all, :conditions=> ['finishDate >= ?', Time.now])
+    @events = @user.events.where('finishDate >= ?', Time.now)
+    #@events = @even.find(:all, :conditions=> ['finishDate >= ?', Time.now])
   end
   
   def events
