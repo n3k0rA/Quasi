@@ -19,9 +19,12 @@ class Event < ActiveRecord::Base
           #  :path => "for/example/:id/:style.:extension",
           #  :url  => ":s3_eu_url"
 
-  validates_datetime :finishDate, :after => :startDate
-  validates_datetime :finishDate, :on_or_after => lambda { Date.current }
+  validates_datetime :finish_date, :after => :startDate
+  validates_datetime :finish_date, :on_or_after => lambda { Date.current }
   validates :title, :town, :description, presence: true
+  
+  scope :start_between, lambda{|from, to| where ["start_date BETWEEN ? and ?", from.to_date - 1, to.to_date + 1] }
+  
   self.per_page = 10
   
   # Sets Google maps coordenates
