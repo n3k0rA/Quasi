@@ -22,6 +22,7 @@ gem "aws-s3"
 gem "aws-sdk"
 
 gem 'whenever', :require => false
+gem 'validates_timeliness', '~> 3.0.2'
 
 group :development do
   gem "rails-erd"
