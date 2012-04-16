@@ -9,7 +9,7 @@
       -@events.each do |event|
         #user_block
           #user_block_pic
-            =pic = image_tag(event.pic.url(:medium), class: 'user_event_block_image', :alt =>'Event Picture')
+            = image_tag(event.pic.url(:medium), class: 'user_event_block_image', :alt =>'Event Picture')
           #user_block_details{:style=>"width:61%;"}
             .user_event_title.capital
               %b 
