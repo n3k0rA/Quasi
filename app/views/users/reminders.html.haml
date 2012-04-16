@@ -1,0 +1,36 @@
+%h2 
+  =title I18n.t(:user_reminders)
+%div
+  %div
+    - if @events.empty?
+      %p 
+        = t :user_no_reminders
+    - else
+      -@events.each do |event|
+        #user_block
+          #user_block_pic
+            = image_tag(event.pic.url(:medium), class: 'user_event_block_image', :alt =>'Event Picture')
+          #user_block_details{:style=>"width:61%;"}
+            .user_event_title.capital
+              %b 
+                =truncate(strip_tags(event.title), length:32)
+                
+            %div
+              %d
+                =l event.startDate, :format=> :long
+            %div
+              =event.place
+              %d.capital
+                =event.town
+          #user_block_info
+            %div.rotate_div
+              .rotate_text.line_height
+                =link_to 'INFO', event
+            %div.rotate_div{:style=>"background-color:black;"}
+              .rotate_text.capital.line_height
+                =link_to I18n.t(:delete), del_reminder_path(:id => event.id), confirm: I18n.t(:are_you_sure), method: del_reminder_path(:id => event.id)
+
+-if @events.count > 10
+  #pagination
+    .apple_pagination
+      = will_paginate @events
