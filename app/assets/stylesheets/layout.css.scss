@@ -7,7 +7,7 @@ src: url('FranklinGotTExtCon.ttf'),
 }
 
 body {
-	
+	font-family:"Arial","Times New Roman",Georgia,Serif;
  margin-top: 10px;
  margin-right: 0px;
  margin-bottom: 0px;
@@ -199,7 +199,7 @@ body {
 	text-align: center;
 	white-space: nowrap;  
 	overflow: hidden;
-	letter-spacing: 0.9px;
+	letter-spacing: 0.4px;
 	text-align:center;
 	div {
 		*display: inline;  

@@ -382,6 +382,7 @@ es:
   cancelled: 'ha cancelado '
   commented: 'hizo un comentario en '
   following: esta siguiendo a 
+  interested: is interested in
   
   #Alarms
   alarms: Alarmas

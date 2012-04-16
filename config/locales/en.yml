@@ -210,7 +210,8 @@ en:
   cancelled: has cancelled
   commented: made a comment on
   following: is now following
-
+  interested: is interested in
+  
   #Alarms
   alarms: Alarms
   alarm_form_error: Impossible to save your alarm. Please check the form.

@@ -44,7 +44,9 @@ class ApplicationController < ActionController::Base
   private
     # Creates a micrpopost
     def create_micropost
-      @micropost = Micropost.create(:user_id =>@user.id, :content =>@content, :object_id =>@object)
+      if !@content.nil?
+        @micropost = Micropost.create(:user_id =>@user.id, :content =>@content, :object_id =>@object)
+      end
     end
     
     # Feeds the left_bar

@@ -7,7 +7,7 @@ class ReminderController < ApplicationController
   def add
     @event = Event.find(params[:id])
     @user = current_user
-    @content = "is interested in"
+    @content = "interested"
     @object = @event.id
     if current_user 
   		@event.users << current_user
