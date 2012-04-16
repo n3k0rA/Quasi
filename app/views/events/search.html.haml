@@ -1,0 +1,22 @@
+-@events.each do |event|
+  #block
+    #block_pic
+      = image_tag(event.pic.url(:medium), class: 'event_block_image', :alt =>'Event Picture')
+
+    #block_details
+      .event_title.capital
+        %b 
+          =event.title
+      %div
+        %d
+          =l event.startDate, :format=> :block
+        %d.event_town
+          =event.place
+        %d.capital
+          =event.town
+      %p
+        %small
+          =truncate(strip_tags(event.description), length:320)
+    #block_info
+      .rotate_text
+        =link_to 'INFO', event

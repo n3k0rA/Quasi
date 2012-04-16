@@ -1,5 +1,8 @@
 Quasi::Application.routes.draw do
   
+  
+  match "search" => "events#search", :as => "search"
+  
   # Defines all the routes under the language locale
   scope "(:locale)", :locale => /es|eu|fr|en/ do
     resources :followings

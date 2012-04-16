@@ -10,6 +10,11 @@ class EventsController < ApplicationController
   after_filter :create_micropost, :only=>[:update]
   
   
+  def search
+    @events = Event.where((["CAST(title as varchar(255)) LIKE ?", "%#{params[:query]}%"]))
+    @events = @events.start_between(params[:start_date], params[:end_date])
+  end
+  
   # Filters events by category
   def category
     @category = Category.find(params[:category])
@@ -21,7 +26,7 @@ class EventsController < ApplicationController
   def index
     @events = Event.paginate(:page => params[:page])
     #@events = Event.paginate(:page => params[:page], :order=> 'startDate ASC')
-    #@events = Event.where('finishDate >= ?', Time.now).order('startDate ASC').paginate(:page => params[:page])
+    #@events = Event.where('finish_date >= ?', Time.now).order('startDate ASC').paginate(:page => params[:page])
   end
 
 

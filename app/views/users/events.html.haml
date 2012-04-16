@@ -9,7 +9,7 @@
     - @events.each do |event|
       #user_block
         #user_block_pic
-          =pic = image_tag(event.pic.url(:medium), class: 'user_event_block_image', :alt =>'Event Picture')
+          = image_tag(event.pic.url(:medium), class: 'user_event_block_image', :alt =>'Event Picture')
         #user_block_details{:style=>"width:53%;"}
           .user_event_title.capital
             %b 
@@ -27,7 +27,7 @@
                 %small
                   =link_to I18n.t(:translation_pending), translation
         #user_block_info
-          - if !event.cancelled && event.finishDate >= Time.now
+          - if !event.cancelled && event.finish_date >= Time.now
             %div.rotate_div{:style=>"font-size:95%; background-color:8c8c8c;"}
               .rotate_text.capital.line_height
                 =link_to I18n.t(:edit), edit_event_path(event)
