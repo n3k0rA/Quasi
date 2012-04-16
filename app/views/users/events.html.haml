@@ -28,18 +28,20 @@
                   =link_to I18n.t(:translation_pending), translation
         #user_block_info
           - if !event.cancelled && event.finishDate >= Time.now
-            %div.rotate_div{:style=>"font-size:95%;"}
-              .rotate_text.capital{:style=>"line-height:170px;"}
+            %div.rotate_div{:style=>"font-size:95%; background-color:8c8c8c;"}
+              .rotate_text.capital.line_height
                 =link_to I18n.t(:edit), edit_event_path(event)
-            %div.rotate_div
-              .rotate_text.capital{:style=>"line-height:170px;"}
+            %div.rotate_div{:style=>"background-color:black;"}
+              .rotate_text.capital.line_height
                 =link_to I18n.t(:cancel), event, confirm: I18n.t(:are_you_sure), method: :delete
           %div.rotate_div
-            .rotate_text{:style=>"line-height:170px;"}
+            .rotate_text.line_height
               =link_to 'INFO', event
-          %div.rotate_div
-            .rotate_text.capital{:style=>"line-height:170px;"}
+          %div.rotate_div{:style=>"background-color:404041;"}
+            .rotate_text.capital.line_height
               =link_to I18n.t(:submit_similar), resubmit_event_path(:id => event.id)
-#pagination
-  .apple_pagination
-    = will_paginate @events
+
+-if @events.count > 10
+  #pagination
+    .apple_pagination
+      = will_paginate @events

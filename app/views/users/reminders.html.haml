@@ -24,11 +24,13 @@
                 =event.town
           #user_block_info
             %div.rotate_div
-              .rotate_text{:style=>"line-height:160px;"}
+              .rotate_text.line_height
                 =link_to 'INFO', event
-            %div.rotate_div
-              .rotate_text.capital{:style=>"line-height:160px;"}
+            %div.rotate_div{:style=>"background-color:black;"}
+              .rotate_text.capital.line_height
                 =link_to I18n.t(:delete), del_reminder_path(:id => event.id), confirm: I18n.t(:are_you_sure), method: del_reminder_path(:id => event.id)
-#pagination
-  .apple_pagination
-    = will_paginate @events
+
+-if @events.count > 10
+  #pagination
+    .apple_pagination
+      = will_paginate @events

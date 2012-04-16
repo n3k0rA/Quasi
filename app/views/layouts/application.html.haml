@@ -69,13 +69,14 @@
         #left
           #submenu
             -if @page_id =='events'
-              %div
-                = link_to I18n.t(:all), events_path
-              - @categories.each do |category|
-                %div
-                  = link_to_unless_current I18n.t("categories.#{category.name}"), category_path(category)
+              %table
+                %td
+                  = link_to I18n.t(:all), events_path
+                - @categories.each do |category|
+                  %td
+                    = link_to_unless_current I18n.t("categories.#{category.name}"), category_path(category)
             - if @page_id == 'locations'
-              %table.probatable
+              %table
                 %td
                   = link_to_unless_current I18n.t(:all), locations_path
                 %td
@@ -93,18 +94,19 @@
                 %td
                   = link_to_unless_current I18n.t("soule"), province_path('soule')
             - if @page_id == 'account'
-              %div{:style=>"-webkit-box-shadow: 1px 1px 2px 2px #8c8c8c; -moz-box-shadow:    1px 1px 2px 2px #8c8c8c;"}
-                = link_to_unless_current I18n.t(:activity), account_path
-              %div{:style=>"-webkit-box-shadow: 1px 1px 2px 2px; #8c8c8c; -moz-box-shadow:    1px 1px 2px 2px #8c8c8c;"}
-                = link_to_unless_current I18n.t(:reminders), reminders_path
-              %div{:style=>"-webkit-box-shadow: 1px 1px 2px 2px #8c8c8c; -moz-box-shadow:    1px 1px 2px 2px #8c8c8c;"}
-                = link_to_unless_current I18n.t(:alarms), alarms_path
-              %div{:style=>"-webkit-box-shadow: 1px 1px 2px 2px #8c8c8c; -moz-box-shadow:    1px 1px 2px 2px #8c8c8c;"}
-                = link_to_unless_current I18n.t(:uploaded_events), events_created_path
-              %div{:style=>"-webkit-box-shadow: 1px 1px 2px 2px #8c8c8c; -moz-box-shadow:    1px 1px 2px 2px #8c8c8c;"}
-                = link_to_unless_current I18n.t(:followings), followings_path
-              %div{:style=>"-webkit-box-shadow: 1px 1px 2px 2px #8c8c8c; -moz-box-shadow:    1px 1px 2px 2px #8c8c8c;"}
-                = link_to_unless_current I18n.t(:profile), profile_path
+              %table
+                %td{:style=>"width:116.6px;"}
+                  = link_to_unless_current I18n.t(:activity), account_path
+                %td{:style=>"width:116.6px;"}
+                  = link_to_unless_current I18n.t(:reminders), reminders_path
+                %td{:style=>"width:116.6px;"}
+                  = link_to_unless_current I18n.t(:alarms), alarms_path
+                %td{:style=>"width:116.6px;"}
+                  = link_to_unless_current I18n.t(:uploaded_events), events_created_path
+                %td{:style=>"width:116.6px;"}
+                  = link_to_unless_current I18n.t(:followings), followings_path
+                %td{:style=>"width:116.6px;"}
+                  = link_to_unless_current I18n.t(:profile), profile_path
           
           #left_bar
             

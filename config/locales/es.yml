@@ -199,9 +199,14 @@ es:
       <<: *errors
   activerecord:
     errors:
-  
-  
-  
+      
+  #WillPaginate
+  will_paginate:
+      next_label: siguiente →
+      page_gap: ! '&hellip;'
+      previous_label: ← atrás
+
+
   
   #Controllers
   app_require_user: "Debes estar registrado para acceder a la pagina"#"You must be logged in to access this page"
@@ -229,7 +234,7 @@ es:
   all: Todas
   activity: Actividad
   reminders: Recordatorios
-  uploaded_events: Eventos subidos
+  uploaded_events: Eventos creados
   followings: Seguimiento
   profile: Perfil
   

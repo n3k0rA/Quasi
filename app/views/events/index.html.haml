@@ -22,6 +22,8 @@
     #block_info
       .rotate_text
         =link_to 'INFO', event
-#pagination
-  .apple_pagination
-    = will_paginate
+        
+-if @events.count > 10
+  #pagination
+    .apple_pagination
+      = will_paginate @events

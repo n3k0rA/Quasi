@@ -201,38 +201,25 @@ body {
 	overflow: hidden;
 	letter-spacing: 0.4px;
 	text-align:center;
-	div {
-		*display: inline;  
-		*margin: 0 20px 0 20px;
-		vertical-align: middle; 
-		display: inline-block;
-		background-color:8c8c8c;
-		padding: .6% 1.5%;
-
-		a {
-			color:e9e6e6;
-			&:hover{
-				color:white;
-			};
+	table{
+		font-size:95%;
+		text-align:center;
+		margin:0 -5px;
+		td{
+			color:white;
+			width:100px;
+			background-color:8c8c8c;
+			a {
+				color:e9e6e6;
+				&:hover{
+					color:white;
+				};
+			}
 		}
 	}
 }
 
-.probatable{
-	font-size:99%;
-	text-align:center;
-	td{
-		color:white;
-		width:100px;
-		background-color:8c8c8c;
-		a {
-			color:e9e6e6;
-			&:hover{
-				color:white;
-			};
-		}
-	}
-}
+
 
 /* LEFT_BAR
 */
