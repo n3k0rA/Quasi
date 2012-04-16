@@ -82,7 +82,7 @@ class UsersController < ApplicationController
   
   # Displays the reminders of a user
   def reminders
-  @events = @user.events.where('finishDate >= ?', Time.now).paginate(:page => params[:page])
+  @events = @user.events.where('finish_date >= ?', Time.now).paginate(:page => params[:page])
     #@events = @even.find(:all, :conditions=> ['finishDate >= ?', Time.now])
   #@events = @user.events.paginate(:page =>params[:page])
   end
