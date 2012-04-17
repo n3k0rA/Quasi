@@ -235,10 +235,10 @@ eu:
   upload_event_button: Ekitaldia gehitu
 
   #Search_Box
-  search_keyword: Hitz bilaketa
-  search_when: Noiz
-  search_categories: Zein kategoriatan
-  search_where: Non
+  search_keyword: HITZ BILAKETA
+  search_when: NOIZ
+  search_categories: ZEIN KATEGORIATAN
+  search_where: NON
   search_placeholder_where: herri edo probintzia
   search: GOAZEN
 

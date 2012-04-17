@@ -29,7 +29,7 @@ Quasi::Application.routes.draw do
     get "account" => "users#microposts", :as => "account"
     
     match 'events/category/:category' => 'events#category', :as => :category
-    match 'events/province/:province' => 'events#province', :as => :province
+    match 'events/locations/:province' => 'events#province', :as => :province
     #match 'users/events_created/:user'=> 'users#events', :as => "events_created", :via=> :get
     get 'user/profile' => 'users#profile', :as => "profile"
     get 'events_created' => 'users#events', :as =>"events_created"
@@ -42,7 +42,7 @@ Quasi::Application.routes.draw do
     get 'alarm_switch' => "alarms#switch", :as => "alarm_switch"
     get 'cancel_event' => "events#cancel", :as => "cancel_event"
     get 'report_spam' => "comments#report_spam", :as => "report_spam"
-    
+    get "locations" => "events#locations", :as => "locations"
   end
  
   # Google verify.
@@ -74,7 +74,7 @@ Quasi::Application.routes.draw do
   
   
 #temp
-  get "locations" => "events#locations", :as => "locations"
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

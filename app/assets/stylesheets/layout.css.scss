@@ -46,8 +46,10 @@ body {
 #header {
 	position:relative;
 	max-height:110px;
+	font-family:"Arial Narrow","Times New Roman",Georgia,Serif;
 	font-family: theFont;
 	text-transform:uppercase;
+	
 }
 
 #logo {
@@ -60,7 +62,7 @@ body {
 	position:absolute;
 	top:90px;
 	left: 90px;
-	z-index:1;
+	z-index:-1;
 	font-size:110%;
 	letter-spacing: 0.8px;
 	color:404041;
@@ -205,6 +207,7 @@ body {
 /* Submenu
 */
 #submenu {
+	font-family:"Arial Narrow","Times New Roman",Georgia,Serif;
 	color:white;
 	font-size:110%;
 	font-family: theFont;
@@ -267,13 +270,28 @@ body {
 /* This is SIDE SEARCH BOX
 */
 #search_box{
+	font-family:"Arial Narrow","Times New Roman",Georgia,Serif;
 	background-color:404041;
 	position:absolute;
-	right:5px;
+	right:7px;
 	top:-33px;
 	z-index:1;
-	width:230px;
+	width:216px;
 	height:350px;
+	padding: 10px;
+	font-family: theFont;
+	color:white;
+	font-size:80%;
+	letter-spacing: 1.5px;
+	p {
+		margin-bottom:-5px;
+	}
+	
+}
+
+.category_field {
+	float:left;
+	width:98px;
 }
 
 

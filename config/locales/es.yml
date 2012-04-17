@@ -241,11 +241,12 @@ es:
   
   #Other
   upload_event_button: Anadir evento
+  
   #Search_Box
-  search_keyword: Palabra a buscar
-  search_when: Cuando
-  search_categories: Pertenece a...
-  search_where: Donde
+  search_keyword: ¿QUE BUSCAS?
+  search_when: ¿CUANDO?
+  search_categories: ¿EN QUÉ CATEGORÍA?
+  search_where: ¿DONDE?
   search_placeholder_where: localidad o provincia
   search: GOAZEN
   

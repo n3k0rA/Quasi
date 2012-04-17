@@ -1,4 +1,6 @@
 
+
+
 %html{:lang => "en", "xml:lang" => "en", :xmlns => "http://www.w3.org/1999/xhtml"}
   
   %head
@@ -11,6 +13,10 @@
     = csrf_meta_tags
     <link type="text/css" href="http://yourwebsite.com/css/ui-lightness/jquery-ui-1.8.custom.css" rel="stylesheet" /> 
     <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4f832c682c196183"></script>  
+    
+
+
+    
   %body{:class => "#{controller.controller_name} container"}
     .container
       #header
@@ -130,14 +136,37 @@
         #right
           #search_box.shadow
             = form_tag search_path do
-              = text_field_tag :query
-              %p
-              = select_date Date.today, :prefix => :search_start_date
-              %p
-              %p
-              = text_field_tag :town
-              %p
-              = submit_tag I18n.t(:search)
+              #s_keyword.capital
+                = label_tag I18n.t(:search_keyword)
+                %br
+                  = text_field_tag :query
+                %p
+              #s_date01.capital
+                = label_tag I18n.t(:search_when)
+                %br
+                  = select_date Date.today, :prefix => :search_start_date , :size =>"90"
+                %p
+              #s_categories.capital
+                = label_tag I18n.t(:search_categories)
+                %br
+                  - Category.all.each do |category|
+                    .category_field
+                      = check_box_tag "category_ids[]", category.id
+                      = I18n.t("categories.#{category.name}")
+                  .category_field
+                    = check_box("all", 'pm_xray', {:onclick=>"selectAll()"} )
+                    = I18n.t(:all)
+                    
+                    
+                    
+                %p
+              #s_where.capital
+                = label_tag I18n.t(:search_where)
+                %br
+                  = text_field_tag :town
+                %p
+              #s_button
+                = submit_tag I18n.t(:search)
           
 
 

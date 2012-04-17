@@ -59,7 +59,7 @@
       %p
         %b 
           = t :event_description
-        = @event.description
+        = simple_format(@event.description)
       %p
         %b 
           =t :email

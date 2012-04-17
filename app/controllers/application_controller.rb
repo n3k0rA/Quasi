@@ -19,6 +19,8 @@ class ApplicationController < ActionController::Base
   #  redirect_to url_for(locale: locale)
   #end
   
+
+  
   # Defines the variable for the menu tab
   def set_up(page)
     @page_id = page  

@@ -1,10 +1,3 @@
-$(function () {
-  $('#alert').click(function () {
-    alert('Hello, world!');
-    return false;
-  })
-});
-
 $(function() {
 		var availableTags = [
 		"ActionScript",
