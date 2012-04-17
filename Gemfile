@@ -21,6 +21,7 @@ gem "paperclip", "~> 2.5.0"
 gem "aws-s3"
 gem "aws-sdk"
 
+
 gem 'whenever', :require => false
 gem 'validates_timeliness', '~> 3.0.2'
 

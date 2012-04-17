@@ -9,7 +9,7 @@
       
       %b 
         = t :event_display_start_date
-      = l @event.startDate, :format => :long
+      = l @event.start_date, :format => :long
     %p
       %b 
         = t :event_display_finish_date
@@ -47,7 +47,7 @@
   - else
     - if (current_user && current_user.events.include?(@event))
       %h3  
-        -if ((@event.startDate-Time.now)< 259146.01469397545)
+        -if ((@event.start_date-Time.now)< 259146.01469397545)
           =t :reminder_soon
         -else
           = t :already_following_event

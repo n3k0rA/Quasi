@@ -19,7 +19,7 @@ class Event < ActiveRecord::Base
           #  :path => "for/example/:id/:style.:extension",
           #  :url  => ":s3_eu_url"
 
-  validates_datetime :finish_date, :after => :startDate
+  validates_datetime :finish_date, :after => :start_date
   validates_datetime :finish_date, :on_or_after => lambda { Date.current }
   validates :title, :town, :description, presence: true
   

@@ -1,17 +1,18 @@
+=@events.count
 -@events.each do |event|
-  #block
-    #block_pic
+  #user_block
+    #user_block_pic
       = image_tag(event.pic.url(:medium), class: 'event_block_image', :alt =>'Event Picture')
 
-    #block_details
+    #user_block_details{:style=>"width:66.5%;"}
       .event_title.capital
         %b 
-          =event.title
+          =truncate(strip_tags(event.title), length:60)
       %div
         %d
-          =l event.startDate, :format=> :block
+          =l event.start_date, :format=> :block
         %d.event_town
-          =event.place
+          =truncate(strip_tags(event.place), length:10)
         %d.capital
           =event.town
       %p

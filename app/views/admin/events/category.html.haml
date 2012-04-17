@@ -13,7 +13,7 @@
       %td.list_description
         %dl
           %dt= link_to event.title, event
-          %dd= l event.startDate, :format => :long
+          %dd= l event.start_date, :format => :long
           %dd
             = event.place
             | #{event.town}

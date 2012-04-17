@@ -9,10 +9,18 @@ class EventsController < ApplicationController
   
   after_filter :create_micropost, :only=>[:update]
   
+  require 'date'
   
   def search
-    @events = Event.where((["CAST(title as varchar(255)) LIKE ?", "%#{params[:query]}%"]))
-    @events = @events.start_between(params[:start_date], params[:end_date])
+   # @events = Event.where((["CAST(title as varchar(255)) LIKE ?", "%#{params[:query]}%"]) || (["CAST(place as varchar(255)) LIKE ?", "%#{params[:query]}%"]))
+    @events = Event.where((["CAST(town as varchar(255)) LIKE ?", "%#{params[:town]}%"]))
+    @events = @events.where((["CAST(title as varchar(255)) LIKE ?", "%#{params[:query]}%"]))
+    #raise foo
+    #@events = @events.find(:all, :conditions => ["start_date between ? and ?","%#{params[:search_start_date]}%", Date.today.next_month.beginning_of_month ])
+    
+    #@events = @events.where((["CAST(start_date as date) < ?", "%#{params[:search_start_date]}%"]))
+    @events = @events.where('start_date > ?', "%#{params[:search_start_date]}.to_time%")
+    #@events = @events.start_between(params[:start_date], params[:end_date])
   end
   
   # Filters events by category
@@ -24,9 +32,9 @@ class EventsController < ApplicationController
   
   # Display all the events
   def index
-    @events = Event.paginate(:page => params[:page])
-    #@events = Event.paginate(:page => params[:page], :order=> 'startDate ASC')
-    #@events = Event.where('finish_date >= ?', Time.now).order('startDate ASC').paginate(:page => params[:page])
+    #@events = Event.paginate(:page => params[:page])
+    #@events = Event.paginate(:page => params[:page], :order=> 'start_date ASC')
+    @events = Event.where('finish_date >= ?', Time.now).order('start_date ASC').paginate(:page => params[:page])
   end
 
 
@@ -187,7 +195,7 @@ private
   
   # Checks whether an event is happening in less than 72h
   def close_date
-    if ((@event.startDate-Time.now)< 259146.01469397545)
+    if ((@event.start_date-Time.now)< 259146.01469397545)
       true
     else 
       false

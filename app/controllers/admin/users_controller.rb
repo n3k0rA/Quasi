@@ -26,7 +26,7 @@ class Admin::UsersController < Admin::AdminController
   # GET /users/new
   # GET /users/new.json
   def new
-    @events = Event.order(:startDate)
+    @events = Event.order(:start_date)
     @user = User.new
   end
 
@@ -88,7 +88,7 @@ class Admin::UsersController < Admin::AdminController
   end
   
   def events
-    @events = Event.order(:startDate)
+    @events = Event.order(:start_date)
     @user = current_user
   end
   

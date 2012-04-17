@@ -69,6 +69,24 @@
 
 }
 
+/* SEARCH RESULTS
+*/
+
+#search_block_info {
+	float:left;
+	background-color:red;
+	height:100%;
+	font-size:160%;
+	padding:0;
+	max-width:5%;
+	a{
+		color:white;
+		&:hover{
+			color:#ccc;
+		};
+	}
+	
+}
 
 
 

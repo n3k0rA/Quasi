@@ -120,7 +120,7 @@
                   %h4
                     = link_to event.title , event
                   %h6
-                    = l event.startDate,  :format => :short
+                    = l event.start_date,  :format => :short
                     | #{event.town}
           
           #central
@@ -130,8 +130,13 @@
           #search_box.shadow
             = form_tag search_path do
               = text_field_tag :query
-              
-              = submit_tag "GO"
+              %p
+              = select_date Date.today, :prefix => :search_start_date
+              %p
+              %p
+              = text_field_tag :town
+              %p
+              = submit_tag "GOAZEN"
           
 
 
