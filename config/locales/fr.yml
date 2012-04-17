@@ -223,3 +223,5 @@ fr:
           other: ! '%{count} %{model} affiché(e)s'
       page_gap: ! '&hellip;'
       previous_label: ← précédent
+      
+  search: GOAZEN

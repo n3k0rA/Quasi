@@ -215,6 +215,9 @@ eu:
   users_create: 'Ongi etorri HiKulturara, jada barruan zaude!'
   users_update: Zure datuak eguneratuak izan dira.
 
+  #Header
+  slogan: Euskal Herriko Agenda
+    
   #Menu
   menu_events: Ekitaldiak
   menu_locations: Tokia
@@ -237,6 +240,7 @@ eu:
   search_categories: Zein kategoriatan
   search_where: Non
   search_placeholder_where: herri edo probintzia
+  search: GOAZEN
 
   #Event_headers
   new_event: Gehitu ekitaldi bat

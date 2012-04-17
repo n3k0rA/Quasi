@@ -14,6 +14,9 @@ body {
  margin-left: 0px;
 	a{
 		text-decoration:none;
+		img {
+			border: none;
+		}
 	}
 }
 
@@ -41,6 +44,7 @@ body {
 */
 
 #header {
+	position:relative;
 	max-height:110px;
 	font-family: theFont;
 	text-transform:uppercase;
@@ -50,6 +54,16 @@ body {
 	float:left;
 	background-color: white;
 	width:30%;
+}
+
+#slogan {
+	position:absolute;
+	top:90px;
+	left: 90px;
+	z-index:1;
+	font-size:110%;
+	letter-spacing: 0.8px;
+	color:404041;
 }
 
 .logo_size {

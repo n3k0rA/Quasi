@@ -4,10 +4,10 @@
     #user_block_pic
       = image_tag(event.pic.url(:medium), class: 'event_block_image', :alt =>'Event Picture')
 
-    #user_block_details{:style=>"width:66.5%;"}
+    #user_block_details{:style=>"width:66%;"}
       .event_title.capital
         %b 
-          =truncate(strip_tags(event.title), length:60)
+          =truncate(strip_tags(event.title), length:30)
       %div
         %d
           =l event.start_date, :format=> :block

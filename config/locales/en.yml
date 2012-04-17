@@ -62,7 +62,10 @@ en:
   reminders_delete: "Reminder deleted!"
   users_create: 'Welcome to HiKultura, now you are part of the community!.'
   users_update: 'User was successfully updated.'
-
+  
+  #Header
+  slogan: "Basque Country's Agenda"
+    
   #Menu
   menu_events: Events
   menu_locations: Locations
@@ -85,7 +88,8 @@ en:
   search_categories: Related to...
   search_where: Where
   search_placeholder_where: town or province
-
+  search: SEARCH
+  
   #Event_headers
   new_event: New Event
   events_in_cat:  Events in category

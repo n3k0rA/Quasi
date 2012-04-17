@@ -9,7 +9,7 @@ class EventsController < ApplicationController
   
   after_filter :create_micropost, :only=>[:update]
   
-  require 'date'
+  #require 'date'
   
   def search
    # @events = Event.where((["CAST(title as varchar(255)) LIKE ?", "%#{params[:query]}%"]) || (["CAST(place as varchar(255)) LIKE ?", "%#{params[:query]}%"]))
@@ -19,7 +19,11 @@ class EventsController < ApplicationController
     #@events = @events.find(:all, :conditions => ["start_date between ? and ?","%#{params[:search_start_date]}%", Date.today.next_month.beginning_of_month ])
     
     #@events = @events.where((["CAST(start_date as date) < ?", "%#{params[:search_start_date]}%"]))
-    @events = @events.where('start_date > ?', "%#{params[:search_start_date]}.to_time%")
+    #@time = params[:search_start_date]+" "+"00:00:00"
+    @time = Time.new(params[:search_start_date][:year], params[:search_start_date][:month],params[:search_start_date][:day] , params[:search_start_date][:hour], params[:search_start_date][:minute])
+    
+    @events = @events.where("start_date >= ?", @time)
+    #@events = @events.where("start_date > ?", "%#{params[:search_start_date]}%")
     #@events = @events.start_between(params[:start_date], params[:end_date])
   end
   

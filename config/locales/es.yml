@@ -223,7 +223,8 @@ es:
   users_create: "Bienvenid@ a HiKultura, ya eres oficial!" #'User was successfully created.'
   users_update: "Tus datos han sido actualizados" #'User was successfully updated.'
   
-  
+  #Header
+  slogan: Agenda de Euskal Herria
   
   #Menu
   menu_events: 'Eventos'
@@ -246,6 +247,7 @@ es:
   search_categories: Pertenece a...
   search_where: Donde
   search_placeholder_where: localidad o provincia
+  search: GOAZEN
   
   #Event_headers
   new_event: 'Anade un evento'

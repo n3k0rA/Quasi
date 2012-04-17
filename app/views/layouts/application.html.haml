@@ -20,9 +20,10 @@
           .wrap
             #logo
 
-              - logo_tag = image_tag("logo.png", :alt => "Logo HiKultura.com", :class => "logo_size")
+              - logo_tag = image_tag("hikultura_paisvasco_euskadi_jaia_cultura_small.png", :alt => "HiKultura Logo HiKultura.com", :class => "logo_size")
               = link_to logo_tag, root_path
-            
+              #slogan.capital
+                =t :slogan
               
             #header_right
               #login
@@ -136,7 +137,7 @@
               %p
               = text_field_tag :town
               %p
-              = submit_tag "GOAZEN"
+              = submit_tag I18n.t(:search)
           
 
 
