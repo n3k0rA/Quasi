@@ -1,10 +1,9 @@
-
 %h2
   =title I18n.t(:temporal_translation, :event => @translation.event.title)
 %h4 
   =t :translated_by
   = link_to @translation.user.name, @translation.user
-
+  
 -if !@translation.comment.nil?
   %h 
     =t :translator_comment
@@ -16,70 +15,39 @@
    
 %p 
   =t :translation_message03
-#tabs  
-  %ul
-    <li><a href="#tabs-1">Spanish</a></li>
-    <li><a href="#tabs-2">Basque</a></li>
-    <li><a href="#tabs-3">French</a></li>
-    %li
-      %a 
-        #tabs-4 
-          =link_to "English", "#tab-4"
+
+
+#tabs 
+  -if I18n.locale.to_s=="en"
+    %ul
+      <li><a href="#tabs-1">t :spanish</a></li>
+      <li><a href="#tabs-2">Basque</a></li>
+      <li><a href="#tabs-3">French</a></li>
+      <li><a href="#tabs-4">Ennglish</a></li>
+  -elsif I18n.locale.to_s=="eu"
+    %ul
+      %li
+        =link_to I18n.t(:lang_basque), '#tabs-2'
+      %li
+        =link_to I18n.t(:lang_spanish), '#tabs-1'
+      %li
+        =link_to I18n.t(:lang_french), '#tabs-3'
+      %li
+        =link_to I18n.t(:lang_english), '#tabs-4'
+  -elsif I18n.locale.to_s=="fr"
+  
+  -else
         
   #tabs-1    
-    -if !@translation.des_es.nil?
-      =@translation.title_es
-      %br
-      =@translation.des_es
-    -else
-      "No translation so far"
+    %p
+      castellano
+    
   #tabs-2   
-    -if !@translation.des_eu.nil?
-      =@translation.title_eu
-      %br
-      =@translation.des_eu
-    -else
-      "No translation so far"
+    %p
+      euskara
   #tabs-3  
-    -if !@translation.des_fr.nil?
-      =@translation.title_fr
-      %br
-      =@translation.des_fr
-    -else
-      "No translation so far"
-  #tabs-4  
-    -if !@translation.des_en.nil?
-      =@translation.title_en
-      %br
-      =@translation.des_en
-    -else
-      "No translation so far"
-    
-=link_to "Accept", commit_translation_path(:id =>@translation.id)
-=link_to "Reject", ""
-
-%p  
-  =t :lang_spanish
-  -if !@translation.des_es.nil?
-    =@translation.des_es
-  -else
-    "No translation so far"
-%p  
-  =t :lang_basque
-  -if !@translation.des_eu.nil?
-    =@translation.des_eu
-  -else
-    "No translation so far"
-%p  
-  =t :lang_french
-  -if !@translation.des_fr.nil?
-    =@translation.des_fr
-  -else
-    "No translation so far"
-%p  
-  =t :lang_english
-  -if !@translation.des_en.nil?
-    =@translation.des_en
-  -else
-    "No translation so far"
-    
+    %p
+      french
+  #tabs-4
+    %p
+      english

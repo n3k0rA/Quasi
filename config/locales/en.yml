@@ -226,7 +226,7 @@ en:
   cancelled: has cancelled
   commented: made a comment on
   following: is now following
-  interested: is interested in
+  is_interested: is interested in
   
   #Alarms
   alarms: Alarms

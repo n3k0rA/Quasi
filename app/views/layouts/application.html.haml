@@ -13,6 +13,8 @@
     = csrf_meta_tags
     <link type="text/css" href="http://yourwebsite.com/css/ui-lightness/jquery-ui-1.8.custom.css" rel="stylesheet" /> 
     <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4f832c682c196183"></script>  
+
+    
     
 
 
@@ -157,13 +159,12 @@
                     = check_box("all", 'pm_xray', {:onclick=>"selectAll()"} )
                     = I18n.t(:all)
                     
-                    
-                    
+                %p
                 %p
               #s_where.capital
                 = label_tag I18n.t(:search_where)
                 %br
-                  = text_field_tag :town
+                  = text_field_tag :search_where
                 %p
               #s_button
                 = submit_tag I18n.t(:search)
