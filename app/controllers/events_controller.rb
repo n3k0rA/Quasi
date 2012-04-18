@@ -9,12 +9,13 @@ class EventsController < ApplicationController
   
   after_filter :create_micropost, :only=>[:update]
   
-  #require 'date'
+  require 'date'
   
   def search
    # @events = Event.where((["CAST(title as varchar(255)) LIKE ?", "%#{params[:query]}%"]) || (["CAST(place as varchar(255)) LIKE ?", "%#{params[:query]}%"]))
     @events = Event.where((["CAST(town as varchar(255)) LIKE ?", "%#{params[:town]}%"]))
     @events = @events.where((["CAST(title as varchar(255)) LIKE ?", "%#{params[:query]}%"]))
+    #@events = Event.find(:all, :conditions => "town RLIKE'Zurba.*'")
     #raise foo
     #@events = @events.find(:all, :conditions => ["start_date between ? and ?","%#{params[:search_start_date]}%", Date.today.next_month.beginning_of_month ])
     
@@ -23,8 +24,13 @@ class EventsController < ApplicationController
     @time = Time.new(params[:search_start_date][:year], params[:search_start_date][:month],params[:search_start_date][:day] , params[:search_start_date][:hour], params[:search_start_date][:minute])
     
     @events = @events.where("start_date >= ?", @time)
+    #@events = @events.where("start_date > ?", "%#{Date.parse(params[:search_start_date])}%")
+    
     #@events = @events.where("start_date > ?", "%#{params[:search_start_date]}%")
     #@events = @events.start_between(params[:start_date], params[:end_date])
+    
+    #@events = @events.all(:conditions => { :category_ids => params[:category_ids]})
+    #@events = @events.where("category_ids = ?", params[:category_ids])
   end
   
   # Filters events by category

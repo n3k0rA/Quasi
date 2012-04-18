@@ -1,5 +1,5 @@
 
-
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 
 %html{:lang => "en", "xml:lang" => "en", :xmlns => "http://www.w3.org/1999/xhtml"}
   
@@ -141,16 +141,17 @@
               #s_keyword.capital
                 = label_tag I18n.t(:search_keyword)
                 %br
-                  = text_field_tag :query
+                  = text_field_tag :query, "", :class=>"search_text"
                 %p
-              #s_date01.capital
+              #s_date01.capital{:style=>"height:47px;"}
                 = label_tag I18n.t(:search_when)
                 %br
-                  = select_date Date.today, :prefix => :search_start_date , :size =>"90"
-                %p
+                  .date_selector
+                    = select_date Date.today, :prefix => :search_start_date, :order => [:day, :month, :year]
+                
               #s_categories.capital
                 = label_tag I18n.t(:search_categories)
-                %br
+                %p
                   - Category.all.each do |category|
                     .category_field
                       = check_box_tag "category_ids[]", category.id
@@ -160,14 +161,13 @@
                     = I18n.t(:all)
                     
                 %p
-                %p
-              #s_where.capital
+              #s_where.capital{:style=>"margin-top:97px;"}
                 = label_tag I18n.t(:search_where)
                 %br
-                  = text_field_tag :search_where
+                  = text_field_tag(:search_where, "", :class=>"search_text")
                 %p
               #s_button
-                = submit_tag I18n.t(:search)
+                = image_submit_tag('goazen_hikultura com_euskal_herriko_kultura.png', :class=>"s_button")
           
 
 

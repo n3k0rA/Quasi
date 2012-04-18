@@ -39,8 +39,7 @@
     %p
       %b 
         = t :event_categories
-        
-      =  @event.categories.map(&:name).to_sentence
+      =@event.categories.map{|category| I18n.t("categories.#{category.name}")}.to_sentence
 .interested
   -if @event.cancelled
     %h3 This event has been cancelled

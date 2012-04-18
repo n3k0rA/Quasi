@@ -54,18 +54,19 @@ body {
 
 #logo {
 	float:left;
-	background-color: white;
+	
 	width:30%;
+	
 }
 
 #slogan {
 	position:absolute;
 	top:90px;
 	left: 90px;
-	z-index:-1;
 	font-size:110%;
 	letter-spacing: 0.8px;
-	color:404041;
+	color:#404041;
+	z-index:-1;
 }
 
 .logo_size {
@@ -131,7 +132,7 @@ body {
 		padding: 0 5px;
 		letter-spacing:2px;
 		a{
-			color:3a3c39;
+			color:#3a3c39;
 			&:hover{
 				color:white;
 			};
@@ -157,9 +158,9 @@ body {
 }
 .tab{
 	padding: 10px 9px 10px 14px;
-	background-color:eb1c23;
+	background-color:#eb1c23;
 	a {
-		color:e9e6e6;
+		color:#e9e6e6;
 		&:hover{
 			color:white;
 		};
@@ -170,7 +171,7 @@ body {
 	padding:10px;
 	background-color:black;
 	a {
-		color:05d116;
+		color:#05d116;
 		&:hover{
 			color:white;
 		};
@@ -223,13 +224,13 @@ body {
 		text-align:center;
 		margin:0 -5px;
 		td{
-			color:e9e6e6;
+			color:#e9e6e6;
 			width:100px;
-			background-color:8c8c8c;
+			background-color:#8c8c8c;
 			a {
 				color:white;
 				&:hover{
-					color:e9e6e6;
+					color:#e9e6e6;
 				};
 			}
 		}
@@ -271,29 +272,42 @@ body {
 */
 #search_box{
 	font-family:"Arial Narrow","Times New Roman",Georgia,Serif;
-	background-color:404041;
+	background-color:#404041;
+	background-image: url('lupa_hikultura_com_pais_vasco_euskadi.png');
+	background-repeat:no-repeat;
 	position:absolute;
 	right:7px;
 	top:-33px;
 	z-index:1;
 	width:216px;
-	height:350px;
-	padding: 10px;
+	height:330px;
+	padding: 15px 10px 10px 10px;
 	font-family: theFont;
 	color:white;
 	font-size:80%;
-	letter-spacing: 1.5px;
+	letter-spacing: 1.9px;
 	p {
 		margin-bottom:-5px;
 	}
-	
 }
 
 .category_field {
 	float:left;
 	width:98px;
 }
-
+.date_selector {
+	letter-spacing: -0.05px;
+}
+.s_button {
+	margin: 20px 0 0 67px;
+	&:hover{
+		
+	};
+}
+.search_text {
+	width:98%;
+	height:20px;
+}
 
 /* Pagination Style
 */
@@ -327,9 +341,9 @@ body {
       text-decoration: underline; }
 
 .shadow {
-  -moz-box-shadow:    1px 1px 2px 2px #404041;
-  -webkit-box-shadow: 1px 1px 2px 2px #404041;
-  box-shadow:         1px 1px 2px 2px #404041;
+  -moz-box-shadow:    1px 1px 1px 1px #404041;
+  -webkit-box-shadow: 1px 1px 1px 1px #404041;
+  box-shadow:         1px 1px 1px 1px #404041;
 }
 .capital {
 	text-transform:uppercase;
