@@ -248,12 +248,14 @@ eu:
   event_cancelation: Ekitaldiaren bertan behera uztea
   events_in: Ekitaldiak 
   submit_similar: Igo antzeko ekitaldia
+  edit_event: Ekitaldia Editatu
 
   #events info
   event_title: Ekitaldiaren izenburua
   event_categories: Kategoriak
   event_start_date: Hasiera data
   event_finish_date: Amaitze data
+  event_dates: Datak
   event_place: Tokia
   event_address: Helbidea
   event_town: Herria
@@ -379,6 +381,7 @@ eu:
   cancelled: 'bertan behera geratu da, '
   commented: 'esan zuen, '
   following: jarraitzen
+  is_interesed: interesatua
 
   #Alarms
   alarms: Alarmak

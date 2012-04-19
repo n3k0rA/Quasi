@@ -21,8 +21,8 @@ class Event < ActiveRecord::Base
 
   validates_datetime :finish_date, :after => :start_date
   validates_datetime :finish_date, :on_or_after => lambda { Date.current }
-  validates :title, :town, :description, presence: true
-  
+  validates :town, presence: true
+  validate :the_event_must_have_at_least_one_description
   scope :start_between, lambda{|from, to| where ["start_date BETWEEN ? and ?", from.to_date - 1, to.to_date + 1] }
   
   self.per_page = 10
@@ -35,6 +35,18 @@ class Event < ActiveRecord::Base
   
   #Sets the values for the Province select field
   PROVINCES = ["alaba", "biscay", "guipuzkoa", "navarre", "labourd", "b_navarre", "soule"]
+  
+  #validates the presence of at least one title and description
+  def the_event_must_have_at_least_one_description
+    if des_es.empty? && des_eu.empty? && des_en.empty? && des_fr.empty?
+      errors.add(:des_es, "Please fill in the desciption at least in one language")
+    end
+    if title_es.empty? && title_eu.empty? && title_en.empty? && title_fr.empty?
+      errors.add(:des_es, "Please fill in the desciption at least in one language")
+    end
+  end
+  
+  
   
   #validates :pic, allow_blank: true, format: {
   #    with: %r{\.(gif|jpg|png|jpeg)$}i,

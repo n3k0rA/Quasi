@@ -14,6 +14,7 @@ body {
  margin-left: 0px;
 	a{
 		text-decoration:none;
+		outline: none;
 		img {
 			border: none;
 		}
@@ -294,6 +295,7 @@ body {
 .category_field {
 	float:left;
 	width:98px;
+	letter-spacing: 1.7px;
 }
 .date_selector {
 	letter-spacing: -0.05px;
@@ -301,7 +303,9 @@ body {
 .s_button {
 	margin: 20px 0 0 67px;
 	&:hover{
-		
+		-moz-box-shadow: 1px 1px 5px #999;
+		-webkit-box-shadow: 1px 1px 5px #999;
+		box-shadow: 1px 1px 5px #999;
 	};
 }
 .search_text {
@@ -340,6 +344,10 @@ body {
     .apple_pagination a:hover, .apple_pagination a:focus {
       text-decoration: underline; }
 
+
+/* GENERAL STYLE
+*/
+
 .shadow {
   -moz-box-shadow:    1px 1px 1px 1px #404041;
   -webkit-box-shadow: 1px 1px 1px 1px #404041;
@@ -348,6 +356,18 @@ body {
 .capital {
 	text-transform:uppercase;
 }
+.width_half{
+	width:50%;
+}
+.width_total{
+	width:100%;
+}
 .trial {
 	background-color:red;
+}
+.red_font{
+	color:#eb1c23;
+}
+.italic{
+	font-style:italic;
 }

@@ -256,12 +256,14 @@ es:
   event_cancelation: Cancelacion del evento
   events_in: 'Eventos en '
   submit_similar: 'Subir evento similar'
+  edit_event: Editar Evento
   
   #events info
   event_title: Titulo del evento
   event_categories: Categorias
   event_start_date: Comienza
   event_finish_date: Termina
+  event_dates: Fechas
   event_place: Lugar
   event_address: Direccion
   event_town: Localidad
@@ -390,7 +392,7 @@ es:
   cancelled: 'ha cancelado '
   commented: 'hizo un comentario en '
   following: esta siguiendo a 
-  interested: is interested in
+  is_interested: esta interesado en
   
   #Alarms
   alarms: Alarmas

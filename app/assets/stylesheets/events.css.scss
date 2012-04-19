@@ -90,7 +90,126 @@
 	
 }
 
+/* EVENT FORM
+*/
+.total_width {
+	width:100%;
+}
 
 
+/* SHOW AN EVENT
+*/
+#central_with_bar{
+	width:100%;
+	position:relative;
+	h1{
+		font-size:120%;
+	}
+}
+#photo {
+	max-height:260px;
+	overflow:hidden;
+}
+.event_show_photo {
+	max-width:100%;
+} 
+
+#main_details {
+	position:relative;
+	background: #cfd8dd;
+	background: -webkit-gradient(linear, left top, left bottom, from(#ccc), to(#fff));
+	background: -moz-linear-gradient(top, #ccc, #fff);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#css', endColorstr='#fff');
+	overflow:hidden;
+	padding:1px 5px;
+	margin: 5px 0;
+	h1{
+		font-size:150%;
+	}
+	#title {
+		margin-bottom:-10px;
+	}
+	div {
+		float:left;
+		min-height:50px;
+		font-size:75%;
+		b{
+			
+		}
+	}
+}
+
+#event_description {
+	text-align:justify;
+	font-size:80%;
+}
+
+#event_reminder{
+	float:left;
+	width:100%;
+	margin:0 auto;
+	text-align:center;
+	a {
+		text-indent: -5000px ;
+		margin:0 auto 10px auto;
+		display:block;
+		width:75px;
+		height:64px;
+	}
+}
+.sp_remind{
+	a{
+		background: url("remindme_sp_culture_spain_euskadi_fin_de_semana.png") 0 0 no-repeat;
+		&:hover{
+			background-position: 0 -64px ;
+		};
+	}
+	
+}
+.event_remind_pic{
+	
+}
+
+#tabs {
+	float:left;
+	width:98%;
+}
+
+/* EVENT SHOW TABS
+*/
+
+#attenders {
+	width:99%;	
+	#an_attender{
+		float:left;
+		width:50%;
+		height:110px;
+		
+		#an_attender_photo{
+			float:left;
+			width:42%;
+		}
+		#an_attender_info{
+			float:left;
+			overflow:hidden;
+		}
+	}
+}
+
+#event_contact_info{
+	float:left;
+	width:70%;
+	b{
+		
+	}
+}
+#event_contact_photo{
+	float:right;
+	width:30%;
+}
+
+#gmaps{
+	position:relative;
+}
 
 

@@ -1,3 +1,58 @@
 // Place all the styles related to the comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* COMMENT
+*/
+#new_comment{
+	
+	width:100%;
+	height:150px;
+	#new_comment_form{
+		float:left;
+		width:60%;
+		height:100%;
+		h3 {
+			margin:0px;
+		}
+	}
+	#new_comment_user_photo{
+		float:right;
+		width:30%;
+		margin: 0 auto;
+		height:100%;
+	}
+}
+.comment_box {
+	width:95%;
+	height:65px;
+}
+
+#comment {
+	position:relative;
+	width:100%;
+	overflow: auto;
+	float:left;
+	#comment_user_photo {
+		width:100px;
+		overflow: auto;
+		float:left;
+		min-height:80px;
+	}
+	#comment_body{
+		overflow: auto;
+		width:75%;
+		min-height:80px;
+		float:left;
+		text-align:justify;
+	}
+	#comment_options{
+		float:left;
+	}
+}
+.comment_user_photo {
+	height:60px;
+}
+.comment_options_icon{
+	width:15px;
+}

@@ -96,12 +96,14 @@ en:
   event_cancelation: Event Cancelation
   events_in: Events in
   submit_similar: Submit Cimilar 
+  edit_event: Edit Event
 
   #events info
   event_title: Title of the event
   event_categories: Categories
   event_start_date: Start date
   event_finish_date: Finish date
+  event_dates: Dates
   event_place: Place
   event_address: Address
   event_town: Town

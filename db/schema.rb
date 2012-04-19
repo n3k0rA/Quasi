@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120416185728) do
+ActiveRecord::Schema.define(:version => 20120419203915) do
 
   create_table "alarms", :force => true do |t|
     t.integer  "user_id"
@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(:version => 20120416185728) do
     t.boolean  "cancelled",        :default => false
     t.text     "cancel_message"
     t.string   "province"
+    t.string   "tickets"
   end
 
   create_table "events_users", :id => false, :force => true do |t|

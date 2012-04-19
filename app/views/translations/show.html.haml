@@ -18,13 +18,17 @@
 
 
 #tabs 
-  -if I18n.locale.to_s=="en"
+  -if I18n.locale.to_s=="en" && !@translation.des_en.empty?
     %ul
-      <li><a href="#tabs-1">spanish</a></li>
-      <li><a href="#tabs-2">Basque</a></li>
-      <li><a href="#tabs-3">French</a></li>
-      <li><a href="#tabs-4">Ennglish</a></li>
-  -elsif I18n.locale.to_s=="eu"
+      %li
+        =link_to I18n.t(:lang_english), '#tabs-4'
+      %li
+        =link_to I18n.t(:lang_spanish), '#tabs-1'
+      %li
+        =link_to I18n.t(:lang_basque), '#tabs-2'
+      %li
+        =link_to I18n.t(:lang_french), '#tabs-3'
+  -elsif I18n.locale.to_s=="eu" && !@translation.des_eu.empty?
     %ul
       %li
         =link_to I18n.t(:lang_basque), '#tabs-2'
@@ -34,20 +38,67 @@
         =link_to I18n.t(:lang_french), '#tabs-3'
       %li
         =link_to I18n.t(:lang_english), '#tabs-4'
-  -elsif I18n.locale.to_s=="fr"
-  
+  -elsif I18n.locale.to_s=="fr" && !@translation.des_fr.empty?
+    %ul
+      %li
+        =link_to I18n.t(:lang_french), '#tabs-3'
+      %li
+        =link_to I18n.t(:lang_basque), '#tabs-2'
+      %li
+        =link_to I18n.t(:lang_spanish), '#tabs-1'
+      %li
+        =link_to I18n.t(:lang_english), '#tabs-4'
+  -elsif !@translation.des_es.empty?
+    %ul
+      %li
+        =link_to I18n.t(:lang_spanish), '#tabs-1'
+      %li
+        =link_to I18n.t(:lang_basque), '#tabs-2'
+      %li
+        =link_to I18n.t(:lang_french), '#tabs-3'
+      %li
+        =link_to I18n.t(:lang_english), '#tabs-4'
   -else
-        
+    %ul
+      %li
+        =link_to I18n.t(:lang_basque), '#tabs-2'
+      %li
+        =link_to I18n.t(:lang_spanish), '#tabs-1'
+      %li
+        =link_to I18n.t(:lang_french), '#tabs-3'
+      %li
+        =link_to I18n.t(:lang_english), '#tabs-4' 
+              
   #tabs-1    
     %p
-      castellano
+      -if !@translation.des_es.nil?
+        =@translation.title_es
+        %br
+        =simple_format(@translation.des_es)
+      -else
+        "No translation so far"
     
   #tabs-2   
     %p
-      euskara
+      -if !@translation.des_eu.empty?
+        =@translation.title_eu
+        %br
+        =@translation.des_eu
+      -else
+        "No translation so far"
   #tabs-3  
     %p
-      french
+      -if !@translation.des_fr.empty?
+        =@translation.title_fr
+        %br
+        =@translation.des_fr
+      -else
+        "No translation so far"
   #tabs-4
     %p
-      english
+      -if !@translation.des_en.empty?
+        =@translation.title_en
+        %br
+        =@translation.des_en
+      -else
+        "No translation so far"

@@ -13,7 +13,7 @@ class EventsController < ApplicationController
   
   def search
    # @events = Event.where((["CAST(title as varchar(255)) LIKE ?", "%#{params[:query]}%"]) || (["CAST(place as varchar(255)) LIKE ?", "%#{params[:query]}%"]))
-    @events = Event.where((["CAST(town as varchar(255)) LIKE ?", "%#{params[:town]}%"]))
+    @events = Event.where((["CAST(town as varchar(255)) LIKE ?", "%#{params[:search_where]}%"]))
     @events = @events.where((["CAST(title as varchar(255)) LIKE ?", "%#{params[:query]}%"]))
     #@events = Event.find(:all, :conditions => "town RLIKE'Zurba.*'")
     #raise foo

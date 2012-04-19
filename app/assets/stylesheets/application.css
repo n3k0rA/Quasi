@@ -7,6 +7,7 @@
  *= require events
  *= require user_sections
  *= require scaffolds
- *= require smoothness/jquery.ui.all.css
+ *= require smoothness/jquery-ui-1.8.19.custom
+ *= require comments
 */
 

@@ -8,10 +8,93 @@
       %ul
         - @event.errors.full_messages.each do |msg|
           %li= msg
-  .field
-    = f.label t :event_title
-    %br
-    = f.text_field :title
+          
+          
+  #tabs 
+    -if I18n.locale.to_s=="en" 
+      %ul
+        %li
+          =link_to I18n.t(:lang_english), '#tabs-4'
+        %li
+          =link_to I18n.t(:lang_spanish), '#tabs-1'
+        %li
+          =link_to I18n.t(:lang_basque), '#tabs-2'
+        %li
+          =link_to I18n.t(:lang_french), '#tabs-3'
+    -elsif I18n.locale.to_s=="eu" 
+      %ul
+        %li
+          =link_to I18n.t(:lang_basque), '#tabs-2'
+        %li
+          =link_to I18n.t(:lang_spanish), '#tabs-1'
+        %li
+          =link_to I18n.t(:lang_french), '#tabs-3'
+        %li
+          =link_to I18n.t(:lang_english), '#tabs-4'
+    -elsif I18n.locale.to_s=="fr" 
+      %ul
+        %li
+          =link_to I18n.t(:lang_french), '#tabs-3'
+        %li
+          =link_to I18n.t(:lang_basque), '#tabs-2'
+        %li
+          =link_to I18n.t(:lang_spanish), '#tabs-1'
+        %li
+          =link_to I18n.t(:lang_english), '#tabs-4'
+    -else
+      %ul
+        %li
+          =link_to I18n.t(:lang_spanish), '#tabs-1'
+        %li
+          =link_to I18n.t(:lang_basque), '#tabs-2'
+        %li
+          =link_to I18n.t(:lang_french), '#tabs-3'
+        %li
+          =link_to I18n.t(:lang_english), '#tabs-4'
+  
+    #tabs-1
+      %p
+        .field
+          = f.label "Titulo del Evento"
+          = f.text_field :title_es, :class=>"total_width"
+        %br
+        .field
+          = f.label "Descripcion del Evento"
+          %br
+          = f.text_area :des_es, :rows => 15, :class=>"total_width"
+    #tabs-2
+      %p
+        .field
+          = f.label "Ekitaldiaren Titulua"
+          = f.text_field :title_eu, :class=>"total_width"
+        %br
+        .field
+          = f.label "Ekitaldiaren Deskripzioa"
+          %br
+          = f.text_area :des_eu, :rows => 15, :class=>"total_width"
+    #tabs-3
+      %p
+        .field
+          = f.label "Titre de L'événement"
+          = f.text_field :title_fr, :class=>"total_width"
+        %br
+        .field
+          = f.label "Descripcion de L'événement"
+          %br
+          = f.text_area :des_fr, :rows => 15, :class=>"total_width"
+    #tabs-4
+      %p
+        .field
+          = f.label "Event Title"
+          = f.text_field :title_en, :class=>"total_width"
+        %br
+        .field
+          = f.label "Event Description"
+          %br
+          = f.text_area :des_en, :rows => 15, :class=>"total_width"
+        
+        
+        
   
   = f.label t :event_categories
   - Category.all.each do |category|
@@ -48,10 +131,7 @@
     = f.label t :event_price
     %br
     = f.number_field :price
-  .field
-    = f.label t :event_description
-    %br
-    = f.text_area :description, :class => 'autogrow', :rows => 10
+
   .field
     = f.label t :email
     %br

@@ -1,20 +1,25 @@
-.comment
-  %strong
-    - usr = h comment.user.name
-    = link_to usr, comment.user
-  = t :comment_says
-  %br/
-  %small
-  =t :comment_posted  
-  #{time_ago_in_words(comment.created_at)}
-  -if comment.banned?
-    %em 
-      %small
-        = simple_format t :comment_banned
-  -else
-    %em= simple_format h(comment.body)
-  =link_to 'Spam', report_spam_path(:id =>comment.id)
-  -if Time.now < (comment.created_at + 5.minutes)
-    = link_to I18n.t(:delete), comment,                   
-      :confirm => I18n.t(:are_you_sure),                          
-      :method => :delete if current_user.eql?(comment.user)
+#comment
+  #comment_user_photo
+    =link_to image_tag(comment.user.photo.url(:thumb), class:'comment_user_photo', :alt=>"user photo"), comment.user
+    %br/
+    =t :comment_posted  
+    #{time_ago_in_words(comment.created_at)}
+  #comment_body
+    %strong
+      - usr = h comment.user.name
+      = link_to usr, comment.user
+    .italic
+      = t :comment_says
+    %br/
+    -if comment.banned?
+      %em 
+        %small
+          = simple_format t :comment_banned
+    -else
+      %h3= simple_format h(comment.body)
+  #comment_options
+    =link_to image_tag("spam_culture_basque_country.gif", class:'comment_options_icon'), report_spam_path(:id =>comment.id), :confirm => "Do you want to report this comment as spam or inappropriate?"
+    -if Time.now < (comment.created_at + 5.minutes)
+      = link_to image_tag("delete_basque_culture.png", class:'comment_options_icon'), comment,                   
+        :confirm => I18n.t(:are_you_sure),                          
+        :method => :delete if current_user.eql?(comment.user)
