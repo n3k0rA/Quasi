@@ -30,6 +30,9 @@ class EventsController < ApplicationController
     
     #@events = @events.all(:conditions => { :category_ids => params[:category_ids]})
     #@events = @events.where("category_ids = ?", params[:category_ids])
+    @events= @events.paginate(:page=>params[:page])
+    
+    
   end
   
   # Filters events by category

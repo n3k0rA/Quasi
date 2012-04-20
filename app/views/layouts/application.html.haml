@@ -119,25 +119,16 @@
           
           #left_bar
             
-            - if @leftbar_switch
-              .left_bar_title.capital
-                =@lb_title
-              - @events_leftbar.each do |event|
-                .entry_side
-                  - image = image_tag(event.pic.url(:thumb), class: 'side_pic')
-                  = link_to image, event
-                  %h4
-                    = link_to event.title , event
-                  %h6
-                    = l event.start_date,  :format => :short
-                    | #{event.town}
+            =render 'layouts/left_bar'
           
           #central
             %p#notice= notice
+            
             = yield
+
         #right
           #search_box.shadow
-            = form_tag search_path do
+            = form_tag search_path, :id=>"events_search" do
               #s_keyword.capital
                 = label_tag I18n.t(:search_keyword)
                 %br
@@ -167,8 +158,8 @@
                   = text_field_tag(:search_where, "", :class=>"search_text")
                 %p
               #s_button
-                = image_submit_tag('goazen_hikultura com_euskal_herriko_kultura.png', :class=>"s_button")
-          
+                = img =image_submit_tag('goazen_hikultura com_euskal_herriko_kultura.png', :class=>"s_button")
+                
 
 
 

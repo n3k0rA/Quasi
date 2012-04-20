@@ -9,5 +9,6 @@
  *= require scaffolds
  *= require smoothness/jquery-ui-1.8.19.custom
  *= require comments
+ *= require_directory ./smoothness
 */
 

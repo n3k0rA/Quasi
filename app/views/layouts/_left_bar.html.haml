@@ -1,0 +1,13 @@
+
+- if @leftbar_switch
+  .left_bar_title.capital
+    =@lb_title
+  - @events_leftbar.each do |event|
+    .entry_side
+      - image = image_tag(event.pic.url(:thumb), class: 'side_pic')
+      = link_to image, event
+      %h4
+        = link_to event.title , event
+      %h6
+        = l event.start_date,  :format => :short
+        | #{event.town}

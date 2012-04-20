@@ -160,10 +160,18 @@ body {
 .tab{
 	padding: 10px 9px 10px 14px;
 	background-color:#eb1c23;
+	
+	&:hover{
+		-moz-box-shadow: 1px 1px 5px #eb1c23;
+		-webkit-box-shadow: 1px 1px 5px #eb1c23;
+		box-shadow: 0.3px -0.3px 5px #eb1c23;
+		top:-1px;
+	};
 	a {
 		color:#e9e6e6;
 		&:hover{
 			color:white;
+		
 		};
 	}
 }
@@ -171,6 +179,9 @@ body {
 .account {
 	padding:10px;
 	background-color:black;
+	&:hover{
+		top:-2px;
+	};
 	a {
 		color:#05d116;
 		&:hover{
@@ -349,9 +360,9 @@ body {
 */
 
 .shadow {
-  -moz-box-shadow:    1px 1px 1px 1px #404041;
-  -webkit-box-shadow: 1px 1px 1px 1px #404041;
-  box-shadow:         1px 1px 1px 1px #404041;
+	-moz-box-shadow: 1px 1px 5px #404041;
+	-webkit-box-shadow: 1px 1px 5px #404041;
+	box-shadow: 1px 1px 5px #404041;
 }
 .capital {
 	text-transform:uppercase;
@@ -370,4 +381,10 @@ body {
 }
 .italic{
 	font-style:italic;
+}
+
+.trial2{
+	-moz-box-shadow: 1px 1px 5px #404041;
+	-webkit-box-shadow: 1px 1px 5px #404041;
+	box-shadow: 1px 1px 13px #404041;
 }

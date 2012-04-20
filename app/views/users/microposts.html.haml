@@ -11,8 +11,11 @@
     =link_to micro.user.name, micro.user
     =I18n.t(micro.content)
     -if micro.content.eql?("following")
-      -@user = User.find(micro.object_id)
-      =link_to @user.name, @user
+      -if !User.exists?(:id=>micro.object_id)
+        =t :user_nil
+      -else
+        -@user = User.find(micro.object_id)
+        =link_to @user.name, @user
     -else
       -if !Event.exists?(:id=>micro.object_id)
         =t :event_nil

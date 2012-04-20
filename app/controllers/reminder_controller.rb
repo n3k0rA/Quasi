@@ -1,6 +1,6 @@
 class ReminderController < ApplicationController
   
-  
+  before_filter :require_user
   after_filter :create_micropost, :only=>[:add]
   
   # Creates an entry in events_users table

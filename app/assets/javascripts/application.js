@@ -5,6 +5,7 @@
 //= require gmaps4rails/googlemaps.js
 //= require checkbox 
 //= require tabs_languages
+//= require search
 
 
 

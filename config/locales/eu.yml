@@ -383,6 +383,7 @@ eu:
   following: jarraitzen
   is_interesed: interesatua
   event_nil: Ekitalde Ezabatuta
+  user_nil: Kontua Ezabatuta
   
   #Alarms
   alarms: Alarmak

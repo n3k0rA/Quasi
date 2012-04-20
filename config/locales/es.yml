@@ -394,6 +394,7 @@ es:
   following: esta siguiendo a 
   is_interested: esta interesad@ en
   event_nil: Evento Eliminado
+  user_nil: Usuario Eliminado
   
   #Alarms
   alarms: Alarmas

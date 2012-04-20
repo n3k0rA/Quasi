@@ -230,6 +230,7 @@ en:
   following: is now following
   is_interested: is interested in
   event_nil: Event Deleted
+  user_nil: User Deleted
   
   #Alarms
   alarms: Alarms
