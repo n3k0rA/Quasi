@@ -188,15 +188,7 @@ class EventsController < ApplicationController
     end
   end
   
-  # Look for events that need to send reminders to those interested
-  def remind_users
-    @events = Event.all
-    @events.each do |event|
-      if (!event.reminded  && close_date)
-        EventNotifier.reminder(event).deliver
-      end
-    end
-  end
+  
   
 private
   # Set the event to 'reminded'

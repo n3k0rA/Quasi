@@ -276,7 +276,7 @@ body {
 #right {
 	position:relative;
 	float:right;
-	max-width:24%;
+	width:27%;
 
 }
 
@@ -323,6 +323,15 @@ body {
 	width:98%;
 	height:20px;
 }
+
+#under_search {
+	position:relative;
+	padding-top:340px;
+	width:100%;
+
+}
+
+
 
 /* Pagination Style
 */

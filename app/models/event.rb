@@ -46,6 +46,15 @@ class Event < ActiveRecord::Base
     end
   end
   
+  # Look for events that need to send reminders to those interested
+  def self.remind_users
+    @events = Event.all
+    @events.each do |event|
+      if (!event.reminded  && close_date)
+        EventNotifier.reminder(event).deliver
+      end
+    end
+  end
   
   
   #validates :pic, allow_blank: true, format: {
