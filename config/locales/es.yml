@@ -393,6 +393,7 @@ es:
   commented: 'hizo un comentario en '
   following: esta siguiendo a 
   is_interested: esta interesad@ en
+  event_nil: Evento Eliminado
   
   #Alarms
   alarms: Alarmas

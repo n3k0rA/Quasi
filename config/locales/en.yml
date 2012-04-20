@@ -229,6 +229,7 @@ en:
   commented: made a comment on
   following: is now following
   is_interested: is interested in
+  event_nil: Event Deleted
   
   #Alarms
   alarms: Alarms

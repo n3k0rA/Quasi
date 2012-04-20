@@ -382,7 +382,8 @@ eu:
   commented: 'esan zuen, '
   following: jarraitzen
   is_interesed: interesatua
-
+  event_nil: Ekitalde Ezabatuta
+  
   #Alarms
   alarms: Alarmak
   alarm_form_error: 'Ezin izan da zure alarma gorde. Datuak berrikusi'
