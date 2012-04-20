@@ -56,6 +56,14 @@ class Event < ActiveRecord::Base
     end
   end
   
+  #checks where the start date of an event is less than 72h from today
+  def close_date
+    if ((@event.start_date-Time.now)< 259146.01469397545)
+      true
+    else 
+      false
+    end
+  end
   
   #validates :pic, allow_blank: true, format: {
   #    with: %r{\.(gif|jpg|png|jpeg)$}i,
