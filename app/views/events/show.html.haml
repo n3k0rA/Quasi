@@ -1,5 +1,4 @@
-<script type="text/javascript" src="//maps.google.com/maps/api/js?v=3.5&sensor=false&amp;libraries=geometry"></script>
-<script type="text/javascript" src="//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.5/src/markerclusterer_packed.js"></script>
+
 
 #central_with_bar
   #photo
@@ -8,20 +7,8 @@
   #main_details
     #title.capital.red_font.width_total
       %h1
-        -if I18n.locale.to_s == "en" && !@event.title_en.empty?
-          =@event.title_en
-        -elsif I18n.locale.to_s == "eu" && !@event.title_eu.empty?
-          = @event.title_eu
-        -elsif I18n.locale.to_s == "fr" && !@event.title_fr.empty?
-          = @event.title_fr
-        -elsif !@event.title_es.empty?
-          =@event.title_es
-        -elsif !@event.title_eu.empty?
-          = @event.title_eu
-        -elsif !@event.title_fr.empty?
-          =@event.title_fr
-        -elsif !@event.title_en.empty?
-          = @event.title_en
+        
+        = render "layouts/title"
     %div.width_half
       %b.capital.red_font.width_total 
         = t :event_dates
@@ -51,20 +38,7 @@
       =@event.categories.map{|category| I18n.t("categories.#{category.name}")}.to_sentence
   
   #event_description
-    -if I18n.locale.to_s == "en" && !@event.des_en.empty?
-      =simple_format(@event.des_en)
-    -elsif I18n.locale.to_s == "eu" && !@event.des_eu.empty?
-      = simple_format(@event.des_eu)
-    -elsif I18n.locale.to_s == "fr" && !@event.des_fr.empty?
-      = simple_format(@event.des_fr)
-    -elsif !@event.des_es.empty?
-      =simple_format(@event.des_es)
-    -elsif !@event.des_eu.empty?
-      = simple_format(@event.des_eu)
-    -elsif !@event.des_fr.empty?
-      =simple_format(@event.des_fr)
-    -elsif !@event.des_en.empty?
-      = simple_format(@event.des_en)
+    =render 'layouts/description'
       
   #event_reminder
     %div

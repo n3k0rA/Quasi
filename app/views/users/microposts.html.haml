@@ -15,7 +15,8 @@
       =link_to @user.name, @user
     -else
       -@event = Event.find(micro.object_id)
-      =link_to @event.title, @event
+      -title = render 'layouts/title'
+      =link_to title, @event
     %br
     %small
       =t :comment_posted  

@@ -13,7 +13,8 @@
           #user_block_details{:style=>"width:61%;"}
             .user_event_title.capital
               %b 
-                =truncate(strip_tags(event.title), length:32)
+                -@event=event
+                =truncate(strip_tags(render 'layouts/title'), length:32)
                 
             %div
               %d

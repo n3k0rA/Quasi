@@ -7,7 +7,8 @@
     #user_block_details{:style=>"width:66%;"}
       .event_title.capital
         %b 
-          =truncate(strip_tags(event.title), length:30)
+          -@event=event
+          =truncate(strip_tags(render 'layouts/title'), length:30)
       %div
         %d
           =l event.start_date, :format=> :block
@@ -17,7 +18,7 @@
           =event.town
       %p
         %small
-          =truncate(strip_tags(event.description), length:320)
+          =truncate(strip_tags(render 'layouts/description'), length:320)
     #block_info
       .rotate_text
         =link_to 'INFO', event

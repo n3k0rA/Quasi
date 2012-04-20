@@ -8,7 +8,7 @@
     %strong
       - usr = h comment.user.name
       = link_to usr, comment.user
-    .italic
+    %i
       = t :comment_says
     %br/
     -if comment.banned?

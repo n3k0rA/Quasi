@@ -1,0 +1,14 @@
+-if I18n.locale.to_s== "en" && !@event.des_en.empty?
+  =simple_format(@event.des_en)
+-elsif I18n.locale.to_s == "eu" && !@event.des_eu.empty?
+  = simple_format(@event.des_eu)
+-elsif I18n.locale.to_s == "fr" && !@event.des_fr.empty?
+  = simple_format(@event.des_fr)
+-elsif !@event.des_es.empty?
+  =simple_format(@event.des_es)
+-elsif !@event.des_eu.empty?
+  = simple_format(@event.des_eu)
+-elsif !@event.des_fr.empty?
+  =simple_format(@event.des_fr)
+-else
+  = simple_format(@event.des_en)

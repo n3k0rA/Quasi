@@ -294,7 +294,7 @@ es:
   comment_banned: "Los usuarios has reportado este comentario como inapropiado"
   
   #Remind me system
-  already_following_event: Evento apuntado en tu lista
+  already_following_event: Que bien que vengas! Ya le has comentado a tus amig@s?
   reminder_soon: Quedan menos de 3 dias!
   
   #interested
@@ -392,7 +392,7 @@ es:
   cancelled: 'ha cancelado '
   commented: 'hizo un comentario en '
   following: esta siguiendo a 
-  is_interested: esta interesado en
+  is_interested: esta interesad@ en
   
   #Alarms
   alarms: Alarmas

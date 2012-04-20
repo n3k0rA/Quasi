@@ -6,7 +6,6 @@ class EventsController < ApplicationController
   before_filter :set_up_locations, :only =>[:locations, :province]
   before_filter :leftbar_on
   before_filter :leftbar_off, :only =>[:index, :category, :province, :locations]
-  
   after_filter :create_micropost, :only=>[:update]
   
   require 'date'
@@ -55,6 +54,7 @@ class EventsController < ApplicationController
     @event.save
     @comment = Comment.new(:event => @event)
     @json = @event.to_gmaps4rails
+    
     meta :title => @event.title, :description => @event.description
     respond_to do |format|
       format.html # show.html.erb

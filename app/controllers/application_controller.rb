@@ -18,7 +18,6 @@ class ApplicationController < ActionController::Base
   #  end
   #  redirect_to url_for(locale: locale)
   #end
-  
 
   
   # Defines the variable for the menu tab
@@ -155,6 +154,8 @@ class ApplicationController < ActionController::Base
         return false
       end
     end
+    
+    
     
     
 end

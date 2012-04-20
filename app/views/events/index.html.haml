@@ -8,7 +8,8 @@
     #block_details
       .event_title.capital
         %b 
-          =event.title
+          -@event=event
+          =render 'layouts/title'
       %div
         %d
           =l event.start_date, :format=> :block
@@ -18,7 +19,7 @@
           =event.town
       %p
         %small
-          =truncate(strip_tags(event.description), length:320)
+          =truncate(strip_tags(render 'layouts/description'), length:320)
     #block_info
       .rotate_text
         =link_to 'INFO', event

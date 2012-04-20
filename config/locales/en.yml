@@ -95,7 +95,7 @@ en:
   events_in_cat:  Events in category
   event_cancelation: Event Cancelation
   events_in: Events in
-  submit_similar: Submit Cimilar 
+  submit_similar: Submit Similar 
   edit_event: Edit Event
 
   #events info
@@ -134,7 +134,7 @@ en:
   comment_banned: "Users reported this comment as inappropiate"
 
   #Remind me system
-  already_following_event: You are already following this user
+  already_following_event: Good to know you are coming! Have you told your friends?
   reminder_soon: Less than 3 days!
 
   #interested
