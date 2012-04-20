@@ -14,7 +14,7 @@
       -@user = User.find(micro.object_id)
       =link_to @user.name, @user
     -else
-      -if event.nil?
+      -if !Event.exists?(:id=>micro.object_id)
         =t :event_nil
       -else
         -@event = Event.find(micro.object_id)
