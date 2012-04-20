@@ -5,13 +5,13 @@ class Alarm < ActiveRecord::Base
 
   
   def self.proba
-    @event = Event.find(10)
+    @event = Event.find(31)
     @user =User.find(12)
     EventNotifier.alarm(@event, @user).deliver
   end
   
   def self.proba2
-    @event = Event.find(10)
+    @event = Event.find(30)
     @user =User.find(13)
     EventNotifier.alarm(@event, @user).deliver
   end

@@ -20,9 +20,9 @@
 # Learn more: http://github.com/javan/whenever
 
 
-#every 1.minute do
-#  runner "Alarm.proba"
-#end
+every 1.hour do
+  runner "Alarm.proba"
+end
 
 every 1.day, :at=> '4:05 am' do
   runner "Alarm.proba2"
