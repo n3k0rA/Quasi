@@ -50,20 +50,13 @@ class Event < ActiveRecord::Base
   def self.remind_users
     @events = Event.all
     @events.each do |event|
-      if (!event.reminded  && close_date)
+      if (!event.reminded  && ((event.start_date-Time.now)< 259146.01469397545))
         EventNotifier.reminder(event).deliver
       end
     end
   end
   
-  #checks where the start date of an event is less than 72h from today
-  def close_date
-    if ((@event.start_date-Time.now)< 259146.01469397545)
-      true
-    else 
-      false
-    end
-  end
+  
   
   #validates :pic, allow_blank: true, format: {
   #    with: %r{\.(gif|jpg|png|jpeg)$}i,
