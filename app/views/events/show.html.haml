@@ -2,13 +2,13 @@
 
 #central_with_bar
   #photo
-    = image_tag(@event.pic.url(:original), class:"event_show_photo", :alt =>"Event picture")
-    
+    - event_photo= image_tag(@event.pic.url(:original), class:"event_show_photo", :alt =>"Event picture")
+    =link_to event_photo, @event.pic.url(:original), :id=>'single_image'
   #main_details
     #title.capital.red_font.width_total
       %h1
         
-        = render "layouts/title"
+        =title render "layouts/title"
     %div.width_half
       %b.capital.red_font.width_total 
         = t :event_dates

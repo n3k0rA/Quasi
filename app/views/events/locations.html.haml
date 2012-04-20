@@ -2,8 +2,8 @@
 -@events.each do |event|
   #block
     #block_pic
-      =pic = image_tag(event.pic.url(:medium), class: 'event_block_image', :alt =>'Event Picture')
-
+      -pic = image_tag(event.pic.url(:medium), class: 'event_block_image', :alt =>'Event Picture')
+      =link_to pic, event
     #block_details
       .event_title.capital
         %b 

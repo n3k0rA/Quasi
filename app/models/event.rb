@@ -25,7 +25,7 @@ class Event < ActiveRecord::Base
   validate :the_event_must_have_at_least_one_description
   scope :start_between, lambda{|from, to| where ["start_date BETWEEN ? and ?", from.to_date - 1, to.to_date + 1] }
   
-  self.per_page = 5
+  self.per_page = 10
   
   # Sets Google maps coordenates
   def gmaps4rails_address

@@ -6,6 +6,8 @@
 //= require checkbox 
 //= require tabs_languages
 //= require search
+//= require jquery.fancybox-1.3.4.pack
+//= require fancybox
 
 
 
