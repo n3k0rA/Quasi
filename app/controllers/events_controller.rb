@@ -7,7 +7,6 @@ class EventsController < ApplicationController
   before_filter :leftbar_on
   before_filter :leftbar_off, :only =>[:index, :category, :province, :locations]
   after_filter :create_micropost, :only=>[:update]
-  
   require 'date'
   
   def search
@@ -54,11 +53,11 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @event.views = @event.views + 1
-    @event.save
+    #@event.save
     @comment = Comment.new(:event => @event)
     @json = @event.to_gmaps4rails
     
-    meta :title => @event.title, :description => @event.description
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @event }

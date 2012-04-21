@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   before_filter :require_user, :only => [:create, :destroy]
   before_filter :deletable_comment, :only=> [:destroy]
   after_filter :create_micropost, :only=>[:create]
-  
+
 
   # Creates and saves a new comment
   def create
@@ -12,6 +12,7 @@ class CommentsController < ApplicationController
     @user= current_user
     @content = "commented"
     @object = @comment.event.id
+    @comment.save
     respond_to do |format|
       if @comment.save
         format.html { redirect_to @comment.event, notice: I18n.t(:comments_create) }

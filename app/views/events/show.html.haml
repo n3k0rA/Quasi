@@ -1,5 +1,5 @@
 
-
+-meta :title => (render "layouts/title"), :description =>(render 'layouts/description')
 #central_with_bar
   #photo
     - event_photo= image_tag(@event.pic.url(:original), class:"event_show_photo", :alt =>"Event picture")
@@ -61,7 +61,7 @@
   #tabs
     %ul
       %li
-        =link_to I18n.t("comment", :count=> @event.comments.count), '#tabs-1'
+        =link_to I18n.t("comment", :count=> @event.comments.count), '#tabs-1', :id=>'comments_count'
       %li
         =link_to I18n.t("interested", :count=> @event.users.count), '#tabs-2'
       %li
