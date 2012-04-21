@@ -1,7 +1,12 @@
 Quasi::Application.routes.draw do
   
+  constraints(:host => "hikultura.com") do
+      match "(*x)" => redirect { |params, request|
+        URI.parse(request.url).tap { |x| x.host = "www.hikultura.com" }.to_s
+      }
+  end
   
-  match "search" => "events#search", :as => "search"
+  
   
   # Defines all the routes under the language locale
   scope "(:locale)", :locale => /es|eu|fr|en/ do
@@ -43,6 +48,7 @@ Quasi::Application.routes.draw do
     get 'cancel_event' => "events#cancel", :as => "cancel_event"
     get 'report_spam' => "comments#report_spam", :as => "report_spam"
     get "locations" => "events#locations", :as => "locations"
+    match "search" => "events#search", :as => "search"
   end
  
   # Google verify.
