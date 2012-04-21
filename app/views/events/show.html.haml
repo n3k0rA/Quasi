@@ -2,8 +2,9 @@
 -meta :title => (render "layouts/title"), :description =>(render 'layouts/description')
 #central_with_bar
   #photo
-    - event_photo= image_tag(@event.pic.url(:original), class:"event_show_photo", :alt =>"Event picture")
-    =link_to event_photo, @event.pic.url(:original), :id=>'single_image'
+    %center
+      - event_photo= image_tag(@event.pic.url(:original), class:"event_show_photo", :alt =>"Event picture")
+      =link_to event_photo, @event.pic.url(:original), :id=>'single_image'
   #main_details
     #title.capital.red_font.width_total
       %h1

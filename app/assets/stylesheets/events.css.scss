@@ -50,6 +50,7 @@
 
 .event_block_image {
 		max-width: 180px;
+		max-height:100%;
 }
 
 .event_title {
@@ -109,10 +110,12 @@
 #photo {
 	max-height:260px;
 	overflow:hidden;
+	position:relative;
 }
 .event_show_photo {
 	max-width:100%;
 	z-index:-1;
+	max-height:100%;
 } 
 
 #main_details {

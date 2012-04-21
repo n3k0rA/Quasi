@@ -1,5 +1,5 @@
 Quasi::Application.routes.draw do
-  
+  #force the url to work with under WWW
   constraints(:host => "hikultura.com") do
       match "(*x)" => redirect { |params, request|
         URI.parse(request.url).tap { |x| x.host = "www.hikultura.com" }.to_s
