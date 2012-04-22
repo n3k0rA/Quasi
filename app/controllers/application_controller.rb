@@ -43,7 +43,7 @@ class ApplicationController < ActionController::Base
   end
   
   private
-    # Creates a micrpopost
+    # Creates a micrppost
     def create_micropost
       if !@content.nil?
         @micropost = Micropost.create(:user_id =>@user.id, :content =>@content, :object_id =>@object)

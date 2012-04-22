@@ -3,6 +3,7 @@ class UserSessionsController < ApplicationController
   #before_filter :coming_soon, :except => [:new, :create]
   before_filter {set_up('account')}
   before_filter :leftbar_on
+  before_filter :get_events_and_categories
   
   # Creates a new instance of user session / Log in
   def new
@@ -11,6 +12,7 @@ class UserSessionsController < ApplicationController
 
   # Creates a saves an user session / Logged in
   def create
+    
     @user_session = UserSession.new(params[:user_session])
     @user = User.find_by_email(@user_session.email)
     if !@user.eql?(nil)

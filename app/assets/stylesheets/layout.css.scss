@@ -264,7 +264,6 @@ body {
 	
 	#lb_events{
 		width:95%;
-		flaot:left;
 		#lb_entry{
 			margin:5px 0;
 			#lb_entry_title{
@@ -291,10 +290,6 @@ body {
 	}
 }
 
-.separator::last-of-type{
-		height:0px;
-		margin:0;
-}
 .left_bar_title {
 	text-align:center;
 	font-size:60%;
@@ -432,4 +427,10 @@ body {
 	-moz-box-shadow: 1px 1px 5px #404041;
 	-webkit-box-shadow: 1px 1px 5px #404041;
 	box-shadow: 1px 1px 13px #404041;
+}
+
+.out {
+	height:0px;
+	margin:0px;
+	text-indent:-5000px;
 }

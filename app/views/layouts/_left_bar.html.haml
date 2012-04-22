@@ -5,6 +5,7 @@
   #vertical_line.trial
   #lb_events
     - @events_leftbar.each do |event|
+      -@event=event
       #lb_entry
         - image = image_tag(event.pic.url(:thumb), class: 'side_pic', alt: 'Event picture')
         = link_to image, event
