@@ -26,57 +26,54 @@
   %body{:class => "#{controller.controller_name} container"}
     .container
       #header
-        
-        %header
-          
-          .wrap
-            #logo
+        .wrap
+          #logo
 
-              - logo_tag = image_tag("hikultura_paisvasco_euskadi_jaia_cultura_small.png", :alt => "HiKultura Logo HiKultura.com", :class => "logo_size")
-              = link_to logo_tag, root_path
-              #slogan.capital
-                =t :slogan
-              
-            #header_right
-              #login
-                #user_nav
-                  - if current_user
-                    .sign 
-                      = link_to truncate(current_user.name, :length=>10), account_path
-                    .log
-                      = link_to I18n.t(:log_out), log_out_path
-                  - else
-                    .sign
-                      = link_to I18n.t(:sign_up), sign_up_path
-                    .log
-                      = link_to I18n.t(:log_in), log_in_path
-                #lang
-                  - [:es, :eu, :fr, :en].each do |locale|
-                    %li= link_to locale, url_for(locale: locale)
+            - logo_tag = image_tag("hikultura_paisvasco_euskadi_jaia_cultura_small.png", :alt => "HiKultura Logo HiKultura.com", :class => "logo_size")
+            = link_to logo_tag, root_path
+            #slogan.capital
+              =t :slogan
+            
+          #header_right
+            #login
+              #user_nav
+                - if current_user
+                  .sign 
+                    = link_to truncate(current_user.name, :length=>10), account_path
+                  .log
+                    = link_to I18n.t(:log_out), log_out_path
+                - else
+                  .sign
+                    = link_to I18n.t(:sign_up), sign_up_path
+                  .log
+                    = link_to I18n.t(:log_in), log_in_path
+              #lang
+                - [:es, :eu, :fr, :en].each do |locale|
+                  %li= link_to locale, url_for(locale: locale)
 
-              #menu
-                %ul.tabnav
-                  -  if @page_id == 'events'
-                    %li.tab.active
-                      = link_to I18n.t(:menu_events), root_path
-                    %li.tab.inactive
-                      = link_to I18n.t(:menu_locations), locations_path
-                    %li.account.inactive
-                      = link_to I18n.t(:menu_account), account_path
-                  -if @page_id == 'locations'
-                    %li.tab.inactive
-                      = link_to I18n.t(:menu_events), root_path
-                    %li.tab.active
-                      = link_to I18n.t(:menu_locations), locations_path
-                    %li.account.inactive
-                      = link_to I18n.t(:menu_account), account_path
-                  -if @page_id == 'account'
-                    %li.tab.inactive
-                      = link_to I18n.t(:menu_events), root_path
-                    %li.tab.inactive
-                      = link_to I18n.t(:menu_locations), locations_path
-                    %li.account.active
-                      = link_to I18n.t(:menu_account), account_path
+            #menu
+              %ul.tabnav
+                -  if @page_id == 'events'
+                  %li.tab.active
+                    = link_to I18n.t(:menu_events), root_path
+                  %li.tab.inactive
+                    = link_to I18n.t(:menu_locations), locations_path
+                  %li.account.inactive
+                    = link_to I18n.t(:menu_account), account_path
+                -if @page_id == 'locations'
+                  %li.tab.inactive
+                    = link_to I18n.t(:menu_events), root_path
+                  %li.tab.active
+                    = link_to I18n.t(:menu_locations), locations_path
+                  %li.account.inactive
+                    = link_to I18n.t(:menu_account), account_path
+                -if @page_id == 'account'
+                  %li.tab.inactive
+                    = link_to I18n.t(:menu_events), root_path
+                  %li.tab.inactive
+                    = link_to I18n.t(:menu_locations), locations_path
+                  %li.account.active
+                    = link_to I18n.t(:menu_account), account_path
 
       #main
         #left

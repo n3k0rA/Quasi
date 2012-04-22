@@ -1,5 +1,5 @@
 
--meta :title => (render "layouts/title"), :description =>(render 'layouts/description')
+-meta :title => (render "layouts/title"), :description =>(truncate(strip_tags(render 'layouts/description'), length:250))
 #central_with_bar
   #photo
     %center
@@ -39,7 +39,7 @@
       =@event.categories.map{|category| I18n.t("categories.#{category.name}")}.to_sentence
   
   #event_description
-    =render 'layouts/description'
+    =simple_format(render 'layouts/description')
       
   #event_reminder
     %div
