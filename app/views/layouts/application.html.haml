@@ -151,7 +151,7 @@
                       = check_box_tag "category_ids[]", category.id
                       = I18n.t("categories.#{category.name}")
                   .category_field
-                    = check_box("all", 'pm_xray', {:onclick=>"selectAll()"} )
+                    = check_box("all", 'pm_xray', {:onclick=>"selectAll()"}, :alt=>'click to select category' )
                     = I18n.t(:all)
                     
                 %p
@@ -161,7 +161,7 @@
                   = text_field_tag(:search_where, "", :class=>"search_text")
                 %p
               #s_button
-                = img =image_submit_tag('goazen_hikultura com_euskal_herriko_kultura.png', :class=>"s_button", alt:'search button')
+                = img =image_submit_tag('goazen_hikultura com_euskal_herriko_kultura.png', :class=>"s_button", alt:'submit search button')
           #under_search
 
             

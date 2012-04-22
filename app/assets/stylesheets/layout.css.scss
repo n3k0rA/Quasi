@@ -6,8 +6,9 @@ src: url('FranklinGotTExtCon.ttf'),
      url('FranklinGotTExtCon.eot'); /* IE9+ */
 }
 
+
 body {
-	font-family:"Arial","Times New Roman",Georgia,Serif;
+	font-family:"Arial Narrow","Times New Roman",Georgia,Serif;
  margin-top: 10px;
  margin-right: 0px;
  margin-bottom: 0px;
@@ -262,7 +263,7 @@ body {
 	overflow:hidden;
 	margin-right:7px;
 	text-align:center;
-	
+	font-family:"Arial","Times New Roman",Georgia,Serif;
 	#lb_events{
 		width:95%;
 		#lb_entry{
@@ -298,7 +299,9 @@ body {
 }
 
 #central {
+	font-family:"Arial","Times New Roman",Georgia,Serif;
 	overflow:hidden;
+	
 }
 
 
