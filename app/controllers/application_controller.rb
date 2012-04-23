@@ -55,9 +55,10 @@ class ApplicationController < ActionController::Base
       x = rand()
       if x < 0.2
         @lb_title = 'suggestions'
-        @events_leftbar = if current_user
-        categories = current_user.events.map(&:categories).flatten
-          categories.map(&:events).flatten - current_user.events
+        if current_user
+          categories = current_user.events.map(&:categories).flatten
+          @events_leftbar = (categories.map(&:events).flatten - current_user.events)
+           
         else
           Event.limit(8)
         end

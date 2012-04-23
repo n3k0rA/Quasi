@@ -13,7 +13,7 @@ class FollowingsController < ApplicationController
     @object = @following.followed_id
     @content = "following"
     if @following.save
-      redirect_to root_path, :notice => I18n.t(:followings_wrong)
+      redirect_to root_path, :notice => I18n.t(:followings_create)
     else
       render :action => 'new'
     end

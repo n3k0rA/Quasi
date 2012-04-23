@@ -1,0 +1,104 @@
+
+#new_alarm {
+	width:100%;
+	#alarms_new {
+		float:left;
+		position:relative;
+		width:160px;
+		background-color:red;
+		color:white;
+		text-align:center;
+		margin-right:10px;
+		margin-bottom:8px;
+		font-size:120%;
+	}
+	div{
+		float:left;	}
+	.field_label{
+		float:left;
+		width: 180px;
+	}
+	.input_field {
+		float:left;
+	}
+	#alarms_new_categories{
+		margin: 0px auto 10px auto;
+		float:left;
+		.cat_field{
+			width:25%;
+		}
+	}
+	#alarm_separator {
+		float:left;
+		height:2px;
+		margin-left:10%;
+		margin-right:10%;
+		background-color:#e9e6e6;
+		margin-bottom:20px;
+	}
+}
+
+
+#an_alarm {
+	
+	float:left;
+	width:100%;
+	height:90px;
+	margin-bottom:15px;
+	border-top: 1px solid black;
+	#alarm_details_box {
+		float:left;
+		width:85%;
+		#alarm_header{
+			float:left;
+			width:100%;
+		}
+		#alarm_title{
+			float:left;
+			margin:0;
+			padding-left:5px;
+			width:160px;
+			color:white;
+			font-size:140%;
+		}
+		div{
+			float:left;
+			font-size:80%;
+			margin:3px 0 ;
+		}
+	}
+	#alarm_block_info {
+		float:left;
+		height:inherit;
+		width:15%;
+		div{
+			a{
+				color:white;
+				&:hover{
+					color:#ccc;
+				};
+			}
+		}
+	}
+
+}
+
+.alarm_icon {
+	width:100%;
+	float:right;
+	background: url("bell_events_basque_country.png") 0 0 no-repeat;
+	width:45px;
+	background-color:#404041;
+	height:28px;
+}
+.alarm_rotate_div{
+	float:left;
+	background-color:red;
+	font-size:70%;
+	padding:0;
+	height:100%;
+	width:20px;
+	margin-left:4px;
+	overflow:hidden;
+	text-align:left;
+}

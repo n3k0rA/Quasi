@@ -9,24 +9,34 @@
         - @alarm.errors.full_messages.each do |msg|
           %li= msg
   = f.hidden_field :user_id
-  %p
-    = f.label t :alarm_title
-    = f.text_field :title
-  %br
-    = f.label t :keyword
-    = f.text_field :keyword
-  %br
-    = f.label t :where
-    = f.text_field :where
-  %br
-    =f.label t :alarm_categories
+  %div.width_total
+    .field_label
+      = f.label t :alarm_title
+    .input_field
+      = f.text_field :title
+  
+  %div.width_total
+    .field_label
+      = f.label t :keyword
+    .input_field
+      = f.text_field :keyword
+  %div.width_total
+    .field_label
+      = f.label t :where
+    .input_field
+      = f.text_field :where
+  #alarms_new_categories
+    .width_total{:style=>'margin-bottom:5px'}
+      =f.label t :alarm_categories
     - Category.all.each do |category|
-      .field
+      .cat_field
         = check_box_tag "category_ids[]", category.id, @alarm.category_ids.include?(category.id)
         = I18n.t("categories.#{category.name}")
-  %br
+  %div{:style=>'width:20%'}
     = f.label t :activated
     = f.check_box :active
   %p
   .actions
     =f.submit
+    
+  #alarm_separator.width_total

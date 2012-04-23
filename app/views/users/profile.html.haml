@@ -1,21 +1,37 @@
-%h2
+%h2.capital.theFont
+  =title I18n.t(:profile)
+ 
+#profile_header.capital.theFont{:style=>'font-size:150%:'}
   =title @user.name
-= image_tag @user.photo.url(:medium)
-%br
-%p
-  = t :email
-  %b 
+
+#profile_info
+  #profile_pic
+    - user_picture = image_tag(@user.photo.url(:medium), :alt=>'Picture of your profile')
+    = link_to user_picture, @user.photo.url(:original), :id=>'single_image'
+  #profile_options.capital
+    %div{:style=>"background-color:#8c8c8c;"}
+      = link_to I18n.t(:edit), edit_user_path(@user)
+    %div{:style=>"background-color:black;"}
+      = link_to I18n.t(:delete), admin_user_path(@user), confirm: I18n.t(:are_you_sure), method: :delete
+
+#profile_details
+  %div
+    %b.user_field.capital
+      = t :user_town
+    %br/
+    = @user.town
+  %div
+    %b.user_field.capital
+      = t :user_province
+    %br/
+    = I18n.t(@user.province) if !@user.province.empty?
+  %div
+    %b.user_field.capital
+      = t :user_website
+    %br/
+    = @user.website
+  %div
+    %b.user_field.capital
+      = t :email
+    %br/
     = @user.email
-%p
-  %b 
-    = t :user_town
-  = @user.town
-%p
-  %b 
-    = t :user_province
-  = I18n.t(@user.province) if !@user.province.empty?
-%p
-  %b 
-    = t :user_website
-  = @user.website
-= link_to I18n.t(:edit), edit_user_path(@user)

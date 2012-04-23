@@ -1,4 +1,4 @@
-%h2
+%h2.capital.theFont
   =title I18n.t(:followings)
 %p
   -if @user.followings.empty?
@@ -8,9 +8,17 @@
     %b 
       The list of the people you follow
     -for following in @user.followings
-      %p
-        -user_name=following.followed.name
-        -user_photo = image_tag(following.followed.photo.url(:thumb), class:"side_pic")
-        =link_to user_photo, following.followed
-        =link_to user_name, following.followed
-        =link_to 'stop!', following, :method => :delete 
+      #a_following
+        #fol_pic
+          -user_photo = image_tag(following.followed.photo.url(:thumb), class:"side_pic")
+          =link_to user_photo, following.followed
+        #fol_details
+          %div.width_total
+            .capital.theFont{:style=>'font-size:140%'}
+              -user_name=following.followed.name
+              =link_to user_name, following.followed
+          %div
+            =following.followed.town
+          %div.stop_button.bRed.capital{:style=>'float:right;'}
+            =link_to 'stop!', following, :method => :delete 
+        #fol_separator

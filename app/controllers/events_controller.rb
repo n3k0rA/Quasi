@@ -45,7 +45,7 @@ class EventsController < ApplicationController
   def index
     #@events = Event.paginate(:page => params[:page])
     #@events = Event.paginate(:page => params[:page], :order=> 'start_date ASC')
-    @events = Event.where('finish_date >= ?', Time.now).order('start_date ASC').paginate(:page => params[:page])
+    @events = Event.where('finish_date >= ?', Time.now).where('approved = ?', true).order('start_date ASC').paginate(:page => params[:page])
   end
 
 

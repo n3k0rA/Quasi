@@ -11,7 +11,7 @@
         = link_to image, event
         #lb_entry_title.capital
           = link_to (render "layouts/title") , event
-        %d
+        %div
         #lb_entry_details
           = l event.start_date,  :format => :block
           | #{event.town}

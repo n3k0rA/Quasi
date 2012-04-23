@@ -1,31 +1,34 @@
 %h2
   = title I18n.t(:alarms)
 #new_alarm
-%h3 
-  = t :new_alarm
-= render 'form'
-%table
-  - @alarms.each do |alarm|
-    %p
-    %tr{:class => cycle('list_line_odd', 'list_line_even')}
-      %td
-        %b=alarm.title
-      %td
-        %dd= alarm.keyword
-      %td
-        %dd= alarm.where
-      %td
-        %dd=alarm.categories.map(&:name).to_sentence
-      %td
-        %small
-          %dd
-            =link_to I18n.t(:edit), edit_alarm_path(alarm)
-          %dd
-            =link_to I18n.t(:delete), alarm, :confirm => I18n.t(:are_you_sure), :method => :delete
-          %dd
-            -if alarm.active
-              =link_to I18n.t(:deactivate), alarm_switch_path(:id =>alarm.id)
-            -else
-              =link_to I18n.t(:activate), alarm_switch_path(:id => alarm.id)
-      
-%br/
+  %h3.capital
+    #new_alarm_header.width_total
+      #alarms_new.theFont
+        = t :new_alarm
+      .alarm_icon
+  = render 'form'
+  
+- @alarms.each do |alarm|
+  #an_alarm
+    #alarm_details_box
+      #alarm_title.theFont.bRed.capital
+        =alarm.title      
+      %div.width_total.capital
+        = alarm.keyword
+      %div.width_total.capital
+        = alarm.where
+      %div.width_total.capital
+        =alarm.categories.map(&:name).to_sentence
+    #alarm_block_info
+      %div.alarm_rotate_div{:style=>"background-color:#8c8c8c;height:80px;"}
+        .rotate_text.capital{:style=>'line-height:130px;'}
+          =link_to I18n.t(:edit), edit_alarm_path(alarm)
+      %div.alarm_rotate_div{:style=>'background-color:#404041;height:80px;'}
+        .rotate_text.capital{:style=>'line-height:130px;'}
+          -if alarm.active
+            =link_to I18n.t(:deactivate), alarm_switch_path(:id =>alarm.id)
+          -else
+            =link_to I18n.t(:activate), alarm_switch_path(:id => alarm.id)      
+      %div.alarm_rotate_div{:style=>"background-color:black;height:80px;"}
+        .rotate_text.capital{:style=>'line-height:130px;'}
+          =link_to I18n.t(:delete), alarm, :confirm => I18n.t(:are_you_sure), :method => :delete

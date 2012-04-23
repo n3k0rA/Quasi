@@ -1,5 +1,5 @@
 
-%h2 
+%h2.capital.theFont
   =title I18n.t(:user_events_created)
 %div
   - if @events.empty?
@@ -29,7 +29,7 @@
                   =link_to I18n.t(:translation_pending), translation
         #user_block_info
           - if !event.cancelled && event.finish_date >= Time.now
-            %div.rotate_div{:style=>"font-size:95%; background-color:8c8c8c;"}
+            %div.rotate_div{:style=>"font-size:95%; background-color:#8c8c8c;"}
               .rotate_text.capital.line_height
                 =link_to I18n.t(:edit), edit_event_path(event)
             %div.rotate_div{:style=>"background-color:black;"}
@@ -38,7 +38,7 @@
           %div.rotate_div
             .rotate_text.line_height
               =link_to 'INFO', event
-          %div.rotate_div{:style=>"background-color:404041;"}
+          %div.rotate_div{:style=>"background-color:#404041;"}
             .rotate_text.capital.line_height
               =link_to I18n.t(:submit_similar), resubmit_event_path(:id => event.id)
 

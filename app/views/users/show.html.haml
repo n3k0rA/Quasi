@@ -1,57 +1,72 @@
-%h2
+%h2.capital.theFont
   =title @user.name
-= image_tag @user.photo.url(:medium)
-%br
 
-%p
-  %b 
-    = t :user_town
-  = @user.town
-%p
-  %b 
-    = t :user_province
-  = I18n.t(@user.province) if !@user.province.empty?
-%p
-  %b 
-    = t :user_website
-  = @user.website
+#profile_info
+  #profile_pic{:style=>'width:100%;'}
+    - user_picture = image_tag(@user.photo.url(:medium), :alt=>'Picture of your profile')
+    = link_to user_picture, @user.photo.url(:original), :id=>'single_image'
 
--if !@user.eql?(current_user)
-  -if (current_user && current_user.followings.any?{|follow| follow.followed_id == @user.id})
-    =t :user_already_following
-  -else  
-    = link_to I18n.t(:follow_button), followings_path(:followed_id => @user.id), :method => :post
 
-%p
-  -if @followers.empty?
-    %b 
-      =t :user_no_followers
-  -else
-    %b 
-      =t :user_followers
-    - @followers.each do |follow|
-      - @follower = User.find(follow.user_id)
-      %p
-        -userName = @follower.name
-        %br/
-        - user_photo = image_tag(@follower.photo.url(:thumb), class:"side_pic")
-        =link_to user_photo, @follower
-        =link_to userName, @follower 
-  
-
-%p
-  -if @user.followings.empty?
-    %b 
-      =t :user_no_follows
-  -else
-    %b 
-      = t :user_follows, :name=> @user.name
-    -for following in @user.followings
-      %p
-        -user_name=following.followed.name
-        -user_photo = image_tag(following.followed.photo.url(:thumb), class:"side_pic")
-        =link_to user_photo, following.followed
-        =link_to user_name, following.followed
-        =link_to 'stop!', following, :method => :delete if current_user.eql?(@user)
-      
+#profile_details
+  %div
+    %b.user_field.capital
+      = t :user_town
+    %br/
+    = @user.town
+  %div
+    %b.user_field.capital
+      = t :user_province
+    %br/
+    = I18n.t(@user.province) if !@user.province.empty?
+  %div
+    %b.user_field.capital
+      = t :user_website
+    %br/
+    = @user.website
+  %div
+    %b.user_field.capital
+      = t :email
+    %br/
+    = @user.email
     
+#profile_follow_user
+  %p
+    -if !@user.eql?(current_user)
+      -if (current_user && current_user.followings.any?{|follow| follow.followed_id == @user.id})
+        =t :user_already_following
+      -else  
+        .capital
+          = link_to I18n.t(:follow_button), followings_path(:followed_id => @user.id), :method => :post   
+        
+#profile_user_followings
+  %div
+    %b.capital
+      Followings
+    %br/
+    -if @user.followings.empty?
+      %p
+        =t :user_no_follows
+    -else
+      -for following in @user.followings
+        %p
+          -user_name=following.followed.name
+          -user_photo = image_tag(following.followed.photo.url(:thumb),alt:"Following Picture")
+          =link_to user_photo, following.followed
+          .capital{:style=>'margin-top:-10px'}
+            =link_to user_name, following.followed
+  %div
+    %b.capital
+      Followers
+    %br/
+    -if @followers.empty?
+      %p
+        =t :user_no_followers
+    -else
+      -@followers.each do |follow|
+        - @follower = User.find(follow.user_id)
+        %p
+          -userName = @follower.name
+          -user_photo = image_tag(@follower.photo.url(:thumb), alt:"Followed Pciture")
+          =link_to user_photo, @follower
+          .capital{:style=>'margin-top:-10px'}
+            =link_to userName, @follower 

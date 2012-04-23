@@ -11,5 +11,8 @@
  *= require comments
  *= require_directory ./smoothness
  *= require_directory ./fancybox
+ *= require alarms
+ *= require followings
+ *= require users
 */
 

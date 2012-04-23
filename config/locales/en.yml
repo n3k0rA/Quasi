@@ -64,7 +64,7 @@ en:
   users_update: 'User was successfully updated.'
   
   #Header
-  slogan: "Basque Country's Agenda"
+  slogan: "The Basque Country's Agenda"
     
   #Menu
   menu_events: Events
@@ -97,7 +97,8 @@ en:
   events_in: Events in
   submit_similar: Submit Similar 
   edit_event: Edit Event
-
+  locations: All provinces
+  
   #events info
   event_title: Title of the event
   event_categories: Categories
@@ -145,7 +146,7 @@ en:
   #User_header
   account_locked: Account Locked
   edit_user: Edit user Profile
-  user_events_created: Events Created
+  user_events_created: uploaded events
   recent_activity: Recent Activity
   user_reminders: Reminders
 
@@ -188,7 +189,7 @@ en:
   translation_message01: Translations work in a community basis. Every user can submit translations(title and description) to any event. Therefore more people can understand and participate in the event.
   translation_message02: Remember that you, as creator, can either accept or reject the proposed translation before goes live.
   translation_message03: "This is how the event would look:"
-  temporal_translation: 'Temporal view of "%{event}"'
+  temporal_translation: 'Temporary view of "%{event}"'
   translator_comment: 'Comment:'
   translated_by: Translated by
 

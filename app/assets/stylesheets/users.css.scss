@@ -5,28 +5,81 @@
 
 
 
-/* Reminders and Event created
+/* USER'S PROFILE 
 */
 
-
-.entry_side {
-	
-	margin-top: 4px;
-	margin-bottom: 4px;
-	overflow: hidden;
-	border-bottom: 1px dotted black;
+#profile_header{
+	width:100%;
+	font-size:190%;
 }
-.rem_icon {
-	float: right;
-	
-	.icon {
-		max-height:25px;
+#profile_info{
 
+	#profile_pic{
+		float:left;
+		width:80%;
+		min-height: 100px;
+		text-align:center;
 	}
-
+	#profile_options {
+		float:right;
+		width:20%;
+		div{
+			margin:10px 0;
+			padding:3px 6px;
+			a{
+				color:white;
+				&:hover{
+					color:#ccc;
+				};
+			}
+		}
+	}
+}
+#profile_details {
+	float:left;
+	width:100%;
+	div{
+		float:left;
+		width:50%;
+		margin-bottom:3px;
+		height:50px;
+		font-size:80%;
+		b{
+			color: #404041;
+		}
+	}
+}
+#profile_follow_user {
+	float:left;
+	width:100%;
+	text-align:center;
+	a{
+		padding:7px 15px;
+		color:white;
+		background-color:red;
+		&:hover{
+			color:gray;
+		};
+	}
+	p{
+		float:left;
+	}
 }
 
-.list_actions{
-	float:right;
-	border: 2px solid black;
+#profile_user_followings{
+	float:left;
+	font-size:80%;
+	width:100%;
+
+	div{
+		float:left;
+		width:50%;
+		b{
+			color:#404041;
+		}
+		p{
+			width:50%;
+			margin-top:20px;
+		}
+	}
 }

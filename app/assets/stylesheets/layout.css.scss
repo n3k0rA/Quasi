@@ -269,6 +269,7 @@ body {
 		#lb_entry{
 			margin:5px 0;
 			#lb_entry_title{
+				margin-top:-6px;
 				font-size:90%;
 				font-family: theFont;
 				a{
@@ -291,7 +292,9 @@ body {
 		}
 	}
 }
-
+.side_pic{
+	margin:0;
+}
 .left_bar_title {
 	text-align:center;
 	font-size:60%;
@@ -341,7 +344,7 @@ body {
 .category_field {
 	float:left;
 	width:98px;
-	letter-spacing: 1.7px;
+	letter-spacing: 1.6px;
 }
 .date_selector {
 	letter-spacing: -0.05px;
@@ -437,4 +440,11 @@ body {
 	height:0px;
 	margin:0px;
 	text-indent:-5000px;
+}
+.theFont {
+	font-family: theFont;
+}
+
+.bRed{
+	background-color:#eb1c23 ;
 }

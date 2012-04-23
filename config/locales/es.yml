@@ -257,6 +257,7 @@ es:
   events_in: 'Eventos en '
   submit_similar: 'Subir evento similar'
   edit_event: Editar Evento
+  locations: Todas las provincias
   
   #events info
   event_title: Titulo del evento
