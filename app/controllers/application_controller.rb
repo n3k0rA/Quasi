@@ -42,6 +42,31 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def bob
+    @leftbar_switch = false
+  end
+  
+  #checks for alarms to be triggered every time a new event is approved
+  def find_alarm(event)
+    @event = Event.find(event)
+    @alarms = Alarm.all
+
+    categories = params[:category_ids].map(&:to_i) rescue []
+    @alarms = @alarms.select do |alarm| 
+       @event.category_ids.all?{|c| alarm.category_ids.include? c }
+    end
+    @alarms = @alarms.select do |alarm|
+      alarm.category_ids.size == @event.category_ids.size
+    end
+    
+    if !@alarms.empty?
+      @alarms.each do |alarm|
+        EventNotifier.alarm(@event, alarm.user).deliver
+      end
+    end
+    
+  end
+  
   private
     # Creates a micrppost
     def create_micropost

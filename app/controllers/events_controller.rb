@@ -12,13 +12,16 @@ class EventsController < ApplicationController
   after_filter :create_micropost, :only=>[:update]
   require 'date'
   
+  
+  #Method in that processes the queries from the search box
   def search
     @events = Event.where((["CAST(town as varchar(255)) LIKE ?", "%#{params[:search_where]}%"]))
-    @events = @events.where((["CAST(title as varchar(255)) LIKE ?", "%#{params[:query]}%"]))
+    @events = @events.where((["CAST(title_es as varchar(255)) LIKE ?", "%#{params[:query]}%"] && ["CAST(title_en as varchar(255)) LIKE ?", "%#{params[:query]}%"] && ["CAST(title_eu as varchar(255)) LIKE ?", "%#{params[:query]}%"] && ["CAST(title_fr as varchar(255)) LIKE ?", "%#{params[:query]}%"]) )
+
     @time = Time.new(params[:search_start_date][:year], params[:search_start_date][:month],params[:search_start_date][:day] , params[:search_start_date][:hour], params[:search_start_date][:minute])
     @events = @events.where("start_date >= ?", @time)
     
-    # A partir de aqui los events tienen el titulo y el horario adecuado y el lugar. 
+    #titles and place done
     
     categories = params[:category_ids].map(&:to_i) rescue []
     
@@ -26,7 +29,7 @@ class EventsController < ApplicationController
       categories.any?{|c| event.category_ids.include? c }
     end
     
-    
+    #categories done
     
     @events = Array.wrap(@events.paginate(:page=>params[:page]))
   end
