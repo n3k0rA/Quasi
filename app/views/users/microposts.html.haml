@@ -7,24 +7,24 @@
     Here you can keep up to date checking the activity of the users you are following.
 %p
 -@microposts.each do |micro|
-  %p
-    =link_to micro.user.name, micro.user
+  #micropost_entry
+    =link_to micro.user.name, micro.user, :class=>'capital', :style=>'color:#404041;'
     =I18n.t(micro.content)
     -if micro.content.eql?("following")
       -if !User.exists?(:id=>micro.object_id)
         =t :user_nil
       -else
         -@user = User.find(micro.object_id)
-        =link_to @user.name, @user
+        =link_to @user.name, @user, :class=>'capital', :style=>'color:#8c8c8c;'
     -else
       -if !Event.exists?(:id=>micro.object_id)
         =t :event_nil
       -else
         -@event = Event.find(micro.object_id)
         -title = render 'layouts/title'
-        =link_to title, @event
+        =link_to title, @event, :class=>'capital', :style=>'color:red;'
     %br
-    %small
+    %i
       =t :comment_posted  
       #{time_ago_in_words(micro.created_at)}
   

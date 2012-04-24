@@ -58,9 +58,8 @@ class ApplicationController < ActionController::Base
         if current_user
           categories = current_user.events.map(&:categories).flatten
           @events_leftbar = (categories.map(&:events).flatten - current_user.events)
-           
         else
-          Event.limit(8)
+          @events_leftbar =Event.limit(8)
         end
       elsif x<0.4
         @lb_title = 'lastest'
