@@ -66,7 +66,7 @@ body {
 #slogan {
 	position:absolute;
 	top:90px;
-	left: 90px;
+	left: 80px;
 	font-size:110%;
 	letter-spacing: 0.8px;
 	color:#404041;
@@ -366,9 +366,41 @@ body {
 	position:relative;
 	padding-top:340px;
 	width:100%;
-
 }
 
+#upload_button{
+	margin:30px 0;
+	a {
+		text-indent: -5000px ;
+		margin:0 auto 10px auto;
+		display:block;
+		width:113px;
+		height:96px;
+		&:hover{
+		background-position: 0 -96px ;
+		};
+	}
+}
+.upload_es{
+	a{
+		background: url("upload_es.png") 0 0 no-repeat;
+	}
+}
+.upload_en{
+	a{
+		background: url("upload_en.png") 0 0 no-repeat;
+	}
+}
+.upload_eu{
+	a{
+		background: url("upload_eu.png") 0 0 no-repeat;
+	}
+}
+.upload_fr{
+	a{
+		background: url("upload_fr.png") 0 0 no-repeat;
+	}
+}
 
 
 /* Pagination Style

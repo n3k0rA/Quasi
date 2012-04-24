@@ -224,7 +224,214 @@ fr:
       page_gap: ! '&hellip;'
       previous_label: ← précédent
       
-  search: GOAZEN
+  
   
   event_dates: Dates
-  is_interesed: 
+  
+  #Controllers
+  app_require_user:  Vous devez être connecté pour accéder à cette page
+  app_require_ownership: Vous n’êtes pas inscrit comme propriétaire de cet évènément
+  comments_create:  Votre commentaire a bien été enregistré
+  events_create:  L’évènement a bien été créé 
+  event_update: L’évènement a bien été mis à jour
+  followings_create: Yeah, vous suivez désormais!
+  followings_destroy: Ne plus suivre
+  followings_require_f: Vous ne pouvez pas effacer les données des autres utilisateurs
+  reminders_add: Ajouter à vos rappels !
+  remindes_add_else: Bien, vous avez besoin d’un compte pour ajouter des rappels
+  reminders_delete: Rappel effacé!
+  users_create: Bienvenue sur Hikultura, Vous faites désormais partie de la communauté !
+  users_update: Utilisateur a bien été mis à jour
+  
+  #Header
+  slogan: Pays Basque ordre du jour
+  
+  #Menu
+  menu_events: Evènements
+  menu_locations: Locations
+  menu_account: Compte
+  
+  #Submenu
+  all: Tous
+  activity: Activité récente
+  reminders: Rappels
+  uploaded_events: Mise à jour des évènements
+  followings: suivants
+  profile: profil
+  
+  #Other
+  upload_event_button: Mettre à jour un Evènement
+  
+  #Search_Box
+  search_keyword: QUE RECHERCHEZ-VOUS?
+  search_when: QUAND?
+  search_categories: DANS QUELLES CATEGORIES?
+  search_where: OU?
+  search_placeholder_where: ville ou région
+  search: GOAZEN
+  
+  #Event_headers
+  new_event: Nouvel évènement
+  events_in_cat: Evènements par catégorie
+  event_cancelation: Annulation évènement
+  events_in: Evènement à
+  submit_similar: Soumettre un évènement semblable
+
+  #events info
+  event_title: Titre de l’évènement
+  event_categories: Catégories
+  event_start_date: Date de début
+  event_finish_date: Date de fin
+  event_place: Lieu
+  event_address: Adresse
+  event_town: Ville
+  event_province: Région
+  event_price: Prix
+  event_description: Description de l’évènement
+  email: Email
+  event_website: Website de l’évènement
+  event_phone: Téléphone
+  event_pic: Photo pour l’évènement
+  event_form_error: Impossible de sauvegarder l’évènement. Veuillez revoir l’application
+  
+  event_display_start_date: De
+  event_display_finish_date: jusqu’au
+  event_creator: Créé par
+  
+  cancel_intro: Des personnes sont déjà intéressées par cet évènement. Aussi, nous pensons que vous devriez leur faire savoir les raisons de son annulation.
+  cancel_message: Inscrivez les raisons ici
+  
+  #Comments
+  comment: 
+    one: '1 commentaire'
+    other: '%{count}   commentaire'
+  do_comment: Partager votre avis
+  submit_comment: “Ajouter un commentaire”
+  comment_posted:  “” #n’écrivez pas ici
+  comment_says: a dit
+  comment_banned: Les utilisateurs ont dénoncé ce commentaire comme inapproprié
+  
+
+  #Remind me system
+  already_following_event: Vous suivez déjà cet usager
+  reminder_soon: Moins de 3 jours!
+  
+  #interested
+  interested:
+    one: '1   intéressé'
+    other: '%{count} d’intéressé'
+  
+  #User_header
+  account_locked: Compte bloqué
+  edit_user: Editer le profil de l’utilisateur
+  user_events_created: Evènements créés
+  recent_activity: Activité récente
+  user_reminders: Aide mémoire / Rappels
+  
+  #User
+  user_name: Nom
+  user_email: Email
+  user_town: Ville
+  user_province: Région
+  user_website: Website 
+  user_already_following: “Déjà suivis” 
+  user_no_followers: “Personne ne suit pour l’instant”
+  user_followers: “suivit par …”
+  user_follows: '%{name}  suit               ...'
+  user_no_follows: pas de suiveur
+  user_edit_profile: Editer vos détails
+  user_form_error: Impossible de sauvegarder. Veuillez corriger l’application
+  user_photo: Photo d’utilisateur
+  user_password: Mot de passe
+  user_password_confirmation: Confirmation du mot de passe
+  user_events_created: Evènements que vous avez créés
+  user_no_events_created: Vous n’avez toujours pas créé d’évènement
+  user_no_reminders: Aucun évènement à se rappeler. Rien ne vous plait ? 
+  follow_button: Suivre!
+  
+  #Sessions
+  sign_up: S’inscrire
+  log_in: Se connecter
+  log_out: Se déconnecter
+  logged_as: Bienvenu
+  o_word: où
+  session_form_error: Il y a une erreur. Veuillez corriger votre application.
+  logging_form_error: Impossible de vous connecter. Veuillez vérifier que vos détails soient correct.
+  
+  #Translations
+  submit_translation: 'Ajouter une traduction à "%{event}"'
+  greeting_user: Merci d’avoir aider à construire cette communauté.
+  translation_form_error: Impossible de sauvegarder l’application. Merci de la revérifier !
+  leave_comment: “Voulez-vous laisser un message au créateur de l’évènement?
+  add_translation: Ajouter une traduction
+  translation_pending: Traduction en cours!
+  translation_message01: Travail de traduction dans une base communautaire. Tous les utilisateurs peuvent soumettre des changements (titre et description) pour n’importe quel évènement. Ainsi plus de gens peuvent comprendre et participer à l’évènement.
+  translation_message02: Souvenez-vous qu’en tant que créateur vous pouvez accepter ou refuser les changements proposés avant qu’ils soient actifs. 
+  translation_message03: Voici comment l’évènement apparaitra 
+  temporal_translation: 'Temporairement vue"%{event}"'
+  translator_comment: Commentaire
+  translated_by: Traduit par
+  
+  #Translations_of_languages
+  lang_basque: Basque
+  lang_spanish: Espagnol
+  lang_french: Français
+  lang_english: Anglais
+
+  #Password_headers
+  forgot_password: Mot de passe oublié
+  change_password: Changer le mot de passe 
+  
+  #Categories
+  categories:
+    gastronomy: Gastronomie
+    family: Famille
+    sports: Sports
+    scene: Scene
+    traditional: Tradition
+    music: Musique
+    party: Soirée
+
+  #Provinces
+  alaba: Alaba
+  biscay: Biscay
+  guipuzkoa: Guipuzoa
+  navarre: Navarre
+  labourd: Labourd
+  b_navarre: Bas navarre
+  soule: Soule
+  
+  #Microposts_content_phrase
+  added_translation: Ajouter un changement à
+  uploaded: Mettre à jour un nouvel évènement
+  edited: a changé les informations de
+  cancelled: a annulé
+  commented: a commenté 
+  following: suit désormais
+  is_interested: suit intéressé
+  event_nil: événement Supprimé
+  user_nil: Utilisateur Supprimé
+  
+  #Alarms
+  alarms: Alertes
+  alarm_form_error: Impossible de sauvegarder vos alertes, merci de bien vouloir vérifier l’application
+  alarm_saved: Alerte sauvegardée
+  new_alarm: Nouvelle Alerte
+  alarm_categories: Alertes catégories
+  alarm_title: Titre de l’alerte
+  keyword: Mot clé
+  where: où
+  activated: Activé
+  
+  #Buttons_and_so
+  show: Montrer 
+  edit: Editer
+  delete: Effacer
+  cancel: Annuler
+  submit_similar: similaire
+  are_you_sure: Etes-vous sûr ?
+  deactivate: Désactiver
+  activate: Activer
+  edit_alarm: Editer l’alerte
+  
+   

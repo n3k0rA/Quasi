@@ -174,8 +174,20 @@
               %a.addthis_button_compact
               %a.addthis_counter.addthis_bubble_style
 
-            
-
+            #upload_button
+              %center
+                -if I18n.locale.to_s=="en"
+                  .upload_en
+                    =link_to I18n.t(:upload_event_button), new_event_path
+                -elsif I18n.locale.to_s=="eu"
+                  .upload_eu
+                    =link_to I18n.t(:upload_event_button), new_event_path
+                -elsif I18n.locale.to_s=="fr"
+                  .upload_fr
+                    =link_to I18n.t(:upload_event_button), new_event_path
+                -else
+                  .upload_es
+                    =link_to I18n.t(:upload_event_button), new_event_path
           
  
           

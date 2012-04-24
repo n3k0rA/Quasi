@@ -53,10 +53,17 @@
             -else
               = t :already_following_event
         -else
-          .sp_remind
-            =link_to 'remind_me', add_reminder_path(:id => @event.id)   
-      
-    
+          -if I18n.locale.to_s =="es"
+            .sp_remind
+              =link_to 'remind_me', add_reminder_path(:id => @event.id)   
+            .sp_translate
+              =link_to I18n.t('add_translation'), new_translation_path(:id => @event.id)
+          -else I18n.locale.to_s=="en"
+            .en_remind
+              =link_to 'remind_me', add_reminder_path(:id => @event.id)   
+            .en_translate
+              =link_to I18n.t('add_translation'), new_translation_path(:id => @event.id)
+          
       
       
   #tabs
@@ -143,5 +150,5 @@
 
     
 
--if !@event.cancelled
-  =link_to I18n.t('add_translation'), new_translation_path(:id => @event.id)
+
+  

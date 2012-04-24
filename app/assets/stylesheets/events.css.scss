@@ -154,26 +154,52 @@
 	width:100%;
 	margin:0 auto;
 	text-align:center;
+	
 	a {
 		text-indent: -5000px ;
 		margin:0 auto 10px auto;
 		display:block;
-		width:75px;
+		width:225px;
 		height:64px;
 	}
 }
 .sp_remind{
+	float:left;
 	a{
-		background: url("remindme_sp_culture_spain_euskadi_fin_de_semana.png") 0 0 no-repeat;
+		background: url("remindme_sp.png") 0 0 no-repeat;
 		&:hover{
 			background-position: 0 -64px ;
 		};
 	}
-	
 }
-.event_remind_pic{
-	
+.sp_translate{
+	float:right;
+	a{
+		background: url("translate_es.png") 0 0 no-repeat;
+		&:hover{
+			background-position: 0 -64px ;
+		};
+	}
 }
+.en_remind{
+	float:left;
+	a{
+		background: url("remindme_en.png") 0 0 no-repeat;
+		&:hover{
+			background-position: 0 -64px ;
+		};
+	}
+}
+.en_translate{
+	float:right;
+	a{
+		background: url("translate_en.png") 0 0 no-repeat;
+		&:hover{
+			background-position: 0 -64px ;
+		};
+	}
+}
+
 
 #tabs {
 	float:left;

@@ -206,7 +206,17 @@ es:
       page_gap: ! '&hellip;'
       previous_label: ← atrás
 
-
+  #Validates_gem
+  errors:
+      messages:
+        invalid_date: "no es una fecha valida"
+        invalid_time: "no es una hora valida"
+        invalid_datetime: "no es una fecha valida"
+        is_at: "debe ser a %{restriction}"
+        before: "debe ser antes de %{restriction}"
+        on_or_before: "debe ser mientras o antes de %{restriction}"
+        after: "debe ser despues de %{restriction}"
+        on_or_after: "debe ser mientras o despues de %{restriction}"     
   
   #Controllers
   app_require_user: "Debes estar registrado para acceder a la pagina"#"You must be logged in to access this page"

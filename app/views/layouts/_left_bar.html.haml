@@ -7,7 +7,7 @@
     - @events_leftbar.each do |event|
       -@event=event
       #lb_entry
-        - image = image_tag(event.pic.url(:thumb), class: 'side_pic', alt: 'Event picture in the recommendations bar')
+        - image = image_tag(event.pic.url(:thumb), class: 'side_pic', alt: 'Recommended Event Picture')
         = link_to image, event
         #lb_entry_title.capital
           = link_to (render "layouts/title") , event

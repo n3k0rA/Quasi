@@ -11,7 +11,12 @@
 		float:left;
 		div{
 			float:left;
-			a {}
+			a {
+				color:#404041;
+				&:hover{
+					color:#8c8c8c;
+				};
+			}
 		}
 	}
 	#fol_separator {
