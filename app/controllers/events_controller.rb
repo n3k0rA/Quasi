@@ -1,5 +1,8 @@
 class EventsController < ApplicationController
   
+  require 'will_paginate/array'
+  
+  
   before_filter :require_user, :only => [:new, :create, :update, :edit]
   before_filter :require_ownership, :only => [:edit, :update, :destroy]
   before_filter :set_up_events, :except =>[:locations, :province]
@@ -10,28 +13,22 @@ class EventsController < ApplicationController
   require 'date'
   
   def search
-   # @events = Event.where((["CAST(title as varchar(255)) LIKE ?", "%#{params[:query]}%"]) || (["CAST(place as varchar(255)) LIKE ?", "%#{params[:query]}%"]))
     @events = Event.where((["CAST(town as varchar(255)) LIKE ?", "%#{params[:search_where]}%"]))
     @events = @events.where((["CAST(title as varchar(255)) LIKE ?", "%#{params[:query]}%"]))
-    #@events = Event.find(:all, :conditions => "town RLIKE'Zurba.*'")
-    #raise foo
-    #@events = @events.find(:all, :conditions => ["start_date between ? and ?","%#{params[:search_start_date]}%", Date.today.next_month.beginning_of_month ])
-    
-    #@events = @events.where((["CAST(start_date as date) < ?", "%#{params[:search_start_date]}%"]))
-    #@time = params[:search_start_date]+" "+"00:00:00"
     @time = Time.new(params[:search_start_date][:year], params[:search_start_date][:month],params[:search_start_date][:day] , params[:search_start_date][:hour], params[:search_start_date][:minute])
-    
     @events = @events.where("start_date >= ?", @time)
-    #@events = @events.where("start_date > ?", "%#{Date.parse(params[:search_start_date])}%")
     
-    #@events = @events.where("start_date > ?", "%#{params[:search_start_date]}%")
-    #@events = @events.start_between(params[:start_date], params[:end_date])
+    # A partir de aqui los events tienen el titulo y el horario adecuado y el lugar. 
     
-    #@events = @events.all(:conditions => { :category_ids => params[:category_ids]})
-    #@events = @events.where("category_ids = ?", params[:category_ids])
-    @events= @events.paginate(:page=>params[:page])
+    categories = params[:category_ids].map(&:to_i) rescue []
+    
+    @events = @events.select do |event| 
+      categories.any?{|c| event.category_ids.include? c }
+    end
     
     
+    
+    @events = Array.wrap(@events.paginate(:page=>params[:page]))
   end
   
   # Filters events by category
