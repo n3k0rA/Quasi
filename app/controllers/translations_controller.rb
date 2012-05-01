@@ -70,6 +70,7 @@ class TranslationsController < ApplicationController
     @user= @translation.user
     @content = "added_translation"
     @object = @event.id
+    @translation.destroy
     redirect_to @event
   end
     
