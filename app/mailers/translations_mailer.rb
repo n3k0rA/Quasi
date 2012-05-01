@@ -13,7 +13,7 @@ class TranslationsMailer < ActionMailer::Base
       @title = @translation.event.title_es
     elsif @translation.user.locale == "fr"
       @title = @translation.event.title_fr
-    
+    end
     mail to: @translation.event.user.email, subject: "Translation pending to be approved"
   end
     
