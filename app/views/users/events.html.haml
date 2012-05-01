@@ -26,7 +26,8 @@
             -if !event.translations.empty? 
               -event.translations.each do |translation| 
                 %small
-                  =link_to I18n.t(:translation_pending), translation
+                  %i
+                    =link_to I18n.t(:translation_pending), translation
         #user_block_info
           - if !event.cancelled && event.finish_date >= Time.now
             %div.rotate_div{:style=>"font-size:95%; background-color:#8c8c8c;"}

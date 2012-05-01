@@ -1,5 +1,6 @@
 %h2.capital.theFont
-  =title I18n.t(:temporal_translation, :event => @translation.event.title)
+  -@event = @translation.event
+  =title I18n.t(:temporal_translation, :event => (render "layouts/title"))
 %h4 
   =t :translated_by
   = link_to @translation.user.name, @translation.user
@@ -7,7 +8,8 @@
 -if !@translation.comment.nil?
   %h 
     =t :translator_comment
-    =@translation.comment
+    %i 
+      =@translation.comment
 %p    
 %small 
   =t :translation_message01
@@ -71,34 +73,82 @@
               
   #tabs-1    
     %p
-      -if !@translation.des_es.nil?
-        =@translation.title_es
-        %br
-        =simple_format(@translation.des_es)
+      %b Titulo del evento
+      %br/
+      -if @translation.event.title_es.empty?
+        -if !@translation.title_es.empty?
+          =@translation.title_es
+        -else
+          %i "no translation so far"
       -else
-        "No translation so far"
+        =@translation.event.title_es
+      %p
+      %b Descripcion del Evento
+      -if @translation.event.des_es.empty?
+        -if !@translation.des_es.empty?
+          =simple_format(@translation.des_es)
+        -else
+          %i "no translation so far"
+      -else
+        =simple_format(@translation.event.des_es)
     
   #tabs-2   
     %p
-      -if !@translation.des_eu.empty?
-        =@translation.title_eu
-        %br
-        =@translation.des_eu
+      %b Ekitaldiaren Titulua
+      %br/
+      -if @translation.event.title_eu.empty?
+        -if !@translation.title_eu.empty?
+          =@translation.title_eu
+        -else
+          %i "no translation so far"
       -else
-        "No translation so far"
+        =@translation.event.title_eu
+      %p
+      %b Ekitaldiaren Deskripzioa
+      -if @translation.event.des_eu.empty?
+        -if !@translation.des_eu.empty?
+          =simple_format(@translation.des_eu)
+        -else
+          %i "no translation so far"
+      -else
+        =simple_format(@translation.event.des_eu)
   #tabs-3  
     %p
-      -if !@translation.des_fr.empty?
-        =@translation.title_fr
-        %br
-        =@translation.des_fr
+      %b Titre de L'événement
+      %br/
+      -if @translation.event.title_fr.empty?
+        -if !@translation.title_fr.empty?
+          =@translation.title_fr
+        -else
+          %i "no translation so far"
       -else
-        "No translation so far"
+        =@translation.event.title_fr
+      %p
+      %b Descripcion de L'événement
+      -if @translation.event.des_fr.empty?
+        -if !@translation.des_fr.empty?
+          =simple_format(@translation.des_fr)
+        -else
+          %i "no translation so far"
+      -else
+        =simple_format(@translation.event.des_fr)
   #tabs-4
     %p
-      -if !@translation.des_en.empty?
-        =@translation.title_en
-        %br
-        =@translation.des_en
+      %b Event Title
+      %br/
+      -if @translation.event.title_en.empty?
+        -if !@translation.title_en.empty?
+          =@translation.title_en
+        -else
+          %i "no translation so far"
       -else
-        "No translation so far"
+        =@translation.event.title_en
+      %p
+      %b Event Description
+      -if @translation.event.des_en.empty?
+        -if !@translation.des_en.empty?
+          =simple_format(@translation.des_en)
+        -else
+          %i "no translation so far"
+      -else
+        =simple_format(@translation.event.des_en)

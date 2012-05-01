@@ -1,6 +1,6 @@
 class TranslationsController < ApplicationController
-  #before_filter :require_user
-  #before_filter :require_ownership, :only => [:commit]
+  before_filter :require_user
+  before_filter :require_ownership, :only => [:commit]
   after_filter :create_micropost, :only=>[:commit]
   before_filter {set_up('events')}
   before_filter :leftbar_on

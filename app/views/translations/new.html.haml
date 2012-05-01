@@ -1,7 +1,7 @@
 %h2.capital.theFont
-  =title I18n.t(:submit_translation, :event => @event.title)
+  =title I18n.t(:submit_translation, :event => (render "layouts/title"))
 =t :greeting_user
-
+%p
 = form_for @translation do |f|
   -if @translation.errors.any?
     .error_messages
@@ -11,49 +11,92 @@
         - for message in @translation.errors.full.messages
           %li =message
   = f.hidden_field(:event_id, :value => @event.id)
-  %p
-    %h3 
-      =t :lang_spanish
-    =f.label "Titulo del Evento"
-    %br
-    =f.text_field(:title_es, :value => @event.title_es)
-    %br
-    =f.label "Descripcion del Evento"
-    %br
-    =f.text_area(:des_es, :value => @event.des_es)
-  %p
-    %h3
-      =t :lang_basque
-    =f.label "Ekitaldiaren Titulua"
-    %br
-    =f.text_field(:title_eu, :value => @event.title_eu)
-    %br
-    =f.label "Ekitaldiaren Deskripzioa"
-    %br
-    =f.text_area(:des_eu, :value => @event.des_eu)
-  %p
-    %h3
-      =t :lang_french
-    =f.label "Titre de L'événement"
-    %br
-    =f.text_field(:title_fr, :value => @event.title_fr)
-    %br
-    =f.label "Descripcion de L'événement"
-    %br
-    =f.text_area(:des_fr, :value => @event.des_fr)
-  %p
-    %h3
-      = t :lang_english
-    =f.label "Event Title"
-    %br
-    =f.text_field(:title_en, :value => @event.title_en)
-    %br
-    =f.label "Event Description"
-    %br
-    =f.text_area(:des_en, :value => @event.des_en)
-  %p
-    =f.label t :leave_comment
-    %br
-    =f.text_area :comment, :rows=>"3"
+  
+  #tabs 
+    -if I18n.locale.to_s=="en" 
+      %ul
+        %li
+          =link_to I18n.t(:lang_english), '#tabs-4'
+        %li
+          =link_to I18n.t(:lang_spanish), '#tabs-1'
+        %li
+          =link_to I18n.t(:lang_basque), '#tabs-2'
+        %li
+          =link_to I18n.t(:lang_french), '#tabs-3'
+    -elsif I18n.locale.to_s=="eu" 
+      %ul
+        %li
+          =link_to I18n.t(:lang_basque), '#tabs-2'
+        %li
+          =link_to I18n.t(:lang_spanish), '#tabs-1'
+        %li
+          =link_to I18n.t(:lang_french), '#tabs-3'
+        %li
+          =link_to I18n.t(:lang_english), '#tabs-4'
+    -elsif I18n.locale.to_s=="fr" 
+      %ul
+        %li
+          =link_to I18n.t(:lang_french), '#tabs-3'
+        %li
+          =link_to I18n.t(:lang_basque), '#tabs-2'
+        %li
+          =link_to I18n.t(:lang_spanish), '#tabs-1'
+        %li
+          =link_to I18n.t(:lang_english), '#tabs-4'
+    -else
+      %ul
+        %li
+          =link_to I18n.t(:lang_spanish), '#tabs-1'
+        %li
+          =link_to I18n.t(:lang_basque), '#tabs-2'
+        %li
+          =link_to I18n.t(:lang_french), '#tabs-3'
+        %li
+          =link_to I18n.t(:lang_english), '#tabs-4'
+          
+    #tabs-1      
+      %p
+        =f.label "Titulo del Evento"
+        %br
+        =f.text_field(:title_es, :value => @event.title_es, :class=>"total_width")
+        %p
+        =f.label "Descripcion del Evento"
+        %br
+        =f.text_area(:des_es, :value => @event.des_es, :class=>"total_width")
+    #tabs-2
+      %p
+        =f.label "Ekitaldiaren Titulua"
+        %br
+        =f.text_field(:title_eu, :value => @event.title_eu, :class=>"total_width")
+        %p
+        =f.label "Ekitaldiaren Deskripzioa"
+        %br
+        =f.text_area(:des_eu, :value => @event.des_eu, :class=>"total_width")
+    #tabs-3
+      %p
+        =f.label "Titre de L'événement"
+        %br
+        =f.text_field(:title_fr, :value => @event.title_fr, :class=>"total_width")
+        %p
+        =f.label "Descripcion de L'événement"
+        %br
+        =f.text_area(:des_fr, :value => @event.des_fr, :class=>"total_width")
+    #tabs-4
+      %p
+        =f.label "Event Title"
+        %br
+        =f.text_field(:title_en, :value => @event.title_en, :class=>"total_width")
+        %p
+        =f.label "Event Description"
+        %br
+        =f.text_area(:des_en, :value => @event.des_en, :class=>"total_width")
+  
+  
+  
+  
+    %p
+      =f.label t :leave_comment
+      %br
+      =f.text_area :comment, :rows=>"3"
 
-  %p.button= f.submit{@event.id}
+    %p.button= f.submit{@event.id}
