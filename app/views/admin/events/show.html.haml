@@ -58,13 +58,7 @@
       #all_comments
         = render :partial => 'comment', :collection => @event.comments
   .side_small
-    %div
-      %p
-        = image_tag ("media/google.png")
-        = image_tag ("media/tw.png")
-      %p
-        = image_tag ("media/wd.png")
-        = image_tag ("media/fb.png")
+    
     .attenders
       = @event.users.size
       interested!
