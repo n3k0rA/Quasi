@@ -1,0 +1,15 @@
+
+-if I18n.locale.to_s == "en" && !@event.title_en.empty?
+  =@event.title_en
+-elsif I18n.locale.to_s == "eu" && !@event.title_eu.empty?
+  = @event.title_eu
+-elsif I18n.locale.to_s == "fr" && !@event.title_fr.empty?
+  = @event.title_fr
+-elsif !@event.title_es.empty?
+  =@event.title_es
+-elsif !@event.title_eu.empty?
+  = @event.title_eu
+-elsif !@event.title_fr.empty?
+  =@event.title_fr
+-else
+  = @event.title_en

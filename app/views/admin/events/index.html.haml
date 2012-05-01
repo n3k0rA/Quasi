@@ -7,7 +7,7 @@
         = link_to pic, admin_event_path(event)
       %td.list_description
         %dl
-          %dt= link_to event.title, admin_event_path(event)
+          %dt= link_to (render "layouts/title"), admin_event_path(event)
           %dd= l event.start_date, :format => :long
           %dd
             = event.place
