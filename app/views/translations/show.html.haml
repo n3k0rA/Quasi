@@ -158,4 +158,4 @@
         =simple_format(@translation.event.des_en)
 %p  
   %button.black_font
-    =link_to "Accept", commit_translation_path
+    =link_to "Accept", commit_translation_path(:id=>@translation.id)
