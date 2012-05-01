@@ -18,7 +18,8 @@
     -else
       %h3= simple_format h(comment.body)
   #comment_options
-    =link_to image_tag("spam_culture_basque_country.gif", class:'comment_options_icon'), report_spam_path(:id =>comment.id), :confirm => "Do you want to report this comment as spam or inappropriate?"
+    -if !comment.banned?
+      =link_to image_tag("spam_culture_basque_country.gif", class:'comment_options_icon'), report_spam_path(:id =>comment.id), :confirm => "Do you want to report this comment as spam or inappropriate?"
     -if Time.now < (comment.created_at + 5.minutes)
       = link_to image_tag("delete_basque_culture.png", class:'comment_options_icon'), comment,                   
         :confirm => I18n.t(:are_you_sure),                          
