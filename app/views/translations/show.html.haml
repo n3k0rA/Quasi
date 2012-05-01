@@ -1,9 +1,9 @@
 %h2.capital.theFont
   -@event = @translation.event
   =title I18n.t(:temporal_translation, :event => (render "layouts/title"))
-%h4 
+%h4
   =t :translated_by
-  = link_to @translation.user.name, @translation.user
+  = link_to @translation.user.name, @translation.user, :class=>"capital red_font"
   
 -if !@translation.comment.nil?
   %h 
@@ -84,6 +84,7 @@
         =@translation.event.title_es
       %p
       %b Descripcion del Evento
+      %br/
       -if @translation.event.des_es.empty?
         -if !@translation.des_es.empty?
           =simple_format(@translation.des_es)
@@ -105,6 +106,7 @@
         =@translation.event.title_eu
       %p
       %b Ekitaldiaren Deskripzioa
+      %br/
       -if @translation.event.des_eu.empty?
         -if !@translation.des_eu.empty?
           =simple_format(@translation.des_eu)
@@ -125,6 +127,7 @@
         =@translation.event.title_fr
       %p
       %b Descripcion de L'événement
+      %br/
       -if @translation.event.des_fr.empty?
         -if !@translation.des_fr.empty?
           =simple_format(@translation.des_fr)
@@ -145,6 +148,7 @@
         =@translation.event.title_en
       %p
       %b Event Description
+      %br/
       -if @translation.event.des_en.empty?
         -if !@translation.des_en.empty?
           =simple_format(@translation.des_en)
@@ -152,3 +156,6 @@
           %i "no translation so far"
       -else
         =simple_format(@translation.event.des_en)
+%p  
+  %button.black_font
+    =link_to "Accept", commit_translation_path

@@ -457,7 +457,17 @@ body {
 }
 .red_font{
 	color:#eb1c23;
+	a{
+		color:#eb1c23;
+	}
 }
+.black_font{
+	color:black;
+	a{
+		color:black;
+	}
+}
+
 .italic{
 	font-style:italic;
 }
