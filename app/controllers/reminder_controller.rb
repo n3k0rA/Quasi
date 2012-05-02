@@ -22,7 +22,7 @@ class ReminderController < ApplicationController
     @event = Event.find(params[:id])
     @user = current_user
     @event.users.delete(@user) 
-  	redirect_to rem_path(:id => current_user.id), :notice => I18n.t(:reminders_delete)
+  	redirect_to reminders_path(:id => current_user.id), :notice => I18n.t(:reminders_delete)
   end
   
 end
